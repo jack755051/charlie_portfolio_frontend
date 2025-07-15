@@ -31,13 +31,14 @@
           </template>
           <template #footer>
             <div class="flex flex-row items-center gap-4">
-              <DockerIcon class="w-12 h-12" />
-              <AngularIcon class="w-12 h-12" />
-              <VueIcon class="w-12 h-12" />
-              <ReactIcon class="w-12 h-12" />
-              <MysqlIcon class="w-12 h-12" />
-              <NestjsIcon class="w-12 h-12" />
-              <NgrxIcon class="w-12 h-12" />
+<!--              <DockerIcon class="w-12 h-12" />-->
+<!--              <AngularIcon class="w-12 h-12" />-->
+<!--              <VueIcon class="w-12 h-12" />-->
+<!--              <ReactIcon class="w-12 h-12" />-->
+<!--              <MysqlIcon class="w-12 h-12" />-->
+<!--              <NestjsIcon class="w-12 h-12" />-->
+<!--              <NgrxIcon class="w-12 h-12" />-->
+              <GithubIcon class="w-12 h-12" @click="showModal = true"/>
             </div>
           </template>
         </ScrollSection>
@@ -49,11 +50,20 @@
         </ScrollSection>
       </div>
     </div>
+    <CModal
+        v-model="showModal"
+        title="基本 Modal"
+        @confirm="handleConfirm"
+        @cancel="handleCancel"
+    >
+      <p>這是 Modal 的內容</p>
+    </CModal>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import {CButton} from "#components";
+import CButton from "~/components/cButton.vue";
+import CModal from "~/components/cModal.vue";
 import ScrollSection from "~/layouts/scrollSection.vue";
 // svg list
 import DockerIcon from "assets/image/docker-icon.svg";
@@ -63,6 +73,7 @@ import ReactIcon from "assets/image/react-icon.svg";
 import MysqlIcon from "assets/image/mysql-icon.svg";
 import NestjsIcon from "assets/image/nestjs-icon.svg";
 import NgrxIcon from "assets/image/ngrx-icon.svg";
+import GithubIcon from "assets/image/git-icon.svg"
 
 
 const section2 = ref<HTMLElement | null>(null);
@@ -72,6 +83,17 @@ const initSection = ref();
 const aboutSection = ref()
 /** 經歷Section*/
 const experienceSection = ref()
+
+const showModal = ref(false)
+
+const handleConfirm = () => {
+  console.log('確認')
+  showModal.value = false
+}
+
+const handleCancel = () => {
+  console.log('取消')
+}
 
 const handlerClickButton = () =>{
   aboutSection.value?.scrollIntoView({ behavior: 'smooth' })
