@@ -39,7 +39,7 @@
         <!--經驗-區塊-->
         <ScrollSection ref="experienceSection">
           <template #content>
-            <CTimeline :data="mockStore.timelineData"></CTimeline>
+            <CTimeline :timeline="mockStore.timelineData"></CTimeline>
           </template>
         </ScrollSection>
       </div>
@@ -54,7 +54,7 @@ import { ExternalLinks } from "~/apis/url";
 // svg list
 import GithubIcon from "assets/image/git-icon.svg"
 import NpmIcon from "assets/image/npm-icon.svg";
-import type { ITimelineItem } from '~/types/timeline.interface';
+import type { ITimeline } from '~/types/timeline.interface';
 import { useMockStore } from "~/stores/useMockStore";
 
 
@@ -68,7 +68,10 @@ const experienceSection = ref()
 
 // TODO:後續用真實的timelineData取代mockStore
 /** 時間線資料 */
-const timelineData = ref<ITimelineItem[]>([])
+const timelineData = ref<ITimeline>({
+  type: 'alternate',
+  data: []
+})
 /** 時間線資料 */
 const mockStore = useMockStore()
 

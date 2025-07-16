@@ -12,3 +12,10 @@ export interface ITimelineItem{
     /** 時間點內容 */
     content: string | string[]
 }
+
+export interface ITimeline {
+    /** 時間軸類型 */
+    type: 'right' | 'left' | 'alternate'
+    /** 時間軸數據 */
+    data: ITimelineItem[]
+}

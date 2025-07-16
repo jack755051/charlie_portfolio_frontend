@@ -1,36 +1,44 @@
 <template>
-    <a-timeline mode="alternate">
+    <a-timeline :mode="timeline.type">
         <a-timeline-item
-        v-for="(item, index) in data" 
+        v-for="(item, index) in timeline.data" 
         :key="index"
         :color="item.type === 'color-pointer' && item.color ? item.color : 'blue'"
         > 
-        <h3 v-if="item.title" class="text-lg font-semibold mb-2">{{ item.title }}</h3>
-        <!-- 判斷 content 是 array -->
-        <template v-if="Array.isArray(item.content)">
-            <ul class="list-disc pl-5 space-y-1">
-                <li v-for="(line, i) in item.content" :key="i">{{ line }}</li>
-            </ul>
-        </template>
+            <div class="flex flex-col justify-center">
+                <h3 v-if="item.title" class="text-lg font-semibold">{{ item.title }}</h3>
+                <span class="text-gray-500">{{ item.time }}</span>
+                <div class="mt-2">
+                    <!-- 判斷 content 是 array -->
+                    <template v-if="Array.isArray(item.content)">
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li v-for="(line, i) in item.content" :key="i">{{ line }}</li>
+                        </ul>
+                    </template>
 
-        <!-- content 是 string -->
-        <p v-else-if="item.content">{{ item.content }}</p>
-    </a-timeline-item>
+                    <!-- content 是 string -->
+                    <p v-else-if="item.content">{{ item.content }}</p>
+                </div>
+            </div>
+            
+            
+
+        </a-timeline-item>
     </a-timeline>
 </template>
 
 <script  setup lang="ts">
 import { defineProps } from 'vue';
-import type { ITimelineItem } from '~/types/timeline.interface';
+import type { ITimeline } from '~/types/timeline.interface';
 
 interface Props {
-  data: Array<ITimelineItem>
+  timeline: ITimeline
 }
 
 const rawProps = defineProps<{
-  data?: ITimelineItem[]
+  timeline?: ITimeline
 }>()
 
-const data = computed(() => rawProps.data ?? [])
+const timeline = computed(() => rawProps.timeline ?? { type: 'alternate', data: [] })
 
 </script>
