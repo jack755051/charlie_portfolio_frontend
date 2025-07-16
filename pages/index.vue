@@ -39,7 +39,7 @@
         <!--經驗-區塊-->
         <ScrollSection ref="experienceSection">
           <template #content>
-            <h1 class="text-4xl">經驗-區塊</h1>
+            <CTimeline :data="mockStore.timelineData"></CTimeline>
           </template>
         </ScrollSection>
       </div>
@@ -50,19 +50,27 @@
 import { ref } from 'vue'
 import CButton from "~/components/cButton.vue";
 import ScrollSection from "~/layouts/scrollSection.vue";
-import { ExternalLinks } from "~/constants/external-links";
+import { ExternalLinks } from "~/apis/url";
 // svg list
 import GithubIcon from "assets/image/git-icon.svg"
 import NpmIcon from "assets/image/npm-icon.svg";
+import type { ITimelineItem } from '~/types/timeline.interface';
+import { useMockStore } from "~/stores/useMockStore";
 
 
 const section2 = ref<HTMLElement | null>(null);
-/** 初始化Section*/
+/** 初始化Section */
 const initSection = ref();
-/** 關於我Section*/
+/** 關於我Section */
 const aboutSection = ref()
-/** 經歷Section*/
+/** 經歷Section */
 const experienceSection = ref()
+
+// TODO:後續用真實的timelineData取代mockStore
+/** 時間線資料 */
+const timelineData = ref<ITimelineItem[]>([])
+/** 時間線資料 */
+const mockStore = useMockStore()
 
 const showModal = ref(false)
 

@@ -3,15 +3,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "dev": "NODE_OPTIONS='--max-old-space-size=8192' nuxt dev",
+    "build": "NODE_OPTIONS='--max-old-space-size=8192' nuxt build",
+    "generate": "NODE_OPTIONS='--max-old-space-size=8192' nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.11.1",
-    "ant-design-vue": "^4.2.6",
+    "echarts": "^5.6.0",
     "nuxt": "^3.17.6",
     "pinia": "^3.0.3",
     "vue": "^3.5.17",

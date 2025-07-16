@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   modules: [
       '@nuxtjs/tailwindcss',
       '@pinia/nuxt',
+      '@ant-design-vue/nuxt'
   ],
     vite: {
         plugins: [svgLoader()]
