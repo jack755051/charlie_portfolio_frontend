@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import type { IAnchor } from '~/types/anchor.interface';
 import type {RouterLink} from "~/types/foundation.interface";
 import type { ITimeline } from '~/types/timeline.interface';
 
@@ -46,8 +47,17 @@ export const useMockStore = defineStore('mock',()=>{
             },
         ]
     })
+
+
+    const anchor = ref<IAnchor[]>([
+        { key: 'section1', href: '#section1', title: '關於我' },
+        { key: 'section2', href: '#section2', title: '作品集' },
+        { key: 'section3', href: '#section3', title: '聯絡我' }
+    ])
+
     return{
         routerLink,
-        timelineData
+        timelineData,
+        anchor
     }
 })

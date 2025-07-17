@@ -1,13 +1,13 @@
 .underline-title {
     position: relative;
-    font-size: 50px;
+    font-size: 48px;
     font-weight: 300;
 }
 
 .underline-title::after {
     content: '';
     position: absolute;
-    bottom: -35px;
+    bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
     height: 4px;
