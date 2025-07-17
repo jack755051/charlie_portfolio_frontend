@@ -46,18 +46,31 @@ export const useMockStore = defineStore('mock',()=>{
                 ],
             },
         ]
-    })
-
-
-    const anchor = ref<IAnchor[]>([
+    });
+    /**首頁頁面錨點*/
+    const anchorHomePage = ref<IAnchor[]>([
         { key: 'section1', href: '#section1', title: '最上方' },
         { key: 'section2', href: '#section2', title: '關於我' },
         { key: 'section3', href: '#section3', title: '我的經驗' }
-    ])
+    ]);
+    /**關於頁面錨點*/
+    const anchorAboutPage = ref<IAnchor[]>([
+        { key: 'section1', href: '#section1', title: '最上方' },
+        { key: 'section2', href: '#section2', title: '關於我' },
+        { key: 'section3', href: '#section3', title: '我的經驗' }
+    ]);
+    /**作品集頁面錨點*/
+    const anchorPortfolioPage = ref<IAnchor[]>([
+        { key: 'section1', href: '#section1', title: '最上方' },
+        { key: 'section2', href: '#section2', title: '關於我' },
+        { key: 'section3', href: '#section3', title: '我的經驗' }
+    ]);
 
     return{
         routerLink,
         timelineData,
-        anchor
+        anchorHomePage,
+        anchorAboutPage,
+        anchorPortfolioPage
     }
 })

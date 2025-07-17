@@ -3,7 +3,7 @@
   <div class="scrollable-content-wrapper h-screen overflow-hidden relative">
     <!-- 錨點導航 - 使用自定義組件 -->
     <CAnchor 
-      :anchor-data="mockStore.anchor" 
+      :anchor-data="mockStore.anchorHomePage" 
       class="fixed left-4 top-1/2 transform -translate-y-1/2 z-50"
     ></CAnchor>
     
