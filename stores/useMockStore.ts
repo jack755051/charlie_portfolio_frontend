@@ -50,9 +50,9 @@ export const useMockStore = defineStore('mock',()=>{
 
 
     const anchor = ref<IAnchor[]>([
-        { key: 'section1', href: '#section1', title: '關於我' },
-        { key: 'section2', href: '#section2', title: '作品集' },
-        { key: 'section3', href: '#section3', title: '聯絡我' }
+        { key: 'section1', href: '#section1', title: '最上方' },
+        { key: 'section2', href: '#section2', title: '關於我' },
+        { key: 'section3', href: '#section3', title: '我的經驗' }
     ])
 
     return{

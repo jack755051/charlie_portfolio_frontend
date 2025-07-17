@@ -1,17 +1,17 @@
 <template>
   <!-- 可滾動的內容區塊 -->
   <div class="scrollable-content-wrapper h-screen overflow-hidden relative">
-    <!-- 錨點導航 - 使用絕對定位 -->
+    <!-- 錨點導航 - 使用自定義組件 -->
     <CAnchor 
       :anchor-data="mockStore.anchor" 
-      class="absolute left-4 top-1/2 transform -translate-y-1/2 z-10"
+      class="fixed left-4 top-1/2 transform -translate-y-1/2 z-50"
     ></CAnchor>
     
     <div class="snap-y snap-mandatory h-full overflow-y-scroll scroll-smooth pt-[60px]">
       <!-- 主要內容區塊 -->
       <div class="w-full">
         <!--初始化-區塊-->
-        <ScrollSection ref="initSection">
+        <ScrollSection ref="initSection" id="section1">
           <template #content>
             <div class="flex flex-col items-center justify-center h-full gap-6">
               <h1 class="text-4xl">Charlie Tai</h1>
@@ -26,7 +26,7 @@
           </template>
         </ScrollSection>
         <!--關於我-區塊-->
-        <ScrollSection ref="aboutSection" :class="['flex-col gap-[50px] !justify-start']" >
+        <ScrollSection ref="aboutSection" id="section2" :class="['flex-col gap-[50px] !justify-start']" >
           <template #title>
             <div :class="['flex w-full py-6 items-center justify-center']">
               <p class="underline-title">關於我</p>
@@ -47,7 +47,7 @@
           </template>
         </ScrollSection>
         <!--經驗-區塊-->
-        <ScrollSection ref="experienceSection" :class="['flex-col gap-[50px] !justify-start']">
+        <ScrollSection ref="experienceSection" id="section3" :class="['flex-col gap-[50px] !justify-start']">
           <template #title>
             <div :class="['flex w-full items-center justify-center']">
               <p class="underline-title">我的經驗</p>
