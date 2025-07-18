@@ -14,12 +14,16 @@
                         </div>
                     </template>
                     <template #content>
-                        <div class="about-section-content mx-auto max-w-[60%] text-justify text-[15px] leading-[2] drop-cap-container">
-                            <AngularIcon class="tech-icon"></AngularIcon>
-                            <VueIcon class="tech-icon"></VueIcon>
-                            <MysqlIcon class="tech-icon"></MysqlIcon>
-                            <MongoDBIcon class="tech-icon"></MongoDBIcon>
-                            <DockerIcon class="tech-icon"></DockerIcon>
+                        <div class="about-section-content-wrapper w-[60%]">
+                            <div class="w-full h-auto flex flex-wrap gap-4">
+                                <CCard 
+                                    v-for="(item , index) in mockStore.technologyStack" 
+                                    :key="index"
+                                    :title="item.title"
+                                    :stack="item.stack"
+                                    class="tech-stack-card"
+                                />
+                            </div>
                         </div>
                     </template>
                 </ScrollSection>
@@ -30,15 +34,37 @@
 
 <script setup lang="ts">
 import { useMockStore } from "~/stores/useMockStore";
+import CCard from "~/components/cCard.vue";
+import ScrollSection from "~/layouts/scrollSection.vue";
 import { ref } from 'vue'
-
-import  ScrollSection  from "~/layouts/scrollSection.vue";
-import AngularIcon from "/assets/image/angular-icon.svg";
-import MysqlIcon from "/assets/image/mysql-icon.svg";
-import MongoDBIcon from "/assets/image/mongodb-icon.svg";
-import VueIcon from "/assets/image/vue-icon.svg";
-import DockerIcon from "/assets/image/docker-icon.svg";
-
 
 const mockStore = useMockStore()
 </script>
+
+<style scoped>
+.about-section-content-wrapper {
+    width: 60%;
+}
+
+.tech-stack-card {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+}
+
+.underline-title {
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.underline-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+}
+</style>

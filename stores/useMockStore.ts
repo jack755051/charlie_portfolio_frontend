@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import type { IAnchor } from '~/types/anchor.interface';
 import type {RouterLink} from "~/types/foundation.interface";
+import type { ITechnologyStack } from '~/types/technologyStack.interface';
 import type { ITimeline } from '~/types/timeline.interface';
 
 export const useMockStore = defineStore('mock',()=>{
@@ -65,12 +66,42 @@ export const useMockStore = defineStore('mock',()=>{
         { key: 'section2', href: '#section2', title: '關於我' },
         { key: 'section3', href: '#section3', title: '我的經驗' }
     ]);
+    /**技術棧 */
+    const technologyStack = ref<ITechnologyStack[]>([
+    {
+        title: '前端技術',
+        stack: [
+            { stackName: 'Angular', icon: 'AngularIcon' },
+            { stackName: 'Vue', icon: 'VueIcon' }
+        ]
+    },
+    {
+        title: '後端技術',
+        stack: [
+            { stackName: 'NestJS', icon: 'NestJSIcon' }
+        ]
+    },
+    {
+        title: '資料庫',
+        stack: [
+            { stackName: 'MySQL', icon: 'MysqlIcon' },
+            { stackName: 'MongoDB', icon: 'MongoDBIcon' }
+        ]
+    },
+    {
+        title: '容器化技術',
+        stack: [
+            { stackName: 'Docker', icon: 'DockerIcon' }
+        ]
+    }
+]);
 
     return{
         routerLink,
         timelineData,
         anchorHomePage,
         anchorAboutPage,
-        anchorPortfolioPage
+        anchorPortfolioPage,
+        technologyStack
     }
 })
