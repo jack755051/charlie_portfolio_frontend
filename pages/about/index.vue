@@ -42,10 +42,6 @@ const mockStore = useMockStore()
 </script>
 
 <style scoped>
-.about-section-content-wrapper {
-    width: 60%;
-}
-
 .tech-stack-card {
     flex: 1;
     min-width: 250px;

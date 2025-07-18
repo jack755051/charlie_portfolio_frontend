@@ -6,4 +6,10 @@ declare global {
   const withDefaults: typeof import('vue')['withDefaults']
 }
 
+declare module '*.svg?component' {
+  import { DefineComponent } from 'vue'
+  const component: DefineComponent
+  export default component
+}
+
 export {}

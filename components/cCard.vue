@@ -1,23 +1,19 @@
 <template>
-    <div class="stack-card-wrapper">
+    <div :class="classGroup?.classWrapper ?? 'stack-card-wrapper'">
         <!-- 卡片表頭 -->
-        <div class="stack-card-title">
-            <span class="stack-title">{{ title }}</span>
+        <div :class="classGroup?.classTitleWrapper ?? 'stack-card-title'">
+            <span :class="classGroup?.title ??'stack-title'">{{ title }}</span>
         </div>
         <div 
-            class="stack-card-content-wrapper"
+            :class="classGroup?.contentWrapper ?? 'stack-card-content-wrapper'"
             v-for="(item, index) in stack"
             :key="index"
         >
-            <div class="stack-card-content-name">
+            <div :class="classGroup?.stackName ??'stack-card-content-name'">
                 {{ item.stackName }}
             </div>
-            <div class="stack-card-content-item">
-                <img 
-                    :src="getIconPath(item.icon)" 
-                    :alt="`${item.stackName} icon`"
-                    class="tech-icon" 
-                />
+            <div :class="classGroup?.stackIcon ??'stack-card-content-item'">
+                <component :is="getIconComponent(item.icon)" class="tech-icon" />
             </div>
         </div>
     </div>
@@ -25,22 +21,30 @@
 
 <script lang="ts" setup>
 import type { ITechnologyStack } from '~/types/technologyStack.interface';
+import { defineProps } from 'vue';
+
+import AngularIcon from "@/assets/image/angular-icon.svg?component";
+import VueIcon from "@/assets/image/vue-icon.svg?component";
+import MysqlIcon from "@/assets/image/mysql-icon.svg?component";
+import MongoDBIcon from "@/assets/image/mongodb-icon.svg?component";
+import DockerIcon from "@/assets/image/docker-icon.svg?component";
+import NestJSIcon from "@/assets/image/nestjs-icon.svg?component";
 
 const props = defineProps<ITechnologyStack>();
 
-// 圖標路徑映射
-const iconPathMap = {
-  'AngularIcon': '/images/angular-icon.svg',
-  'VueIcon': '/images/vue-icon.svg',
-  'MysqlIcon': '/images/mysql-icon.svg',
-  'MongoDBIcon': '/images/mongodb-icon.svg',
-  'DockerIcon': '/images/docker-icon.svg',
-  'NestJSIcon': '/images/nestjs-icon.svg',
+// 圖標組件映射
+const iconComponentMap = {
+  'AngularIcon': AngularIcon,
+  'VueIcon': VueIcon,
+  'MysqlIcon': MysqlIcon,
+  'MongoDBIcon': MongoDBIcon,
+  'DockerIcon': DockerIcon,
+  'NestJSIcon': NestJSIcon,
 };
 
-// 根據字串名稱獲取對應的圖標路徑
-const getIconPath = (iconName: string) => {
-  return iconPathMap[iconName as keyof typeof iconPathMap] || '';
+// 根據字串名稱獲取對應的圖標組件
+const getIconComponent = (iconName: string) => {
+  return iconComponentMap[iconName as keyof typeof iconComponentMap] || null;
 };
 
 </script>

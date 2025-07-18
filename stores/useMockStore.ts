@@ -67,33 +67,62 @@ export const useMockStore = defineStore('mock',()=>{
         { key: 'section3', href: '#section3', title: '我的經驗' }
     ]);
     /**技術棧 */
-    const technologyStack = ref<ITechnologyStack[]>([
-    {
-        title: '前端技術',
-        stack: [
-            { stackName: 'Angular', icon: 'AngularIcon' },
-            { stackName: 'Vue', icon: 'VueIcon' }
-        ]
-    },
-    {
-        title: '後端技術',
-        stack: [
-            { stackName: 'NestJS', icon: 'NestJSIcon' }
-        ]
-    },
-    {
-        title: '資料庫',
-        stack: [
-            { stackName: 'MySQL', icon: 'MysqlIcon' },
-            { stackName: 'MongoDB', icon: 'MongoDBIcon' }
-        ]
-    },
-    {
-        title: '容器化技術',
-        stack: [
-            { stackName: 'Docker', icon: 'DockerIcon' }
-        ]
-    }
+const technologyStack = ref<ITechnologyStack[]>([
+  {
+    title: '前端技術',
+    stack: [
+      { stackName: 'Angular', icon: 'AngularIcon' },
+      { stackName: 'Vue', icon: 'VueIcon' },
+      { stackName: 'Nuxt', icon: 'NuxtIcon' }
+    ]
+  },
+  {
+    title: '後端技術',
+    stack: [
+      { stackName: 'NodeJS', icon: 'NodeJSIcon' },
+      { stackName: 'NestJS', icon: 'NestJSIcon' }
+    ]
+  },
+  {
+    title: '資料庫',
+    stack: [
+      { stackName: 'MySQL', icon: 'MysqlIcon' },
+      { stackName: 'MongoDB', icon: 'MongoDBIcon' }
+    ]
+  },
+  {
+    title: '容器化技術',
+    stack: [
+      { stackName: 'Docker', icon: 'DockerIcon' }
+    ]
+  },
+  {
+    title: '狀態管理工具',
+    stack: [
+      { stackName: 'Ngrx', icon: 'NgrxIcon' },
+      { stackName: 'RxJS', icon: 'RxJSIcon' },
+      { stackName: 'Pinia', icon: 'PiniaIcon' }
+    ]
+  },
+  {
+    title: '圖表與視覺化',
+    stack: [
+      { stackName: 'Echart', icon: 'EchartIcon' }
+    ]
+  },
+  {
+    title: 'UI 框架',
+    stack: [
+      { stackName: 'AngularMaterial', icon: 'AngularMaterialIcon' },
+      { stackName: 'AntDesign', icon: 'AntDesignIcon' }
+    ]
+  },
+  {
+    title: 'CSS 工具',
+    stack: [
+      { stackName: 'TailWind', icon: 'TailWindIcon' }
+    ]
+  }
 ]);
 
     return{
