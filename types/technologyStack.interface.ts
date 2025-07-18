@@ -1,3 +1,5 @@
+import type { Component } from 'vue';
+
 export interface ITechnologyStack{
     title: string,
     stack: ITechnologyStackItem[],
@@ -17,3 +19,13 @@ export interface IClassGroup {
 
 // 合法定義 classType：允許陣列或物件形式
 export type ClassType = string[] | { [key: string]: boolean };
+
+export interface ITechnologyStackItemWithComponent extends ITechnologyStackItem{
+    iconComponent?: Component,
+}
+
+export interface ITechnologyStackWithComponent{
+    title: string,
+    stack: ITechnologyStackItemWithComponent[],
+    classGroup?: IClassGroup;
+}

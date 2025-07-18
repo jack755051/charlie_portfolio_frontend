@@ -3,6 +3,7 @@ import type { IAnchor } from '~/types/anchor.interface';
 import type {RouterLink} from "~/types/foundation.interface";
 import type { ITechnologyStack } from '~/types/technologyStack.interface';
 import type { ITimeline } from '~/types/timeline.interface';
+import { getIconComponent } from '~/utils/iconMap';
 
 export const useMockStore = defineStore('mock',()=>{
     // 路由列表
@@ -122,8 +123,25 @@ const technologyStack = ref<ITechnologyStack[]>([
     stack: [
       { stackName: 'TailWind', icon: 'TailWindIcon' }
     ]
+},
+  {
+    title: '版控工具',
+    stack: [
+        { stackName: 'Git', icon: 'GitIcon' },
+        { stackName: 'Nvm', icon: 'NvmIcon' }
+    ]
   }
 ]);
+    // 處理技術棧資料並加入圖標組件的 computed
+    const processedTechnologyStack = computed(() => {
+        return technologyStack.value.map(category => ({
+            ...category,
+            stack: category.stack.map(item => ({
+                ...item,
+                iconComponent: getIconComponent(item.icon)
+            }))
+        }));
+    });
 
     return{
         routerLink,
@@ -131,6 +149,7 @@ const technologyStack = ref<ITechnologyStack[]>([
         anchorHomePage,
         anchorAboutPage,
         anchorPortfolioPage,
-        technologyStack
+        technologyStack,
+        processedTechnologyStack
     }
 })

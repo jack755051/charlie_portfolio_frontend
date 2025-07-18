@@ -17,7 +17,7 @@
                         <div class="about-section-content-wrapper w-[60%]">
                             <div class="w-full h-auto flex flex-wrap gap-4">
                                 <CCard 
-                                    v-for="(item , index) in mockStore.technologyStack" 
+                                    v-for="(item , index) in mockStore.processedTechnologyStack" 
                                     :key="index"
                                     :title="item.title"
                                     :stack="item.stack"

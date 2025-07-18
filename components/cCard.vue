@@ -13,7 +13,12 @@
                 {{ item.stackName }}
             </div>
             <div :class="classGroup?.stackIcon ??'stack-card-content-item'">
-                <component :is="getIconComponent(item.icon)" class="tech-icon" />
+                <component 
+                    v-if="item.iconComponent || getIconComponent(item.icon)" 
+                    :is="item.iconComponent || getIconComponent(item.icon)" 
+                    class="tech-icon" 
+                />
+                <div v-else class="tech-icon-placeholder">?</div>
             </div>
         </div>
     </div>
@@ -21,31 +26,9 @@
 
 <script lang="ts" setup>
 import type { ITechnologyStack } from '~/types/technologyStack.interface';
-import { defineProps } from 'vue';
-
-import AngularIcon from "@/assets/image/angular-icon.svg?component";
-import VueIcon from "@/assets/image/vue-icon.svg?component";
-import MysqlIcon from "@/assets/image/mysql-icon.svg?component";
-import MongoDBIcon from "@/assets/image/mongodb-icon.svg?component";
-import DockerIcon from "@/assets/image/docker-icon.svg?component";
-import NestJSIcon from "@/assets/image/nestjs-icon.svg?component";
+import { getIconComponent } from '~/utils/iconMap';
 
 const props = defineProps<ITechnologyStack>();
-
-// 圖標組件映射
-const iconComponentMap = {
-  'AngularIcon': AngularIcon,
-  'VueIcon': VueIcon,
-  'MysqlIcon': MysqlIcon,
-  'MongoDBIcon': MongoDBIcon,
-  'DockerIcon': DockerIcon,
-  'NestJSIcon': NestJSIcon,
-};
-
-// 根據字串名稱獲取對應的圖標組件
-const getIconComponent = (iconName: string) => {
-  return iconComponentMap[iconName as keyof typeof iconComponentMap] || null;
-};
 
 </script>
 
@@ -93,5 +76,25 @@ const getIconComponent = (iconName: string) => {
 .tech-icon {
     width: 1.5rem;
     height: 1.5rem;
+    color: #3f3f3f; /* gray-700 */
+    transition: color 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.tech-icon:hover {
+    color: #FF6B35; /* primary color */
+}
+
+.tech-icon-placeholder {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #f3f4f6;
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: #9ca3af;
+    font-weight: bold;
 }
 </style>
