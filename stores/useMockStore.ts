@@ -36,9 +36,17 @@ export const useMockStore = defineStore('mock',()=>{
                 ],
             },
             {
+                  type: 'color-pointer',
+                  title: '精誠資訊',
+                  time: '2024-04',
+                  content: [
+                      '全國公教人員退休撫卹系統',
+                  ],
+              },
+            {
                 type: 'color-pointer',
                 title: '昕力科技',
-                time: '2024-06',
+                time: '2024-07',
                 content: [
                     'Systalk.Flow',
                     'Systalk.Audit',
@@ -51,15 +59,13 @@ export const useMockStore = defineStore('mock',()=>{
     });
     /**首頁頁面錨點*/
     const anchorHomePage = ref<IAnchor[]>([
-        { key: 'section1', href: '#section1', title: '最上方' },
-        { key: 'section2', href: '#section2', title: '關於我' },
-        { key: 'section3', href: '#section3', title: '我的經驗' }
+        { key: 'section1', href: '#section1', title: '首頁' },
     ]);
     /**關於頁面錨點*/
     const anchorAboutPage = ref<IAnchor[]>([
-        { key: 'section1', href: '#section1', title: '最上方' },
-        { key: 'section2', href: '#section2', title: '關於我' },
-        { key: 'section3', href: '#section3', title: '我的經驗' }
+        { key: 'section1', href: '#section1', title: '關於我' },
+        { key: 'section3', href: '#section2', title: '我的經驗' },
+        { key: 'section3', href: '#section3', title: '我的技術棧' }
     ]);
     /**作品集頁面錨點*/
     const anchorPortfolioPage = ref<IAnchor[]>([
@@ -68,70 +74,70 @@ export const useMockStore = defineStore('mock',()=>{
         { key: 'section3', href: '#section3', title: '我的經驗' }
     ]);
     /**技術棧 */
-const technologyStack = ref<ITechnologyStack[]>([
-  {
-    title: '前端技術',
-    stack: [
-      { stackName: 'Angular', icon: 'AngularIcon' },
-      { stackName: 'Vue', icon: 'VueIcon' },
-      { stackName: 'Nuxt', icon: 'NuxtIcon' }
-    ]
-  },
-  {
-    title: '後端技術',
-    stack: [
-      { stackName: 'NodeJS', icon: 'NodeJSIcon' },
-      { stackName: 'NestJS', icon: 'NestJSIcon' }
-    ]
-  },
-  {
-    title: '資料庫',
-    stack: [
-      { stackName: 'MySQL', icon: 'MysqlIcon' },
-      { stackName: 'MongoDB', icon: 'MongoDBIcon' }
-    ]
-  },
-  {
-    title: '容器化技術',
-    stack: [
-      { stackName: 'Docker', icon: 'DockerIcon' }
-    ]
-  },
-  {
-    title: '狀態管理工具',
-    stack: [
-      { stackName: 'Ngrx', icon: 'NgrxIcon' },
-      { stackName: 'RxJS', icon: 'RxJSIcon' },
-      { stackName: 'Pinia', icon: 'PiniaIcon' }
-    ]
-  },
-  {
-    title: '圖表與視覺化',
-    stack: [
-      { stackName: 'Echart', icon: 'EchartIcon' }
-    ]
-  },
-  {
-    title: 'UI 框架',
-    stack: [
-      { stackName: 'AngularMaterial', icon: 'AngularMaterialIcon' },
-      { stackName: 'AntDesign', icon: 'AntDesignIcon' }
-    ]
-  },
-  {
-    title: 'CSS 工具',
-    stack: [
-      { stackName: 'TailWind', icon: 'TailWindIcon' }
-    ]
-},
-  {
-    title: '版控工具',
-    stack: [
-        { stackName: 'Git', icon: 'GitIcon' },
-        { stackName: 'Nvm', icon: 'NvmIcon' }
-    ]
-  }
-]);
+    const technologyStack = ref<ITechnologyStack[]>([
+      {
+        title: '前端技術',
+        stack: [
+          { stackName: 'Angular', icon: 'AngularIcon' },
+          { stackName: 'Vue', icon: 'VueIcon' },
+          { stackName: 'Nuxt', icon: 'NuxtIcon' }
+        ]
+      },
+      {
+        title: '後端技術',
+        stack: [
+          { stackName: 'NodeJS', icon: 'NodeJSIcon' },
+          { stackName: 'NestJS', icon: 'NestJSIcon' }
+        ]
+      },
+      {
+        title: '資料庫',
+        stack: [
+          { stackName: 'MySQL', icon: 'MysqlIcon' },
+          { stackName: 'MongoDB', icon: 'MongoDBIcon' }
+        ]
+      },
+      {
+        title: '容器化技術',
+        stack: [
+          { stackName: 'Docker', icon: 'DockerIcon' }
+        ]
+      },
+      {
+        title: '狀態管理工具',
+        stack: [
+          { stackName: 'Ngrx', icon: 'NgrxIcon' },
+          { stackName: 'RxJS', icon: 'RxJSIcon' },
+          { stackName: 'Pinia', icon: 'PiniaIcon' }
+        ]
+      },
+      {
+        title: '圖表與視覺化',
+        stack: [
+          { stackName: 'Echart', icon: 'EchartIcon' }
+        ]
+      },
+      {
+        title: 'UI 框架',
+        stack: [
+          { stackName: 'AngularMaterial', icon: 'AngularMaterialIcon' },
+          { stackName: 'AntDesign', icon: 'AntDesignIcon' }
+        ]
+      },
+      {
+        title: 'CSS 工具',
+        stack: [
+          { stackName: 'TailWind', icon: 'TailWindIcon' }
+        ]
+    },
+      {
+        title: '版控工具',
+        stack: [
+            { stackName: 'Git', icon: 'GitIcon' },
+            { stackName: 'Nvm', icon: 'NvmIcon' }
+        ]
+      }
+    ]);
     // 處理技術棧資料並加入圖標組件的 computed
     const processedTechnologyStack = computed(() => {
         return technologyStack.value.map(category => ({
