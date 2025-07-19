@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import type { IAnchor } from '~/types/anchor.interface';
 import type {RouterLink} from "~/types/foundation.interface";
+import type { IPortfolio } from '~/types/protfolio.interface';
 import type { ITechnologyStack } from '~/types/technologyStack.interface';
 import type { ITimeline } from '~/types/timeline.interface';
 import { getIconComponent } from '~/utils/iconMap';
@@ -64,7 +65,7 @@ export const useMockStore = defineStore('mock',()=>{
     /**關於頁面錨點*/
     const anchorAboutPage = ref<IAnchor[]>([
         { key: 'section1', href: '#section1', title: '關於我' },
-        { key: 'section3', href: '#section2', title: '我的經驗' },
+        { key: 'section2', href: '#section2', title: '我的經驗' },
         { key: 'section3', href: '#section3', title: '我的技術棧' }
     ]);
     /**作品集頁面錨點*/
@@ -138,6 +139,11 @@ export const useMockStore = defineStore('mock',()=>{
         ]
       }
     ]);
+  
+    // ---- 作品頁面 相關資料 ----
+    /** 作品頁面資料  */
+    const portfolioPageData = ref<IPortfolio | null>(null);
+  
     // 處理技術棧資料並加入圖標組件的 computed
     const processedTechnologyStack = computed(() => {
         return technologyStack.value.map(category => ({
@@ -148,7 +154,7 @@ export const useMockStore = defineStore('mock',()=>{
             }))
         }));
     });
-
+  
     return{
         routerLink,
         timelineData,
@@ -156,6 +162,7 @@ export const useMockStore = defineStore('mock',()=>{
         anchorAboutPage,
         anchorPortfolioPage,
         technologyStack,
-        processedTechnologyStack
+        processedTechnologyStack,
+        portfolioPageData
     }
 })
