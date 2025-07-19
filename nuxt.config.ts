@@ -8,6 +8,11 @@ export default defineNuxtConfig({
     preset: 'static'
   },
   app: {
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ]
+    },
     baseURL: '/charlie_portfolio_frontend/'
   },
   modules: [
