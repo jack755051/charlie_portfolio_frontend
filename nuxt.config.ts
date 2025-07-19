@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     preset: 'static'
   },
   app: {
-    baseURL: '/',
+    baseURL: '/charlie_portfolio_frontend/'
   },
   modules: [
       '@nuxtjs/tailwindcss',
