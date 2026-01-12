@@ -2,8 +2,8 @@
   <!-- 可滾動的內容區塊 -->
   <div class="scrollable-content-wrapper h-screen overflow-hidden relative">
     <!-- 錨點導航 - 使用自定義組件 -->
-    <CAnchor 
-      :anchor-data="mockStore.anchorHomePage" 
+    <CAnchor
+      :anchor-data="anchorData.anchorHomePage.value"
       class="fixed left-4 top-1/2 transform -translate-y-1/2 z-50"
     ></CAnchor>
     
@@ -35,12 +35,9 @@ import { ref } from 'vue'
 import CButton from "~/components/cButton.vue";
 import CAnchor from "~/components/cAnchor.vue";
 import ScrollSection from "~/layouts/scrollSection.vue";
-import { useMockStore } from "~/stores/useMockStore";
-import { openExternalLink } from "~/utils/navigation";
+import { useAnchor } from "~/composable/useAnchor";
 
-
-const mockStore = useMockStore()
-
+const anchorData = useAnchor()
 
 /** 點擊 了解更多 後導航到關於頁面 */
 const handlerClickButton = () => {

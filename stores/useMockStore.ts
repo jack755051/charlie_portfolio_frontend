@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia'
-import type { IAnchor } from '~/types/anchor.interface';
 import type {RouterLink} from "~/types/foundation.interface";
 import type { IPortfolio } from '~/types/protfolio.interface';
 import type { ITechnologyStack } from '~/types/technologyStack.interface';
@@ -58,22 +57,6 @@ export const useMockStore = defineStore('mock',()=>{
             },
         ]
     });
-    /**首頁頁面錨點*/
-    const anchorHomePage = ref<IAnchor[]>([
-        { key: 'section1', href: '#section1', title: '首頁' },
-    ]);
-    /**關於頁面錨點*/
-    const anchorAboutPage = ref<IAnchor[]>([
-        { key: 'section1', href: '#section1', title: '關於我' },
-        { key: 'section2', href: '#section2', title: '我的經驗' },
-        { key: 'section3', href: '#section3', title: '我的技術棧' }
-    ]);
-    /**作品集頁面錨點*/
-    const anchorPortfolioPage = ref<IAnchor[]>([
-        { key: 'section1', href: '#section1', title: '最上方' },
-        { key: 'section2', href: '#section2', title: '關於我' },
-        { key: 'section3', href: '#section3', title: '我的經驗' }
-    ]);
     /**技術棧 */
     const technologyStack = ref<ITechnologyStack[]>([
       {
@@ -142,7 +125,47 @@ export const useMockStore = defineStore('mock',()=>{
   
     // ---- 作品頁面 相關資料 ----
     /** 作品頁面資料  */
-    const portfolioPageData = ref<IPortfolio | null>(null);
+    const portfolioPageData = ref<IPortfolio[]>([
+        {
+            id: 'systalk-adminhub',
+            title: 'Systalk AdminHub',
+            description: '企業級管理後台系統，提供完整的內容管理、用戶管理及數據分析功能。採用現代化前端技術棧，實現響應式設計與良好的用戶體驗。',
+            role: '前端工程師',
+            duration: '2024-07 ~ 至今',
+            technologies: [
+                { name: 'Nuxt 4', icon: 'NuxtIcon', category: '前端框架' },
+                { name: 'Vue 3', icon: 'VueIcon', category: '前端框架' },
+                { name: 'TypeScript', icon: 'TypeScriptIcon', category: '程式語言' },
+                { name: 'Pinia', icon: 'PiniaIcon', category: '狀態管理' },
+                { name: 'TailwindCSS', icon: 'TailWindIcon', category: 'CSS 框架' },
+                { name: 'Vee-Validate', icon: 'VeeValidateIcon', category: '表單驗證' },
+                { name: 'Vue I18n', icon: 'VueI18nIcon', category: '國際化' },
+                { name: 'Heroicons', icon: 'HeroiconsIcon', category: '圖標庫' },
+                { name: 'Lucide Icons', icon: 'LucideIcon', category: '圖標庫' },
+                { name: 'ESLint', icon: 'ESLintIcon', category: '代碼品質' },
+                { name: 'Prettier', icon: 'PrettierIcon', category: '代碼格式化' },
+                { name: 'Docker', icon: 'DockerIcon', category: '容器化' },
+                { name: 'Nginx', icon: 'NginxIcon', category: '網頁伺服器' }
+            ],
+            features: [
+                '採用 Nuxt 4 最新版本，支援 SSR/SPA 模式切換',
+                '使用 Composition API 與 TypeScript 開發，提升代碼可維護性',
+                '整合 Pinia 進行狀態管理，實現數據流清晰可控',
+                'TailwindCSS 實現響應式設計，支援多種螢幕尺寸',
+                '使用 Vee-Validate 進行表單驗證，提升用戶體驗',
+                '支援多語系切換（Vue I18n）',
+                '整合 ESLint + Prettier 確保代碼品質與一致性',
+                'Docker 容器化部署，搭配 Nginx 反向代理',
+                '模組化組件設計（base/common/features 分層架構）'
+            ],
+            achievements: [
+                '建立完整的組件庫架構，提升開發效率 40%',
+                '實現可重用的 composables（路由、表格、API 等）',
+                '設計統一的 API 請求/響應處理機制',
+                '建立完善的專案結構與開發規範'
+            ]
+        }
+    ]);
   
     // 處理技術棧資料並加入圖標組件的 computed
     const processedTechnologyStack = computed(() => {
@@ -158,9 +181,6 @@ export const useMockStore = defineStore('mock',()=>{
     return{
         routerLink,
         timelineData,
-        anchorHomePage,
-        anchorAboutPage,
-        anchorPortfolioPage,
         technologyStack,
         processedTechnologyStack,
         portfolioPageData

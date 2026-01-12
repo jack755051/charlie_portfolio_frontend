@@ -1,7 +1,7 @@
 <template>
     <div class="scrollable-content-wrapper h-screen overflow-hidden relative">    
-        <CAnchor 
-            :anchor-data="mockStore.anchorAboutPage" 
+        <CAnchor
+            :anchor-data="anchorData.anchorAboutPage.value"
             class="fixed left-4 top-1/2 transform -translate-y-1/2 z-50"
         ></CAnchor>
         <div class="snap-y snap-mandatory h-full overflow-y-scroll scroll-smooth pt-[60px]">
@@ -39,6 +39,7 @@
                     <CTimeline :timeline="mockStore.timelineData"></CTimeline>
                 </template>
                 </ScrollSection>
+                <!--技術棧-區塊-->
                 <ScrollSection ref="aboutInit" id="section3" :class="['flex-col gap-[50px] !justify-start']">
                     <template #title>
                         <div :class="['flex w-full py-6 items-center justify-center']">
@@ -73,9 +74,10 @@ import { ExternalLinks } from "~/apis/url";
 import GithubIcon from "assets/image/git-icon.svg"
 import NpmIcon from "assets/image/npm-icon.svg";
 import { openExternalLink } from "~/utils/navigation";
-import { ref } from 'vue'
+import { useAnchor } from "~/composable/useAnchor";
 
 const mockStore = useMockStore()
+const anchorData = useAnchor()
 
 /** 開啟外部連結 */
 const handlerOpenOtherWindow = openExternalLink
