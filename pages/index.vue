@@ -43,8 +43,4 @@ const anchorData = useAnchor()
 const handlerClickButton = () => {
   navigateTo('/about')
 }
-
 </script>
-
-<style scoped>
-</style>

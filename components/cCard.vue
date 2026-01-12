@@ -59,12 +59,23 @@ const props = defineProps<ITechnologyStack>();
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem 0;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.stack-card-content-wrapper:hover .stack-card-content-name {
+    color: #FF6B35;
+}
+
+.stack-card-content-wrapper:hover .tech-icon {
+    color: #FF6B35;
 }
 
 .stack-card-content-name {
     font-size: 0.875rem;
     color: #6b7280;
     font-weight: 500;
+    transition: color 0.2s ease-in-out;
 }
 
 .stack-card-content-item {
@@ -78,11 +89,6 @@ const props = defineProps<ITechnologyStack>();
     height: 1.5rem;
     color: #3f3f3f; /* gray-700 */
     transition: color 0.2s ease-in-out;
-    cursor: pointer;
-}
-
-.tech-icon:hover {
-    color: #FF6B35; /* primary color */
 }
 
 .tech-icon-placeholder {

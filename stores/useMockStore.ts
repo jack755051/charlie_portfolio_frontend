@@ -64,7 +64,8 @@ export const useMockStore = defineStore('mock',()=>{
         stack: [
           { stackName: 'Angular', icon: 'AngularIcon' },
           { stackName: 'Vue', icon: 'VueIcon' },
-          { stackName: 'Nuxt', icon: 'NuxtIcon' }
+          { stackName: 'Nuxt', icon: 'NuxtIcon' },
+          { stackName: 'React', icon: 'ReactIcon' },
         ]
       },
       {
@@ -105,13 +106,15 @@ export const useMockStore = defineStore('mock',()=>{
         title: 'UI 框架',
         stack: [
           { stackName: 'AngularMaterial', icon: 'AngularMaterialIcon' },
-          { stackName: 'AntDesign', icon: 'AntDesignIcon' }
+          { stackName: 'AntDesign', icon: 'AntDesignIcon' },
+          { stackName: 'Shadcn', icon: 'ShadcnIcon' }
         ]
       },
       {
         title: 'CSS 工具',
         stack: [
-          { stackName: 'TailWind', icon: 'TailWindIcon' }
+          { stackName: 'TailWind', icon: 'TailWindIcon' },
+          { stackName: 'Bootstrap', icon: 'BootstrapIcon' }
         ]
     },
       {

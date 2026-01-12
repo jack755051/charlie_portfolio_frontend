@@ -11,11 +11,15 @@ import ReactIcon from "@/assets/image/react-icon.svg?component";
 import GitIcon from "@/assets/image/git-icon.svg?component";
 import EchartIcon from "@/assets/image/echart-icon.svg?component";
 import NuxtIcon from "@/assets/image/nuxt-icon.svg?component";
+import NextIcon from "@/assets/image/nextjs-icon.svg?component";
 import NodeJSIcon from "@/assets/image/nodejs-icon.svg?component";
 import RxJSIcon from "@/assets/image/rxjs-icon.svg?component";
 import AntDesignIcon from "@/assets/image/antdesign-icon.svg?component";
 import TailwindIcon from "@/assets/image/tailwindcss-icon.svg?component";
 import NvmIcon from "@/assets/image/nvm-icon.svg?component"; 
+import ShadcnIcon from "@/assets/image/shadcn-icon.svg?component";
+import Bootstrap from "@/assets/image/bootstrap-icon.svg?component";
+import PiniaIcon from "@/assets/image/pinia-icon.svg?component";
 
 // 圖標組件映射表
 export const iconComponentMap = {
@@ -27,14 +31,17 @@ export const iconComponentMap = {
   'NestJSIcon': NestJSIcon,
   'NgrxIcon': NgrxIcon,
   'NpmIcon': NpmIcon,
-    'ReactIcon': ReactIcon,
-    'GitIcon': GitIcon,
+  'ReactIcon': ReactIcon,
+  'GitIcon': GitIcon,
   'NvmIcon': NvmIcon,
+  'NuxtIcon': NuxtIcon,
+  'NextIcon': NextIcon,
+  'ShadcnIcon': ShadcnIcon,
+  'BootstrapIcon': Bootstrap,
+  'PiniaIcon': PiniaIcon,
   // 為沒有對應 SVG 檔案的技術提供預設圖標或 null
-  'NuxtIcon': NuxtIcon, // 暫時使用 Vue 圖標
   'NodeJSIcon': NodeJSIcon, // 暫時使用 NPM 圖標
   'RxJSIcon': RxJSIcon, // 暫時使用 Ngrx 圖標
-  'PiniaIcon': VueIcon, // 暫時使用 Vue 圖標
   'EchartIcon': EchartIcon, // 暫時使用 React 圖標
   'AngularMaterialIcon': AngularIcon, // 暫時使用 Angular 圖標
   'AntDesignIcon': AntDesignIcon, // 暫時使用 React 圖標

@@ -9,15 +9,18 @@
                 <!-- 作品集區塊 -->
                 <ScrollSection ref="portfolioSection" id="section1" :class="['flex-col gap-[50px] !justify-start']">
                     <template #title>
-                        <div :class="['flex w-full py-6 items-center justify-center']">
-                            <p class="underline-title">作品集</p>
+                        <div class="flex w-full py-6 items-center justify-center">
+                            <div class="relative pb-2">
+                                <p class="text-2xl font-semibold">作品集</p>
+                                <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/5 h-0.5 bg-gradient-to-r from-[#FF6B35] to-[#FFA726]"></div>
+                            </div>
                         </div>
                     </template>
                     <template #content>
                         <div v-if="mockStore.portfolioPageData.length === 0" class="flex items-center justify-center h-64">
                             <p class="text-gray-500">暫無作品資料</p>
                         </div>
-                        <div v-else class="portfolio-cards-wrapper w-[80%]">
+                        <div v-else class="w-[80%] grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(300px,1fr))] md:grid-cols-1 gap-8 lg:gap-6 md:gap-4 max-w-[1400px] mx-auto">
                             <CPortfolioCard
                                 v-for="project in mockStore.portfolioPageData"
                                 :key="project.id"
@@ -52,45 +55,3 @@ const handleCardClick = (projectId: string) => {
     router.push(`/portfolio/detail?id=${projectId}`);
 };
 </script>
-
-<style scoped>
-.portfolio-cards-wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 2rem;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.underline-title {
-    position: relative;
-    padding-bottom: 0.5rem;
-}
-
-.underline-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    height: 2px;
-    background: linear-gradient(90deg, #FF6B35, #FFA726);
-}
-
-/* 響應式設計 */
-@media (max-width: 1024px) {
-    .portfolio-cards-wrapper {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 1.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .portfolio-cards-wrapper {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-}
-</style>
