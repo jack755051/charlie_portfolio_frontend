@@ -25,7 +25,7 @@
 
 <script setup lang="ts">
 import { useMockStore } from "~/stores/useMockStore";
-import CCard from "~/components/cCard.vue";
+import CCard from "~/components/base/cCard.vue";
 import ScrollSection from "~/layouts/scrollSection.vue";
 
 const mockStore = useMockStore();

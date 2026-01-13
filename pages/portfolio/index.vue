@@ -43,7 +43,7 @@
 <script setup lang="ts">
 import { useMockStore } from "~/stores/useMockStore";
 import { useAnchor } from "~/composable/useAnchor";
-import CPortfolioCard from "~/components/cPortfolioCard.vue";
+import CPortfolioCard from "~/components/base/cPortfolioCard.vue";
 import ScrollSection from "~/layouts/scrollSection.vue";
 
 const mockStore = useMockStore();
