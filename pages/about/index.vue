@@ -20,6 +20,7 @@
 
 <script setup lang="ts">
 import { useAnchor } from "~/composable/useAnchor";
+import CAnchor from "~/components/base/cAnchor.vue";
 import AboutSection from "~/components/sections/about-section.vue";
 import ExperienceSection from "~/components/sections/experience-section.vue";
 import TechnologyStackSection from "~/components/sections/technology-stack-section.vue";

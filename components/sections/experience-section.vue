@@ -16,6 +16,7 @@
 
 <script setup lang="ts">
 import { useMockStore } from "~/stores/useMockStore";
+import CTimeline from "~/components/base/cTimeline.vue";
 import ScrollSection from "~/layouts/scrollSection.vue";
 
 const mockStore = useMockStore();

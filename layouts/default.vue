@@ -1,9 +1,9 @@
 <template>
   <div class="default-wrapper flex flex-col relative h-screen w-screen px-[30px] py-[10px] bg-background">
     <!-- 固定的 Navbar -->
-    <Navbar/>
+    <BaseNavbar/>
     <slot />
-    <Footer/>
+    <BaseFooter/>
   </div>
 
 
