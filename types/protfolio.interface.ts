@@ -8,6 +8,10 @@ export interface IPortfolio {
     features?: string[];
     achievements?: string[];
     link?: string;
+    screenshots?: Array<{
+        url: string;
+        caption?: string;
+    }>;
 }
 
 export interface ITechnologyItem {

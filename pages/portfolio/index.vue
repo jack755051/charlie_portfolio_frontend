@@ -20,18 +20,54 @@
                         <div v-if="mockStore.portfolioPageData.length === 0" class="flex items-center justify-center h-64">
                             <p class="text-gray-500">暫無作品資料</p>
                         </div>
-                        <div v-else class="w-[80%] grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(300px,1fr))] md:grid-cols-1 gap-8 lg:gap-6 md:gap-4 max-w-[1400px] mx-auto">
-                            <CPortfolioCard
-                                v-for="project in mockStore.portfolioPageData"
-                                :key="project.id"
-                                :id="project.id"
-                                :title="project.title"
-                                :description="project.description"
-                                :role="project.role"
-                                :duration="project.duration"
-                                :technologies="project.technologies"
-                                @click="handleCardClick"
-                            />
+                        <div v-else class="w-full max-w-[1400px] mx-auto px-6 space-y-16">
+                            <!-- 公司作品區塊 -->
+                            <div v-if="companyProjects.length > 0" class="space-y-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                                        <h3 class="text-xl font-bold text-slate-800">公司專案</h3>
+                                    </div>
+                                    <div class="flex-1 h-px bg-gradient-to-r from-blue-200 to-transparent"></div>
+                                </div>
+                                <div class="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(300px,1fr))] md:grid-cols-1 gap-8 lg:gap-6 md:gap-4">
+                                    <CPortfolioCard
+                                        v-for="project in companyProjects"
+                                        :key="project.id"
+                                        :id="project.id"
+                                        :title="project.title"
+                                        :description="project.description"
+                                        :role="project.role"
+                                        :duration="project.duration"
+                                        :technologies="project.technologies"
+                                        @click="handleCardClick"
+                                    />
+                                </div>
+                            </div>
+
+                            <!-- 個人作品區塊 -->
+                            <div v-if="personalProjects.length > 0" class="space-y-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-2 h-2 rounded-full bg-orange-500"></div>
+                                        <h3 class="text-xl font-bold text-slate-800">個人專案</h3>
+                                    </div>
+                                    <div class="flex-1 h-px bg-gradient-to-r from-orange-200 to-transparent"></div>
+                                </div>
+                                <div class="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(300px,1fr))] md:grid-cols-1 gap-8 lg:gap-6 md:gap-4">
+                                    <CPortfolioCard
+                                        v-for="project in personalProjects"
+                                        :key="project.id"
+                                        :id="project.id"
+                                        :title="project.title"
+                                        :description="project.description"
+                                        :role="project.role"
+                                        :duration="project.duration"
+                                        :technologies="project.technologies"
+                                        @click="handleCardClick"
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </template>
                 </ScrollSection>
@@ -50,6 +86,21 @@ import ScrollSection from "~/layouts/scrollSection.vue";
 const mockStore = useMockStore();
 const anchorData = useAnchor();
 const router = useRouter();
+
+/** 分類專案：公司作品（systalk 前綴）vs 個人作品 */
+const companyProjects = computed(() => {
+    return mockStore.portfolioPageData.filter(project =>
+        project.id.toLowerCase().includes('systalk') ||
+        project.title.toLowerCase().includes('systalk')
+    );
+});
+
+const personalProjects = computed(() => {
+    return mockStore.portfolioPageData.filter(project =>
+        !project.id.toLowerCase().includes('systalk') &&
+        !project.title.toLowerCase().includes('systalk')
+    );
+});
 
 /** 處理卡片點擊事件 */
 const handleCardClick = (projectId: string) => {

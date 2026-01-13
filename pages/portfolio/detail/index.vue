@@ -104,6 +104,36 @@
                         查看專案 →
                     </a>
                 </div>
+
+                <!-- 專案截圖 -->
+                <div v-if="currentProject.screenshots && currentProject.screenshots.length > 0" class="p-6 bg-white rounded-xl shadow-sm border border-gray-200">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 pb-3 border-b-2 border-gray-100">專案截圖</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div
+                            v-for="(screenshot, index) in currentProject.screenshots"
+                            :key="index"
+                            class="group relative overflow-hidden rounded-lg border-2 border-gray-200 transition-all duration-300 hover:border-[#667eea] hover:shadow-lg"
+                        >
+                            <img
+                                :src="screenshot.url"
+                                :alt="screenshot.caption || `專案截圖 ${index + 1}`"
+                                class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+                            />
+                            <div v-if="screenshot.caption" class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                                <p class="text-white text-sm font-medium">{{ screenshot.caption }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 如果沒有截圖，顯示佔位區塊 -->
+                <div v-else class="p-8 bg-white rounded-xl shadow-sm border border-gray-200 border-dashed">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 pb-3 border-b-2 border-gray-100">專案截圖</h3>
+                    <div class="flex flex-col items-center justify-center py-12 gap-4">
+                        <div class="text-6xl opacity-20">📷</div>
+                        <p class="text-gray-400 text-center">專案截圖準備中...</p>
+                    </div>
+                </div>
             </div>
         </div>
 

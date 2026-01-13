@@ -6,11 +6,6 @@
         <!-- 卡片頂部漸層背景 -->
         <div class="portfolio-card-header">
             <h3 class="portfolio-title">{{ title }}</h3>
-            <div class="portfolio-meta">
-                <span class="meta-item">{{ role }}</span>
-                <span class="meta-divider">•</span>
-                <span class="meta-item">{{ duration }}</span>
-            </div>
         </div>
 
         <!-- 卡片內容 -->
