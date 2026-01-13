@@ -1,151 +1,123 @@
 <template>
-    <div class="min-h-screen bg-gray-50 p-0 overflow-y-auto">
-        <!-- 返回按鈕 -->
-        <div class="fixed top-20 left-8 z-[100]">
-            <button
+    <div class="min-h-screen bg-slate-50 relative pb-20">
+        <div class="absolute inset-0 z-0 opacity-[0.4]" style="background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px); background-size: 32px 32px;"></div>
+        
+        <div class="sticky top-0 z-50 w-full px-6 py-4 flex items-center justify-between bg-white/80 backdrop-blur-md border-b border-slate-200/60">
+            <button 
                 @click="goBack"
-                class="flex items-center gap-2 px-5 py-3 bg-white border border-gray-300 rounded-lg text-gray-600 font-medium cursor-pointer transition-all duration-200 shadow-sm hover:bg-gray-50 hover:border-[#FF6B35] hover:text-[#FF6B35] hover:-translate-x-1 group"
+                class="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 text-slate-600 hover:border-orange-200 hover:text-orange-500 hover:shadow-md transition-all active:scale-95 group"
             >
-                <span class="text-xl transition-transform duration-200 group-hover:-translate-x-1">←</span>
-                <span>返回作品集</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                <span class="text-sm font-bold">Back</span>
             </button>
+            
+            <span class="md:hidden font-bold text-slate-800 truncate max-w-[150px]">{{ currentProject?.title }}</span>
+            
+            <div class="w-[80px]"></div>
         </div>
 
-        <!-- 專案詳情內容 -->
-        <div v-if="currentProject" class="pt-20 pb-16">
-            <!-- 標題區 -->
-            <div class="py-12 pb-8 text-center">
-                <div class="inline-block relative pb-4">
-                    <h1 class="text-[2.5rem] font-bold text-gray-800">{{ currentProject.title }}</h1>
-                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/5 h-[3px] bg-gradient-to-r from-[#FF6B35] to-[#FFA726] rounded-sm"></div>
-                </div>
-            </div>
-
-            <!-- 內容區 -->
-            <div class="flex flex-col gap-8 mx-auto max-w-[75%]">
-                <!-- 專案基本資訊 -->
-                <div class="flex gap-8 p-6 bg-gradient-to-br from-[#667eea] to-[#764ba2] rounded-xl text-white">
-                    <div class="flex gap-2 items-center">
-                        <span class="font-semibold opacity-90">專案角色：</span>
-                        <span class="font-medium">{{ currentProject.role }}</span>
-                    </div>
-                    <div class="flex gap-2 items-center">
-                        <span class="font-semibold opacity-90">專案時間：</span>
-                        <span class="font-medium">{{ currentProject.duration }}</span>
-                    </div>
-                </div>
-
-                <!-- 專案描述 -->
-                <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-200">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 pb-3 border-b-2 border-gray-100">專案描述</h3>
-                    <p class="text-gray-600 text-base leading-relaxed text-justify">{{ currentProject.description }}</p>
-                </div>
-
-                <!-- 使用技術 -->
-                <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-200">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 pb-3 border-b-2 border-gray-100">使用技術</h3>
-                    <div class="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4">
-                        <div
-                            v-for="(tech, index) in currentProject.technologies"
-                            :key="index"
-                            class="flex items-center gap-3 p-4 bg-gray-50 rounded-lg border border-gray-200 transition-all duration-200 hover:bg-gray-100 hover:border-[#667eea]"
-                        >
-                            <component
-                                v-if="getIconComponent(tech.icon)"
-                                :is="getIconComponent(tech.icon)"
-                                class="w-8 h-8 shrink-0 text-gray-600"
-                            />
-                            <div class="flex flex-col gap-1">
-                                <span class="font-semibold text-gray-800 text-[0.938rem]">{{ tech.name }}</span>
-                                <span v-if="tech.category" class="text-xs text-gray-500">{{ tech.category }}</span>
-                            </div>
+        <div v-if="currentProject" class="relative z-10 max-w-6xl mx-auto px-6 pt-10">
+            
+            <div class="mb-12">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-6">
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-orange-100 text-orange-600 border border-orange-200">
+                                {{ currentProject.role }}
+                            </span>
+                            <span class="text-slate-400 text-sm font-mono">{{ currentProject.duration }}</span>
                         </div>
+                        <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                            {{ currentProject.title }}
+                        </h1>
                     </div>
-                </div>
-
-                <!-- 主要功能 -->
-                <div v-if="currentProject.features && currentProject.features.length > 0" class="p-6 bg-white rounded-xl shadow-sm border border-gray-200">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 pb-3 border-b-2 border-gray-100">主要功能</h3>
-                    <ul class="flex flex-col gap-3">
-                        <li
-                            v-for="(feature, index) in currentProject.features"
-                            :key="index"
-                            class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg transition-colors duration-200 hover:bg-gray-100"
-                        >
-                            <span class="text-[#667eea] text-2xl font-bold leading-none">•</span>
-                            <span class="text-gray-600 leading-relaxed flex-1">{{ feature }}</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- 專案成果 -->
-                <div v-if="currentProject.achievements && currentProject.achievements.length > 0" class="p-6 bg-white rounded-xl shadow-sm border border-gray-200">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 pb-3 border-b-2 border-gray-100">專案成果</h3>
-                    <ul class="flex flex-col gap-3">
-                        <li
-                            v-for="(achievement, index) in currentProject.achievements"
-                            :key="index"
-                            class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg transition-colors duration-200 hover:bg-gray-100"
-                        >
-                            <span class="text-emerald-500 text-xl font-bold">✓</span>
-                            <span class="text-gray-600 leading-relaxed flex-1">{{ achievement }}</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- 專案連結 (如果有的話) -->
-                <div v-if="currentProject.link" class="p-6 bg-white rounded-xl shadow-sm border border-gray-200">
-                    <a
-                        :href="currentProject.link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-br from-[#667eea] to-[#764ba2] text-white font-semibold rounded-lg no-underline transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_16px_rgba(102,126,234,0.3)]"
+                    
+                    <a v-if="currentProject.link" 
+                       :href="currentProject.link" target="_blank"
+                       class="flex items-center gap-2 px-6 py-3 bg-slate-900 text-white rounded-xl hover:bg-orange-500 hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-300"
                     >
-                        查看專案 →
+                        <span>Visit Project</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
                     </a>
                 </div>
+                <div class="h-px w-full bg-gradient-to-r from-slate-200 via-slate-200 to-transparent"></div>
+            </div>
 
-                <!-- 專案截圖 -->
-                <div v-if="currentProject.screenshots && currentProject.screenshots.length > 0" class="p-6 bg-white rounded-xl shadow-sm border border-gray-200">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 pb-3 border-b-2 border-gray-100">專案截圖</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div
-                            v-for="(screenshot, index) in currentProject.screenshots"
-                            :key="index"
-                            class="group relative overflow-hidden rounded-lg border-2 border-gray-200 transition-all duration-300 hover:border-[#667eea] hover:shadow-lg"
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <div class="lg:col-span-2 space-y-6">
+                    
+                    <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm">
+                        <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                            <span class="w-2 h-6 bg-orange-500 rounded-full"></span>
+                            Project Overview
+                        </h3>
+                        <p class="text-slate-600 leading-relaxed text-justify whitespace-pre-line">
+                            {{ currentProject.description }}
+                        </p>
+                    </div>
+
+                    <div v-if="currentProject.screenshots?.length" class="space-y-6">
+                        <div v-for="(shot, idx) in currentProject.screenshots" :key="idx" 
+                             class="group relative bg-slate-200 rounded-3xl overflow-hidden border border-slate-200 shadow-sm"
                         >
-                            <img
-                                :src="screenshot.url"
-                                :alt="screenshot.caption || `專案截圖 ${index + 1}`"
-                                class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
-                            />
-                            <div v-if="screenshot.caption" class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                                <p class="text-white text-sm font-medium">{{ screenshot.caption }}</p>
+                            <img :src="shot.url" :alt="shot.caption" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
+                            <div v-if="shot.caption" class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm p-4 text-white text-sm">
+                                {{ shot.caption }}
                             </div>
                         </div>
                     </div>
+
                 </div>
 
-                <!-- 如果沒有截圖，顯示佔位區塊 -->
-                <div v-else class="p-8 bg-white rounded-xl shadow-sm border border-gray-200 border-dashed">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 pb-3 border-b-2 border-gray-100">專案截圖</h3>
-                    <div class="flex flex-col items-center justify-center py-12 gap-4">
-                        <div class="text-6xl opacity-20">📷</div>
-                        <p class="text-gray-400 text-center">專案截圖準備中...</p>
+                <div class="lg:col-span-1 space-y-6">
+                    
+                    <div class="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm sticky top-24">
+                        <h3 class="text-lg font-bold text-slate-800 mb-4">Technologies</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <div v-for="(tech, index) in currentProject.technologies" :key="index"
+                                 class="flex items-center gap-2 px-3 py-2 bg-slate-50 border border-slate-100 rounded-lg hover:border-orange-200 hover:bg-orange-50 transition-colors cursor-default"
+                            >
+                                <component v-if="getIconComponent(tech.icon)" :is="getIconComponent(tech.icon)" class="w-5 h-5 text-slate-600" />
+                                <span class="text-xs font-bold text-slate-700">{{ tech.name }}</span>
+                            </div>
+                        </div>
+
+                        <div v-if="currentProject.features?.length || currentProject.achievements?.length" class="mt-8 pt-6 border-t border-slate-100">
+                            <h3 class="text-lg font-bold text-slate-800 mb-4">Highlights</h3>
+                            
+                            <div v-if="currentProject.achievements?.length" class="space-y-3 mb-6">
+                                <div v-for="(ach, i) in currentProject.achievements" :key="i" class="flex gap-3 items-start">
+                                    <span class="text-green-500 mt-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                        </svg>
+                                    </span>
+                                    <span class="text-sm text-slate-600">{{ ach }}</span>
+                                </div>
+                            </div>
+
+                            <div v-if="currentProject.features?.length" class="space-y-3">
+                                <div v-for="(feat, i) in currentProject.features" :key="i" class="flex gap-3 items-start">
+                                    <span class="text-orange-400 mt-1">•</span>
+                                    <span class="text-sm text-slate-600">{{ feat }}</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
+
             </div>
         </div>
 
-        <!-- 專案不存在提示 -->
-        <div v-else class="flex flex-col items-center justify-center min-h-[60vh] gap-8">
-            <p class="text-2xl text-gray-500 font-semibold">找不到該專案資料</p>
-            <button
-                @click="goBack"
-                class="px-8 py-4 bg-gradient-to-br from-[#667eea] to-[#764ba2] text-white font-semibold border-0 rounded-lg cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_16px_rgba(102,126,234,0.3)]"
-            >
-                返回作品集
-            </button>
+        <div v-else class="flex flex-col items-center justify-center min-h-[60vh] gap-4">
+            <p class="text-xl text-slate-400">Project Not Found</p>
+            <button @click="goBack" class="text-orange-500 font-bold hover:underline">Go Back</button>
         </div>
     </div>
 </template>
@@ -159,15 +131,12 @@ const mockStore = useMockStore();
 const router = useRouter();
 const route = useRoute();
 
-// 從 URL 參數獲取專案 ID
 const projectId = computed(() => route.query.id as string);
 
-// 根據 ID 獲取當前專案資料
 const currentProject = computed<IPortfolio | undefined>(() => {
     return mockStore.portfolioPageData.find(project => project.id === projectId.value);
 });
 
-// 返回作品集列表
 const goBack = () => {
     router.push('/portfolio');
 };

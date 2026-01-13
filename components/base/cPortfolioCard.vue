@@ -1,36 +1,46 @@
 <template>
     <div
-        :class="['portfolio-card-wrapper', { 'hover-effect': !disableHover }]"
+        class="group relative bg-white rounded-2xl border border-slate-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer flex flex-col h-full"
         @click="handleClick"
     >
-        <!-- 卡片頂部漸層背景 -->
-        <div class="portfolio-card-header">
-            <h3 class="portfolio-title">{{ title }}</h3>
-        </div>
+        <div class="h-1.5 w-full" :class="type === 'company' ? 'bg-blue-500' : 'bg-orange-500'"></div>
 
-        <!-- 卡片內容 -->
-        <div class="portfolio-card-content">
-            <!-- 專案描述 -->
-            <p class="portfolio-description">{{ description }}</p>
+        <div class="p-6 flex flex-col flex-1">
+            
+            <div class="flex justify-between items-start mb-4">
+                <div class="flex-1">
+                    <h3 class="text-xl font-bold text-slate-800 group-hover:text-orange-500 transition-colors line-clamp-1" :title="title">
+                        {{ title }}
+                    </h3>
+                    <div class="flex items-center gap-2 mt-1 text-xs font-mono text-slate-400">
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-500">{{ role }}</span>
+                        <span>•</span>
+                        <span>{{ duration }}</span>
+                    </div>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-orange-50 group-hover:text-orange-500 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:rotate-45 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </div>
+            </div>
 
-            <!-- 技術標籤 -->
-            <div class="tech-tags-wrapper">
+            <p class="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-3 flex-1">
+                {{ description }}
+            </p>
+
+            <div class="flex flex-wrap gap-2 mt-auto pt-4 border-t border-slate-50">
                 <span
                     v-for="(tech, index) in displayTechnologies"
                     :key="index"
-                    class="tech-tag"
+                    class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-slate-50 text-slate-600 border border-slate-100 group-hover:border-orange-100 group-hover:text-orange-600 transition-colors"
                 >
                     {{ tech.name }}
                 </span>
-                <span v-if="remainingTechCount > 0" class="tech-tag tech-tag-more">
+                <span v-if="remainingTechCount > 0" class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-slate-50 text-slate-400">
                     +{{ remainingTechCount }}
                 </span>
             </div>
-        </div>
-
-        <!-- 查看詳情提示 -->
-        <div class="card-footer">
-            <span class="view-detail-text">點擊查看詳情 →</span>
         </div>
     </div>
 </template>
@@ -45,151 +55,21 @@ interface Props {
     role: string;
     duration: string;
     technologies: IPortfolio['technologies'];
+    type?: 'company' | 'personal'; // 新增類型判斷
     maxTechDisplay?: number;
-    disableHover?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-    maxTechDisplay: 6,
-    disableHover: false
+    type: 'company',
+    maxTechDisplay: 4, // 減少顯示數量，保持乾淨
 });
 
 const emit = defineEmits<{
     click: [id: string]
 }>();
 
-// 顯示的技術標籤（限制數量）
-const displayTechnologies = computed(() => {
-    return props.technologies.slice(0, props.maxTechDisplay);
-});
+const displayTechnologies = computed(() => props.technologies.slice(0, props.maxTechDisplay));
+const remainingTechCount = computed(() => Math.max(0, props.technologies.length - props.maxTechDisplay));
 
-// 剩餘的技術數量
-const remainingTechCount = computed(() => {
-    const remaining = props.technologies.length - props.maxTechDisplay;
-    return remaining > 0 ? remaining : 0;
-});
-
-const handleClick = () => {
-    if (!props.disableHover) {
-        emit('click', props.id);
-    }
-};
+const handleClick = () => emit('click', props.id);
 </script>
-
-<style scoped>
-.portfolio-card-wrapper {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-    transition: all 0.3s ease;
-    border: 1px solid #e5e7eb;
-    display: flex;
-    flex-direction: column;
-}
-
-.portfolio-card-wrapper.hover-effect {
-    cursor: pointer;
-}
-
-.portfolio-card-wrapper.hover-effect:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
-    border-color: #FF6B35;
-}
-
-.portfolio-card-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 1.5rem;
-    color: white;
-}
-
-.portfolio-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: white;
-}
-
-.portfolio-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.875rem;
-    opacity: 0.95;
-}
-
-.meta-item {
-    display: flex;
-    align-items: center;
-}
-
-.meta-divider {
-    opacity: 0.6;
-}
-
-.portfolio-card-content {
-    padding: 1.5rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.portfolio-description {
-    color: #4b5563;
-    font-size: 0.938rem;
-    line-height: 1.6;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.tech-tags-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: auto;
-}
-
-.tech-tag {
-    padding: 0.375rem 0.75rem;
-    background: #f3f4f6;
-    color: #4b5563;
-    border-radius: 6px;
-    font-size: 0.813rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-}
-
-.tech-tag:hover {
-    background: #e5e7eb;
-}
-
-.tech-tag-more {
-    background: #dbeafe;
-    color: #2563eb;
-    font-weight: 600;
-}
-
-.card-footer {
-    padding: 1rem 1.5rem;
-    border-top: 1px solid #f3f4f6;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.view-detail-text {
-    color: #667eea;
-    font-size: 0.875rem;
-    font-weight: 600;
-    transition: all 0.2s ease;
-}
-
-.portfolio-card-wrapper.hover-effect:hover .view-detail-text {
-    color: #FF6B35;
-    transform: translateX(4px);
-}
-</style>
