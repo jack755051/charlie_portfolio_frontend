@@ -4,7 +4,7 @@
         <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-30 pointer-events-none"></div>
 
         <template #content>
-            <div class="w-full max-w-6xl mx-auto px-4 md:px-8 py-10 flex flex-col md:flex-row gap-12 items-start">
+            <div class="w-full max-w-7xl mx-auto px-6 flex flex-col md:flex-row gap-12 items-start">
                 
                 <div class="flex-1 space-y-10">
                     <div class="space-y-4">

@@ -2,7 +2,7 @@
   <section
       ref="sectionRef"
       :id="id"
-      class="h-screen snap-start flex items-center justify-center">
+      class="min-h-screen snap-start flex flex-col items-center justify-center py-16">
     <slot name="title" />
     <slot name="content" />
     <slot name="footer" />
