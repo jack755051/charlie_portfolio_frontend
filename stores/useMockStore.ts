@@ -167,6 +167,92 @@ export const useMockStore = defineStore('mock',()=>{
                 '設計統一的 API 請求/響應處理機制',
                 '建立完善的專案結構與開發規範'
             ]
+        },
+        {
+            id: 'travel-planner',
+            title: 'Travel Planner',
+            description: '旅程規劃平台，讓旅行規劃變得像喝水一樣簡單。提供互動式地圖整合、行程管理及逐日行程規劃功能，讓使用者輕鬆安排完美的旅程。',
+            role: '前端工程師',
+            duration: '2024-11 ~ 2024-12',
+            technologies: [
+                { name: 'Next.js 16', icon: 'NextJSIcon', category: '前端框架' },
+                { name: 'React 19', icon: 'ReactIcon', category: '前端框架' },
+                { name: 'TypeScript', icon: 'TypeScriptIcon', category: '程式語言' },
+                { name: 'Redux Toolkit', icon: 'ReduxIcon', category: '狀態管理' },
+                { name: 'Zustand', icon: 'ZustandIcon', category: '狀態管理' },
+                { name: 'TailwindCSS', icon: 'TailWindIcon', category: 'CSS 框架' },
+                { name: 'Radix UI', icon: 'RadixIcon', category: 'UI 組件庫' },
+                { name: 'Shadcn', icon: 'ShadcnIcon', category: 'UI 組件庫' },
+                { name: 'Google Maps API', icon: 'GoogleMapsIcon', category: '地圖服務' },
+                { name: 'DND Kit', icon: 'DndKitIcon', category: '拖拽交互' },
+                { name: 'Lucide Icons', icon: 'LucideIcon', category: '圖標庫' },
+                { name: 'Sonner', icon: 'SonnerIcon', category: '通知系統' },
+                { name: 'Docker', icon: 'DockerIcon', category: '容器化' },
+                { name: 'ESLint', icon: 'ESLintIcon', category: '代碼品質' },
+                { name: 'Prettier', icon: 'PrettierIcon', category: '代碼格式化' }
+            ],
+            features: [
+                '採用 Next.js 16 App Router 架構，支援 SSR 與 Client-Side Rendering',
+                '整合 Google Maps API 實現互動式地圖功能，提供地點搜尋與標記',
+                '使用 Redux Toolkit 與 Zustand 進行狀態管理，處理複雜的旅程數據流',
+                '實現拖拽式行程編輯功能，使用 @dnd-kit 提升用戶體驗',
+                '完整的用戶認證系統（登入、註冊、忘記密碼）',
+                '旅程總覽與逐日行程詳細檢視，支援多日旅程規劃',
+                '使用 Radix UI + Shadcn 打造無障礙友善的 UI 組件',
+                'TailwindCSS v4 實現響應式設計，適配各種裝置',
+                'Docker 容器化部署，支援開發與生產環境配置',
+                '模組化架構設計（features/ui/layouts 分層）'
+            ],
+            achievements: [
+                '建立完整的旅程規劃系統，支援多日行程管理',
+                '整合 Google Maps API 實現即時地點搜尋與路線規劃',
+                '實現拖拽式行程編輯，提升 60% 的操作效率',
+                '設計可擴展的組件架構，便於功能迭代與維護',
+                '完成用戶驗證與密碼管理功能，確保資料安全',
+                '建立 DTO、View Models 與 Type 層級分離的資料架構'
+            ]
+        },
+        {
+            id: 'gxcella',
+            title: 'GxCella - Angular 組件庫',
+            description: 'Angular 20 企業級 UI 組件庫（Monorepo 架構），提供可重複使用的高品質組件套件，包含表格、分頁、卡片、拖放等多個獨立發布的 npm 套件，建立完整的設計系統。',
+            role: '前端工程師 / 組件庫開發者',
+            duration: '2024-08 ~ 2024-11',
+            technologies: [
+                { name: 'Angular 20', icon: 'AngularIcon', category: '前端框架' },
+                { name: 'TypeScript', icon: 'TypeScriptIcon', category: '程式語言' },
+                { name: 'TailwindCSS', icon: 'TailWindIcon', category: 'CSS 框架' },
+                { name: 'Lucide Angular', icon: 'LucideIcon', category: '圖標庫' },
+                { name: 'ng-packagr', icon: 'NgPackagrIcon', category: '建置工具' },
+                { name: 'Changesets', icon: 'ChangesetsIcon', category: '版本管理' },
+                { name: 'npm Workspaces', icon: 'NpmIcon', category: 'Monorepo 管理' },
+                { name: 'RxJS', icon: 'RxJSIcon', category: '響應式程式' },
+                { name: 'Jasmine', icon: 'JasmineIcon', category: '測試框架' },
+                { name: 'ESLint', icon: 'ESLintIcon', category: '代碼品質' },
+                { name: 'Prettier', icon: 'PrettierIcon', category: '代碼格式化' }
+            ],
+            features: [
+                '採用 Monorepo 架構管理 8+ 個獨立 npm 套件，支援獨立版本發布',
+                '開發核心 UI 組件庫（Button、Icon、Loading、Skeleton、Tag、Toast、Overlay）',
+                '實現企業級 Table 組件，支援排序、篩選、分頁、固定欄位等進階功能',
+                '開發 Pagination、Wizard、Card、Breadcrumb、Drag-Drop 等業務組件',
+                '建立統一的設計系統（gx-styles），支援主題自定義與 CSS 變數',
+                '使用 Standalone Components 架構，支援 Tree-shaking',
+                '整合 Lucide 圖標庫，提供 500+ 圖標支援',
+                '完整的 TypeScript 型別定義，提升開發體驗',
+                '使用 ng-packagr 建置最佳化的 ESM 格式套件',
+                '採用 Changesets 實現語意化版本管理與自動化發布流程'
+            ],
+            achievements: [
+                '成功發布 8 個獨立 npm 套件至公開倉庫，提供完整的組件生態系統',
+                '建立 gx-demo 示範應用程式，提供互動式組件文檔與使用範例',
+                '實現可擴展的組件架構，支援按需引入與模組化開發',
+                '建立完整的設計系統文檔（DESIGN_SYSTEM_GUIDE.md、GX-UI-GUIDE.md）',
+                '開發主題系統，支援現代化視覺風格與深色模式',
+                '建立組件開發工作流程，包含建置、測試、版本管理、發布等完整流程',
+                '優化套件體積，支援 Tree-shaking 減少最終產物大小',
+                '提供完整的 TypeScript 型別支援，減少開發錯誤'
+            ]
         }
     ]);
   
