@@ -17,17 +17,16 @@ export const useExperience = () => {
             company: '昕力科技 (TPIsoftware)',
             role: 'Frontend Engineer',
             period: '2024.07 - Present',
-            isActive: true, // 亮燈顯示
+            isActive: true,
             description: '專注於 AI 對話產品與企業級管理系統的前端開發。負責將複雜的 AI 邏輯轉化為直觀的對話介面，並構建高擴展性的後台架構。',
             projects: [
-                'Systalk.Flow (AI 對話流程設計)',
+                'Systalk AdminHub (金鑰管理平台)',
                 'Systalk.Audit (稽核系統)',
-                'AdminHub (金鑰管理平台)', // 補上您提到的
-                '微笑單車 Chatbot',
+                '全球人壽 ICR POC',
                 '饗賓餐旅 Chatbot',
-                '全球人壽 POC'
+                '微笑單車 Chatbot'
             ],
-            stack: ['Vue 3', 'Nuxt 3', 'Tailwind', 'Docker', 'LLM Integration']
+            stack: ['Angular', 'TypeScript', 'Tailwind', 'Ngrx', 'RxJS', 'Docker', 'Systalk.Flow']
         },
         {
             company: '精誠資訊 (SYSTEX)',
@@ -38,7 +37,7 @@ export const useExperience = () => {
             projects: [
                 '全國公教人員退休撫卹系統'
             ],
-            stack: ['Vue 2', 'Element UI', 'Legacy System Migration']
+            stack: ['Angular', 'TypeScript', 'Tailwind', 'Ngrx']
         },
         {
             company: '哈瑪星科技 (HaMaStar)',
@@ -47,14 +46,12 @@ export const useExperience = () => {
             isActive: false,
             description: '擔任主力前端開發，跨足電子書商城、政府標案與系統維運。具備同時維護多個專案並快速切換 context 的能力。',
             projects: [
-                '原住民族住宅業務系統',
                 '原住民族知識體系',
+                '原住民族住宅業務補助系統',
                 '台北市公報網',
-                '台塑書城',
-                '電子書系統 (三民/奇鼎/龍騰)',
-                '系統維護 (監察院/司法院/台鐵)' // 合併過多的維護項目
+                '電子書系統 (三民/奇鼎/龍騰)'
             ],
-            stack: ['Angular', 'RxJS', 'TypeScript', 'SCSS']
+            stack: ['Angular', 'Ngrx', 'TypeScript', 'JavaScript']
         },
         {
             company: '資策會 (III)',

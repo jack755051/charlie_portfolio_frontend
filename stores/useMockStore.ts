@@ -132,40 +132,95 @@ export const useMockStore = defineStore('mock',()=>{
         {
             id: 'systalk-adminhub',
             title: 'Systalk AdminHub',
-            description: '企業級管理後台系統，提供完整的內容管理、用戶管理及數據分析功能。採用現代化前端技術棧，實現響應式設計與良好的用戶體驗。',
+            description: '企業級金鑰管理平台，提供 API Key 管理、權限控制及使用統計分析功能。負責昕力科技內部所有產品的金鑰配置與安全管理，確保系統間的安全通訊。',
             role: '前端工程師',
             duration: '2024-07 ~ 至今',
             technologies: [
-                { name: 'Nuxt 4', icon: 'NuxtIcon', category: '前端框架' },
-                { name: 'Vue 3', icon: 'VueIcon', category: '前端框架' },
+                { name: 'Angular', icon: 'AngularIcon', category: '前端框架' },
                 { name: 'TypeScript', icon: 'TypeScriptIcon', category: '程式語言' },
-                { name: 'Pinia', icon: 'PiniaIcon', category: '狀態管理' },
                 { name: 'TailwindCSS', icon: 'TailWindIcon', category: 'CSS 框架' },
-                { name: 'Vee-Validate', icon: 'VeeValidateIcon', category: '表單驗證' },
-                { name: 'Vue I18n', icon: 'VueI18nIcon', category: '國際化' },
-                { name: 'Heroicons', icon: 'HeroiconsIcon', category: '圖標庫' },
-                { name: 'Lucide Icons', icon: 'LucideIcon', category: '圖標庫' },
-                { name: 'ESLint', icon: 'ESLintIcon', category: '代碼品質' },
-                { name: 'Prettier', icon: 'PrettierIcon', category: '代碼格式化' },
+                { name: 'Ngrx', icon: 'NgrxIcon', category: '狀態管理' },
+                { name: 'RxJS', icon: 'RxJSIcon', category: '響應式程式' },
                 { name: 'Docker', icon: 'DockerIcon', category: '容器化' },
-                { name: 'Nginx', icon: 'NginxIcon', category: '網頁伺服器' }
+                { name: 'ESLint', icon: 'ESLintIcon', category: '代碼品質' },
+                { name: 'Prettier', icon: 'PrettierIcon', category: '代碼格式化' }
             ],
             features: [
-                '採用 Nuxt 4 最新版本，支援 SSR/SPA 模式切換',
-                '使用 Composition API 與 TypeScript 開發，提升代碼可維護性',
-                '整合 Pinia 進行狀態管理，實現數據流清晰可控',
+                '採用 Angular 最新版本開發，使用 Standalone Components 架構',
+                '使用 Ngrx 進行狀態管理，實現複雜的金鑰生命週期管理',
+                'RxJS 處理非同步操作，確保資料流清晰可控',
                 'TailwindCSS 實現響應式設計，支援多種螢幕尺寸',
-                '使用 Vee-Validate 進行表單驗證，提升用戶體驗',
-                '支援多語系切換（Vue I18n）',
+                '實現權限分級管理系統，支援多租戶金鑰隔離',
+                '提供金鑰使用統計與視覺化圖表',
                 '整合 ESLint + Prettier 確保代碼品質與一致性',
-                'Docker 容器化部署，搭配 Nginx 反向代理',
-                '模組化組件設計（base/common/features 分層架構）'
+                'Docker 容器化部署，支援快速擴展',
+                '模組化設計，易於維護與擴展'
             ],
             achievements: [
-                '建立完整的組件庫架構，提升開發效率 40%',
-                '實現可重用的 composables（路由、表格、API 等）',
-                '設計統一的 API 請求/響應處理機制',
-                '建立完善的專案結構與開發規範'
+                '建立完整的金鑰管理系統，管理 100+ API Keys',
+                '實現細粒度的權限控制機制，降低安全風險',
+                '設計直觀的 UI/UX，使非技術人員也能輕鬆操作',
+                '建立完善的錯誤處理與日誌記錄機制'
+            ]
+        },
+        {
+            id: 'systalk-audit',
+            title: 'Systalk.Audit',
+            description: '企業級稽核系統，記錄並追蹤系統內所有關鍵操作。提供完整的審計日誌、異常偵測及合規報告功能，確保企業運營的透明度與安全性。',
+            role: '前端工程師',
+            duration: '2024-07 ~ 至今',
+            technologies: [
+                { name: 'Angular', icon: 'AngularIcon', category: '前端框架' },
+                { name: 'TypeScript', icon: 'TypeScriptIcon', category: '程式語言' },
+                { name: 'TailwindCSS', icon: 'TailWindIcon', category: 'CSS 框架' },
+                { name: 'Ngrx', icon: 'NgrxIcon', category: '狀態管理' },
+                { name: 'RxJS', icon: 'RxJSIcon', category: '響應式程式' },
+                { name: 'Docker', icon: 'DockerIcon', category: '容器化' },
+                { name: 'Echart', icon: 'EchartIcon', category: '圖表視覺化' }
+            ],
+            features: [
+                '實時監控系統操作日誌，支援多維度查詢與篩選',
+                '使用 Echart 實現互動式數據視覺化，展示稽核趨勢',
+                'Ngrx 管理複雜的篩選條件與查詢狀態',
+                '支援匯出合規報告（PDF/Excel），滿足法規要求',
+                '異常行為自動偵測與警報機制',
+                '時間軸視圖，清晰呈現操作序列',
+                '角色權限管理，確保敏感資訊安全',
+                'Docker 容器化部署，便於維護與升級'
+            ],
+            achievements: [
+                '處理並展示 10萬+ 條稽核記錄，保持流暢體驗',
+                '設計高效能的查詢機制，1 秒內返回複雜查詢結果',
+                '建立完整的資料視覺化系統，提升資料洞察效率',
+                '實現彈性的報表匯出功能，支援多種格式'
+            ]
+        },
+        {
+            id: 'systalk-global-life-icr',
+            title: '全球人壽 ICR POC',
+            description: 'AI 智慧文件辨識系統 POC 專案，整合 OCR 與 NLP 技術，自動辨識並擷取保險文件中的關鍵資訊。大幅提升理賠審核效率，減少人工輸入錯誤。',
+            role: '前端工程師',
+            duration: '2024-08 ~ 2024-10',
+            technologies: [
+                { name: 'Angular', icon: 'AngularIcon', category: '前端框架' },
+                { name: 'TypeScript', icon: 'TypeScriptIcon', category: '程式語言' },
+                { name: 'TailwindCSS', icon: 'TailWindIcon', category: 'CSS 框架' },
+                { name: 'RxJS', icon: 'RxJSIcon', category: '響應式程式' }
+            ],
+            features: [
+                '拖拽式文件上傳，支援批次處理',
+                '即時預覽 OCR 辨識結果，可手動修正錯誤',
+                '視覺化標註系統，標記文件中的關鍵欄位',
+                '整合 AI 模型 API，實現自動欄位分類',
+                '支援多種文件格式（PDF/JPG/PNG）',
+                '辨識結果匯出與資料結構化',
+                'Loading 狀態優化，提升用戶體驗'
+            ],
+            achievements: [
+                '成功完成 POC 驗證，辨識準確率達 95%',
+                '將理賠文件處理時間從 30 分鐘縮短至 3 分鐘',
+                '建立直觀的 UI，降低系統學習成本',
+                '提供完整的錯誤處理與回饋機制'
             ]
         },
         {

@@ -40,15 +40,15 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <div class="p-3 bg-white border border-slate-100 rounded-lg shadow-sm hover:shadow-md transition-all group">
                                 <div class="text-xs text-orange-500 font-bold mb-1">Internal Tools</div>
-                                <div class="font-bold text-slate-800 group-hover:text-orange-600 transition-colors">AdminHub 金鑰管理</div>
+                                <div class="font-bold text-slate-800 group-hover:text-orange-600 transition-colors">Systalk AdminHub</div>
                             </div>
                             <div class="p-3 bg-white border border-slate-100 rounded-lg shadow-sm hover:shadow-md transition-all group">
                                 <div class="text-xs text-blue-500 font-bold mb-1">AI Product</div>
-                                <div class="font-bold text-slate-800 group-hover:text-blue-600 transition-colors">ICR 智慧辨識系統</div>
+                                <div class="font-bold text-slate-800 group-hover:text-blue-600 transition-colors">全球人壽 ICR POC</div>
                             </div>
                             <div class="p-3 bg-white border border-slate-100 rounded-lg shadow-sm hover:shadow-md transition-all group">
-                                <div class="text-xs text-green-500 font-bold mb-1">SaaS Product</div>
-                                <div class="font-bold text-slate-800 group-hover:text-green-600 transition-colors">Systalk Chat</div>
+                                <div class="text-xs text-green-500 font-bold mb-1">Audit System</div>
+                                <div class="font-bold text-slate-800 group-hover:text-green-600 transition-colors">Systalk.Audit</div>
                             </div>
                              <div class="p-3 bg-white border border-slate-100 rounded-lg shadow-sm hover:shadow-md transition-all group">
                                 <div class="text-xs text-purple-500 font-bold mb-1">Government</div>
