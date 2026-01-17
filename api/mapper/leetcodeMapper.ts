@@ -1,31 +1,27 @@
-// utils/mappers/leetcodeMapper.ts
-import type { LeetCodeProfileResponse } from '@/types/LeetCodeProfileResponse'
-import type { LeetCodeStats } from '@/types/leetcode'
+import type { LeetCodeStats } from '~/types/leetcode.interface'
 
-export const transformLeetCodeStats = (
-  data: LeetCodeProfileResponse | null
-): LeetCodeStats | null => {
-  // 1. 安全檢查
-  const stats = data?.data?.matchedUser?.submitStats?.acSubmissionNum
+export const transformLeetCodeStats = (data: any): LeetCodeStats => {
+  // 防呆：確保 data 存在
+  if (!data) return { total: 0, easy: 0, medium: 0, hard: 0, easyPct: 0, mediumPct: 0, hardPct: 0 }
 
-  if (!stats) return null
+  // 1. 取出數值 (API 欄位名稱變了，這裡對應新的名稱)
+  const easy = data.easySolved || 0
+  const medium = data.mediumSolved || 0
+  const hard = data.hardSolved || 0
+  const total = data.totalSolved || 0
 
-  // 2. 提取邏輯
-  const getCount = (diff: string) => stats.find((s: any) => s.difficulty === diff)?.count || 0
+  const totalEasy = data.totalEasy || 1
+  const totalMedium = data.totalMedium || 1
+  const totalHard = data.totalHard || 1
 
-  const total = getCount('All')
-  const easy = getCount('Easy')
-  const medium = getCount('Medium')
-  const hard = getCount('Hard')
-
-  // 3. 回傳清洗後的資料
+  // 2. 回傳原本 UI 需要的格式 (介面不變)
   return {
     total,
     easy,
     medium,
     hard,
-    easyPct: total ? (easy / total) * 100 : 0,
-    mediumPct: total ? (medium / total) * 100 : 0,
-    hardPct: total ? (hard / total) * 100 : 0,
+    easyPct: Math.round((easy / totalEasy) * 100),
+    mediumPct: Math.round((medium / totalMedium) * 100),
+    hardPct: Math.round((hard / totalHard) * 100),
   }
 }

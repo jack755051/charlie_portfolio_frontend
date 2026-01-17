@@ -21,27 +21,21 @@ export const useLeetcodeStore = defineStore('leetcode', {
       this.error = null
 
       try {
-        // 修改這裡：打自己的 Nuxt Server API
-        const { data, error } = await useFetch<LeetCodeProfileResponse>('/api/leetcode', {
+        // 修改重點：只傳 username，不傳 query 了
+        const { data, error } = await useFetch('/api/leetcode', {
           method: 'POST',
-          body: {
-            username,
-            query: USER_PROFILE_QUERY,
-          },
+          body: { username },
         })
 
-        if (error.value) {
-          throw new Error(error.value.message)
-        }
+        if (error.value) throw new Error(error.value.message)
 
         if (data.value) {
-          // 注意：這裡取回的 data.value 已經是 JSON 物件，不需要再 res.json()
-          // 且結構通常是 { data: { ... } }，要看 LeetCode 回傳的層級
-          this.stats = transformLeetCodeStats(data.value.data)
+          // 這裡傳進去的 data.value 已經是新格式，Mapper 會處理好
+          this.stats = transformLeetCodeStats(data.value)
         }
-      } catch (err: any) {
-        console.error('Failed to fetch LeetCode data:', err)
-        this.error = err.message || 'Unknown Error'
+      } catch (error: any) {
+        console.error('Failed to fetch LeetCode data:', error)
+        this.error = error.message
       } finally {
         this.loading = false
       }
