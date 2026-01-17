@@ -1,13 +1,13 @@
 <template>
   <section
-      ref="sectionRef"
-      :id="id"
-      class="min-h-screen snap-start flex flex-col items-center justify-center py-16">
+    ref="sectionRef"
+    :id="id"
+    class="min-h-screen snap-start flex flex-col items-center justify-center py-16"
+  >
     <slot name="title" />
     <slot name="content" />
     <slot name="footer" />
   </section>
-
 </template>
 
 <script setup lang="ts">
@@ -24,7 +24,6 @@ const sectionRef = ref<HTMLElement | null>(null)
 defineExpose({
   scrollIntoView: () => {
     sectionRef.value?.scrollIntoView({ behavior: 'smooth' })
-  }
+  },
 })
-
 </script>

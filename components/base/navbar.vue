@@ -5,15 +5,14 @@
     </div>
     <div class="navbar-link flex justify-evenly gap-[40px] text-[18px]">
       <NuxtLink
-          v-for="i in mockStore.routerLink"
-          :key="i.router"
-          :to="i.router"
-          class="nav-item transition-all duration-300 font-[400] text-gray-500 relative
-          after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:bg-secondary after:w-0 after:transition-all after:duration-300"
-          :class="{
-            'active text-gray-800 font-[500] after:w-full': $route.path === i.router,
-            'hover:font-[600] hover:text-gray-800 hover:after:w-full': $route.path !== i.router
-          }"
+        v-for="i in mockStore.routerLink"
+        :key="i.router"
+        :to="i.router"
+        class="nav-item transition-all duration-300 font-[400] text-gray-500 relative after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:bg-secondary after:w-0 after:transition-all after:duration-300"
+        :class="{
+          'active text-gray-800 font-[500] after:w-full': $route.path === i.router,
+          'hover:font-[600] hover:text-gray-800 hover:after:w-full': $route.path !== i.router,
+        }"
       >
         {{ i.label }}
       </NuxtLink>
@@ -22,26 +21,24 @@
 </template>
 
 <script setup lang="ts">
-import type {RouterLink} from "~/types/foundation.interface";
-import { useMockStore } from "~/stores/useMockStore";
-import Logo from '~/assets/images/sanring-logo.svg';
+import type { RouterLink } from '~/types/foundation.interface'
+import { useMockStore } from '~/stores/useMockStore'
+import Logo from '~/assets/images/sanring-logo.svg'
 
 const mockStore = useMockStore()
 const router = useRouter()
-  // 路由 array
+// 路由 array
 
-  const routerLinkList = ref<RouterLink[]>([])
+const routerLinkList = ref<RouterLink[]>([])
 
-  // 回到首頁
-  const goBackHomepage = () => {
-    router.push('/')
-  };
-  // 取得路由列表
-  const getRouterLinkList  = async() =>{
+// 回到首頁
+const goBackHomepage = () => {
+  router.push('/')
+}
+// 取得路由列表
+const getRouterLinkList = async () => {}
 
-  }
-
-  // 路由 array
+// 路由 array
 </script>
 
 <style scoped>

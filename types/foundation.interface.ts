@@ -1,4 +1,4 @@
-export interface RouterLink{
-    router:string;
-    label:string;
+export interface RouterLink {
+  router: string
+  label: string
 }

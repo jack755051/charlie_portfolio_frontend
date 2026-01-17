@@ -1,38 +1,37 @@
 .underline-title {
-    position: relative;
-    font-size: 48px;
-    font-weight: 300;
+  position: relative;
+  font-size: 48px;
+  font-weight: 300;
 }
 
 .underline-title::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 4px;
-    width: 50%;
-    background-color: #FF8C42; /* secondary */
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 4px;
+  width: 50%;
+  background-color: #ff8c42; /* secondary */
 }
 
 /* 技術圖示通用樣式 */
 @layer components {
-    .tech-icon {
-        @apply w-12 h-12 text-gray-900 hover:text-primary transition-colors duration-200 cursor-pointer;
-    }
-    
-    .drop-cap {
-        @apply float-left text-[32px] leading-[1] font-semibold mr-[6px] align-[baseline] mt-[1px];
-    }
+  .tech-icon {
+    @apply w-12 h-12 text-gray-900 hover:text-primary transition-colors duration-200 cursor-pointer;
+  }
+
+  .drop-cap {
+    @apply float-left text-[32px] leading-[1] font-semibold mr-[6px] align-[baseline] mt-[1px];
+  }
 }
 
 .drop-cap-container::first-letter {
-    float: left;
-    font-size: 3.5rem;
-    line-height: 3rem;
-    font-weight: bold;
-    color: #FF6B35;
-    margin-right: 8px;
-    margin-top: 6px;
+  float: left;
+  font-size: 3.5rem;
+  line-height: 3rem;
+  font-weight: bold;
+  color: #ff6b35;
+  margin-right: 8px;
+  margin-top: 6px;
 }
-

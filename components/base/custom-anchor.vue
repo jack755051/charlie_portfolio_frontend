@@ -1,8 +1,8 @@
 <template>
   <div class="custom-anchor">
     <ul class="anchor-list">
-      <li 
-        v-for="item in anchorData" 
+      <li
+        v-for="item in anchorData"
         :key="item.key"
         class="anchor-item"
         :class="{ active: activeAnchor === item.key }"
@@ -31,9 +31,9 @@ const scrollToSection = (sectionId: string) => {
   const targetElement = document.getElementById(sectionId)
   if (targetElement) {
     // 使用 scrollIntoView 來平滑滾動
-    targetElement.scrollIntoView({ 
+    targetElement.scrollIntoView({
       behavior: 'smooth',
-      block: 'start'
+      block: 'start',
     })
     activeAnchor.value = sectionId
   }
@@ -42,19 +42,21 @@ const scrollToSection = (sectionId: string) => {
 // 監聽滾動事件來更新當前活躍的錨點
 const handleScroll = () => {
   if (!props.anchorData) return
-  
+
   const scrollContainer = document.querySelector('.snap-y.snap-mandatory')
   if (!scrollContainer) return
-  
+
   const scrollTop = scrollContainer.scrollTop
-  const sections = props.anchorData.map(item => ({
-    id: item.key,
-    element: document.getElementById(item.key)
-  })).filter(item => item.element)
-  
+  const sections = props.anchorData
+    .map(item => ({
+      id: item.key,
+      element: document.getElementById(item.key),
+    }))
+    .filter(item => item.element)
+
   // 找到當前視窗中的區塊
   let currentSection = sections[0]?.id || ''
-  
+
   for (const section of sections) {
     if (section.element) {
       const rect = section.element.getBoundingClientRect()
@@ -64,7 +66,7 @@ const handleScroll = () => {
       }
     }
   }
-  
+
   activeAnchor.value = currentSection
 }
 
