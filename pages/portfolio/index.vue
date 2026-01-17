@@ -86,9 +86,9 @@
 <script setup lang="ts">
 // ... logic 保持不變，只改 Template 樣式
 import { useMockStore } from "~/stores/useMockStore";
-import { useAnchor } from "~/composable/useAnchor";
-import CAnchor from "~/components/base/cAnchor.vue";
-import CPortfolioCard from "~/components/base/cPortfolioCard.vue";
+import { useAnchor } from "~/composables/useAnchor";
+import CAnchor from "~/components/base/anchor.vue";
+import CPortfolioCard from "~/components/base/portfolio-card.vue";
 import ScrollSection from "~/layouts/scrollSection.vue";
 
 const mockStore = useMockStore();

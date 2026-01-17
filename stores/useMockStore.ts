@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import type {RouterLink} from "~/types/foundation.interface";
-import type { IPortfolio } from '~/types/protfolio.interface';
+import type { IPortfolio } from '~/types/portfolio.interface';
 import type { ITechnologyStack } from '~/types/technologyStack.interface';
 import type { ITimeline } from '~/types/timeline.interface';
 import { getIconComponent } from '~/utils/iconMap';
@@ -10,7 +10,8 @@ export const useMockStore = defineStore('mock',()=>{
     const routerLink = ref<RouterLink[]>([
         { router: '/', label: '首頁' },
         { router: '/about', label: '關於' },
-        { router: '/portfolio', label: '作品集' }
+        { router: '/portfolio', label: '作品集' },
+        { router: '/experience', label: '經驗與日誌' }
     ])
 
     const timelineData = ref<ITimeline>({

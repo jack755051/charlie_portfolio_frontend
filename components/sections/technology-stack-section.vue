@@ -58,8 +58,8 @@
 </template>
 
 <script setup lang="ts">
-import { useTechStack } from "~/composable/useTechStack";
-import CTechCard from "~/components/base/CTechCard.vue"; // 使用新的組件
+import { useTechStack } from "~/composables/useTechStack";
+import CTechCard from "~/components/base/tech-card.vue";
 import ScrollSection from "~/layouts/scrollSection.vue";
 
 const techStore = useTechStack();

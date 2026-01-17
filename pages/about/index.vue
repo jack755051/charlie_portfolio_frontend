@@ -11,23 +11,23 @@
         ></CAnchor>
         
         <div class="snap-y snap-mandatory h-full overflow-y-scroll scroll-smooth pt-[60px] relative z-10">
-            <div class="w-full pb-20"> <AboutSection />
-                
+            <div class="w-full pb-20"> 
+                <AboutSection />
                 <ExperienceSection />
-                
                 <TechnologyStackSection />
-                
+                <AboutLeetcodeSection />
             </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { useAnchor } from "~/composable/useAnchor";
-import CAnchor from "~/components/base/cAnchor.vue";
+import { useAnchor } from "~/composables/useAnchor";
+import CAnchor from "~/components/base/anchor.vue";
 import AboutSection from "~/components/sections/about-section.vue";
 import ExperienceSection from "~/components/sections/experience-section.vue";
 import TechnologyStackSection from "~/components/sections/technology-stack-section.vue";
+import AboutLeetcodeSection from "~/components/sections/about-leetcode-section.vue";
 
 const anchorData = useAnchor();
 </script>

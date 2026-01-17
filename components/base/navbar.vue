@@ -24,7 +24,7 @@
 <script setup lang="ts">
 import type {RouterLink} from "~/types/foundation.interface";
 import { useMockStore } from "~/stores/useMockStore";
-import Logo from '~/assets/image/sanring-logo.svg';
+import Logo from '~/assets/images/sanring-logo.svg';
 
 const mockStore = useMockStore()
 const router = useRouter()

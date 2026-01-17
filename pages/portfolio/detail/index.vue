@@ -171,7 +171,7 @@
 <script lang="ts" setup>
 import { useMockStore } from "~/stores/useMockStore";
 import { getIconComponent } from '~/utils/iconMap';
-import type { IPortfolio } from '~/types/protfolio.interface';
+import type { IPortfolio } from '~/types/portfolio.interface';
 
 const mockStore = useMockStore();
 const router = useRouter();

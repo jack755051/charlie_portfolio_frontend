@@ -62,7 +62,7 @@
 </template>
 
 <script setup lang="ts">
-import type { IExperience } from '~/composable/useExperience';
+import type { IExperience } from '~/composables/useExperience';
 
 defineProps<{
     timelineData: IExperience[]

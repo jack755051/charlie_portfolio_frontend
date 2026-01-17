@@ -88,7 +88,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
-import CButton from "~/components/base/cButton.vue"
+import CButton from "~/components/base/button.vue"
 import ScrollSection from "~/layouts/scrollSection.vue"
 
 /** 點擊 了解更多 後導航到關於頁面 */

@@ -103,12 +103,12 @@
 </template>
 
 <script setup lang="ts">
-import ScrollSection from "~/layouts/scrollSection.vue";
-import { ExternalLinks } from "~/apis/url";
-import GithubIcon from "assets/image/git-icon.svg";
-import NpmIcon from "assets/image/npm-icon.svg";
+// import ScrollSection from "~/layouts/scrollSection.vue";
+import { ExternalLinks } from "~/api/url";
+import GithubIcon from "assets/images/git-icon.svg";
+import NpmIcon from "assets/images/npm-icon.svg";
 import { openExternalLink } from "~/utils/navigation";
-import { useAbout } from "~/composable/useAbout";
+import { useAbout } from "~/composables/useAbout";
 
 const aboutData = useAbout();
 const handlerOpenOtherWindow = openExternalLink;

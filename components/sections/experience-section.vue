@@ -20,8 +20,8 @@
 </template>
 
 <script setup lang="ts">
-import { useExperience } from "~/composable/useExperience"; // 記得改成新的路徑
-import CTimeline from "~/components/base/cTimeline.vue";
+import { useExperience } from "~/composables/useExperience";
+import CTimeline from "~/components/base/timeline.vue";
 import ScrollSection from "~/layouts/scrollSection.vue";
 
 const experience = useExperience();

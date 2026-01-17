@@ -19,9 +19,9 @@
 </template>
 
 <script setup lang="ts">
-import CAnchor from "~/components/base/cAnchor.vue"
-import HomeTerminal from "~/components/features/homeTerminal.vue"
-import { useAnchor } from "~/composable/useAnchor"
+import CAnchor from "~/components/base/anchor.vue"
+import HomeTerminal from "~/components/features/home-terminal.vue"
+import { useAnchor } from "~/composables/useAnchor"
 
 const anchorData = useAnchor()
 </script>

@@ -10,7 +10,8 @@ export const useAnchor = () => {
     const anchorAboutPage = ref<IAnchor[]>([
         { key: 'section1', href: '#section1', title: '關於我' },
         { key: 'section2', href: '#section2', title: '我的經驗' },
-        { key: 'section3', href: '#section3', title: '我的技術棧' }
+        { key: 'section3', href: '#section3', title: '我的技術棧' },
+        { key: 'section4', href: '#section4', title: 'Leetcode挑戰' }
     ]);
     /**作品集頁面錨點*/
     const anchorPortfolioPage = ref<IAnchor[]>([

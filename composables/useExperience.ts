@@ -1,4 +1,4 @@
-// composable/useExperience.ts
+// composables/useExperience.ts
 import { ref } from 'vue'
 
 export interface IExperience {

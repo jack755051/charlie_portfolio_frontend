@@ -37,8 +37,8 @@
 </template>
 
 <script lang="ts" setup>
-import type { ITechItem } from '~/composable/useTechStack';
-import { getIconComponent } from '~/utils/iconMap'; // 假設您有這個工具
+import type { ITechItem } from '~/composables/useTechStack';
+import { getIconComponent } from '~/utils/iconMap';
 
 interface Props {
     title: string

@@ -4,9 +4,6 @@ import svgLoader from "vite-svg-loader";
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   ssr: false,
-  nitro: {
-    preset: 'static'
-  },
   app: {
     head: {
       link: [
@@ -25,4 +22,7 @@ export default defineNuxtConfig({
     },
   css: ['@/assets/css/tailwind.css'],
   devtools: { enabled: true },
+  build: {
+        transpile: [/echarts/],
+    }
 })
