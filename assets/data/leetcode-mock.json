@@ -1,0 +1,281 @@
+{
+  "totalSolved": 32,
+
+  "totalSubmissions": [
+    {
+      "difficulty": "All",
+
+      "count": 34,
+
+      "submissions": 57
+    },
+
+    {
+      "difficulty": "Easy",
+
+      "count": 31,
+
+      "submissions": 50
+    },
+
+    {
+      "difficulty": "Medium",
+
+      "count": 3,
+
+      "submissions": 7
+    },
+
+    {
+      "difficulty": "Hard",
+
+      "count": 0,
+
+      "submissions": 0
+    }
+  ],
+
+  "totalQuestions": 3808,
+
+  "easySolved": 29,
+
+  "totalEasy": 922,
+
+  "mediumSolved": 3,
+
+  "totalMedium": 1986,
+
+  "hardSolved": 0,
+
+  "totalHard": 900,
+
+  "ranking": 2970849,
+
+  "contributionPoint": 69,
+
+  "reputation": 0,
+
+  "submissionCalendar": {
+    "1766188800": 1,
+
+    "1766275200": 2,
+
+    "1766361600": 4,
+
+    "1766448000": 1,
+
+    "1766620800": 2
+  },
+
+  "recentSubmissions": [
+    {
+      "title": "Remove Linked List Elements",
+
+      "titleSlug": "remove-linked-list-elements",
+
+      "timestamp": "1766650035",
+
+      "statusDisplay": "Accepted",
+
+      "lang": "typescript",
+
+      "__typename": "SubmissionDumpNode"
+    },
+
+    {
+      "title": "Remove Linked List Elements",
+
+      "titleSlug": "remove-linked-list-elements",
+
+      "timestamp": "1766649503",
+
+      "statusDisplay": "Wrong Answer",
+
+      "lang": "typescript",
+
+      "__typename": "SubmissionDumpNode"
+    },
+
+    {
+      "title": "Spiral Matrix II",
+
+      "titleSlug": "spiral-matrix-ii",
+
+      "timestamp": "1766502970",
+
+      "statusDisplay": "Accepted",
+
+      "lang": "typescript",
+
+      "__typename": "SubmissionDumpNode"
+    },
+
+    {
+      "title": "Minimum Size Subarray Sum",
+
+      "titleSlug": "minimum-size-subarray-sum",
+
+      "timestamp": "1766428003",
+
+      "statusDisplay": "Accepted",
+
+      "lang": "typescript",
+
+      "__typename": "SubmissionDumpNode"
+    },
+
+    {
+      "title": "Minimum Size Subarray Sum",
+
+      "titleSlug": "minimum-size-subarray-sum",
+
+      "timestamp": "1766427905",
+
+      "statusDisplay": "Wrong Answer",
+
+      "lang": "typescript",
+
+      "__typename": "SubmissionDumpNode"
+    },
+
+    {
+      "title": "Minimum Size Subarray Sum",
+
+      "titleSlug": "minimum-size-subarray-sum",
+
+      "timestamp": "1766426766",
+
+      "statusDisplay": "Compile Error",
+
+      "lang": "typescript",
+
+      "__typename": "SubmissionDumpNode"
+    },
+
+    {
+      "title": "Minimum Size Subarray Sum",
+
+      "titleSlug": "minimum-size-subarray-sum",
+
+      "timestamp": "1766381706",
+
+      "statusDisplay": "Wrong Answer",
+
+      "lang": "typescript",
+
+      "__typename": "SubmissionDumpNode"
+    },
+
+    {
+      "title": "Squares of a Sorted Array",
+
+      "titleSlug": "squares-of-a-sorted-array",
+
+      "timestamp": "1766320409",
+
+      "statusDisplay": "Accepted",
+
+      "lang": "typescript",
+
+      "__typename": "SubmissionDumpNode"
+    },
+
+    {
+      "title": "Remove Element",
+
+      "titleSlug": "remove-element",
+
+      "timestamp": "1766291762",
+
+      "statusDisplay": "Accepted",
+
+      "lang": "typescript",
+
+      "__typename": "SubmissionDumpNode"
+    },
+
+    {
+      "title": "Binary Search",
+
+      "titleSlug": "binary-search",
+
+      "timestamp": "1766247390",
+
+      "statusDisplay": "Accepted",
+
+      "lang": "typescript",
+
+      "__typename": "SubmissionDumpNode"
+    }
+  ],
+
+  "matchedUserStats": {
+    "acSubmissionNum": [
+      {
+        "difficulty": "All",
+
+        "count": 32,
+
+        "submissions": 45
+      },
+
+      {
+        "difficulty": "Easy",
+
+        "count": 29,
+
+        "submissions": 41
+      },
+
+      {
+        "difficulty": "Medium",
+
+        "count": 3,
+
+        "submissions": 4
+      },
+
+      {
+        "difficulty": "Hard",
+
+        "count": 0,
+
+        "submissions": 0
+      }
+    ],
+
+    "totalSubmissionNum": [
+      {
+        "difficulty": "All",
+
+        "count": 34,
+
+        "submissions": 57
+      },
+
+      {
+        "difficulty": "Easy",
+
+        "count": 31,
+
+        "submissions": 50
+      },
+
+      {
+        "difficulty": "Medium",
+
+        "count": 3,
+
+        "submissions": 7
+      },
+
+      {
+        "difficulty": "Hard",
+
+        "count": 0,
+
+        "submissions": 0
+      }
+    ]
+  }
+}

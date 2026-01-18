@@ -1,7 +1,6 @@
 import { transformLeetCodeStats } from '~/api/mapper/leetcodeMapper'
-import type { LeetCodeProfileResponse } from '~/api/response/leetcode.response.dto'
-import { USER_PROFILE_QUERY } from '~/constants/Common.contant'
 import type { LeetCodeStats } from '~/types/leetcode.interface'
+import mockData from '~/assets/data/leetcode-mock.json'
 
 export const useLeetcodeStore = defineStore('leetcode', {
   state: () => ({
@@ -21,26 +20,28 @@ export const useLeetcodeStore = defineStore('leetcode', {
       this.error = null
 
       try {
-        // 修改重點：只傳 username，不傳 query 了
-        const { data, error } = await useFetch('/api/leetcode', {
-          method: 'POST',
-          body: { username },
-        })
+        // --- 模擬 API 請求 ---
 
-        if (error.value) throw new Error(error.value.message)
+        // 1. 模擬網路延遲 (0.5秒)，讓 Loading 動畫跑一下，使用者體驗比較好
+        await new Promise(resolve => setTimeout(resolve, 500))
 
-        if (data.value) {
-          // 這裡傳進去的 data.value 已經是新格式，Mapper 會處理好
-          this.stats = transformLeetCodeStats(data.value)
-        }
+        // 2. 使用引入的 mockData，並經過 Mapper 清洗
+        // transformLeetCodeStats 會幫你算出百分比、格式化日期
+        const cleanedData = transformLeetCodeStats(mockData)
+
+        // 3. 存入 State
+        this.stats = cleanedData
+
+        console.log('LeetCode Data Loaded (Mock Mode from JSON file)')
       } catch (error: any) {
-        console.error('Failed to fetch LeetCode data:', error)
+        console.error('Failed to load LeetCode data:', error)
         this.error = error.message
       } finally {
         this.loading = false
       }
     },
-    // 執行api回傳的資料存入store
+
+    // 這個 action 如果沒用到可以移除，因為我們直接在 fetch 裡設定了
     handleSetLeetcodeData(payload: LeetCodeStats) {
       this.stats = payload
     },
