@@ -10,10 +10,10 @@
       <div class="flex-1 space-y-10">
         <div class="space-y-4">
           <h3 class="text-2xl font-bold text-slate-700 flex items-center gap-3">
-            <span class="text-2xl">👋</span> {{ $t(aboutData.intro.titleKey) }}
+            <span class="text-2xl">👋</span> {{ $t('about.section1.intro.title') }}
           </h3>
           <p class="text-slate-600 leading-relaxed text-justify text-lg">
-            {{ $t(aboutData.intro.contentKey) }}
+            {{ $t('about.section1.intro.content') }}
           </p>
         </div>
 
@@ -22,28 +22,29 @@
         <div class="space-y-4">
           <h4 class="text-lg font-bold text-slate-800 flex items-center gap-2">
             <span class="w-1.5 h-6 bg-orange-500 rounded-full"></span>
-            {{ $t(aboutData.techStack.titleKey) }}
+            {{ $t('about.section1.techStack.title') }}
           </h4>
           <p class="text-slate-600 leading-relaxed text-justify">
-            {{ $t(aboutData.techStack.contentKey) }}
+            {{ $t('about.section1.techStack.content') }}
           </p>
         </div>
 
         <div class="space-y-4">
           <h4 class="text-lg font-bold text-slate-800 flex items-center gap-2">
             <span class="w-1.5 h-6 bg-blue-500 rounded-full"></span>
-            {{ $t(aboutData.experience.titleKey) }}
+            {{ $t('about.section1.experience.title') }}
           </h4>
           <p class="text-slate-600 leading-relaxed text-justify mb-2">
             {{ $t('about.section1.experience.content') }}
           </p>
+
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div
               class="p-4 bg-white/60 backdrop-blur-sm border border-slate-200/60 rounded-2xl hover:bg-white hover:shadow-lg hover:shadow-orange-100/50 hover:border-orange-200 transition-all duration-300 group cursor-default"
             >
               <div class="flex items-center justify-between mb-2">
                 <div class="text-xs text-orange-500 font-bold bg-orange-50 px-2 py-1 rounded-md">
-                  {{ $t('about.section1.experience.internalTools') }}
+                  {{ $t('about.section1.experience.highlight1') }}
                 </div>
                 <div
                   class="w-2 h-2 rounded-full bg-orange-400 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -52,7 +53,7 @@
               <div
                 class="font-bold text-slate-800 text-lg group-hover:text-orange-600 transition-colors"
               >
-                {{ $t('about.section1.experience.systalkAdminHub') }}
+                {{ $t('about.section1.experience.highlight2') }}
               </div>
             </div>
           </div>
@@ -63,19 +64,22 @@
         <div
           class="bg-white/80 backdrop-blur-md border border-white/50 p-6 rounded-3xl shadow-xl shadow-slate-200/50"
         >
-          <h4 class="font-bold text-slate-800 mb-3 flex items-center gap-2">
-            <span class="animate-bounce">🚀</span> {{ $t(aboutData.passion.titleKey) }}
+          <h4 class="font-bold text-slate-800 mb-4 flex items-center gap-2">
+            <span class="animate-bounce">🚀</span> {{ $t('about.section1.passion.title') }}
           </h4>
-          <p class="text-sm text-slate-600 leading-relaxed mb-4">
-            {{ $t(aboutData.passion.contentKey) }}
+          <p class="text-sm text-slate-600 leading-relaxed mb-6">
+            {{ $t('about.section1.passion.content') }}
           </p>
-          <div class="flex flex-wrap gap-2">
+
+          <div class="flex flex-wrap gap-3">
             <span
-              v-for="(tag, index) in $t(aboutData.tagsKey)"
+              v-for="(tag, index) in $tm('about.section1.tags')"
               :key="index"
-              class="px-3 py-1 bg-slate-50 text-slate-600 text-xs font-medium rounded-full border border-slate-200/60"
+              class="px-4 py-1.5 bg-white text-slate-600 text-xs font-bold rounded-full border border-slate-200 shadow-sm hover:border-orange-300 hover:text-orange-500 hover:shadow-md transition-all duration-300 cursor-default flex items-center gap-1"
             >
-              # {{ tag }}
+              <span class="text-slate-400 font-normal">#</span>
+
+              {{ $rt(tag) }}
             </span>
           </div>
         </div>
@@ -117,8 +121,7 @@ import { ExternalLinks } from '~/api/url'
 import GithubIcon from 'assets/images/git-icon.svg'
 import NpmIcon from 'assets/images/npm-icon.svg'
 import { openExternalLink } from '~/utils/navigation'
-import { useAbout } from '~/composables/useAbout'
 
-const aboutData = useAbout()
+// 移除 useAbout，直接在 Template 使用 $t 即可
 const handlerOpenOtherWindow = openExternalLink
 </script>

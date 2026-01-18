@@ -14,19 +14,17 @@ export default defineNuxtConfig({
   },
   modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@ant-design-vue/nuxt', '@nuxtjs/i18n'],
   i18n: {
-    vueI18n: './i18n.config.ts',
-    lazy: true,
-    langDir: 'locales',
     locales: [
-      { code: 'en', iso: 'en-US', name: 'English', file: 'en.json' },
-      { code: 'zh', iso: 'zh-TW', name: '繁體中文', file: 'zh.json' },
+      { code: 'en', file: 'en.json' },
+      { code: 'zh', file: 'zh.json' },
     ],
+    lazy: false,
+    langDir: 'locales',
     defaultLocale: 'zh',
     strategy: 'no_prefix',
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root',
+    compilation: {
+      strictMessage: false,
+      escapeHtml: false,
     },
   },
   vite: {

@@ -14,13 +14,13 @@
       },
       "techStack": {
         "title": "Tech Transformation & Full-Stack Vision",
-        "content": "Previously focused on Angular, I successfully transitioned to the Vue ecosystem due to strategic adjustments, currently specializing in Vue 3 and Nuxt applications. Not satisfied with just frontend development, I further explored Node.js (NestJS) and Docker containerization, capable of independently building frontend-backend architecture and deployment environments, allowing me to understand data flow and system boundaries more precisely in collaboration."
+        "content": "Previously focused on Angular, I successfully transitioned to the Vue ecosystem due to strategic adjustments, currently specializing in Vue 3 and Nuxt applications. Not satisfied with just frontend development, I further explored Node.js (NestJS) and Docker containerization, capable of independently building frontend-backend architecture and deployment environments."
       },
       "experience": {
         "title": "Project Practice & Product Development",
-        "content": "Experienced in B2B and B2G development. Participated in government projects such as \"Indigenous Housing Business System\" and \"Indigenous Knowledge System\". On the product side, involved in \"Systalk Chat\" dialogue system development, and responsible for frontend architecture design and implementation of internal key systems \"AdminHub API Management Platform\" and \"ICR Intelligent Recognition System\".",
-        "internalTools": "Internal Tools",
-        "systalkAdminHub": "Systalk AdminHub"
+        "content": "Experienced in B2B and B2G development. Focused on building high-complexity management systems and interactive platforms.",
+        "highlight1": "Internal Tools",
+        "highlight2": "Systalk AdminHub"
       },
       "passion": {
         "title": "Open Source Spirit & Continuous Improvement",
@@ -39,7 +39,64 @@
     "section2": {
       "titleMain": "Professional",
       "titleHighlight": "Experience",
-      "subtitle": "My Professional Journey."
+      "subtitle": "My Professional Journey.",
+      "list": [
+        {
+          "company": "TPIsoftware",
+          "role": "Frontend Engineer",
+          "period": "2024.07 - Present",
+          "isActive": true,
+          "description": "Focused on frontend development for AI conversational products and enterprise management systems. Responsible for transforming complex AI logic into intuitive conversational interfaces and building scalable backend architectures.",
+          "projects": [
+            "Systalk AdminHub",
+            "Systalk.Audit",
+            "TransGlobe Life ICR POC",
+            "Feastogether Chatbot",
+            "YouBike Chatbot"
+          ],
+          "stack": [
+            "Angular",
+            "TypeScript",
+            "Tailwind",
+            "Ngrx",
+            "RxJS",
+            "Docker",
+            "Systalk.Flow"
+          ]
+        },
+        {
+          "company": "SYSTEX",
+          "role": "Frontend Engineer",
+          "period": "2024.04 - 2024.06",
+          "isActive": false,
+          "description": "Participated in the development of large-scale government pension systems, focusing on complex form logic processing and legacy system migration.",
+          "projects": ["Public School Teachers Retirement System"],
+          "stack": ["Angular", "TypeScript", "Tailwind", "Ngrx"]
+        },
+        {
+          "company": "HaMaStar",
+          "role": "Frontend Engineer",
+          "period": "2021.11 - 2024.03",
+          "isActive": false,
+          "description": "Served as the lead frontend developer, spanning e-book malls, government tenders, and system maintenance. Capable of maintaining multiple projects simultaneously and switching contexts quickly.",
+          "projects": [
+            "Indigenous Knowledge System",
+            "Indigenous Housing Subsidy System",
+            "Taipei City Gazette",
+            "E-book Systems"
+          ],
+          "stack": ["Angular", "Ngrx", "TypeScript", "JavaScript"]
+        },
+        {
+          "company": "Institute for Information Industry (III)",
+          "role": "Frontend Trainee",
+          "period": "2021.05 - 2021.10",
+          "isActive": false,
+          "description": "Established a solid foundation in web development through high-intensity training, covering HTML/CSS/JS core concepts and framework basics.",
+          "projects": [],
+          "stack": ["HTML/CSS", "JavaScript", "Vue.js Basics"]
+        }
+      ]
     },
     "section3": {
       "titleMain": "Tech",

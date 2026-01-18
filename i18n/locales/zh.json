@@ -5,9 +5,9 @@
   },
   "about": {
     "section1": {
-      "titleMain": "About",
-      "titleHighlight": "Me.",
-      "subtitle": "Frontend Developer & UI/UX Enthusiast.",
+      "titleMain": "關於",
+      "titleHighlight": "我",
+      "subtitle": "前端開發者 & UI/UX 愛好者",
       "intro": {
         "title": "從興趣到專業的技術旅程",
         "content": "開發不僅是工作，更是我探索問題解方的途徑。從自學起步到成為專職工程師，我享受將複雜邏輯轉化為流暢使用者體驗的過程。"
@@ -19,8 +19,8 @@
       "experience": {
         "title": "專案實戰與產品開發",
         "content": "擁有豐富的 B2B 與 B2G 開發經驗，專注於構建高複雜度的管理系統與互動平台。",
-        "internalTools": "Internal Tools",
-        "systalkAdminHub": "Systalk AdminHub"
+        "highlight1": "內部工具",
+        "highlight2": "Systalk AdminHub"
       },
       "passion": {
         "title": "開源精神與持續精進",
@@ -37,14 +37,71 @@
       "quote": "Coding is not just about functionality, it is about creating art in logic."
     },
     "section2": {
-      "titleMain": "Professional",
-      "titleHighlight": "Experience",
-      "subtitle": "My Professional Journey."
+      "titleMain": "職場",
+      "titleHighlight": "經歷",
+      "subtitle": "我的專業旅程",
+      "list": [
+        {
+          "company": "昕力科技 (TPIsoftware)",
+          "role": "前端工程師",
+          "period": "2024.07 - 至今",
+          "isActive": true,
+          "description": "專注於 AI 對話產品與企業級管理系統的前端開發。負責將複雜的 AI 邏輯轉化為直觀的對話介面，並構建高擴展性的後台架構。",
+          "projects": [
+            "Systalk AdminHub (金鑰管理平台)",
+            "Systalk.Audit (稽核系統)",
+            "全球人壽 ICR POC",
+            "饗賓餐旅 Chatbot",
+            "微笑單車 Chatbot"
+          ],
+          "stack": [
+            "Angular",
+            "TypeScript",
+            "Tailwind",
+            "Ngrx",
+            "RxJS",
+            "Docker",
+            "Systalk.Flow"
+          ]
+        },
+        {
+          "company": "精誠資訊 (SYSTEX)",
+          "role": "前端工程師",
+          "period": "2024.04 - 2024.06",
+          "isActive": false,
+          "description": "參與政府大型退休撫卹系統開發，專注於複雜表單邏輯處理與舊系統移轉。",
+          "projects": ["全國公教人員退休撫卹系統"],
+          "stack": ["Angular", "TypeScript", "Tailwind", "Ngrx"]
+        },
+        {
+          "company": "哈瑪星科技 (HaMaStar)",
+          "role": "前端工程師",
+          "period": "2021.11 - 2024.03",
+          "isActive": false,
+          "description": "擔任主力前端開發，跨足電子書商城、政府標案與系統維運。具備同時維護多個專案並快速切換 context 的能力。",
+          "projects": [
+            "原住民族知識體系",
+            "原住民族住宅業務補助系統",
+            "台北市公報網",
+            "電子書系統 (三民/奇鼎/龍騰)"
+          ],
+          "stack": ["Angular", "Ngrx", "TypeScript", "JavaScript"]
+        },
+        {
+          "company": "資策會 (III)",
+          "role": "前端培訓生",
+          "period": "2021.05 - 2021.10",
+          "isActive": false,
+          "description": "透過高強度的集訓，建立紮實的網頁開發基礎，包含 HTML/CSS/JS 核心觀念與框架入門。",
+          "projects": [],
+          "stack": ["HTML/CSS", "JavaScript", "Vue.js Basics"]
+        }
+      ]
     },
     "section3": {
-      "titleMain": "Tech",
-      "titleHighlight": "Stack",
-      "subtitle": "Modern Toolkit.",
+      "titleMain": "核心",
+      "titleHighlight": "技術",
+      "subtitle": "現代化開發工具箱",
       "categories": {
         "frontend": {
           "title": "核心前端框架",
@@ -78,15 +135,15 @@
       }
     },
     "section4": {
-      "titleMain": "Algorithm",
-      "titleHighlight": "Journey",
-      "subtitle": "Problem Solving & Logic Training.",
-      "progressOverview": "Progress Overview",
-      "solvedTotal": "Solved / Total",
-      "difficultyBreakdown": "Difficulty Breakdown",
-      "recentActivity": "Recent Activity",
-      "latestSubmissions": "Latest 5 Submissions",
-      "noSubmissions": "No recent submissions found."
-    }
+          "titleMain": "演算法",
+          "titleHighlight": "修煉",
+          "subtitle": "磨練邏輯思維與解題能力",
+          "progressOverview": "解題進度",
+          "solvedTotal": "解題數 / 總題數",
+          "difficultyBreakdown": "難度分佈",
+          "recentActivity": "近期活動",
+          "latestSubmissions": "最近 5 筆提交",
+          "noSubmissions": "查無近期提交紀錄"
+        }
   }
 }

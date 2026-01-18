@@ -19,14 +19,14 @@
 
       <div class="flex flex-col md:flex-row items-start md:items-top justify-between w-full">
         <div class="hidden md:block w-[42%] text-right pr-8 pt-4">
-          <div class="text-xl font-bold text-slate-800">{{ item.company }}</div>
-          <div class="text-orange-500 font-mono text-sm mt-1">{{ item.period }}</div>
+          <div class="text-xl font-bold text-slate-800">{{ $rt(item.company) }}</div>
+          <div class="text-orange-500 font-mono text-sm mt-1">{{ $rt(item.period) }}</div>
         </div>
 
         <div class="w-full pl-8 md:pl-8 md:w-[48%]">
           <div class="md:hidden mb-2 ml-2">
-            <h3 class="text-lg font-bold text-slate-800">{{ item.company }}</h3>
-            <span class="text-xs text-orange-500 font-mono">{{ item.period }}</span>
+            <h3 class="text-lg font-bold text-slate-800">{{ $rt(item.company) }}</h3>
+            <span class="text-xs text-orange-500 font-mono">{{ $rt(item.period) }}</span>
           </div>
 
           <div
@@ -36,32 +36,32 @@
               <span
                 class="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-orange-400 transition-colors"
               ></span>
-              {{ item.role }}
+              {{ $rt(item.role) }}
             </h4>
 
             <p class="text-sm text-slate-500 leading-relaxed mb-3 text-justify">
-              {{ item.description }}
+              {{ $rt(item.description) }}
             </p>
 
-            <div v-if="item.projects.length" class="mb-3">
+            <div v-if="item.projects && item.projects.length" class="mb-3">
               <div class="flex flex-wrap gap-1.5">
                 <span
-                  v-for="proj in item.projects"
-                  :key="proj"
+                  v-for="(proj, pIndex) in item.projects"
+                  :key="pIndex"
                   class="px-2 py-0.5 bg-slate-50 text-slate-600 text-[11px] rounded border border-slate-200"
                 >
-                  {{ proj }}
+                  {{ $rt(proj) }}
                 </span>
               </div>
             </div>
 
             <div class="pt-3 border-t border-slate-50 flex flex-wrap gap-1.5">
               <span
-                v-for="tech in item.stack"
-                :key="tech"
+                v-for="(tech, tIndex) in item.stack"
+                :key="tIndex"
                 class="text-[10px] font-bold text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded"
               >
-                #{{ tech }}
+                #{{ $rt(tech) }}
               </span>
             </div>
           </div>
@@ -72,15 +72,14 @@
 </template>
 
 <script setup lang="ts">
-import type { IExperience } from '~/composables/useExperience'
-
+// 我們稍微放寬 Props 的型別檢查，因為 $tm 回傳的型別比較複雜
+// 或者你可以保留 IExperience[]，但要確保使用時都透過 $rt 解析字串屬性
 defineProps<{
-  timelineData: IExperience[]
+  timelineData: any[] 
 }>()
 </script>
 
 <style scoped>
-/* 可選：增加一點進場動畫 */
 .group-card {
   will-change: transform, box-shadow;
 }
