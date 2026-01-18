@@ -35,10 +35,10 @@
 <script setup lang="ts">
 import { useAnchor } from '~/composables/useAnchor'
 import CAnchor from '~/components/base/anchor.vue'
-import AboutSection from '~/components/sections/about-section.vue'
-import ExperienceSection from '~/components/sections/experience-section.vue'
-import TechnologyStackSection from '~/components/sections/technology-stack-section.vue'
-import AboutLeetcodeSection from '~/components/sections/leetcode-section.vue'
+import AboutSection from '~/components/about/about-section.vue'
+import ExperienceSection from '~/components/about/experience-section.vue'
+import TechnologyStackSection from '~/components/about/technology-stack-section.vue'
+import AboutLeetcodeSection from '~/components/about/leetcode-section.vue'
 
 const anchorData = useAnchor()
 </script>

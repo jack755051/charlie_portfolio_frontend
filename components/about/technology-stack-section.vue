@@ -4,7 +4,7 @@
     id="section3"
     title-main="Tech"
     title-highlight="Stack"
-    subtitle="以現代化工具構建高效能、高擴展性的應用程式"
+    subtitle="Modern Toolkit."
   >
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
       <CTechCard

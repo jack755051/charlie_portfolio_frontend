@@ -4,7 +4,7 @@
     id="section4"
     title-main="Algorithm"
     title-highlight="Journey"
-    subtitle="持續鍛鍊邏輯思維，保持代碼手感"
+    subtitle="Problem Solving & Logic Training."
   >
     <div v-if="leetcodeStore.loading" class="flex justify-center py-20">
       <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>

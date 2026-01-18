@@ -4,7 +4,7 @@
     id="section1"
     title-main="About"
     title-highlight="Me."
-    subtitle="熱愛技術，專注細節，致力於打造最佳使用者體驗"
+    subtitle="Frontend Developer & UI/UX Enthusiast."
   >
     <div class="flex flex-col md:flex-row gap-12 items-start">
       <div class="flex-1 space-y-10">

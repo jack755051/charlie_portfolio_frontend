@@ -4,7 +4,7 @@
     id="section2"
     title-main="Professional"
     title-highlight="Experience"
-    subtitle="從實戰中累積經驗，將技術轉化為價值"
+    subtitle="My Professional Journey."
   >
     <CTimeline :timeline-data="experience.experienceData.value" />
   </AboutSection>
