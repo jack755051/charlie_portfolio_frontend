@@ -2,9 +2,9 @@
   <AboutSection
     ref="aboutLeetcode"
     id="section4"
-    title-main="Algorithm"
-    title-highlight="Journey"
-    subtitle="Problem Solving & Logic Training."
+    :title-main="$t('about.section4.titleMain')"
+    :title-highlight="$t('about.section4.titleHighlight')"
+    :subtitle="$t('about.section4.subtitle')"
   >
     <div v-if="leetcodeStore.loading" class="flex justify-center py-20">
       <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
@@ -22,13 +22,15 @@
             class="text-sm font-bold text-slate-500 mb-2 uppercase tracking-wider flex items-center gap-2"
           >
             <span class="w-2 h-2 rounded-full bg-slate-800"></span>
-            Progress Overview
+            {{ $t('about.section4.progressOverview') }}
           </h3>
           <div class="flex items-end gap-3 mt-4">
             <span class="text-7xl font-black text-slate-800 leading-none">{{ displayTotal }}</span>
             <div class="flex flex-col mb-2">
               <span class="text-slate-400 font-bold text-2xl">/ {{ stats?.totalQuestions }}</span>
-              <span class="text-slate-400 text-xs uppercase tracking-wide">Solved / Total</span>
+              <span class="text-slate-400 text-xs uppercase tracking-wide">{{
+                $t('about.section4.solvedTotal')
+              }}</span>
             </div>
           </div>
           <div class="w-full h-1.5 bg-slate-100 rounded-full mt-6 overflow-hidden">
@@ -42,7 +44,9 @@
         <div
           class="bg-white rounded-3xl p-6 shadow-lg shadow-slate-200/50 border border-slate-50 relative min-h-[320px] flex flex-col"
         >
-          <h4 class="text-slate-800 font-bold text-lg mb-4 text-center">Difficulty Breakdown</h4>
+          <h4 class="text-slate-800 font-bold text-lg mb-4 text-center">
+            {{ $t('about.section4.difficultyBreakdown') }}
+          </h4>
           <div class="flex-1 w-full relative">
             <client-only>
               <v-chart class="w-full h-[250px]" :option="pieOption" autoresize />
@@ -63,10 +67,10 @@
                 ></span>
                 <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
               </span>
-              Recent Activity
+              {{ $t('about.section4.recentActivity') }}
             </h3>
             <div class="text-xs font-medium text-slate-400 bg-slate-100 px-3 py-1 rounded-full">
-              Latest 5 Submissions
+              {{ $t('about.section4.latestSubmissions') }}
             </div>
           </div>
 
@@ -109,7 +113,7 @@
               </div>
             </template>
             <div v-else class="flex flex-col items-center justify-center py-10 text-slate-400">
-              <p>No recent submissions found.</p>
+              <p>{{ $t('about.section4.noSubmissions') }}</p>
             </div>
           </div>
         </div>
@@ -133,7 +137,7 @@ use([CanvasRenderer, PieChart, TooltipComponent, LegendComponent])
 const leetcodeStore = useLeetcodeStore()
 const stats = computed(() => leetcodeStore.userStats)
 const displayTotal = ref(0)
-// ... watch, chartOption, onMounted logic (保持原樣)
+
 watch(
   stats,
   newStats => {

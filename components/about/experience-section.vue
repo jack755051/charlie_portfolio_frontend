@@ -2,9 +2,9 @@
   <AboutSection
     ref="experienceSection"
     id="section2"
-    title-main="Professional"
-    title-highlight="Experience"
-    subtitle="My Professional Journey."
+    :title-main="$t('about.section2.titleMain')"
+    :title-highlight="$t('about.section2.titleHighlight')"
+    :subtitle="$t('about.section2.subtitle')"
   >
     <CTimeline :timeline-data="experience.experienceData.value" />
   </AboutSection>

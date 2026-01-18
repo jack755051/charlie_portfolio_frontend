@@ -2,16 +2,16 @@
   <AboutSection
     ref="technologyStackSection"
     id="section3"
-    title-main="Tech"
-    title-highlight="Stack"
-    subtitle="Modern Toolkit."
+    :title-main="$t('about.section3.titleMain')"
+    :title-highlight="$t('about.section3.titleHighlight')"
+    :subtitle="$t('about.section3.subtitle')"
   >
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
       <CTechCard
         v-for="(category, index) in techStore.techStack.value"
         :key="index"
-        :title="category.title"
-        :description="category.description"
+        :title="$t(category.titleKey)"
+        :description="$t(category.descriptionKey)"
         :stack="category.items"
         :class="category.class"
       />
@@ -30,13 +30,12 @@
           <h3
             class="text-2xl font-bold mb-3 flex items-center justify-center md:justify-start gap-2 text-white"
           >
-            持續進化中 🚀
+            {{ $t('about.section3.evolution.title') }}
           </h3>
-          <p class="text-slate-400 text-sm leading-relaxed">
-            技術是解決問題的工具，而學習是工程師的本能。<br class="hidden md:block" />
-            目前正在深入研究 <span class="text-orange-400 font-bold">WebGL</span> 與
-            <span class="text-orange-400 font-bold">系統架構設計</span>。
-          </p>
+          <p
+            class="text-slate-400 text-sm leading-relaxed"
+            v-html="$t('about.section3.evolution.content').replace(/\n/g, '<br>')"
+          ></p>
         </div>
 
         <button
@@ -57,7 +56,7 @@
               d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
             />
           </svg>
-          <span>下載完整履歷</span>
+          <span>{{ $t('about.section3.evolution.downloadResume') }}</span>
         </button>
       </div>
     </div>

@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience"
+  },
+  "about": {
+    "section1": {
+      "titleMain": "About",
+      "titleHighlight": "Me.",
+      "subtitle": "Frontend Developer & UI/UX Enthusiast.",
+      "intro": {
+        "title": "From Passion to Profession",
+        "content": "Development is not just a job, it is my way of exploring problem-solving approaches. From self-learning to becoming a professional engineer, I enjoy the process of transforming complex logic into smooth user experiences."
+      },
+      "techStack": {
+        "title": "Tech Transformation & Full-Stack Vision",
+        "content": "Previously focused on Angular, I successfully transitioned to the Vue ecosystem due to strategic adjustments, currently specializing in Vue 3 and Nuxt applications. Not satisfied with just frontend development, I further explored Node.js (NestJS) and Docker containerization, capable of independently building frontend-backend architecture and deployment environments, allowing me to understand data flow and system boundaries more precisely in collaboration."
+      },
+      "experience": {
+        "title": "Project Practice & Product Development",
+        "content": "Experienced in B2B and B2G development. Participated in government projects such as \"Indigenous Housing Business System\" and \"Indigenous Knowledge System\". On the product side, involved in \"Systalk Chat\" dialogue system development, and responsible for frontend architecture design and implementation of internal key systems \"AdminHub API Management Platform\" and \"ICR Intelligent Recognition System\".",
+        "internalTools": "Internal Tools",
+        "systalkAdminHub": "Systalk AdminHub"
+      },
+      "passion": {
+        "title": "Open Source Spirit & Continuous Improvement",
+        "content": "Committed to writing maintainable, highly reusable code. Develop side projects in spare time and publish common components to NPM, using open-source community standards to review and improve technical depth."
+      },
+      "tags": [
+        "Vue 3 / Nuxt",
+        "TypeScript",
+        "Tailwind CSS",
+        "NestJS",
+        "Docker",
+        "NPM Package"
+      ],
+      "quote": "Coding is not just about functionality, it is about creating art in logic."
+    },
+    "section2": {
+      "titleMain": "Professional",
+      "titleHighlight": "Experience",
+      "subtitle": "My Professional Journey."
+    },
+    "section3": {
+      "titleMain": "Tech",
+      "titleHighlight": "Stack",
+      "subtitle": "Modern Toolkit.",
+      "categories": {
+        "frontend": {
+          "title": "Core Frontend Frameworks",
+          "description": "Modern Frontend"
+        },
+        "backend": {
+          "title": "Backend & Architecture",
+          "description": "Backend & Architecture"
+        },
+        "state": {
+          "title": "State Management",
+          "description": "State Management"
+        },
+        "ui": {
+          "title": "Styling & UI Systems",
+          "description": "Styling & UI"
+        },
+        "database": {
+          "title": "Database",
+          "description": "Database"
+        },
+        "tools": {
+          "title": "DevOps & Tools",
+          "description": "DevOps & Tools"
+        }
+      },
+      "evolution": {
+        "title": "Continuous Evolution 🚀",
+        "content": "Technology is a tool for solving problems, and learning is the instinct of engineers.\nCurrently diving deep into <strong>WebGL</strong> and <strong>System Architecture Design</strong>.",
+        "downloadResume": "Download Full Resume"
+      }
+    },
+    "section4": {
+      "titleMain": "Algorithm",
+      "titleHighlight": "Journey",
+      "subtitle": "Problem Solving & Logic Training.",
+      "progressOverview": "Progress Overview",
+      "solvedTotal": "Solved / Total",
+      "difficultyBreakdown": "Difficulty Breakdown",
+      "recentActivity": "Recent Activity",
+      "latestSubmissions": "Latest 5 Submissions",
+      "noSubmissions": "No recent submissions found."
+    }
+  }
+}

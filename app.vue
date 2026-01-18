@@ -7,6 +7,6 @@
   </NuxtLayout>
 </template>
 <script setup lang="ts">
-  import LanguageSwitch from '~/components/base/LanguageSwitch.vue'
+import LanguageSwitch from '~/components/base/LanguageSwitch.vue'
 import Index from '~/pages/index.vue'
 </script>

@@ -2,18 +2,18 @@
   <AboutSection
     ref="aboutSection"
     id="section1"
-    title-main="About"
-    title-highlight="Me."
-    subtitle="Frontend Developer & UI/UX Enthusiast."
+    :title-main="$t('about.section1.titleMain')"
+    :title-highlight="$t('about.section1.titleHighlight')"
+    :subtitle="$t('about.section1.subtitle')"
   >
     <div class="flex flex-col md:flex-row gap-12 items-start">
       <div class="flex-1 space-y-10">
         <div class="space-y-4">
           <h3 class="text-2xl font-bold text-slate-700 flex items-center gap-3">
-            <span class="text-2xl">👋</span> {{ aboutData.intro.title }}
+            <span class="text-2xl">👋</span> {{ $t(aboutData.intro.titleKey) }}
           </h3>
           <p class="text-slate-600 leading-relaxed text-justify text-lg">
-            {{ aboutData.intro.content }}
+            {{ $t(aboutData.intro.contentKey) }}
           </p>
         </div>
 
@@ -22,20 +22,20 @@
         <div class="space-y-4">
           <h4 class="text-lg font-bold text-slate-800 flex items-center gap-2">
             <span class="w-1.5 h-6 bg-orange-500 rounded-full"></span>
-            {{ aboutData.techStack.title }}
+            {{ $t(aboutData.techStack.titleKey) }}
           </h4>
           <p class="text-slate-600 leading-relaxed text-justify">
-            {{ aboutData.techStack.content }}
+            {{ $t(aboutData.techStack.contentKey) }}
           </p>
         </div>
 
         <div class="space-y-4">
           <h4 class="text-lg font-bold text-slate-800 flex items-center gap-2">
             <span class="w-1.5 h-6 bg-blue-500 rounded-full"></span>
-            {{ aboutData.experience.title }}
+            {{ $t(aboutData.experience.titleKey) }}
           </h4>
           <p class="text-slate-600 leading-relaxed text-justify mb-2">
-            擁有豐富的 B2B 與 B2G 開發經驗，專注於構建高複雜度的管理系統與互動平台。
+            {{ $t('about.section1.experience.content') }}
           </p>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div
@@ -43,7 +43,7 @@
             >
               <div class="flex items-center justify-between mb-2">
                 <div class="text-xs text-orange-500 font-bold bg-orange-50 px-2 py-1 rounded-md">
-                  Internal Tools
+                  {{ $t('about.section1.experience.internalTools') }}
                 </div>
                 <div
                   class="w-2 h-2 rounded-full bg-orange-400 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -52,7 +52,7 @@
               <div
                 class="font-bold text-slate-800 text-lg group-hover:text-orange-600 transition-colors"
               >
-                Systalk AdminHub
+                {{ $t('about.section1.experience.systalkAdminHub') }}
               </div>
             </div>
           </div>
@@ -64,15 +64,15 @@
           class="bg-white/80 backdrop-blur-md border border-white/50 p-6 rounded-3xl shadow-xl shadow-slate-200/50"
         >
           <h4 class="font-bold text-slate-800 mb-3 flex items-center gap-2">
-            <span class="animate-bounce">🚀</span> {{ aboutData.passion.title }}
+            <span class="animate-bounce">🚀</span> {{ $t(aboutData.passion.titleKey) }}
           </h4>
           <p class="text-sm text-slate-600 leading-relaxed mb-4">
-            {{ aboutData.passion.content }}
+            {{ $t(aboutData.passion.contentKey) }}
           </p>
           <div class="flex flex-wrap gap-2">
             <span
-              v-for="tag in aboutData.tags"
-              :key="tag"
+              v-for="(tag, index) in $t(aboutData.tagsKey)"
+              :key="index"
               class="px-3 py-1 bg-slate-50 text-slate-600 text-xs font-medium rounded-full border border-slate-200/60"
             >
               # {{ tag }}
@@ -102,7 +102,7 @@
         >
           <div class="text-4xl text-orange-200 absolute top-2 left-4 font-serif">"</div>
           <p class="text-sm text-slate-600 italic font-medium relative z-10">
-            Coding is not just about functionality,<br />it's about creating art in logic.
+            {{ $t('about.section1.quote') }}
           </p>
           <div class="text-4xl text-orange-200 absolute bottom-[-10px] right-4 font-serif">"</div>
         </div>
@@ -112,7 +112,7 @@
 </template>
 
 <script setup lang="ts">
-import AboutSection from '~/components/layouts/AboutSection.vue' // 引入新元件
+import AboutSection from '~/components/layouts/AboutSection.vue'
 import { ExternalLinks } from '~/api/url'
 import GithubIcon from 'assets/images/git-icon.svg'
 import NpmIcon from 'assets/images/npm-icon.svg'

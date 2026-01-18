@@ -1,27 +1,25 @@
-// composable/useTechStack.ts
-import { ref } from 'vue'
 import type { Component } from 'vue'
 
 // 定義介面
 export interface ITechItem {
   name: string
-  iconName: string // 對應您的 Icon Component 名稱
-  color?: string // (選用) 該技術的品牌色，例如 Vue 是 #42b883
+  iconName: string
+  color?: string
 }
 
 export interface ITechCategory {
-  title: string
-  description?: string // 增加一行描述，更有質感
+  titleKey: string // 改為返回 i18n key
+  descriptionKey: string // 改為返回 i18n key
   items: ITechItem[]
-  class?: string // 用於控制 Bento Grid 的跨欄 (col-span-2)
+  class?: string
 }
 
 export const useTechStack = () => {
   const techStack = ref<ITechCategory[]>([
     {
-      title: '核心前端框架',
-      description: 'Modern Frontend',
-      class: 'col-span-1 md:col-span-2', // 這一格比較重要，讓它寬一點
+      titleKey: 'about.section3.categories.frontend.title',
+      descriptionKey: 'about.section3.categories.frontend.description',
+      class: 'col-span-1 md:col-span-2',
       items: [
         { name: 'Vue 3', iconName: 'VueIcon', color: 'text-green-500' },
         { name: 'Nuxt 3', iconName: 'NuxtIcon', color: 'text-green-600' },
@@ -31,18 +29,18 @@ export const useTechStack = () => {
       ],
     },
     {
-      title: '後端與架構',
-      description: 'Backend & Architecture',
+      titleKey: 'about.section3.categories.backend.title',
+      descriptionKey: 'about.section3.categories.backend.description',
       items: [
         { name: 'Node.js', iconName: 'NodeJSIcon', color: 'text-green-600' },
         { name: 'NestJS', iconName: 'NestJSIcon', color: 'text-red-500' },
         { name: 'Docker', iconName: 'DockerIcon', color: 'text-blue-500' },
-        { name: 'Nx', iconName: 'NxIcon' }, // 假設您有 Monorepo 經驗
+        { name: 'Nx', iconName: 'NxIcon' },
       ],
     },
     {
-      title: '狀態管理與資料流',
-      description: 'State Management',
+      titleKey: 'about.section3.categories.state.title',
+      descriptionKey: 'about.section3.categories.state.description',
       items: [
         { name: 'Pinia', iconName: 'PiniaIcon', color: 'text-yellow-500' },
         { name: 'RxJS', iconName: 'RxJSIcon', color: 'text-pink-600' },
@@ -51,9 +49,9 @@ export const useTechStack = () => {
       ],
     },
     {
-      title: '樣式與 UI 系統',
-      description: 'Styling & UI',
-      class: 'col-span-1 md:col-span-2', // 這格內容多，也讓它寬一點
+      titleKey: 'about.section3.categories.ui.title',
+      descriptionKey: 'about.section3.categories.ui.description',
+      class: 'col-span-1 md:col-span-2',
       items: [
         { name: 'Tailwind CSS', iconName: 'TailWindIcon', color: 'text-cyan-400' },
         { name: 'Ant Design', iconName: 'AntDesignIcon', color: 'text-blue-500' },
@@ -64,8 +62,8 @@ export const useTechStack = () => {
       ],
     },
     {
-      title: '資料庫',
-      description: 'Database',
+      titleKey: 'about.section3.categories.database.title',
+      descriptionKey: 'about.section3.categories.database.description',
       items: [
         { name: 'MySQL', iconName: 'MysqlIcon' },
         { name: 'MongoDB', iconName: 'MongoDBIcon', color: 'text-green-500' },
@@ -73,8 +71,8 @@ export const useTechStack = () => {
       ],
     },
     {
-      title: '開發工具',
-      description: 'DevOps & Tools',
+      titleKey: 'about.section3.categories.tools.title',
+      descriptionKey: 'about.section3.categories.tools.description',
       items: [
         { name: 'Git', iconName: 'GitIcon', color: 'text-orange-600' },
         { name: 'NVM', iconName: 'NvmIcon' },

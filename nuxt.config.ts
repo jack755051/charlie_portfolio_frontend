@@ -14,18 +14,20 @@ export default defineNuxtConfig({
   },
   modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@ant-design-vue/nuxt', '@nuxtjs/i18n'],
   i18n: {
-    vueI18n: './i18n.config.ts', // 引入設定檔
+    vueI18n: './i18n.config.ts',
+    lazy: true,
+    langDir: 'locales',
     locales: [
-      { code: 'en', iso: 'en-US', name: 'English' },
-      { code: 'zh', iso: 'zh-TW', name: '繁體中文' }
+      { code: 'en', iso: 'en-US', name: 'English', file: 'en.json' },
+      { code: 'zh', iso: 'zh-TW', name: '繁體中文', file: 'zh.json' },
     ],
     defaultLocale: 'zh',
-    strategy: 'no_prefix', // 或 'prefix_except_default' 看你需求
+    strategy: 'no_prefix',
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
       redirectOn: 'root',
-    }
+    },
   },
   vite: {
     plugins: [svgLoader()],
@@ -35,5 +37,4 @@ export default defineNuxtConfig({
   build: {
     transpile: [/echarts/],
   },
-  
 })
