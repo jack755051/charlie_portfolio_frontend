@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import type { RouterLink } from '~/types/foundation.interface'
-import type { IPortfolio } from '~/types/portfolio.interface'
+import type { IPortfolio, IPortfolioMetadata } from '~/types/portfolio.interface'
 import type { ITechnologyStack } from '~/types/technologyStack.interface'
 import type { ITimeline } from '~/types/timeline.interface'
 import { getIconComponent } from '~/utils/iconMap'
@@ -117,6 +117,91 @@ export const useMockStore = defineStore('mock', () => {
 
   // ---- 作品頁面 相關資料 ----
   /** 作品頁面資料  */
+  const portfolioMetadata = ref<IPortfolioMetadata[]>([
+    {
+      id: 'systalk-adminhub',
+      link: '', // 填入實際連結
+      technologies: [
+        { name: 'Angular', icon: 'AngularIcon' },
+        { name: 'TypeScript', icon: 'TypeScriptIcon' },
+        { name: 'TailwindCSS', icon: 'TailWindIcon' },
+        { name: 'Ngrx', icon: 'NgrxIcon' },
+        { name: 'RxJS', icon: 'RxJSIcon' },
+        { name: 'Docker', icon: 'DockerIcon' },
+        { name: 'ESLint', icon: 'ESLintIcon' },
+        { name: 'Prettier', icon: 'PrettierIcon' },
+      ],
+      screenshots: [
+        { url: '/images/systalk-adminhub-1.png' }, // 記得更換為實際路徑
+      ],
+    },
+    {
+      id: 'systalk-audit',
+      link: '',
+      technologies: [
+        { name: 'Angular', icon: 'AngularIcon' },
+        { name: 'TypeScript', icon: 'TypeScriptIcon' },
+        { name: 'TailwindCSS', icon: 'TailWindIcon' },
+        { name: 'Ngrx', icon: 'NgrxIcon' },
+        { name: 'RxJS', icon: 'RxJSIcon' },
+        { name: 'Docker', icon: 'DockerIcon' },
+        { name: 'Echart', icon: 'EchartIcon' },
+      ],
+      screenshots: [],
+    },
+    {
+      id: 'systalk-global-life-icr',
+      link: '',
+      technologies: [
+        { name: 'Angular', icon: 'AngularIcon' },
+        { name: 'TypeScript', icon: 'TypeScriptIcon' },
+        { name: 'TailwindCSS', icon: 'TailWindIcon' },
+        { name: 'RxJS', icon: 'RxJSIcon' },
+      ],
+      screenshots: [],
+    },
+    {
+      id: 'travel-planner',
+      link: '',
+      technologies: [
+        { name: 'Next.js 16', icon: 'NextJSIcon' },
+        { name: 'React 19', icon: 'ReactIcon' },
+        { name: 'TypeScript', icon: 'TypeScriptIcon' },
+        { name: 'Redux Toolkit', icon: 'ReduxIcon' },
+        { name: 'Zustand', icon: 'ZustandIcon' },
+        { name: 'TailwindCSS', icon: 'TailWindIcon' },
+        { name: 'Radix UI', icon: 'RadixIcon' },
+        { name: 'Shadcn', icon: 'ShadcnIcon' },
+        { name: 'Google Maps API', icon: 'GoogleMapsIcon' },
+        { name: 'DND Kit', icon: 'DndKitIcon' },
+        { name: 'Lucide Icons', icon: 'LucideIcon' },
+        { name: 'Sonner', icon: 'SonnerIcon' },
+        { name: 'Docker', icon: 'DockerIcon' },
+        { name: 'ESLint', icon: 'ESLintIcon' },
+        { name: 'Prettier', icon: 'PrettierIcon' },
+      ],
+      screenshots: [],
+    },
+    {
+      id: 'gxcella',
+      link: '',
+      technologies: [
+        { name: 'Angular 20', icon: 'AngularIcon' },
+        { name: 'TypeScript', icon: 'TypeScriptIcon' },
+        { name: 'TailwindCSS', icon: 'TailWindIcon' },
+        { name: 'Lucide Angular', icon: 'LucideIcon' },
+        { name: 'ng-packagr', icon: 'NgPackagrIcon' },
+        { name: 'Changesets', icon: 'ChangesetsIcon' },
+        { name: 'npm Workspaces', icon: 'NpmIcon' },
+        { name: 'RxJS', icon: 'RxJSIcon' },
+        { name: 'Jasmine', icon: 'JasmineIcon' },
+        { name: 'ESLint', icon: 'ESLintIcon' },
+        { name: 'Prettier', icon: 'PrettierIcon' },
+      ],
+      screenshots: [],
+    },
+  ])
+
   const portfolioPageData = ref<IPortfolio[]>([
     {
       id: 'systalk-adminhub',
@@ -321,6 +406,6 @@ export const useMockStore = defineStore('mock', () => {
     timelineData,
     technologyStack,
     processedTechnologyStack,
-    portfolioPageData,
+    portfolioMetadata,
   }
 })

@@ -75,7 +75,7 @@
 // 我們稍微放寬 Props 的型別檢查，因為 $tm 回傳的型別比較複雜
 // 或者你可以保留 IExperience[]，但要確保使用時都透過 $rt 解析字串屬性
 defineProps<{
-  timelineData: any[] 
+  timelineData: any[]
 }>()
 </script>
 

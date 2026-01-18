@@ -12,32 +12,32 @@
               <h2
                 class="text-sm font-bold tracking-widest text-orange-500 uppercase animate-fade-in-up"
               >
-                Hello, I'm
+                {{ $t('home.greeting') }}
               </h2>
 
               <h1
                 class="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-tight"
               >
-                Charlie Tai
+                {{ $t('home.name') }}
               </h1>
 
               <div
                 class="text-xl md:text-2xl text-slate-500 font-medium h-8 flex items-center justify-center md:justify-start"
               >
-                我是
-                <span class="ml-2 text-slate-800 border-r-2 border-orange-500 pr-1 animate-pulse">{{
-                  typeWriterText
-                }}</span>
+                {{ $t('home.introPrefix') }}
+                <span class="ml-2 text-slate-800 border-r-2 border-orange-500 pr-1 animate-pulse">
+                  {{ typeWriterText }}
+                </span>
               </div>
 
-              <p class="text-slate-400 leading-relaxed max-w-md text-base md:text-lg">
-                專注於打造高效能、高互動的網頁體驗。<br class="hidden md:block" />
-                擅長 Angular, Vue 3, Nuxt, 與 Tailwind CSS。
-              </p>
+              <p
+                class="text-slate-400 leading-relaxed max-w-md text-base md:text-lg"
+                v-html="$t('home.description')"
+              ></p>
 
               <div class="pt-4 flex gap-4">
                 <CButton
-                  :label="'了解更多'"
+                  :label="$t('home.buttons.about')"
                   :size="'lg'"
                   :shadow="true"
                   custom-class="bg-orange-500 hover:bg-orange-600 text-white border-none"
@@ -47,7 +47,7 @@
                   class="px-6 py-3 rounded-full border border-slate-300 text-slate-600 font-bold hover:bg-white hover:text-orange-500 transition-colors duration-300"
                   @click="navigateTo('/portfolio')"
                 >
-                  查看作品
+                  {{ $t('home.buttons.portfolio') }}
                 </button>
               </div>
             </div>
@@ -75,12 +75,13 @@
                   <div
                     class="pl-4 group-hover:translate-x-2 transition-transform duration-300 delay-75"
                   >
-                    name: <span class="text-green-400">'Charlie Tai'</span>,
+                    name: <span class="text-green-400">'{{ $t('home.name') }}'</span>,
                   </div>
                   <div
                     class="pl-4 group-hover:translate-x-2 transition-transform duration-300 delay-100"
                   >
-                    role: <span class="text-green-400">'Frontend Engineer'</span>,
+                    role: <span class="text-green-400">{{ $t('home.codeBlock.role') }}</span
+                    >,
                   </div>
                   <div
                     class="pl-4 group-hover:translate-x-2 transition-transform duration-300 delay-150"
@@ -90,7 +91,7 @@
                   <div
                     class="pl-8 text-orange-300 group-hover:translate-x-3 transition-transform duration-300 delay-200"
                   >
-                    'Angular, Vue 3', 'Nuxt', 'Tailwind'
+                    {{ $t('home.codeBlock.skills') }}
                   </div>
                   <div
                     class="pl-4 group-hover:translate-x-2 transition-transform duration-300 delay-200"
@@ -122,9 +123,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 import CButton from '~/components/base/button.vue'
 import ScrollSection from '~/layouts/scrollSection.vue'
+
+const { tm, rt, locale } = useI18n()
 
 /** 點擊 了解更多 後導航到關於頁面 */
 const handlerClickButton = () => {
@@ -133,13 +137,25 @@ const handlerClickButton = () => {
 
 // --- 打字機效果邏輯 ---
 const typeWriterText = ref('')
-const phrases = ['研發工程師', '前端開發者', 'UI 設計愛好者']
+// 初始獲取片語陣列 (使用 rt 解析 tm 返回的物件)
+let phrases: string[] = []
+
 let phraseIndex = 0
 let charIndex = 0
 let isDeleting = false
 let timer: NodeJS.Timeout | null = null
 
+// 獲取當前語言的片語列表
+const getPhrases = () => {
+  const rawData = tm('home.roles')
+  // 確保回傳的是陣列，若是物件結構則透過 rt 解析
+  return Array.isArray(rawData) ? rawData.map(item => rt(item)) : []
+}
+
 const typeEffect = () => {
+  // 安全檢查：如果沒有片語，直接返回
+  if (!phrases.length) return
+
   const currentPhrase = phrases[phraseIndex]
 
   if (isDeleting) {
@@ -153,28 +169,48 @@ const typeEffect = () => {
   let speed = 150
 
   if (!isDeleting && charIndex === currentPhrase.length) {
-    // 打完一句話,停頓久一點
     speed = 2000
     isDeleting = true
   } else if (isDeleting && charIndex === 0) {
-    // 刪除完畢,切換下一句
     isDeleting = false
     phraseIndex = (phraseIndex + 1) % phrases.length
     speed = 500
   } else if (isDeleting) {
-    // 刪除速度快一點
     speed = 50
   }
 
   timer = setTimeout(typeEffect, speed)
 }
 
-onMounted(() => {
+// 初始化與重置打字機
+const startTypeWriter = () => {
+  // 清除舊 timer
+  if (timer) clearTimeout(timer)
+
+  // 更新資料源
+  phrases = getPhrases()
+
+  // 重置狀態
+  phraseIndex = 0
+  charIndex = 0
+  isDeleting = false
+  typeWriterText.value = ''
+
+  // 啟動
   typeEffect()
+}
+
+onMounted(() => {
+  startTypeWriter()
 })
 
 onUnmounted(() => {
   if (timer) clearTimeout(timer)
+})
+
+// 監聽語言變化，即時更新打字機內容
+watch(locale, () => {
+  startTypeWriter()
 })
 </script>
 

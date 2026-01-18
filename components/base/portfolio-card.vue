@@ -64,7 +64,10 @@
 </template>
 
 <script lang="ts" setup>
-import type { IPortfolio } from '~/types/protfolio.interface'
+import type { IPortfolioMetadata } from '~/types/portfolio.interface'
+
+// 1. 如果你已經把 types/protfolio.interface 刪除了，這裡會報錯
+// 建議改為從 store 或直接定義，或者引入新的 Metadata 介面
 
 interface Props {
   id: string
@@ -72,20 +75,22 @@ interface Props {
   description: string
   role: string
   duration: string
-  technologies: IPortfolio['technologies']
-  type?: 'company' | 'personal' // 新增類型判斷
+  // 2. 修改這裡：直接參考 Metadata 裡的 technologies，或是手寫 { name: string }[]
+  technologies: IPortfolioMetadata['technologies']
+  type?: 'company' | 'personal'
   maxTechDisplay?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
   type: 'company',
-  maxTechDisplay: 4, // 減少顯示數量，保持乾淨
+  maxTechDisplay: 4,
 })
 
 const emit = defineEmits<{
   click: [id: string]
 }>()
 
+// ... 其他邏輯完全不用動
 const displayTechnologies = computed(() => props.technologies.slice(0, props.maxTechDisplay))
 const remainingTechCount = computed(() =>
   Math.max(0, props.technologies.length - props.maxTechDisplay)
