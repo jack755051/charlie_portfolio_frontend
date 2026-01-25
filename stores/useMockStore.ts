@@ -11,7 +11,7 @@ export const useMockStore = defineStore('mock', () => {
     { router: '/', label: '首頁' },
     { router: '/about', label: '關於' },
     { router: '/portfolio', label: '作品集' },
-    { router: '/experience', label: '經驗與日誌' },
+    // { router: '/experience', label: '經驗與日誌' },
   ])
 
   const timelineData = ref<ITimeline>({
