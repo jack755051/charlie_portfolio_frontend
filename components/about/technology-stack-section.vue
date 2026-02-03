@@ -70,6 +70,6 @@ import CTechCard from '~/components/base/tech-card.vue'
 
 const techStore = useTechStack()
 const handlerDownloadResume = () => {
-  window.open('/charlie-resume-2026.pdf', '_blank')
+  window.open('/charlie_portfolio_frontend/charlie-resume-2026.pdf', '_blank')
 }
 </script>
