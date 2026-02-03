@@ -69,22 +69,7 @@ import { useTechStack } from '~/composables/useTechStack'
 import CTechCard from '~/components/base/tech-card.vue'
 
 const techStore = useTechStack()
-const handlerDownloadResume = async () => {
-  try {
-    const response = await fetch('/2026_charlie履歷.pdf')
-    const blob = await response.blob()
-    const url = window.URL.createObjectURL(blob)
-    const link = document.createElement('a')
-    link.href = url
-    link.download = 'Charlie-Resume-2026.pdf'
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-    window.URL.revokeObjectURL(url)
-  } catch (error) {
-    console.error('下載失敗:', error)
-    // 備用方案：直接開啟新分頁
-    window.open('/2026_charlie履歷.pdf', '_blank')
-  }
+const handlerDownloadResume = () => {
+  window.open('/charlie-resume-2026.pdf', '_blank')
 }
 </script>
