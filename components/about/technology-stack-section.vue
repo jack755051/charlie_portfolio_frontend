@@ -70,6 +70,9 @@ import CTechCard from '~/components/base/tech-card.vue'
 
 const techStore = useTechStack()
 const handlerDownloadResume = () => {
-  console.log('Download')
+  const link = document.createElement('a')
+  link.href = '/2026_charlie履歷.pdf'
+  link.download = 'Charlie-Resume-2026.pdf'
+  link.click()
 }
 </script>
