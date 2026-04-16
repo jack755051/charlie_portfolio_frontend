@@ -1,0 +1,179 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://charlie-portfolio.local/schemas/site-reference.schema.json",
+  "title": "Site Reference JSON",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "generatedAt",
+    "navigationMenus",
+    "pageAnchors",
+    "technologyCatalogs",
+    "iconRegistry",
+    "version"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "navigationMenus": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "routePath", "label", "displayOrder", "isVisible"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "routePath": {
+            "type": "string",
+            "pattern": "^/[A-Za-z0-9_/-]*$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "displayOrder": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "isVisible": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "pageAnchors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "pageCode", "key", "href", "title", "displayOrder"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "pageCode": {
+            "type": "string",
+            "enum": ["home", "about", "portfolio"]
+          },
+          "key": {
+            "type": "string",
+            "pattern": "^section[0-9]+$"
+          },
+          "href": {
+            "type": "string",
+            "pattern": "^#section[0-9]+$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "displayOrder": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "technologyCatalogs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "titleKey", "descriptionKey", "items"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "titleKey": {
+            "type": "string",
+            "minLength": 1
+          },
+          "descriptionKey": {
+            "type": "string",
+            "minLength": 1
+          },
+          "class": {
+            "type": ["string", "null"]
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["name", "iconName", "color"],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "iconName": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9]+Icon$"
+                },
+                "color": {
+                  "type": ["string", "null"]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "iconRegistry": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "iconKey",
+          "assetPath",
+          "componentName",
+          "fallbackIconKey",
+          "isAvailable"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "iconKey": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9]+Icon$"
+          },
+          "assetPath": {
+            "type": "string",
+            "minLength": 1
+          },
+          "componentName": {
+            "type": "string",
+            "minLength": 1
+          },
+          "fallbackIconKey": {
+            "type": ["string", "null"],
+            "pattern": "^[A-Za-z0-9]+Icon$"
+          },
+          "isAvailable": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    }
+  }
+}

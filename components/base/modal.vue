@@ -82,7 +82,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, watch } from 'vue'
+import { onUnmounted, watch } from 'vue'
 const props = defineProps({
   // 控制顯示/隱藏
   modelValue: {
@@ -158,17 +158,6 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue', 'confirm', 'cancel', 'close'])
 
-// 計算 modal 樣式
-const modalStyle = computed(() => {
-  const width = typeof props.width === 'number' ? `${props.width}px` : props.width
-  const maxWidth = typeof props.maxWidth === 'number' ? `${props.maxWidth}px` : props.maxWidth
-
-  return {
-    width,
-    maxWidth,
-  }
-})
-
 // 處理遮罩點擊
 const handleMaskClick = () => {
   if (props.closeOnClickMask) {
@@ -198,7 +187,7 @@ const cancel = () => {
 }
 
 // ESC 鍵處理
-const handleEsc = e => {
+const handleEsc = (e: KeyboardEvent) => {
   if (props.modelValue && props.closeOnEsc && e.key === 'Escape') {
     close()
   }

@@ -32,3 +32,14 @@ export interface LeetCodeStats {
     value: number
   }[]
 }
+
+export interface LeetCodeProfile extends LeetCodeStats {
+  schema_version: 1
+  id: string
+  username: string
+  source: 'mock' | 'provider' | 'manual' | 'stale-cache'
+  sourceFetchedAt: string
+  expiresAt: string
+  isStale: boolean
+  version: number
+}

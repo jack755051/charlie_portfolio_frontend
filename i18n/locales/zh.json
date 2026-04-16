@@ -7,7 +7,8 @@
     "greeting": "Hello, I'm",
     "name": "Charlie Tai",
     "introPrefix": "我是",
-    "description": "專注於打造高效能、高互動的網頁體驗。<br class=\"hidden md:block\" />擅長 Angular, Vue 3, Nuxt, 與 Tailwind CSS。",
+    "descriptionLead": "專注於打造高效能、高互動的網頁體驗。",
+    "descriptionTail": "擅長 Angular、Vue 3、Nuxt 與 Tailwind CSS。",
     "buttons": {
       "about": "了解更多",
       "portfolio": "查看作品"
@@ -130,7 +131,12 @@
       },
       "evolution": {
         "title": "持續進化中 🚀",
-        "content": "技術是解決問題的工具，而學習是工程師的本能。\n目前正在深入研究 <strong>WebGL</strong> 與 <strong>系統架構設計</strong>。",
+        "contentLead": "技術是解決問題的工具，而學習是工程師的本能。",
+        "currentlyStudyingPrefix": "目前正在深入研究 ",
+        "focusTopic1": "WebGL",
+        "connector": " 與 ",
+        "focusTopic2": "系統架構設計",
+        "suffix": "。",
         "downloadResume": "下載完整履歷"
       }
     },

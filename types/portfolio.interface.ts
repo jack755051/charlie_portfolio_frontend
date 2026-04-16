@@ -22,7 +22,11 @@ export interface ITechnologyItem {
 
 export interface IPortfolioMetadata {
   id: string
-  link?: string
-  screenshots?: { url: string; caption?: string }[]
-  technologies: { name: string; icon: string }[] // 技術名稱通常保留英文，不需翻譯
+  projectType: 'company' | 'personal'
+  i18nNamespace: 'portfolio.projects'
+  link?: string | null
+  screenshots?: { url: string; caption?: string | null }[]
+  technologies: { name: string; icon: string; category?: string | null }[] // 技術名稱通常保留英文，不需翻譯
+  displayOrder: number
+  isPublished: boolean
 }

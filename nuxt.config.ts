@@ -12,13 +12,12 @@ export default defineNuxtConfig({
     },
     baseURL: '/charlie_portfolio_frontend/',
   },
-  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@ant-design-vue/nuxt', '@nuxtjs/i18n'],
+  modules: ['@nuxtjs/tailwindcss', '@ant-design-vue/nuxt', '@nuxtjs/i18n'],
   i18n: {
     locales: [
       { code: 'en', file: 'en.json' },
       { code: 'zh', file: 'zh.json' },
     ],
-    lazy: false,
     langDir: 'locales',
     defaultLocale: 'zh',
     strategy: 'no_prefix',

@@ -1,7 +1,7 @@
 <template>
   <section
-    ref="sectionRef"
     :id="id"
+    ref="sectionRef"
     class="min-h-screen snap-start flex flex-col items-center justify-center py-16"
   >
     <slot name="title" />

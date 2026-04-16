@@ -1,9 +1,15 @@
 <template>
-  <a-table :dataSource="mockStore.dataSource" :columns="columns" />
+  <a-table :data-source="dataSource" :columns="columns" />
 </template>
 
 <script lang="ts" setup>
-import { useMockStore } from '~/stores/useMockStore'
+interface Props {
+  dataSource?: Record<string, unknown>[]
+  columns?: Record<string, unknown>[]
+}
 
-const mockStore = useMockStore()
+withDefaults(defineProps<Props>(), {
+  dataSource: () => [],
+  columns: () => [],
+})
 </script>

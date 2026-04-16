@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://charlie-portfolio.local/schemas/leetcode-profile.schema.json",
+  "title": "LeetCode Profile JSON",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "username",
+    "totalSolved",
+    "totalQuestions",
+    "easy",
+    "medium",
+    "hard",
+    "easyPct",
+    "mediumPct",
+    "hardPct",
+    "calendar",
+    "recent",
+    "skills",
+    "source",
+    "sourceFetchedAt",
+    "expiresAt",
+    "isStale",
+    "version"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^leetcode:[A-Za-z0-9_-]{1,32}$"
+    },
+    "username": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{1,32}$"
+    },
+    "totalSolved": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "totalQuestions": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "easy": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "medium": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "hard": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "easyPct": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "mediumPct": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "hardPct": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "calendar": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "string",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+          },
+          {
+            "type": "integer",
+            "minimum": 0
+          }
+        ],
+        "minItems": 2,
+        "maxItems": 2
+      }
+    },
+    "recent": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title", "titleSlug", "time", "status", "lang", "isSuccess"],
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "titleSlug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "time": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "minLength": 1
+          },
+          "lang": {
+            "type": "string",
+            "minLength": 1
+          },
+          "isSuccess": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "value"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "value": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "source": {
+      "type": "string",
+      "enum": ["mock", "provider", "manual", "stale-cache"]
+    },
+    "sourceFetchedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "isStale": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    }
+  }
+}

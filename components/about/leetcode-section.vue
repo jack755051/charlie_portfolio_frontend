@@ -1,12 +1,12 @@
 <template>
   <AboutSection
-    ref="aboutLeetcode"
     id="section4"
+    ref="aboutLeetcode"
     :title-main="$t('about.section4.titleMain')"
     :title-highlight="$t('about.section4.titleHighlight')"
     :subtitle="$t('about.section4.subtitle')"
   >
-    <div v-if="leetcodeStore.loading" class="flex justify-center py-20">
+    <div v-if="loading" class="flex justify-center py-20">
       <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
     </div>
 
@@ -124,8 +124,8 @@
 
 <script lang="ts" setup>
 import AboutSection from '~/components/layouts/AboutSection.vue'
-import { computed, onMounted, ref, watch } from 'vue'
-import { useLeetcodeStore } from '~/stores/useLeetcodeStore'
+import { computed, ref, watch } from 'vue'
+import { useLeetcodeProfile } from '~/composables/useLeetcodeProfile'
 import VChart from 'vue-echarts'
 import { use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
@@ -134,8 +134,7 @@ import { TooltipComponent, LegendComponent } from 'echarts/components'
 
 use([CanvasRenderer, PieChart, TooltipComponent, LegendComponent])
 
-const leetcodeStore = useLeetcodeStore()
-const stats = computed(() => leetcodeStore.userStats)
+const { profile: stats, loading } = useLeetcodeProfile()
 const displayTotal = ref(0)
 
 watch(
@@ -181,8 +180,4 @@ const pieOption = computed(() => ({
     },
   ],
 }))
-
-onMounted(() => {
-  leetcodeStore.fetchLeetcodeData('jack755051')
-})
 </script>

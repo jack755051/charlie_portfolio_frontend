@@ -5,17 +5,17 @@
       <span :class="classGroup?.title ?? 'stack-title'">{{ title }}</span>
     </div>
     <div
-      :class="classGroup?.contentWrapper ?? 'stack-card-content-wrapper'"
       v-for="(item, index) in stack"
       :key="index"
+      :class="classGroup?.contentWrapper ?? 'stack-card-content-wrapper'"
     >
       <div :class="classGroup?.stackName ?? 'stack-card-content-name'">
         {{ item.stackName }}
       </div>
       <div :class="classGroup?.stackIcon ?? 'stack-card-content-item'">
         <component
-          v-if="item.iconComponent || getIconComponent(item.icon)"
           :is="item.iconComponent || getIconComponent(item.icon)"
+          v-if="item.iconComponent || getIconComponent(item.icon)"
           class="tech-icon"
         />
         <div v-else class="tech-icon-placeholder">?</div>

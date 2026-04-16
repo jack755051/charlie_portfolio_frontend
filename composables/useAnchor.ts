@@ -1,19 +1,15 @@
 import type { IAnchor } from '~/types/anchor.interface'
+import { useSiteReference } from '~/composables/useSiteReference'
 
 export const useAnchor = () => {
+  const { getPageAnchors } = useSiteReference()
+
   /**首頁頁面錨點*/
-  const anchorHomePage = ref<IAnchor[]>([{ key: 'section1', href: '#section1', title: '首頁' }])
+  const anchorHomePage = ref<IAnchor[]>(getPageAnchors('home'))
   /**關於頁面錨點*/
-  const anchorAboutPage = ref<IAnchor[]>([
-    { key: 'section1', href: '#section1', title: '關於我' },
-    { key: 'section2', href: '#section2', title: '我的經驗' },
-    { key: 'section3', href: '#section3', title: '我的技術棧' },
-    { key: 'section4', href: '#section4', title: '我的Leetcode' },
-  ])
+  const anchorAboutPage = ref<IAnchor[]>(getPageAnchors('about'))
   /**作品集頁面錨點*/
-  const anchorPortfolioPage = ref<IAnchor[]>([
-    { key: 'section1', href: '#section1', title: '作品集' },
-  ])
+  const anchorPortfolioPage = ref<IAnchor[]>(getPageAnchors('portfolio'))
 
   return {
     anchorHomePage,

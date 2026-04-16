@@ -14,8 +14,8 @@
     <div class="sticky top-0 z-50 w-full px-6 py-4">
       <div class="max-w-7xl mx-auto flex items-center justify-between">
         <button
-          @click="goBack"
           class="flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 backdrop-blur border border-slate-200 text-slate-600 hover:border-orange-200 hover:text-orange-500 hover:shadow-md transition-all active:scale-95 group shadow-sm"
+          @click="goBack"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -35,8 +35,8 @@
         </button>
 
         <a
-          v-if="projectMeta?.link"
-          :href="projectMeta.link"
+          v-if="projectLink"
+          :href="projectLink"
           target="_blank"
           class="hidden md:flex items-center gap-2 px-5 py-2 bg-slate-900 text-white text-sm font-bold rounded-full hover:bg-orange-500 transition-colors shadow-lg"
         >
@@ -139,10 +139,13 @@
               </ul>
             </div>
           </div>
-          
-          <div v-if="projectMeta.screenshots && projectMeta.screenshots.length > 1" class="space-y-6">
+
+          <div
+            v-if="projectMeta.screenshots && projectMeta.screenshots.length > 1"
+            class="space-y-6"
+          >
             <h3 class="text-2xl font-bold text-slate-800">
-               {{ $t('portfolio.detail.gallery') }}
+              {{ $t('portfolio.detail.gallery') }}
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div
@@ -152,7 +155,7 @@
               >
                 <img
                   :src="shot.url"
-                  :alt="shot.caption"
+                  :alt="shot.caption ?? 'Project Screenshot'"
                   class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -170,7 +173,7 @@
               </h3>
               <div class="flex flex-wrap gap-2">
                 <div
-                  v-for="(tech, index) in (projectMeta.technologies || [])"
+                  v-for="(tech, index) in projectMeta.technologies || []"
                   :key="index"
                   class="flex items-center gap-2 px-3 py-2 bg-slate-50 border border-slate-100 rounded-lg"
                 >
@@ -179,9 +182,7 @@
               </div>
             </div>
 
-            <div
-              class="bg-slate-900 rounded-3xl p-6 text-white shadow-xl relative overflow-hidden"
-            >
+            <div class="bg-slate-900 rounded-3xl p-6 text-white shadow-xl relative overflow-hidden">
               <div
                 class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-orange-500 rounded-full blur-2xl opacity-20"
               ></div>
@@ -210,8 +211,8 @@
               </div>
 
               <a
-                v-if="projectMeta.link"
-                :href="projectMeta.link"
+                v-if="projectLink"
+                :href="projectLink"
                 target="_blank"
                 class="mt-6 w-full flex items-center justify-center gap-2 px-4 py-3 bg-white text-slate-900 font-bold rounded-xl hover:bg-orange-500 hover:text-white transition-all"
               >
@@ -239,7 +240,7 @@
 
     <div v-else class="flex flex-col items-center justify-center min-h-[60vh] gap-4">
       <p class="text-2xl font-bold text-slate-300">{{ $t('portfolio.detail.notFound') }}</p>
-      <button @click="goBack" class="text-orange-500 font-bold hover:underline">
+      <button class="text-orange-500 font-bold hover:underline" @click="goBack">
         {{ $t('portfolio.detail.return') }}
       </button>
     </div>
@@ -250,50 +251,63 @@
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import { useMockStore } from '~/stores/useMockStore'
-import { getIconComponent } from '~/utils/iconMap'
+import { usePortfolioProjects } from '~/composables/usePortfolioProjects'
 
-const mockStore = useMockStore()
 const router = useRouter()
 const route = useRoute()
-const { tm, rt } = useI18n()
+const { tm } = useI18n()
+const { findProjectById } = usePortfolioProjects()
 
-const projectId = computed(() => route.query.id as string)
+type ProjectI18nKeys = {
+  title: string
+  role: string
+  duration: string
+  description: string
+}
 
-const projectMeta = computed(() => {
-  return mockStore.portfolioMetadata.find(project => project.id === projectId.value)
+const projectId = computed(() => {
+  const { id } = route.query
+  if (Array.isArray(id)) return id[0] ?? ''
+  return id ?? ''
 })
 
-const i18nKeys = computed(() => {
-  const id = projectMeta.value?.id
-  if (!id) return {}
+const projectMeta = computed(() => findProjectById(projectId.value))
+const projectLink = computed(() => projectMeta.value?.link ?? undefined)
+const projectI18nBasePath = computed(() =>
+  projectMeta.value ? `${projectMeta.value.i18nNamespace}.${projectMeta.value.id}` : ''
+)
 
-  const basePath = `portfolio.projects.${id}`
+const i18nKeys = computed<ProjectI18nKeys>(() => {
+  const basePath = projectI18nBasePath.value
   return {
-    title: `${basePath}.title`,
-    role: `${basePath}.role`,
-    duration: `${basePath}.duration`,
-    description: `${basePath}.description`,
+    title: basePath ? `${basePath}.title` : '',
+    role: basePath ? `${basePath}.role` : '',
+    duration: basePath ? `${basePath}.duration` : '',
+    description: basePath ? `${basePath}.description` : '',
   }
 })
 
 const projectTypeKey = computed(() => {
-  const id = projectMeta.value?.id || ''
-  return id.toLowerCase().includes('systalk') 
-    ? 'portfolio.company' 
+  return projectMeta.value?.projectType === 'company'
+    ? 'portfolio.company'
     : 'portfolio.sideProject'
 })
 
+const toMessageArray = (messagePath: string) => {
+  if (!messagePath) return []
+
+  const messages = tm(messagePath) as unknown
+  return Array.isArray(messages) ? messages : []
+}
+
 const featuresList = computed(() => {
-  const id = projectMeta.value?.id
-  if (!id) return []
-  return tm(`portfolio.projects.${id}.features`) || []
+  return toMessageArray(projectI18nBasePath.value ? `${projectI18nBasePath.value}.features` : '')
 })
 
 const achievementsList = computed(() => {
-  const id = projectMeta.value?.id
-  if (!id) return []
-  return tm(`portfolio.projects.${id}.achievements`) || []
+  return toMessageArray(
+    projectI18nBasePath.value ? `${projectI18nBasePath.value}.achievements` : ''
+  )
 })
 
 const goBack = () => {

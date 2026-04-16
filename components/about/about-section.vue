@@ -1,7 +1,7 @@
 <template>
   <AboutSection
-    ref="aboutSection"
     id="section1"
+    ref="aboutSection"
     :title-main="$t('about.section1.titleMain')"
     :title-highlight="$t('about.section1.titleHighlight')"
     :subtitle="$t('about.section1.subtitle')"
@@ -86,15 +86,15 @@
 
         <div class="grid grid-cols-2 gap-4">
           <button
-            @click="handlerOpenOtherWindow(ExternalLinks.GITHUB)"
             class="flex flex-col items-center justify-center gap-2 p-4 bg-slate-900 text-white rounded-2xl hover:bg-slate-800 hover:-translate-y-1 transition-all duration-300 shadow-lg group"
+            @click="handlerOpenOtherWindow(ExternalLinks.GITHUB)"
           >
             <GithubIcon class="w-8 h-8 fill-current group-hover:scale-110 transition-transform" />
             <span class="text-sm font-bold">Github</span>
           </button>
           <button
-            @click="handlerOpenOtherWindow(ExternalLinks.NPM)"
             class="flex flex-col items-center justify-center gap-2 p-4 bg-[#CB3837] text-white rounded-2xl hover:bg-[#a82e2d] hover:-translate-y-1 transition-all duration-300 shadow-lg shadow-red-500/30 group"
+            @click="handlerOpenOtherWindow(ExternalLinks.NPM)"
           >
             <NpmIcon class="w-12 h-8 fill-current group-hover:scale-110 transition-transform" />
             <span class="text-sm font-bold">NPM</span>

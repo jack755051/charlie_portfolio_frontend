@@ -5,13 +5,13 @@
     <button
       v-for="item in availableLocales"
       :key="item.code"
-      @click="switchLocale(item.code)"
       class="relative px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-300 ease-out flex items-center gap-2"
       :class="
         currentLocale === item.code
           ? 'bg-white text-orange-500 shadow-md shadow-slate-200'
           : 'text-slate-400 hover:text-slate-600'
       "
+      @click="switchLocale(item.code)"
     >
       <span class="relative z-10">{{ item.name }}</span>
     </button>
@@ -20,18 +20,19 @@
 
 <script setup lang="ts">
 const { locale, setLocale } = useI18n()
+type LocaleCode = 'en' | 'zh'
 
 // 當前語言（響應式）
-const currentLocale = computed(() => locale.value)
+const currentLocale = computed<LocaleCode>(() => (locale.value === 'en' ? 'en' : 'zh'))
 
 // 可用的語言選項
 const availableLocales = [
   { code: 'zh', name: '中' },
   { code: 'en', name: 'EN' },
-]
+] as const
 
 // 切換語言
-const switchLocale = (code: string) => {
+const switchLocale = (code: LocaleCode) => {
   setLocale(code)
 }
 </script>

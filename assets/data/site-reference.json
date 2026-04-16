@@ -1,0 +1,471 @@
+{
+  "schema_version": 1,
+  "generatedAt": "2026-04-16T00:00:00.000Z",
+  "navigationMenus": [
+    {
+      "id": "home",
+      "routePath": "/",
+      "label": "首頁",
+      "displayOrder": 0,
+      "isVisible": true
+    },
+    {
+      "id": "about",
+      "routePath": "/about",
+      "label": "關於",
+      "displayOrder": 1,
+      "isVisible": true
+    },
+    {
+      "id": "portfolio",
+      "routePath": "/portfolio",
+      "label": "作品集",
+      "displayOrder": 2,
+      "isVisible": true
+    }
+  ],
+  "pageAnchors": [
+    {
+      "id": "home-section-1",
+      "pageCode": "home",
+      "key": "section1",
+      "href": "#section1",
+      "title": "首頁",
+      "displayOrder": 0
+    },
+    {
+      "id": "about-section-1",
+      "pageCode": "about",
+      "key": "section1",
+      "href": "#section1",
+      "title": "關於我",
+      "displayOrder": 0
+    },
+    {
+      "id": "about-section-2",
+      "pageCode": "about",
+      "key": "section2",
+      "href": "#section2",
+      "title": "我的經驗",
+      "displayOrder": 1
+    },
+    {
+      "id": "about-section-3",
+      "pageCode": "about",
+      "key": "section3",
+      "href": "#section3",
+      "title": "我的技術棧",
+      "displayOrder": 2
+    },
+    {
+      "id": "about-section-4",
+      "pageCode": "about",
+      "key": "section4",
+      "href": "#section4",
+      "title": "我的Leetcode",
+      "displayOrder": 3
+    },
+    {
+      "id": "portfolio-section-1",
+      "pageCode": "portfolio",
+      "key": "section1",
+      "href": "#section1",
+      "title": "作品集",
+      "displayOrder": 0
+    }
+  ],
+  "technologyCatalogs": [
+    {
+      "id": "frontend",
+      "titleKey": "about.section3.categories.frontend.title",
+      "descriptionKey": "about.section3.categories.frontend.description",
+      "class": "col-span-1 md:col-span-2",
+      "items": [
+        { "name": "Vue 3", "iconName": "VueIcon", "color": "text-green-500" },
+        { "name": "Nuxt 3", "iconName": "NuxtIcon", "color": "text-green-600" },
+        { "name": "Angular", "iconName": "AngularIcon", "color": "text-red-600" },
+        { "name": "React", "iconName": "ReactIcon", "color": "text-blue-400" },
+        { "name": "TypeScript", "iconName": "TypeScriptIcon", "color": "text-blue-600" }
+      ]
+    },
+    {
+      "id": "backend",
+      "titleKey": "about.section3.categories.backend.title",
+      "descriptionKey": "about.section3.categories.backend.description",
+      "items": [
+        { "name": "Node.js", "iconName": "NodeJSIcon", "color": "text-green-600" },
+        { "name": "NestJS", "iconName": "NestJSIcon", "color": "text-red-500" },
+        { "name": "Docker", "iconName": "DockerIcon", "color": "text-blue-500" },
+        { "name": "Nx", "iconName": "NxIcon", "color": null }
+      ]
+    },
+    {
+      "id": "state",
+      "titleKey": "about.section3.categories.state.title",
+      "descriptionKey": "about.section3.categories.state.description",
+      "items": [
+        { "name": "Pinia", "iconName": "PiniaIcon", "color": "text-yellow-500" },
+        { "name": "RxJS", "iconName": "RxJSIcon", "color": "text-pink-600" },
+        { "name": "NgRx", "iconName": "NgrxIcon", "color": "text-purple-600" },
+        { "name": "TanStack Query", "iconName": "TanstackIcon", "color": null }
+      ]
+    },
+    {
+      "id": "ui",
+      "titleKey": "about.section3.categories.ui.title",
+      "descriptionKey": "about.section3.categories.ui.description",
+      "class": "col-span-1 md:col-span-2",
+      "items": [
+        { "name": "Tailwind CSS", "iconName": "TailWindIcon", "color": "text-cyan-400" },
+        { "name": "Ant Design", "iconName": "AntDesignIcon", "color": "text-blue-500" },
+        { "name": "Angular Material", "iconName": "AngularMaterialIcon", "color": null },
+        { "name": "Shadcn/UI", "iconName": "ShadcnIcon", "color": null },
+        { "name": "SCSS", "iconName": "SassIcon", "color": "text-pink-500" },
+        { "name": "ECharts", "iconName": "EchartIcon", "color": null }
+      ]
+    },
+    {
+      "id": "database",
+      "titleKey": "about.section3.categories.database.title",
+      "descriptionKey": "about.section3.categories.database.description",
+      "items": [
+        { "name": "MySQL", "iconName": "MysqlIcon", "color": null },
+        { "name": "MongoDB", "iconName": "MongoDBIcon", "color": "text-green-500" },
+        { "name": "PostgreSQL", "iconName": "PostgresIcon", "color": null }
+      ]
+    },
+    {
+      "id": "tools",
+      "titleKey": "about.section3.categories.tools.title",
+      "descriptionKey": "about.section3.categories.tools.description",
+      "items": [
+        { "name": "Git", "iconName": "GitIcon", "color": "text-orange-600" },
+        { "name": "NVM", "iconName": "NvmIcon", "color": null },
+        { "name": "Postman", "iconName": "PostmanIcon", "color": null }
+      ]
+    }
+  ],
+  "iconRegistry": [
+    {
+      "id": "angular",
+      "iconKey": "AngularIcon",
+      "assetPath": "assets/images/angular-icon.svg",
+      "componentName": "AngularIcon",
+      "fallbackIconKey": null,
+      "isAvailable": true
+    },
+    {
+      "id": "vue",
+      "iconKey": "VueIcon",
+      "assetPath": "assets/images/vue-icon.svg",
+      "componentName": "VueIcon",
+      "fallbackIconKey": null,
+      "isAvailable": true
+    },
+    {
+      "id": "nuxt",
+      "iconKey": "NuxtIcon",
+      "assetPath": "assets/images/nuxt-icon.svg",
+      "componentName": "NuxtIcon",
+      "fallbackIconKey": null,
+      "isAvailable": true
+    },
+    {
+      "id": "react",
+      "iconKey": "ReactIcon",
+      "assetPath": "assets/images/react-icon.svg",
+      "componentName": "ReactIcon",
+      "fallbackIconKey": null,
+      "isAvailable": true
+    },
+    {
+      "id": "nodejs",
+      "iconKey": "NodeJSIcon",
+      "assetPath": "assets/images/nodejs-icon.svg",
+      "componentName": "NodeJSIcon",
+      "fallbackIconKey": null,
+      "isAvailable": true
+    },
+    {
+      "id": "nestjs",
+      "iconKey": "NestJSIcon",
+      "assetPath": "assets/images/nestjs-icon.svg",
+      "componentName": "NestJSIcon",
+      "fallbackIconKey": null,
+      "isAvailable": true
+    },
+    {
+      "id": "docker",
+      "iconKey": "DockerIcon",
+      "assetPath": "assets/images/docker-icon.svg",
+      "componentName": "DockerIcon",
+      "fallbackIconKey": null,
+      "isAvailable": true
+    },
+    {
+      "id": "pinia",
+      "iconKey": "PiniaIcon",
+      "assetPath": "assets/images/pinia-icon.svg",
+      "componentName": "PiniaIcon",
+      "fallbackIconKey": null,
+      "isAvailable": true
+    },
+    {
+      "id": "rxjs",
+      "iconKey": "RxJSIcon",
+      "assetPath": "assets/images/rxjs-icon.svg",
+      "componentName": "RxJSIcon",
+      "fallbackIconKey": null,
+      "isAvailable": true
+    },
+    {
+      "id": "ngrx",
+      "iconKey": "NgrxIcon",
+      "assetPath": "assets/images/ngrx-icon.svg",
+      "componentName": "NgrxIcon",
+      "fallbackIconKey": null,
+      "isAvailable": true
+    },
+    {
+      "id": "tailwind",
+      "iconKey": "TailWindIcon",
+      "assetPath": "assets/images/tailwindcss-icon.svg",
+      "componentName": "TailWindIcon",
+      "fallbackIconKey": null,
+      "isAvailable": true
+    },
+    {
+      "id": "antdesign",
+      "iconKey": "AntDesignIcon",
+      "assetPath": "assets/images/antdesign-icon.svg",
+      "componentName": "AntDesignIcon",
+      "fallbackIconKey": null,
+      "isAvailable": true
+    },
+    {
+      "id": "shadcn",
+      "iconKey": "ShadcnIcon",
+      "assetPath": "assets/images/shadcn-icon.svg",
+      "componentName": "ShadcnIcon",
+      "fallbackIconKey": null,
+      "isAvailable": true
+    },
+    {
+      "id": "echart",
+      "iconKey": "EchartIcon",
+      "assetPath": "assets/images/echart-icon.svg",
+      "componentName": "EchartIcon",
+      "fallbackIconKey": null,
+      "isAvailable": true
+    },
+    {
+      "id": "mysql",
+      "iconKey": "MysqlIcon",
+      "assetPath": "assets/images/mysql-icon.svg",
+      "componentName": "MysqlIcon",
+      "fallbackIconKey": null,
+      "isAvailable": true
+    },
+    {
+      "id": "mongodb",
+      "iconKey": "MongoDBIcon",
+      "assetPath": "assets/images/mongodb-icon.svg",
+      "componentName": "MongoDBIcon",
+      "fallbackIconKey": null,
+      "isAvailable": true
+    },
+    {
+      "id": "git",
+      "iconKey": "GitIcon",
+      "assetPath": "assets/images/git-icon.svg",
+      "componentName": "GitIcon",
+      "fallbackIconKey": null,
+      "isAvailable": true
+    },
+    {
+      "id": "nvm",
+      "iconKey": "NvmIcon",
+      "assetPath": "assets/images/nvm-icon.svg",
+      "componentName": "NvmIcon",
+      "fallbackIconKey": null,
+      "isAvailable": true
+    },
+    {
+      "id": "npm",
+      "iconKey": "NpmIcon",
+      "assetPath": "assets/images/npm-icon.svg",
+      "componentName": "NpmIcon",
+      "fallbackIconKey": null,
+      "isAvailable": true
+    },
+    {
+      "id": "nextjs",
+      "iconKey": "NextJSIcon",
+      "assetPath": "assets/images/nextjs-icon.svg",
+      "componentName": "NextJSIcon",
+      "fallbackIconKey": null,
+      "isAvailable": true
+    },
+    {
+      "id": "bootstrap",
+      "iconKey": "BootstrapIcon",
+      "assetPath": "assets/images/bootstrap-icon.svg",
+      "componentName": "BootstrapIcon",
+      "fallbackIconKey": null,
+      "isAvailable": true
+    },
+    {
+      "id": "typescript",
+      "iconKey": "TypeScriptIcon",
+      "assetPath": "assets/images/vue-icon.svg",
+      "componentName": "TypeScriptIcon",
+      "fallbackIconKey": "VueIcon",
+      "isAvailable": false
+    },
+    {
+      "id": "nx",
+      "iconKey": "NxIcon",
+      "assetPath": "assets/images/npm-icon.svg",
+      "componentName": "NxIcon",
+      "fallbackIconKey": "NpmIcon",
+      "isAvailable": false
+    },
+    {
+      "id": "tanstack",
+      "iconKey": "TanstackIcon",
+      "assetPath": "assets/images/react-icon.svg",
+      "componentName": "TanstackIcon",
+      "fallbackIconKey": "ReactIcon",
+      "isAvailable": false
+    },
+    {
+      "id": "sass",
+      "iconKey": "SassIcon",
+      "assetPath": "assets/images/tailwindcss-icon.svg",
+      "componentName": "SassIcon",
+      "fallbackIconKey": "TailWindIcon",
+      "isAvailable": false
+    },
+    {
+      "id": "postgres",
+      "iconKey": "PostgresIcon",
+      "assetPath": "assets/images/mysql-icon.svg",
+      "componentName": "PostgresIcon",
+      "fallbackIconKey": "MysqlIcon",
+      "isAvailable": false
+    },
+    {
+      "id": "postman",
+      "iconKey": "PostmanIcon",
+      "assetPath": "assets/images/nodejs-icon.svg",
+      "componentName": "PostmanIcon",
+      "fallbackIconKey": "NodeJSIcon",
+      "isAvailable": false
+    },
+    {
+      "id": "angular-material",
+      "iconKey": "AngularMaterialIcon",
+      "assetPath": "assets/images/angular-icon.svg",
+      "componentName": "AngularMaterialIcon",
+      "fallbackIconKey": "AngularIcon",
+      "isAvailable": false
+    },
+    {
+      "id": "redux",
+      "iconKey": "ReduxIcon",
+      "assetPath": "assets/images/react-icon.svg",
+      "componentName": "ReduxIcon",
+      "fallbackIconKey": "ReactIcon",
+      "isAvailable": false
+    },
+    {
+      "id": "zustand",
+      "iconKey": "ZustandIcon",
+      "assetPath": "assets/images/react-icon.svg",
+      "componentName": "ZustandIcon",
+      "fallbackIconKey": "ReactIcon",
+      "isAvailable": false
+    },
+    {
+      "id": "radix",
+      "iconKey": "RadixIcon",
+      "assetPath": "assets/images/shadcn-icon.svg",
+      "componentName": "RadixIcon",
+      "fallbackIconKey": "ShadcnIcon",
+      "isAvailable": false
+    },
+    {
+      "id": "google-maps",
+      "iconKey": "GoogleMapsIcon",
+      "assetPath": "assets/images/nodejs-icon.svg",
+      "componentName": "GoogleMapsIcon",
+      "fallbackIconKey": "NodeJSIcon",
+      "isAvailable": false
+    },
+    {
+      "id": "dnd-kit",
+      "iconKey": "DndKitIcon",
+      "assetPath": "assets/images/react-icon.svg",
+      "componentName": "DndKitIcon",
+      "fallbackIconKey": "ReactIcon",
+      "isAvailable": false
+    },
+    {
+      "id": "lucide",
+      "iconKey": "LucideIcon",
+      "assetPath": "assets/images/shadcn-icon.svg",
+      "componentName": "LucideIcon",
+      "fallbackIconKey": "ShadcnIcon",
+      "isAvailable": false
+    },
+    {
+      "id": "sonner",
+      "iconKey": "SonnerIcon",
+      "assetPath": "assets/images/react-icon.svg",
+      "componentName": "SonnerIcon",
+      "fallbackIconKey": "ReactIcon",
+      "isAvailable": false
+    },
+    {
+      "id": "eslint",
+      "iconKey": "ESLintIcon",
+      "assetPath": "assets/images/npm-icon.svg",
+      "componentName": "ESLintIcon",
+      "fallbackIconKey": "NpmIcon",
+      "isAvailable": false
+    },
+    {
+      "id": "prettier",
+      "iconKey": "PrettierIcon",
+      "assetPath": "assets/images/npm-icon.svg",
+      "componentName": "PrettierIcon",
+      "fallbackIconKey": "NpmIcon",
+      "isAvailable": false
+    },
+    {
+      "id": "ng-packagr",
+      "iconKey": "NgPackagrIcon",
+      "assetPath": "assets/images/angular-icon.svg",
+      "componentName": "NgPackagrIcon",
+      "fallbackIconKey": "AngularIcon",
+      "isAvailable": false
+    },
+    {
+      "id": "changesets",
+      "iconKey": "ChangesetsIcon",
+      "assetPath": "assets/images/npm-icon.svg",
+      "componentName": "ChangesetsIcon",
+      "fallbackIconKey": "NpmIcon",
+      "isAvailable": false
+    },
+    {
+      "id": "jasmine",
+      "iconKey": "JasmineIcon",
+      "assetPath": "assets/images/nodejs-icon.svg",
+      "componentName": "JasmineIcon",
+      "fallbackIconKey": "NodeJSIcon",
+      "isAvailable": false
+    }
+  ],
+  "version": 1
+}

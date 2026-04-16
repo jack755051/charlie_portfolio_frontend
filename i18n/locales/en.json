@@ -7,7 +7,8 @@
     "greeting": "Hello, I'm",
     "name": "Charlie Tai",
     "introPrefix": "I am a",
-    "description": "Focusing on building high-performance, interactive web experiences.<br class=\"hidden md:block\" />Specializing in Angular, Vue 3, Nuxt, and Tailwind CSS.",
+    "descriptionLead": "Focusing on building high-performance, interactive web experiences.",
+    "descriptionTail": "Specializing in Angular, Vue 3, Nuxt, and Tailwind CSS.",
     "buttons": {
       "about": "Learn More",
       "portfolio": "View Portfolio"
@@ -130,7 +131,12 @@
       },
       "evolution": {
         "title": "Continuous Evolution 🚀",
-        "content": "Technology is a tool for solving problems, and learning is the instinct of engineers.\nCurrently diving deep into <strong>WebGL</strong> and <strong>System Architecture Design</strong>.",
+        "contentLead": "Technology is a tool for solving problems, and learning is the instinct of engineers.",
+        "currentlyStudyingPrefix": "Currently diving deep into ",
+        "focusTopic1": "WebGL",
+        "connector": " and ",
+        "focusTopic2": "System Architecture Design",
+        "suffix": ".",
         "downloadResume": "Download Full Resume"
       }
     },

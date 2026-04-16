@@ -1,7 +1,7 @@
 <template>
   <div class="snap-y snap-mandatory h-full overflow-y-scroll scroll-smooth relative z-10">
     <div class="w-full">
-      <ScrollSection ref="initSection" id="section1">
+      <ScrollSection id="section1" ref="initSection">
         <template #content>
           <div
             class="flex flex-col md:flex-row items-center justify-center h-full w-full max-w-7xl mx-auto px-6 gap-12 md:gap-20"
@@ -30,10 +30,12 @@
                 </span>
               </div>
 
-              <p
-                class="text-slate-400 leading-relaxed max-w-md text-base md:text-lg"
-                v-html="$t('home.description')"
-              ></p>
+              <p class="text-slate-400 leading-relaxed max-w-md text-base md:text-lg">
+                <span>{{ $t('home.descriptionLead') }}</span>
+                <span class="md:hidden"> </span>
+                <span class="hidden md:block"></span>
+                <span>{{ $t('home.descriptionTail') }}</span>
+              </p>
 
               <div class="pt-4 flex gap-4">
                 <CButton
@@ -127,8 +129,11 @@ import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import CButton from '~/components/base/button.vue'
 import ScrollSection from '~/layouts/scrollSection.vue'
+import zhLocale from '~/i18n/locales/zh.json'
+import enLocale from '~/i18n/locales/en.json'
 
-const { tm, rt, locale } = useI18n()
+const { locale } = useI18n()
+type SupportedLocale = 'en' | 'zh'
 
 /** 點擊 了解更多 後導航到關於頁面 */
 const handlerClickButton = () => {
@@ -143,14 +148,17 @@ let phrases: string[] = []
 let phraseIndex = 0
 let charIndex = 0
 let isDeleting = false
-let timer: NodeJS.Timeout | null = null
+let timer: ReturnType<typeof setTimeout> | null = null
+
+const roleMessages = {
+  zh: zhLocale.home.roles,
+  en: enLocale.home.roles,
+} as const
+
+const resolveLocale = (): SupportedLocale => (locale.value === 'en' ? 'en' : 'zh')
 
 // 獲取當前語言的片語列表
-const getPhrases = () => {
-  const rawData = tm('home.roles')
-  // 確保回傳的是陣列，若是物件結構則透過 rt 解析
-  return Array.isArray(rawData) ? rawData.map(item => rt(item)) : []
-}
+const getPhrases = () => [...roleMessages[resolveLocale()]]
 
 const typeEffect = () => {
   // 安全檢查：如果沒有片語，直接返回

@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://charlie-portfolio.local/schemas/portfolio-projects.schema.json",
+  "title": "Portfolio Projects JSON",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "generatedAt", "projects", "version"],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "projectType",
+          "i18nNamespace",
+          "link",
+          "technologies",
+          "screenshots",
+          "displayOrder",
+          "isPublished"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "projectType": {
+            "type": "string",
+            "enum": ["company", "personal"]
+          },
+          "i18nNamespace": {
+            "type": "string",
+            "const": "portfolio.projects"
+          },
+          "link": {
+            "type": ["string", "null"],
+            "pattern": "^https://"
+          },
+          "technologies": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["name", "icon", "category"],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "icon": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9]+Icon$"
+                },
+                "category": {
+                  "type": ["string", "null"]
+                }
+              }
+            }
+          },
+          "screenshots": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["url", "caption"],
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "caption": {
+                  "type": ["string", "null"]
+                }
+              }
+            }
+          },
+          "displayOrder": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "isPublished": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    }
+  }
+}

@@ -9,7 +9,7 @@
       class="snap-y snap-mandatory h-full overflow-y-scroll scroll-smooth pt-[80px] relative z-10"
     >
       <div class="w-full pb-20">
-        <ScrollSection ref="portfolioSection" id="section1" :class="['flex-col !justify-start']">
+        <ScrollSection id="section1" ref="portfolioSection" :class="['flex-col !justify-start']">
           <template #title>
             <div class="flex w-full items-center justify-center mb-16 relative z-10">
               <h2
@@ -27,7 +27,7 @@
 
           <template #content>
             <div
-              v-if="mockStore.portfolioMetadata.length === 0"
+              v-if="publishedProjects.length === 0"
               class="flex flex-col items-center justify-center h-64 text-slate-400"
             >
               <div class="text-6xl mb-4">📂</div>
@@ -73,39 +73,38 @@
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n' // 1. 引入 useI18n
-import { useMockStore } from '~/stores/useMockStore'
 import { useAnchor } from '~/composables/useAnchor'
+import { usePortfolioProjects } from '~/composables/usePortfolioProjects'
 import CAnchor from '~/components/base/anchor.vue'
 import CPortfolioCard from '~/components/base/portfolio-card.vue'
 import ScrollSection from '~/layouts/scrollSection.vue'
 
-const mockStore = useMockStore()
 const anchorData = useAnchor()
 const router = useRouter()
 const { t } = useI18n() // 2. 獲取 t 函式
+const {
+  publishedProjects,
+  companyProjects: companySource,
+  personalProjects: personalSource,
+} = usePortfolioProjects()
 
 // 輔助函式：將 Metadata 加上翻譯文字
 // 這樣 CPortfolioCard 透過 v-bind 就能拿到 title, description, role
 const enrichProject = (project: any) => ({
   ...project,
-  title: t(`portfolio.projects.${project.id}.title`),
-  description: t(`portfolio.projects.${project.id}.description`),
-  role: t(`portfolio.projects.${project.id}.role`),
+  title: t(`${project.i18nNamespace}.${project.id}.title`),
+  description: t(`${project.i18nNamespace}.${project.id}.description`),
+  role: t(`${project.i18nNamespace}.${project.id}.role`),
+  duration: t(`${project.i18nNamespace}.${project.id}.duration`),
   // 如果你的 Card 需要 tags，這裡可能需要 mapping，或者 Card 內部自己處理
 })
 
 const companyProjects = computed(() => {
-  // 3. 改用 portfolioMetadata (注意變數名稱)
-  // 4. 只用 id 判斷 (因為 store 裡已經沒有 title 了)
-  return mockStore.portfolioMetadata
-    .filter(project => project.id.toLowerCase().includes('systalk'))
-    .map(enrichProject) // 5. 合併翻譯資料
+  return companySource.value.map(enrichProject)
 })
 
 const personalProjects = computed(() => {
-  return mockStore.portfolioMetadata
-    .filter(project => !project.id.toLowerCase().includes('systalk'))
-    .map(enrichProject)
+  return personalSource.value.map(enrichProject)
 })
 
 const handleCardClick = (projectId: string) => {

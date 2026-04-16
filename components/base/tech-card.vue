@@ -26,8 +26,8 @@
       >
         <div class="w-6 h-6 mb-1.5 transition-transform duration-300 group-hover/item:scale-110">
           <component
-            v-if="getIconComponent(item.iconName)"
             :is="getIconComponent(item.iconName)"
+            v-if="getIconComponent(item.iconName)"
             class="w-full h-full fill-current"
             :class="item.color || 'text-slate-600'"
           />

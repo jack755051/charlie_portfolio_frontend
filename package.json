@@ -8,6 +8,8 @@
     "generate": "NODE_OPTIONS='--max-old-space-size=8192' nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "sync:leetcode": "node scripts/sync-leetcode.mjs",
+    "validate:ssot": "node scripts/validate-json-ssot.mjs",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write \"**/*.{js,ts,vue,json,css,scss,md}\"",
@@ -15,11 +17,9 @@
   },
   "dependencies": {
     "@nuxtjs/i18n": "^10.2.1",
-    "@pinia/nuxt": "^0.11.1",
     "ant-design-vue": "^4.2.6",
     "echarts": "^6.0.0",
     "nuxt": "^3.17.6",
-    "pinia": "^3.0.3",
     "vue": "^3.5.17",
     "vue-echarts": "^8.0.1",
     "vue-router": "^4.5.1"

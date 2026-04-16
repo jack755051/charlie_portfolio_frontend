@@ -1,0 +1,56 @@
+name: Sync LeetCode Profile
+
+on:
+  schedule:
+    - cron: '17 18 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-build-deploy:
+    runs-on: ubuntu-latest
+    env:
+      LEETCODE_USERNAME: ${{ vars.LEETCODE_USERNAME || 'jack755051' }}
+    steps:
+      - name: Checkout dev branch
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync LeetCode profile
+        run: npm run sync:leetcode
+
+      - name: Validate JSON SSOT
+        run: npm run validate:ssot
+
+      - name: Commit LeetCode snapshot
+        run: |
+          if git diff --quiet -- assets/data/leetcode-profile.json; then
+            echo "No LeetCode snapshot changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/data/leetcode-profile.json
+          git commit -m "chore(leetcode): sync profile snapshot"
+          git push
+
+      - name: Generate static site
+        run: npm run generate
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./.output/public

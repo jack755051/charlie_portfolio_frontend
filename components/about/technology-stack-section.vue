@@ -1,7 +1,7 @@
 <template>
   <AboutSection
-    ref="technologyStackSection"
     id="section3"
+    ref="technologyStackSection"
     :title-main="$t('about.section3.titleMain')"
     :title-highlight="$t('about.section3.titleHighlight')"
     :subtitle="$t('about.section3.subtitle')"
@@ -32,10 +32,20 @@
           >
             {{ $t('about.section3.evolution.title') }}
           </h3>
-          <p
-            class="text-slate-400 text-sm leading-relaxed"
-            v-html="$t('about.section3.evolution.content').replace(/\n/g, '<br>')"
-          ></p>
+          <div class="text-slate-400 text-sm leading-relaxed space-y-2">
+            <p>{{ $t('about.section3.evolution.contentLead') }}</p>
+            <p>
+              {{ $t('about.section3.evolution.currentlyStudyingPrefix') }}
+              <span class="font-semibold text-white">{{
+                $t('about.section3.evolution.focusTopic1')
+              }}</span>
+              {{ $t('about.section3.evolution.connector') }}
+              <span class="font-semibold text-white">{{
+                $t('about.section3.evolution.focusTopic2')
+              }}</span
+              >{{ $t('about.section3.evolution.suffix') }}
+            </p>
+          </div>
         </div>
 
         <button
