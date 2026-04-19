@@ -118,7 +118,7 @@ onUnmounted(() => {
 }
 
 .anchor-item:hover {
-  background: rgba(255, 107, 53, 0.08);
+  background: rgb(var(--primary) / 0.08);
 }
 
 .anchor-dot {
@@ -126,21 +126,15 @@ onUnmounted(() => {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #cbd5e1; /* slate-300 */
+  background: rgb(var(--muted-foreground) / 0.6);
   transition: all 0.25s ease;
   flex-shrink: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  .anchor-dot {
-    background: #475569; /* slate-600 */
-  }
-}
-
 .anchor-item.active .anchor-dot {
-  background: #ff6b35; /* primary */
+  background: rgb(var(--primary));
   transform: scale(1.4);
-  box-shadow: 0 0 10px rgba(255, 107, 53, 0.6);
+  box-shadow: 0 0 10px rgb(var(--primary) / 0.6);
 }
 
 /* Tooltip（僅在 dot-only 模式 md ~ xl）*/
@@ -150,8 +144,8 @@ onUnmounted(() => {
   left: calc(100% + 10px);
   top: 50%;
   transform: translateY(-50%) translateX(-6px);
-  background: rgba(15, 23, 42, 0.92);
-  color: #fff;
+  background: rgb(var(--foreground) / 0.92);
+  color: rgb(var(--background));
   font-size: 12px;
   line-height: 1;
   padding: 6px 10px;
@@ -184,29 +178,17 @@ onUnmounted(() => {
     display: none;
   }
   .anchor-item.active {
-    background: rgba(255, 107, 53, 0.12);
+    background: rgb(var(--primary) / 0.12);
   }
   .anchor-title {
     font-size: 14px;
-    color: #64748b;
+    color: rgb(var(--muted-foreground));
     transition: color 0.2s ease;
     white-space: nowrap;
   }
   .anchor-item.active .anchor-title {
-    color: #ff6b35;
+    color: rgb(var(--primary));
     font-weight: 600;
-  }
-}
-
-@media (min-width: 1280px) and (prefers-color-scheme: dark) {
-  .anchor-item.active {
-    background: rgba(255, 107, 53, 0.18);
-  }
-  .anchor-title {
-    color: #cbd5e1;
-  }
-  .anchor-item.active .anchor-title {
-    color: #ffb080;
   }
 }
 

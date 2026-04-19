@@ -17,30 +17,30 @@
       />
 
       <div
-        class="col-span-1 md:col-span-2 lg:col-span-2 bg-slate-900 rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between shadow-xl shadow-slate-300/20 text-white relative overflow-hidden group border border-slate-800"
+        class="col-span-1 md:col-span-2 lg:col-span-2 bg-foreground rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between shadow-xl shadow-foreground/10 text-background relative overflow-hidden group border border-foreground/10"
       >
         <div
-          class="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-500 opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none"
-        ></div>
+          class="absolute inset-0 bg-gradient-to-r from-primary to-amber-500 opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"
+        />
         <div
-          class="absolute -right-10 -top-10 w-40 h-40 bg-white opacity-5 rounded-full blur-3xl pointer-events-none"
-        ></div>
+          class="absolute -right-10 -top-10 w-40 h-40 bg-background opacity-5 rounded-full blur-3xl pointer-events-none"
+        />
 
         <div class="z-10 mb-6 md:mb-0 text-center md:text-left relative">
           <h3
-            class="text-2xl font-bold mb-3 flex items-center justify-center md:justify-start gap-2 text-white"
+            class="text-2xl font-bold mb-3 flex items-center justify-center md:justify-start gap-2 text-background"
           >
             {{ $t('about.section3.evolution.title') }}
           </h3>
-          <div class="text-slate-400 text-sm leading-relaxed space-y-2">
+          <div class="text-background/70 text-sm leading-relaxed space-y-2">
             <p>{{ $t('about.section3.evolution.contentLead') }}</p>
             <p>
               {{ $t('about.section3.evolution.currentlyStudyingPrefix') }}
-              <span class="font-semibold text-white">{{
+              <span class="font-semibold text-background">{{
                 $t('about.section3.evolution.focusTopic1')
               }}</span>
               {{ $t('about.section3.evolution.connector') }}
-              <span class="font-semibold text-white">{{
+              <span class="font-semibold text-background">{{
                 $t('about.section3.evolution.focusTopic2')
               }}</span
               >{{ $t('about.section3.evolution.suffix') }}
@@ -49,7 +49,7 @@
         </div>
 
         <button
-          class="z-10 px-6 py-3 bg-white text-slate-900 font-bold rounded-full hover:bg-orange-50 hover:text-orange-600 transition-all shadow-lg flex items-center gap-2 active:scale-95 group/btn"
+          class="z-10 px-6 py-3 bg-background text-foreground font-bold rounded-full hover:bg-accent hover:text-accent-foreground transition-all shadow-lg flex items-center gap-2 active:scale-95 group/btn"
           @click="handlerDownloadResume"
         >
           <svg

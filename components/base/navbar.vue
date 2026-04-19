@@ -10,11 +10,10 @@
         v-for="i in navigationMenus"
         :key="i.router"
         :to="i.router"
-        class="nav-item transition-all duration-300 font-[400] text-gray-500 dark:text-slate-400 relative after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:bg-secondary after:w-0 after:transition-all after:duration-300"
+        class="nav-item transition-all duration-300 font-[400] text-muted-foreground relative after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:bg-primary after:w-0 after:transition-all after:duration-300"
         :class="{
-          'active text-gray-800 dark:text-white font-[500] after:w-full': $route.path === i.router,
-          'hover:font-[600] hover:text-gray-800 dark:hover:text-white hover:after:w-full':
-            $route.path !== i.router,
+          'active text-foreground font-[500] after:w-full': $route.path === i.router,
+          'hover:font-[600] hover:text-foreground hover:after:w-full': $route.path !== i.router,
         }"
       >
         {{ i.label }}
@@ -24,7 +23,7 @@
     <!-- Hamburger (mobile only) -->
     <button
       type="button"
-      class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-full text-gray-600 dark:text-slate-200 hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+      class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-full text-foreground/80 hover:bg-foreground/10 transition-colors"
       :aria-expanded="menuOpen"
       aria-controls="mobile-nav-overlay"
       aria-label="Toggle menu"
@@ -39,7 +38,7 @@
         <div
           v-if="menuOpen"
           id="mobile-nav-overlay"
-          class="fixed inset-0 z-[60] bg-background/95 dark:bg-slate-950/95 backdrop-blur-xl flex flex-col"
+          class="fixed inset-0 z-[60] bg-background/95 backdrop-blur-xl flex flex-col"
           role="dialog"
           aria-modal="true"
         >
@@ -49,7 +48,7 @@
             </div>
             <button
               type="button"
-              class="inline-flex items-center justify-center h-10 w-10 rounded-full text-gray-700 dark:text-slate-200 hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+              class="inline-flex items-center justify-center h-10 w-10 rounded-full text-foreground/80 hover:bg-foreground/10 transition-colors"
               aria-label="Close menu"
               @click="menuOpen = false"
             >
@@ -64,9 +63,7 @@
               :to="i.router"
               class="text-3xl font-bold tracking-tight transition-colors"
               :class="
-                $route.path === i.router
-                  ? 'text-primary'
-                  : 'text-slate-700 dark:text-slate-200 hover:text-primary'
+                $route.path === i.router ? 'text-primary' : 'text-foreground hover:text-primary'
               "
               @click="menuOpen = false"
             >
@@ -74,7 +71,7 @@
             </NuxtLink>
           </nav>
 
-          <div class="py-6 text-center text-xs text-slate-400 dark:text-slate-500">
+          <div class="py-6 text-center text-xs text-muted-foreground">
             © {{ currentYear }} Charlie Tai
           </div>
         </div>
@@ -121,16 +118,10 @@ onUnmounted(() => {
 
 <style scoped>
 .nav-item.active {
-  color: #1f2937;
   font-weight: 600;
 }
 .nav-item.active::after {
   width: 100%;
-}
-@media (prefers-color-scheme: dark) {
-  .nav-item.active {
-    color: #ffffff;
-  }
 }
 
 .overlay-enter-active,

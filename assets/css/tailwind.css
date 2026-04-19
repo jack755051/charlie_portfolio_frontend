@@ -3,3 +3,85 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  /* ==========================================================
+     Semantic Design Tokens (shadcn convention)
+     使用 space-separated RGB 以配合 Tailwind <alpha-value>
+     ========================================================== */
+  :root {
+    /* 基底表面 */
+    --background: 252 247 241; /* #FCF7F1 */
+    --foreground: 15 23 42; /* slate-900 */
+
+    /* 卡片 */
+    --card: 255 255 255;
+    --card-foreground: 15 23 42;
+
+    /* 彈出層（tooltip / menu） */
+    --popover: 255 255 255;
+    --popover-foreground: 15 23 42;
+
+    /* 品牌主色 */
+    --primary: 255 107 53; /* #FF6B35 */
+    --primary-foreground: 255 255 255;
+
+    /* 次要按鈕 */
+    --secondary: 241 245 249; /* slate-100 */
+    --secondary-foreground: 15 23 42;
+
+    /* 柔化 */
+    --muted: 241 245 249;
+    --muted-foreground: 100 116 139; /* slate-500 */
+
+    /* 點綴（hover 背景） */
+    --accent: 255 237 213; /* orange-100 */
+    --accent-foreground: 194 65 12; /* orange-700 */
+
+    /* 危險 */
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+
+    /* 邊框 / 輸入 / 焦點環 */
+    --border: 226 232 240; /* slate-200 */
+    --input: 226 232 240;
+    --ring: 255 107 53;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: 2 6 23; /* slate-950 */
+      --foreground: 248 250 252; /* slate-50 */
+
+      --card: 15 23 42; /* slate-900 */
+      --card-foreground: 248 250 252;
+
+      --popover: 15 23 42;
+      --popover-foreground: 248 250 252;
+
+      --primary: 255 140 66; /* 略提亮以維持對比 */
+      --primary-foreground: 15 23 42;
+
+      --secondary: 30 41 59; /* slate-800 */
+      --secondary-foreground: 248 250 252;
+
+      --muted: 30 41 59;
+      --muted-foreground: 148 163 184; /* slate-400 */
+
+      --accent: 194 65 12; /* orange-700 */
+      --accent-foreground: 255 237 213;
+
+      --destructive: 127 29 29;
+      --destructive-foreground: 248 250 252;
+
+      --border: 51 65 85; /* slate-700 */
+      --input: 51 65 85;
+      --ring: 255 140 66;
+    }
+  }
+
+  /* 全域預設背景 + 字色，確保即使未套 class 也不會破版 */
+  body {
+    @apply bg-background text-foreground transition-colors duration-500;
+  }
+}

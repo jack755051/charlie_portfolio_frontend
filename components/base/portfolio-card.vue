@@ -1,27 +1,27 @@
 <template>
   <div
-    class="group relative bg-white rounded-2xl border border-slate-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer flex flex-col h-full"
+    class="group relative bg-card rounded-2xl border border-border overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer flex flex-col h-full"
     @click="handleClick"
   >
-    <div class="h-1.5 w-full" :class="type === 'company' ? 'bg-blue-500' : 'bg-orange-500'"></div>
+    <div class="h-1.5 w-full" :class="type === 'company' ? 'bg-sky-500' : 'bg-primary'" />
 
     <div class="p-6 flex flex-col flex-1">
       <div class="flex justify-between items-start mb-4">
         <div class="flex-1">
           <h3
-            class="text-xl font-bold text-slate-800 group-hover:text-orange-500 transition-colors line-clamp-1"
+            class="text-xl font-bold text-foreground group-hover:text-primary transition-colors line-clamp-1"
             :title="title"
           >
             {{ title }}
           </h3>
-          <div class="flex items-center gap-2 mt-1 text-xs font-mono text-slate-400">
-            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-500">{{ role }}</span>
+          <div class="flex items-center gap-2 mt-1 text-xs font-mono text-muted-foreground">
+            <span class="px-2 py-0.5 rounded bg-muted text-muted-foreground">{{ role }}</span>
             <span>•</span>
             <span>{{ duration }}</span>
           </div>
         </div>
         <div
-          class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-orange-50 group-hover:text-orange-500 transition-colors"
+          class="w-8 h-8 rounded-full bg-muted flex items-center justify-center text-muted-foreground group-hover:bg-accent group-hover:text-accent-foreground transition-colors"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -40,21 +40,21 @@
         </div>
       </div>
 
-      <p class="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-3 flex-1">
+      <p class="text-muted-foreground text-sm leading-relaxed mb-6 line-clamp-3 flex-1">
         {{ description }}
       </p>
 
-      <div class="flex flex-wrap gap-2 mt-auto pt-4 border-t border-slate-50">
+      <div class="flex flex-wrap gap-2 mt-auto pt-4 border-t border-border">
         <span
           v-for="(tech, index) in displayTechnologies"
           :key="index"
-          class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-slate-50 text-slate-600 border border-slate-100 group-hover:border-orange-100 group-hover:text-orange-600 transition-colors"
+          class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-muted text-muted-foreground border border-border group-hover:border-primary/40 group-hover:text-primary transition-colors"
         >
           {{ tech.name }}
         </span>
         <span
           v-if="remainingTechCount > 0"
-          class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-slate-50 text-slate-400"
+          class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-muted text-muted-foreground/70"
         >
           +{{ remainingTechCount }}
         </span>

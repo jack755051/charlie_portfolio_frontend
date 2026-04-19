@@ -13,9 +13,9 @@
               class="flex flex-col items-center md:items-start text-center md:text-left space-y-5 sm:space-y-6 z-10 order-2 md:order-1"
             >
               <span
-                class="inline-flex items-center gap-2 rounded-full border border-orange-300/60 dark:border-orange-500/30 bg-white/60 dark:bg-white/5 backdrop-blur px-3 py-1 text-[11px] sm:text-xs font-semibold tracking-[0.2em] text-orange-600 dark:text-orange-400 uppercase animate-fade-in-up shadow-sm"
+                class="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-card/60 backdrop-blur px-3 py-1 text-[11px] sm:text-xs font-semibold tracking-[0.2em] text-primary uppercase animate-fade-in-up shadow-sm"
               >
-                <span class="h-1.5 w-1.5 rounded-full bg-orange-500 animate-pulse" />
+                <span class="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
                 {{ $t('home.greeting') }}
               </span>
 
@@ -23,27 +23,27 @@
                 class="font-display font-extrabold tracking-tight leading-[1.05] text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
               >
                 <span
-                  class="bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 bg-clip-text text-transparent drop-shadow-[0_1px_24px_rgba(255,107,53,0.35)]"
+                  class="bg-gradient-to-r from-primary via-rose-500 to-fuchsia-500 bg-clip-text text-transparent drop-shadow-[0_1px_24px_rgba(255,107,53,0.35)]"
                 >
                   {{ $t('home.name') }}
                 </span>
               </h1>
 
               <div
-                class="min-h-[2.25rem] sm:min-h-[2.5rem] flex flex-wrap items-center justify-center md:justify-start gap-x-2 text-lg sm:text-xl md:text-2xl font-medium text-slate-500 dark:text-slate-300"
+                class="min-h-[2.25rem] sm:min-h-[2.5rem] flex flex-wrap items-center justify-center md:justify-start gap-x-2 text-lg sm:text-xl md:text-2xl font-medium text-muted-foreground"
               >
                 <span>{{ $t('home.introPrefix') }}</span>
-                <span class="inline-flex items-center text-slate-900 dark:text-white font-semibold">
+                <span class="inline-flex items-center text-foreground font-semibold">
                   <span>{{ typeWriterText }}</span>
                   <span
-                    class="ml-0.5 inline-block h-5 sm:h-6 md:h-7 w-[2px] bg-orange-500 animate-blink"
+                    class="ml-0.5 inline-block h-5 sm:h-6 md:h-7 w-[2px] bg-primary animate-blink"
                     aria-hidden="true"
                   />
                 </span>
               </div>
 
               <p
-                class="text-sm sm:text-base md:text-lg leading-relaxed max-w-md text-slate-500 dark:text-slate-400"
+                class="text-sm sm:text-base md:text-lg leading-relaxed max-w-md text-muted-foreground"
               >
                 <span>{{ $t('home.descriptionLead') }}</span>
                 <span class="md:block"> {{ $t('home.descriptionTail') }}</span>
@@ -58,13 +58,12 @@
                   :label="$t('home.buttons.about')"
                   @click="handlerClickButton()"
                 />
-                <button
-                  type="button"
-                  class="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full border border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-200 font-bold hover:bg-white dark:hover:bg-slate-800 hover:text-orange-500 dark:hover:text-orange-400 hover:-translate-y-0.5 hover:shadow-md transition-all duration-300"
+                <CButton
+                  variant="secondary"
+                  size="lg"
+                  :label="$t('home.buttons.portfolio')"
                   @click="navigateTo('/portfolio')"
-                >
-                  {{ $t('home.buttons.portfolio') }}
-                </button>
+                />
               </div>
             </div>
 

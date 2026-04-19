@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-center bg-slate-100/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-full p-1 border border-slate-200 dark:border-slate-700 shadow-inner"
+    class="flex items-center bg-muted/80 backdrop-blur-sm rounded-full p-1 border border-border shadow-inner"
   >
     <button
       v-for="item in availableLocales"
@@ -8,8 +8,8 @@
       class="relative px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-300 ease-out flex items-center gap-2"
       :class="
         currentLocale === item.code
-          ? 'bg-white dark:bg-slate-900 text-primary shadow-md shadow-slate-200 dark:shadow-black/40'
-          : 'text-slate-400 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-200'
+          ? 'bg-card text-primary shadow-md shadow-foreground/10'
+          : 'text-muted-foreground hover:text-foreground'
       "
       @click="switchLocale(item.code)"
     >

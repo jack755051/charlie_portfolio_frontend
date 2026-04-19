@@ -1,29 +1,22 @@
 <template>
-  <ScrollSection :id="id" class="relative overflow-hidden py-24">
-    <div
-      class="absolute top-20 -left-20 w-96 h-96 bg-orange-200/40 rounded-full blur-[100px] pointer-events-none"
-    ></div>
-    <div
-      class="absolute bottom-0 -right-20 w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-[100px] pointer-events-none -z-10"
-    ></div>
-
+  <ScrollSection :id="id" class="relative overflow-hidden py-20 md:py-24">
     <template #title>
-      <div class="flex w-full items-center justify-center mb-16 relative z-10">
+      <div class="flex w-full items-center justify-center mb-12 md:mb-16 relative z-10">
         <div class="relative pb-2 text-center group cursor-default">
           <h2
-            class="text-4xl md:text-5xl font-bold text-slate-800 tracking-tight transition-transform duration-500 hover:scale-105"
+            class="font-display text-4xl md:text-5xl font-bold text-foreground tracking-tight transition-transform duration-500 hover:scale-105"
           >
             {{ titleMain }}
             <span
-              class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500 animate-gradient-x"
+              class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-rose-500 to-fuchsia-500"
             >
               {{ titleHighlight }}
             </span>
           </h2>
           <div
-            class="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1.5 bg-gradient-to-r from-orange-500 to-amber-400 rounded-full transition-all duration-300 group-hover:w-32"
-          ></div>
-          <p class="mt-4 text-slate-500 text-sm md:text-base font-medium">
+            class="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1.5 bg-gradient-to-r from-primary to-rose-400 rounded-full transition-all duration-300 group-hover:w-32"
+          />
+          <p class="mt-4 text-muted-foreground text-sm md:text-base font-medium">
             {{ subtitle }}
           </p>
         </div>
@@ -31,7 +24,7 @@
     </template>
 
     <template #content>
-      <div class="w-full max-w-7xl mx-auto px-6 relative z-10">
+      <div class="w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 relative z-10">
         <slot />
       </div>
     </template>

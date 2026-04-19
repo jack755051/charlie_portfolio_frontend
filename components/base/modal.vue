@@ -19,7 +19,7 @@
         >
           <div
             v-if="modelValue"
-            class="bg-white rounded-lg shadow-lg max-h-[90vh] flex flex-col relative"
+            class="bg-card text-card-foreground rounded-lg shadow-xl max-h-[90vh] flex flex-col relative border border-border"
             :class="[
               typeof width === 'number' ? '' : width,
               typeof maxWidth === 'number' ? '' : maxWidth,
@@ -33,14 +33,14 @@
             <!-- Header -->
             <div
               v-if="!hideHeader"
-              class="px-5 py-5 border-b border-gray-200 flex items-center justify-between"
+              class="px-5 py-5 border-b border-border flex items-center justify-between"
             >
               <slot name="header">
-                <h3 class="m-0 text-lg font-medium text-gray-800">{{ title }}</h3>
+                <h3 class="m-0 text-lg font-medium text-foreground">{{ title }}</h3>
               </slot>
               <button
                 v-if="showCloseButton"
-                class="bg-transparent border-0 text-2xl cursor-pointer text-gray-400 w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 hover:text-gray-800 transition-all duration-300"
+                class="bg-transparent border-0 text-2xl cursor-pointer text-muted-foreground w-8 h-8 flex items-center justify-center rounded hover:bg-muted hover:text-foreground transition-all duration-300"
                 @click="close"
               >
                 ×
@@ -55,19 +55,19 @@
             <!-- Footer -->
             <div
               v-if="!hideFooter"
-              class="px-5 py-4 border-t border-gray-200 flex justify-end gap-2.5"
+              class="px-5 py-4 border-t border-border flex justify-end gap-2.5"
             >
               <slot name="footer">
                 <button
                   v-if="showCancelButton"
-                  class="px-4 py-2 rounded border border-gray-300 text-sm cursor-pointer transition-all duration-300 outline-none bg-white text-gray-800 hover:border-blue-400 hover:text-blue-400"
+                  class="px-4 py-2 rounded border border-border text-sm cursor-pointer transition-all duration-300 outline-none bg-card text-foreground hover:border-primary hover:text-primary"
                   @click="cancel"
                 >
                   {{ cancelText }}
                 </button>
                 <button
                   v-if="showConfirmButton"
-                  class="px-4 py-2 rounded border border-transparent text-sm cursor-pointer transition-all duration-300 outline-none bg-blue-500 text-white hover:bg-blue-400"
+                  class="px-4 py-2 rounded border border-transparent text-sm cursor-pointer transition-all duration-300 outline-none bg-primary text-primary-foreground hover:opacity-90"
                   @click="confirm"
                 >
                   {{ confirmText }}

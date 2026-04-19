@@ -188,3 +188,48 @@ stateDiagram-v2
 ## 9. 遺留議題（交還 PM 決策）
 1. `pages/experience/index.vue` — **刪除 / 重做 / 合併進 About**（建議合併，已在 `/about` 有 ExperienceSection）
 2. 是否導入 shadcn-vue？→ 見 04 Frontend 評估報告
+
+---
+
+## 10. Semantic Color Tokens v1.1（Dark Mode 根治方案）
+
+### 10.1 Token 列表（shadcn 命名約定）
+| Token | Light | Dark | 用途 |
+|---|---|---|---|
+| `background` | `#FCF7F1` | `slate-950 (#020617)` | 頁面底色 |
+| `foreground` | `slate-900 (#0F172A)` | `slate-50 (#F8FAFC)` | 主要文字、反色卡片底 |
+| `card` | `white` | `slate-900 (#0F172A)` | 卡片、浮層 |
+| `card-foreground` | `slate-900` | `slate-50` | 卡片內文字 |
+| `popover / popover-foreground` | 同 card | 同 card | tooltip、menu |
+| `primary` | `#FF6B35` | `#FF8C42` | 品牌主色（深色略提亮） |
+| `primary-foreground` | `white` | `slate-900` | 主按鈕文字 |
+| `secondary` | `slate-100` | `slate-800` | 次要背景 |
+| `secondary-foreground` | `slate-900` | `slate-50` | 次要文字 |
+| `muted` | `slate-100` | `slate-800` | 柔化背景（tag、靜態 info）|
+| `muted-foreground` | `slate-500` | `slate-400` | 次要文字、描述 |
+| `accent` | `orange-100 (#FFEDD5)` | `orange-700 (#C2410C)` | hover 提示背景 |
+| `accent-foreground` | `orange-700` | `orange-100` | hover 文字 |
+| `destructive / destructive-foreground` | `red-500 / white` | `red-900 / slate-50` | 危險動作 |
+| `border / input` | `slate-200` | `slate-700` | 邊框、輸入框 |
+| `ring` | `primary` | `primary` | focus 環 |
+
+### 10.2 舊 → 新 Migration Mapping
+| 舊 class | 新 class | 備註 |
+|---|---|---|
+| `bg-white`、`bg-white/XX` | `bg-card`、`bg-card/XX` | 主要卡片 |
+| `bg-slate-50`、`bg-slate-100` | `bg-muted` | 柔化背景 |
+| `text-slate-900`、`text-slate-800` | `text-foreground` | 主文字 |
+| `text-slate-700` | `text-foreground` 或 `text-foreground/90` | 視設計層級 |
+| `text-slate-600` | `text-muted-foreground` 或 `text-foreground/80` | 次要文字 |
+| `text-slate-500`、`text-slate-400` | `text-muted-foreground` | 灰文字 |
+| `border-slate-100/200/300` | `border-border` | 統一邊框 |
+| `bg-slate-900 text-white`（反色卡）| `bg-foreground text-background` | 永遠對比 |
+| `text-orange-500` | `text-primary` | 品牌色 |
+| `bg-orange-50`、`bg-orange-100` | `bg-accent`（視層級） | hover 提示 |
+| 所有 `dark:xxx` | **刪除**，交由 token 自動適配 | 除特殊 blob 變體 |
+
+### 10.3 使用守則（下一輪新元件）
+- 優先使用語意 token（`text-foreground`、`bg-card`、`border-border`）
+- 僅品牌亮點 / 狀態色（success/warning/danger）可用色階
+- **絕對禁止**在新元件寫 `dark:` — 若需要，代表該 token 缺少，應補入 `:root` + `@media dark`
+- CSS-in-`<style scoped>` 需用 CSS var（`rgb(var(--primary))`）對齊 token

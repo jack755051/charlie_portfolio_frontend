@@ -1,6 +1,6 @@
 <template>
   <div
-    class="scrollable-content-wrapper h-screen overflow-hidden relative bg-background dark:bg-slate-950 transition-colors duration-500"
+    class="scrollable-content-wrapper h-screen overflow-hidden relative bg-background text-foreground transition-colors duration-500"
   >
     <BackgroundDecor variant="subpage" />
 

@@ -7,44 +7,46 @@
     :subtitle="$t('about.section4.subtitle')"
   >
     <div v-if="loading" class="flex justify-center py-20">
-      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
+      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary" />
     </div>
 
     <div v-else class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
       <div class="lg:col-span-5 flex flex-col gap-6">
         <div
-          class="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl shadow-orange-100/50 border border-white relative overflow-hidden group hover:shadow-2xl transition-all duration-500"
+          class="bg-card/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl shadow-primary/10 border border-border relative overflow-hidden group hover:shadow-2xl transition-all duration-500"
         >
           <div
-            class="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-orange-100 to-transparent rounded-full opacity-50 blur-2xl group-hover:opacity-100 transition-opacity duration-500"
-          ></div>
+            class="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-primary/20 to-transparent rounded-full opacity-50 blur-2xl group-hover:opacity-100 transition-opacity duration-500"
+          />
           <h3
-            class="text-sm font-bold text-slate-500 mb-2 uppercase tracking-wider flex items-center gap-2"
+            class="text-sm font-bold text-muted-foreground mb-2 uppercase tracking-wider flex items-center gap-2"
           >
-            <span class="w-2 h-2 rounded-full bg-slate-800"></span>
+            <span class="w-2 h-2 rounded-full bg-foreground" />
             {{ $t('about.section4.progressOverview') }}
           </h3>
           <div class="flex items-end gap-3 mt-4">
-            <span class="text-7xl font-black text-slate-800 leading-none">{{ displayTotal }}</span>
+            <span class="text-7xl font-black text-foreground leading-none">{{ displayTotal }}</span>
             <div class="flex flex-col mb-2">
-              <span class="text-slate-400 font-bold text-2xl">/ {{ stats?.totalQuestions }}</span>
-              <span class="text-slate-400 text-xs uppercase tracking-wide">{{
+              <span class="text-muted-foreground font-bold text-2xl"
+                >/ {{ stats?.totalQuestions }}</span
+              >
+              <span class="text-muted-foreground text-xs uppercase tracking-wide">{{
                 $t('about.section4.solvedTotal')
               }}</span>
             </div>
           </div>
-          <div class="w-full h-1.5 bg-slate-100 rounded-full mt-6 overflow-hidden">
+          <div class="w-full h-1.5 bg-muted rounded-full mt-6 overflow-hidden">
             <div
-              class="h-full bg-gradient-to-r from-slate-700 to-slate-900"
+              class="h-full bg-gradient-to-r from-foreground/70 to-foreground"
               :style="{ width: `${(stats?.totalSolved / stats?.totalQuestions) * 100}%` }"
-            ></div>
+            />
           </div>
         </div>
 
         <div
-          class="bg-white rounded-3xl p-6 shadow-lg shadow-slate-200/50 border border-slate-50 relative min-h-[320px] flex flex-col"
+          class="bg-card rounded-3xl p-6 shadow-lg shadow-foreground/5 border border-border relative min-h-[320px] flex flex-col"
         >
-          <h4 class="text-slate-800 font-bold text-lg mb-4 text-center">
+          <h4 class="text-foreground font-bold text-lg mb-4 text-center">
             {{ $t('about.section4.difficultyBreakdown') }}
           </h4>
           <div class="flex-1 w-full relative">
@@ -57,19 +59,19 @@
 
       <div class="lg:col-span-7 flex flex-col h-full">
         <div
-          class="bg-white rounded-3xl p-6 md:p-8 shadow-xl shadow-slate-200/40 border border-slate-50 h-full"
+          class="bg-card rounded-3xl p-6 md:p-8 shadow-xl shadow-foreground/5 border border-border h-full"
         >
           <div class="flex justify-between items-center mb-6">
-            <h3 class="text-lg font-bold text-slate-700 flex items-center gap-2">
+            <h3 class="text-lg font-bold text-foreground flex items-center gap-2">
               <span class="relative flex h-3 w-3">
                 <span
                   class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
-                ></span>
-                <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                />
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500" />
               </span>
               {{ $t('about.section4.recentActivity') }}
             </h3>
-            <div class="text-xs font-medium text-slate-400 bg-slate-100 px-3 py-1 rounded-full">
+            <div class="text-xs font-medium text-muted-foreground bg-muted px-3 py-1 rounded-full">
               {{ $t('about.section4.latestSubmissions') }}
             </div>
           </div>
@@ -79,7 +81,7 @@
               <div
                 v-for="(item, index) in stats.recent"
                 :key="index"
-                class="flex flex-col md:flex-row md:items-center justify-between p-4 rounded-2xl border border-slate-100 bg-slate-50/30 hover:bg-white hover:border-orange-200 hover:shadow-md transition-all duration-300 group cursor-default"
+                class="flex flex-col md:flex-row md:items-center justify-between p-4 rounded-2xl border border-border bg-muted/30 hover:bg-card hover:border-primary/40 hover:shadow-md transition-all duration-300 group cursor-default"
               >
                 <div class="flex items-center gap-4 mb-2 md:mb-0">
                   <div
@@ -87,13 +89,13 @@
                     :class="
                       item.isSuccess ? 'bg-green-500 shadow-green-200' : 'bg-red-400 shadow-red-200'
                     "
-                  ></div>
+                  />
                   <div class="flex flex-col">
                     <span
-                      class="text-slate-700 font-bold group-hover:text-orange-600 transition-colors line-clamp-1"
+                      class="text-foreground font-bold group-hover:text-primary transition-colors line-clamp-1"
                       >{{ item.title }}</span
                     >
-                    <span class="text-xs text-slate-400 font-mono">{{ item.lang }}</span>
+                    <span class="text-xs text-muted-foreground font-mono">{{ item.lang }}</span>
                   </div>
                 </div>
                 <div class="flex items-center justify-between md:justify-end gap-6 pl-6 md:pl-0">
@@ -101,18 +103,21 @@
                     class="text-xs font-bold px-2.5 py-1 rounded-lg border"
                     :class="
                       item.isSuccess
-                        ? 'bg-green-50 text-green-700 border-green-100'
-                        : 'bg-red-50 text-red-700 border-red-100'
+                        ? 'bg-green-500/10 text-green-600 border-green-500/20'
+                        : 'bg-red-500/10 text-red-600 border-red-500/20'
                     "
                     >{{ item.status }}</span
                   >
-                  <span class="text-xs text-slate-400 font-mono min-w-[40px] text-right">{{
+                  <span class="text-xs text-muted-foreground font-mono min-w-[40px] text-right">{{
                     item.time
                   }}</span>
                 </div>
               </div>
             </template>
-            <div v-else class="flex flex-col items-center justify-center py-10 text-slate-400">
+            <div
+              v-else
+              class="flex flex-col items-center justify-center py-10 text-muted-foreground"
+            >
               <p>{{ $t('about.section4.noSubmissions') }}</p>
             </div>
           </div>

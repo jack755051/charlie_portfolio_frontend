@@ -50,12 +50,12 @@ const baseClass =
 const variantClass = computed<string>(() => {
   switch (props.variant) {
     case 'secondary':
-      return 'border border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 hover:text-primary dark:hover:text-orange-400 hover:-translate-y-0.5'
+      return 'border border-border text-foreground hover:bg-card hover:text-primary hover:-translate-y-0.5'
     case 'ghost':
-      return 'text-slate-600 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
+      return 'text-foreground hover:bg-muted'
     case 'primary':
     default:
-      return 'bg-gradient-to-r from-primary to-rose-500 hover:from-secondary hover:to-rose-600 text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/50 hover:-translate-y-0.5'
+      return 'bg-gradient-to-r from-primary to-rose-500 hover:opacity-90 text-primary-foreground shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/50 hover:-translate-y-0.5'
   }
 })
 
