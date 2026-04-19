@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://charlie-portfolio.local/schemas/github-projects-overrides.schema.json",
+  "title": "GitHub Projects Overrides JSON",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "entries"],
+  "properties": {
+    "schema_version": { "type": "integer", "const": 1 },
+    "entries": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "title_en": { "type": "string" },
+          "title_zh": { "type": "string" },
+          "description_en": { "type": "string" },
+          "description_zh": { "type": "string" },
+          "role": { "type": "string" },
+          "pinned": { "type": "boolean" },
+          "hide": { "type": "boolean" },
+          "force_status": {
+            "type": "string",
+            "enum": ["wip", "done", "archived"]
+          },
+          "screenshots": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["url"],
+              "properties": {
+                "url": { "type": "string", "minLength": 1 },
+                "caption": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

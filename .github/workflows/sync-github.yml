@@ -1,0 +1,55 @@
+name: Sync GitHub Projects
+
+on:
+  schedule:
+    - cron: '0 19 * * 0,3' # 每週一、四 台北時間 03:00（UTC 19:00 週日、週三）
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-github-projects
+  cancel-in-progress: false
+
+jobs:
+  sync-github:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_USERNAME: ${{ vars.GITHUB_SYNC_USERNAME || 'jack755051' }}
+    steps:
+      - name: Checkout dev branch
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Sync GitHub projects
+        env:
+          # 可選：若 repo Variables/Secrets 有設 PAT 可解鎖更高 rate limit（不需要亦可運作）
+          GITHUB_TOKEN: ${{ secrets.GH_SYNC_TOKEN }}
+        run: npm run sync:github
+
+      - name: Validate JSON SSOT
+        run: npm run validate:ssot
+
+      - name: Commit snapshot if changed
+        run: |
+          if git diff --quiet -- assets/data/github-projects.json; then
+            echo "No GitHub snapshot changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/data/github-projects.json
+          git commit -m "chore(github): sync projects snapshot"
+          git push

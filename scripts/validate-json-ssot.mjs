@@ -1,13 +1,20 @@
-import { readFileSync } from 'node:fs'
+import { readFileSync, existsSync } from 'node:fs'
 import { resolve } from 'node:path'
 
 const root = process.cwd()
 
 const readJson = path => JSON.parse(readFileSync(resolve(root, path), 'utf8'))
+const readJsonIfExists = path => {
+  const abs = resolve(root, path)
+  if (!existsSync(abs)) return null
+  return JSON.parse(readFileSync(abs, 'utf8'))
+}
 
 const siteReference = readJson('assets/data/site-reference.json')
 const portfolioProjects = readJson('assets/data/portfolio-projects.json')
 const leetcodeProfile = readJson('assets/data/leetcode-profile.json')
+const githubProjects = readJsonIfExists('assets/data/github-projects.json')
+const githubOverrides = readJsonIfExists('assets/data/github-projects.overrides.json')
 
 const errors = []
 
@@ -271,6 +278,105 @@ assert(
 )
 assert(isDateTime(leetcodeProfile.expiresAt), 'leetcode-profile.expiresAt must be date-time')
 assert(typeof leetcodeProfile.isStale === 'boolean', 'leetcode-profile.isStale must be boolean')
+
+// ==========================================================================
+// github-projects.json (optional — bootstrap may be empty)
+// ==========================================================================
+if (githubProjects) {
+  assert(githubProjects.schema_version === 1, 'github-projects.schema_version must be 1')
+  assert(githubProjects.source === 'github', 'github-projects.source must be "github"')
+  assert(
+    isDateTime(githubProjects.sourceFetchedAt),
+    'github-projects.sourceFetchedAt must be date-time'
+  )
+  assert(typeof githubProjects.isStale === 'boolean', 'github-projects.isStale must be boolean')
+  assert(
+    githubProjects.staleAt === null || isDateTime(githubProjects.staleAt),
+    'github-projects.staleAt must be date-time or null'
+  )
+  assert(
+    Number.isInteger(githubProjects.version) && githubProjects.version >= 0,
+    'github-projects.version must be non-negative integer'
+  )
+  assert(Array.isArray(githubProjects.projects), 'github-projects.projects must be array')
+
+  const seenIds = new Set()
+  const allowedStatuses = new Set(['wip', 'done', 'archived'])
+  for (const project of githubProjects.projects || []) {
+    assert(
+      typeof project.id === 'string' && /^[a-z0-9][a-z0-9._-]{0,99}$/.test(project.id),
+      `github-projects.id is invalid: ${project.id}`
+    )
+    assert(!seenIds.has(project.id), `github-projects.id must be unique: ${project.id}`)
+    seenIds.add(project.id)
+    assert(
+      typeof project.title === 'string' && project.title.length > 0,
+      `github-projects.title is required: ${project.id}`
+    )
+    assert(
+      typeof project.description === 'string',
+      `github-projects.description must be string: ${project.id}`
+    )
+    assert(
+      typeof project.duration === 'string' && project.duration.length > 0,
+      `github-projects.duration is required: ${project.id}`
+    )
+    assert(
+      allowedStatuses.has(project.status),
+      `github-projects.status is invalid: ${project.id} / ${project.status}`
+    )
+    assert(project.type === 'personal', `github-projects.type must be "personal": ${project.id}`)
+    assert(
+      typeof project.repoUrl === 'string' && /^https:\/\/github\.com\//.test(project.repoUrl),
+      `github-projects.repoUrl must start with https://github.com/: ${project.id}`
+    )
+    assert(
+      Number.isInteger(project.stars) && project.stars >= 0,
+      `github-projects.stars must be non-negative integer: ${project.id}`
+    )
+    assert(
+      isDateTime(project.lastUpdatedAt),
+      `github-projects.lastUpdatedAt must be date-time: ${project.id}`
+    )
+    assert(typeof project.pinned === 'boolean', `github-projects.pinned must be boolean: ${project.id}`)
+    assert(
+      typeof project.isVisible === 'boolean',
+      `github-projects.isVisible must be boolean: ${project.id}`
+    )
+    assert(Array.isArray(project.technologies), `github-projects.technologies must be array: ${project.id}`)
+    assert(
+      project.homepage === undefined || project.homepage === null || isHttpsOrNull(project.homepage),
+      `github-projects.homepage must be https:// or null: ${project.id}`
+    )
+  }
+}
+
+// ==========================================================================
+// github-projects.overrides.json (optional)
+// ==========================================================================
+if (githubOverrides) {
+  assert(
+    githubOverrides.schema_version === 1,
+    'github-projects-overrides.schema_version must be 1'
+  )
+  assert(
+    typeof githubOverrides.entries === 'object' && githubOverrides.entries !== null,
+    'github-projects-overrides.entries must be object'
+  )
+  const allowedForceStatuses = new Set(['wip', 'done', 'archived'])
+  for (const [slug, entry] of Object.entries(githubOverrides.entries || {})) {
+    assert(
+      typeof slug === 'string' && slug.length > 0,
+      `github-projects-overrides key is invalid: ${slug}`
+    )
+    if (entry.force_status !== undefined) {
+      assert(
+        allowedForceStatuses.has(entry.force_status),
+        `github-projects-overrides.${slug}.force_status is invalid`
+      )
+    }
+  }
+}
 
 if (errors.length > 0) {
   console.error('JSON SSOT validation failed:')

@@ -9,6 +9,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "sync:leetcode": "node scripts/sync-leetcode.mjs",
+    "sync:github": "node scripts/sync-github.mjs",
     "validate:ssot": "node scripts/validate-json-ssot.mjs",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",

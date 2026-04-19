@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "entries": {
+    "lionel_exchange": {
+      "title_zh": "Lionel 交易所",
+      "description_zh": "個人加密資產分析工具，整合多交易所資料、K 線視覺化與套利偵測。",
+      "role": "Full-Stack Engineer",
+      "pinned": true
+    },
+    "charlie-ai-protocols": {
+      "title_zh": "Charlie AI 協作協議",
+      "description_zh": "多 Agent AI 協作規範集，定義大型專案中各角色（PM/BA/DBA/UI/FE/QA）的分工與交接協議。",
+      "role": "Author & Maintainer",
+      "pinned": true
+    },
+    "financial-agent-frontend": {
+      "title_zh": "金融 AI Agent 前端",
+      "description_zh": "投資研究助理前端，整合 LLM 對話、財報視覺化與多資產監看面板。",
+      "role": "Frontend Engineer"
+    }
+  }
+}
