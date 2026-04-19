@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./components/**/*.{vue,js,ts}', './layouts/**/*.vue', './pages/**/*.vue', './app.vue'],
+  darkMode: 'media',
   theme: {
     extend: {
       colors: {
@@ -19,6 +20,24 @@ export default {
           800: '#262626',
           900: '#0A0A0A',
         },
+      },
+      fontFamily: {
+        display: ['Sora', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+      },
+      keyframes: {
+        blink: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
+        },
+        floatSlow: {
+          '0%, 100%': { transform: 'translate3d(0, 0, 0)' },
+          '50%': { transform: 'translate3d(0, -12px, 0)' },
+        },
+      },
+      animation: {
+        blink: 'blink 1.1s steps(1, end) infinite',
+        'float-slow': 'floatSlow 6s ease-in-out infinite',
       },
     },
   },
