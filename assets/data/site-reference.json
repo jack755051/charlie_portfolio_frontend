@@ -22,6 +22,20 @@
       "label": "作品集",
       "displayOrder": 2,
       "isVisible": true
+    },
+    {
+      "id": "roadmap",
+      "routePath": "/roadmap",
+      "label": "展望",
+      "displayOrder": 3,
+      "isVisible": true
+    },
+    {
+      "id": "notes",
+      "routePath": "/notes",
+      "label": "筆記",
+      "displayOrder": 4,
+      "isVisible": true
     }
   ],
   "pageAnchors": [

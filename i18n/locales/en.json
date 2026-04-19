@@ -300,5 +300,95 @@
   },
   "footer": {
     "tagline": "Frontend Engineer · Crafting performant and interactive web experiences"
+  },
+  "roadmap": {
+    "titleMain": "Career",
+    "titleHighlight": "Roadmap",
+    "subtitle": "From Frontend to Full-Stack · My growth plan",
+    "intro": "This map tracks my transition from frontend engineer to full-stack. Each goal pairs with a concrete deliverable — a project, a note, or an open-source contribution.",
+    "horizons": {
+      "short": {
+        "title": "Short Term ｜ 1–3 months",
+        "description": "Solidify core frameworks, fill the unit-testing gap, and ship backend CRUD."
+      },
+      "mid": {
+        "title": "Mid Term ｜ 6 months",
+        "description": "Cloud deployment, containerization, CI/CD and auth in depth."
+      },
+      "long": {
+        "title": "Long Term ｜ 1–2 years",
+        "description": "System design, AI product development, startup or freelance full-stack."
+      }
+    },
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "infra": "DevOps / Cloud",
+      "ai": "AI / LLM",
+      "career": "Career"
+    },
+    "statuses": {
+      "planning": "Planning",
+      "in-progress": "In Progress",
+      "completed": "Completed"
+    },
+    "items": {
+      "nest-mastery": {
+        "title": "NestJS Backend in Practice",
+        "description": "Ship a deployable CRUD API with NestJS + PostgreSQL + TypeORM; master DI, Guards, Pipes and Interceptors."
+      },
+      "vitest-coverage": {
+        "title": "Vitest Adoption",
+        "description": "Bring Vitest + Testing Library into this portfolio; target 70%+ coverage on composables, mappers and critical UI."
+      },
+      "nuxt-ssr-deep": {
+        "title": "Nuxt 3 Deep Dive",
+        "description": "Get fluent with server routes, useFetch, middleware, SEO meta, and the static/SSR hybrid modes; publish sharable notes."
+      },
+      "docker-compose-ops": {
+        "title": "Docker Compose Orchestration",
+        "description": "Stand up a Frontend + NestJS + Postgres + Redis + Traefik stack locally; nail healthchecks, volumes and networks."
+      },
+      "aws-deploy": {
+        "title": "AWS Deployment",
+        "description": "Deploy the frontend with EC2 + S3 + CloudFront; learn IAM, Route53, ACM; evaluate Pulumi / Terraform IaC."
+      },
+      "auth-oauth": {
+        "title": "OAuth 2.0 & JWT",
+        "description": "Integrate Google / GitHub OAuth; master refresh tokens, session management and PKCE; harden against CSRF / XSS."
+      },
+      "system-design": {
+        "title": "System Design",
+        "description": "Microservice boundaries, message queues (RabbitMQ / Kafka), event-driven architecture; own mid-sized system design decisions."
+      },
+      "llm-integration": {
+        "title": "LLM & AI Agents",
+        "description": "Go deeper into RAG, LangChain / LlamaIndex, multi-agent frameworks; ship a working AI product prototype."
+      },
+      "fullstack-role": {
+        "title": "Become a Full-Stack Engineer",
+        "description": "Join a startup or freelance with full-stack + infra chops; lead at least one mid-sized product from zero to one."
+      }
+    }
+  },
+  "notes": {
+    "titleMain": "Tech",
+    "titleHighlight": "Notes",
+    "subtitle": "Learning trail · war stories · shifts in thinking",
+    "intro": "I keep an ongoing log on HackMD — reading notes, post-mortems, refactor journeys. A curated selection below; full profile linked too.",
+    "readOnHackmd": "Read on HackMD",
+    "featured": "Featured",
+    "empty": "No public notes yet",
+    "publishedAt": "Published",
+    "updatedAt": "Updated",
+    "visitHackmdProfile": "Visit HackMD Profile"
+  },
+  "resume": {
+    "preview": "Preview Resume",
+    "preview_title": "Charlie's Resume · 2026",
+    "download": "Download PDF",
+    "openInGoogleDocs": "Open in Google Docs",
+    "loading": "Loading...",
+    "close": "Close"
   }
 }

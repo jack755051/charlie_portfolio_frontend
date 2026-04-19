@@ -300,5 +300,95 @@
   },
   "footer": {
     "tagline": "前端工程師 · 打造高效能與高互動的網頁體驗"
+  },
+  "roadmap": {
+    "titleMain": "職涯",
+    "titleHighlight": "展望",
+    "subtitle": "從前端到全端 · 我的技術成長路線",
+    "intro": "這份地圖記錄我從前端工程師擴展為全端工程師的階段規劃。每個目標都對應一個可量化的產出——實戰專案、讀書筆記、或開源貢獻。",
+    "horizons": {
+      "short": {
+        "title": "短期 ｜ 1–3 個月",
+        "description": "鞏固主力框架、補完單元測試與後端實戰"
+      },
+      "mid": {
+        "title": "中期 ｜ 6 個月",
+        "description": "雲端部署、容器化、CI/CD 及認證機制深度"
+      },
+      "long": {
+        "title": "長期 ｜ 1–2 年",
+        "description": "系統架構能力、AI 產品開發、加入新創或獨立接案"
+      }
+    },
+    "categories": {
+      "frontend": "前端",
+      "backend": "後端",
+      "infra": "DevOps / 雲端",
+      "ai": "AI / LLM",
+      "career": "職涯"
+    },
+    "statuses": {
+      "planning": "規劃中",
+      "in-progress": "進行中",
+      "completed": "已完成"
+    },
+    "items": {
+      "nest-mastery": {
+        "title": "NestJS 後端實戰",
+        "description": "以 NestJS + PostgreSQL + TypeORM 完成可部署的 CRUD API 專案；掌握 DI、Guard、Pipe、Interceptor 等核心概念。"
+      },
+      "vitest-coverage": {
+        "title": "Vitest 測試框架導入",
+        "description": "於本 portfolio 引入 Vitest + Testing Library；目標 composable / mapper / critical UI 三層覆蓋率 70%+。"
+      },
+      "nuxt-ssr-deep": {
+        "title": "Nuxt 3 深度掌握",
+        "description": "精熟 server routes、useFetch、middleware、SEO meta、靜態與 SSR 混合模式；累積可分享的實戰筆記。"
+      },
+      "docker-compose-ops": {
+        "title": "Docker Compose 多服務編排",
+        "description": "實作 Frontend + NestJS + Postgres + Redis + Traefik 的完整堆疊；熟悉 healthcheck、volume、network 配置。"
+      },
+      "aws-deploy": {
+        "title": "AWS 雲端部署",
+        "description": "透過 EC2 + S3 + CloudFront 部署前端；學習 IAM、Route53、ACM 憑證；評估 Pulumi / Terraform IaC。"
+      },
+      "auth-oauth": {
+        "title": "OAuth 2.0 與 JWT 實戰",
+        "description": "整合 Google / GitHub OAuth；理解 refresh token、session 管理與 PKCE flow；防護 CSRF / XSS。"
+      },
+      "system-design": {
+        "title": "系統設計能力",
+        "description": "微服務切分、訊息佇列（RabbitMQ / Kafka）、事件驅動架構；目標能獨立設計中型專案架構。"
+      },
+      "llm-integration": {
+        "title": "LLM 整合與 AI Agent",
+        "description": "深入 RAG 架構、LangChain / LlamaIndex；嘗試 multi-agent 協作框架；輸出可運作的 AI 產品原型。"
+      },
+      "fullstack-role": {
+        "title": "成為全端工程師",
+        "description": "以前後端 + 基建能力加入新創或接案；目標為主導至少一個中型產品從 0 到 1。"
+      }
+    }
+  },
+  "notes": {
+    "titleMain": "技術",
+    "titleHighlight": "筆記",
+    "subtitle": "學習軌跡 · 實戰踩坑 · 轉念時刻",
+    "intro": "持續以 HackMD 紀錄閱讀、實作與反思。選列幾篇較完整的文章；所有筆記的 HackMD Profile 亦一併連結。",
+    "readOnHackmd": "在 HackMD 閱讀",
+    "featured": "精選",
+    "empty": "尚未發佈任何公開筆記",
+    "publishedAt": "發佈於",
+    "updatedAt": "更新於",
+    "visitHackmdProfile": "造訪 HackMD Profile"
+  },
+  "resume": {
+    "preview": "預覽履歷",
+    "preview_title": "Charlie's Resume · 2026",
+    "download": "下載 PDF",
+    "openInGoogleDocs": "在 Google Docs 開啟",
+    "loading": "載入中...",
+    "close": "關閉"
   }
 }

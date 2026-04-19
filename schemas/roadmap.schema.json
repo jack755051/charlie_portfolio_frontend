@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://charlie-portfolio.local/schemas/roadmap.schema.json",
+  "title": "Career Roadmap JSON",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "generatedAt", "items", "version"],
+  "properties": {
+    "schema_version": { "type": "integer", "const": 1 },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "version": { "type": "integer", "minimum": 1 },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "horizon",
+          "category",
+          "i18nNamespace",
+          "tags",
+          "status",
+          "displayOrder",
+          "isVisible"
+        ],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "horizon": {
+            "type": "string",
+            "enum": ["short", "mid", "long"]
+          },
+          "category": {
+            "type": "string",
+            "enum": ["frontend", "backend", "infra", "ai", "career"]
+          },
+          "i18nNamespace": {
+            "type": "string",
+            "const": "roadmap.items"
+          },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "status": {
+            "type": "string",
+            "enum": ["planning", "in-progress", "completed"]
+          },
+          "displayOrder": { "type": "integer", "minimum": 0 },
+          "isVisible": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

@@ -15,6 +15,8 @@ const portfolioProjects = readJson('assets/data/portfolio-projects.json')
 const leetcodeProfile = readJson('assets/data/leetcode-profile.json')
 const githubProjects = readJsonIfExists('assets/data/github-projects.json')
 const githubOverrides = readJsonIfExists('assets/data/github-projects.overrides.json')
+const roadmap = readJsonIfExists('assets/data/roadmap.json')
+const notes = readJsonIfExists('assets/data/notes.json')
 
 const errors = []
 
@@ -380,6 +382,95 @@ if (githubOverrides) {
         `github-projects-overrides.${slug}.force_status is invalid`
       )
     }
+  }
+}
+
+// ==========================================================================
+// roadmap.json (optional)
+// ==========================================================================
+if (roadmap) {
+  assert(roadmap.schema_version === 1, 'roadmap.schema_version must be 1')
+  assert(isDateTime(roadmap.generatedAt), 'roadmap.generatedAt must be date-time')
+  assert(
+    Number.isInteger(roadmap.version) && roadmap.version >= 1,
+    'roadmap.version must be positive integer'
+  )
+  assert(Array.isArray(roadmap.items), 'roadmap.items must be array')
+
+  const allowedHorizons = new Set(['short', 'mid', 'long'])
+  const allowedCategories = new Set(['frontend', 'backend', 'infra', 'ai', 'career'])
+  const allowedStatuses = new Set(['planning', 'in-progress', 'completed'])
+  const seenIds = new Set()
+
+  for (const item of roadmap.items || []) {
+    assert(isSlug(item.id), `roadmap.id is invalid: ${item.id}`)
+    assert(!seenIds.has(item.id), `roadmap.id must be unique: ${item.id}`)
+    seenIds.add(item.id)
+    assert(
+      allowedHorizons.has(item.horizon),
+      `roadmap.horizon is invalid: ${item.id} / ${item.horizon}`
+    )
+    assert(
+      allowedCategories.has(item.category),
+      `roadmap.category is invalid: ${item.id} / ${item.category}`
+    )
+    assert(
+      item.i18nNamespace === 'roadmap.items',
+      `roadmap.i18nNamespace is invalid: ${item.id}`
+    )
+    assert(Array.isArray(item.tags), `roadmap.tags must be array: ${item.id}`)
+    assert(
+      allowedStatuses.has(item.status),
+      `roadmap.status is invalid: ${item.id} / ${item.status}`
+    )
+    assert(
+      Number.isInteger(item.displayOrder) && item.displayOrder >= 0,
+      `roadmap.displayOrder is invalid: ${item.id}`
+    )
+    assert(typeof item.isVisible === 'boolean', `roadmap.isVisible must be boolean: ${item.id}`)
+  }
+}
+
+// ==========================================================================
+// notes.json (optional)
+// ==========================================================================
+if (notes) {
+  assert(notes.schema_version === 1, 'notes.schema_version must be 1')
+  assert(isDateTime(notes.generatedAt), 'notes.generatedAt must be date-time')
+  assert(
+    Number.isInteger(notes.version) && notes.version >= 1,
+    'notes.version must be positive integer'
+  )
+  assert(Array.isArray(notes.notes), 'notes.notes must be array')
+
+  const isIsoDate = v => typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v)
+  const seenNoteIds = new Set()
+
+  for (const note of notes.notes || []) {
+    assert(isSlug(note.id), `note.id is invalid: ${note.id}`)
+    assert(!seenNoteIds.has(note.id), `note.id must be unique: ${note.id}`)
+    seenNoteIds.add(note.id)
+    assert(
+      typeof note.url === 'string' && /^https:\/\//.test(note.url),
+      `note.url must start with https://: ${note.id}`
+    )
+    assert(
+      typeof note.title === 'string' && note.title.length > 0,
+      `note.title is required: ${note.id}`
+    )
+    assert(typeof note.summary === 'string', `note.summary must be string: ${note.id}`)
+    assert(Array.isArray(note.tags), `note.tags must be array: ${note.id}`)
+    assert(isIsoDate(note.publishedAt), `note.publishedAt must be YYYY-MM-DD: ${note.id}`)
+    assert(
+      note.updatedAt === undefined || note.updatedAt === null || isIsoDate(note.updatedAt),
+      `note.updatedAt must be YYYY-MM-DD or null: ${note.id}`
+    )
+    assert(typeof note.featured === 'boolean', `note.featured must be boolean: ${note.id}`)
+    assert(
+      Number.isInteger(note.displayOrder) && note.displayOrder >= 0,
+      `note.displayOrder is invalid: ${note.id}`
+    )
+    assert(typeof note.isVisible === 'boolean', `note.isVisible must be boolean: ${note.id}`)
   }
 }
 

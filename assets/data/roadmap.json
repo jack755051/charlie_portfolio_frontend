@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "generatedAt": "2026-04-19T00:00:00.000Z",
+  "version": 1,
+  "items": [
+    {
+      "id": "nest-mastery",
+      "horizon": "short",
+      "category": "backend",
+      "i18nNamespace": "roadmap.items",
+      "tags": ["NestJS", "PostgreSQL", "TypeORM", "REST"],
+      "status": "in-progress",
+      "displayOrder": 0,
+      "isVisible": true
+    },
+    {
+      "id": "vitest-coverage",
+      "horizon": "short",
+      "category": "frontend",
+      "i18nNamespace": "roadmap.items",
+      "tags": ["Vitest", "Testing Library", "Mock"],
+      "status": "planning",
+      "displayOrder": 1,
+      "isVisible": true
+    },
+    {
+      "id": "nuxt-ssr-deep",
+      "horizon": "short",
+      "category": "frontend",
+      "i18nNamespace": "roadmap.items",
+      "tags": ["Nuxt 3", "Pinia", "SSR"],
+      "status": "in-progress",
+      "displayOrder": 2,
+      "isVisible": true
+    },
+    {
+      "id": "docker-compose-ops",
+      "horizon": "mid",
+      "category": "infra",
+      "i18nNamespace": "roadmap.items",
+      "tags": ["Docker", "Docker Compose", "Traefik"],
+      "status": "planning",
+      "displayOrder": 3,
+      "isVisible": true
+    },
+    {
+      "id": "aws-deploy",
+      "horizon": "mid",
+      "category": "infra",
+      "i18nNamespace": "roadmap.items",
+      "tags": ["AWS", "EC2", "S3", "CloudFront"],
+      "status": "planning",
+      "displayOrder": 4,
+      "isVisible": true
+    },
+    {
+      "id": "auth-oauth",
+      "horizon": "mid",
+      "category": "backend",
+      "i18nNamespace": "roadmap.items",
+      "tags": ["OAuth 2.0", "JWT", "Session"],
+      "status": "planning",
+      "displayOrder": 5,
+      "isVisible": true
+    },
+    {
+      "id": "system-design",
+      "horizon": "long",
+      "category": "backend",
+      "i18nNamespace": "roadmap.items",
+      "tags": ["Microservices", "Message Queue", "Event-Driven"],
+      "status": "planning",
+      "displayOrder": 6,
+      "isVisible": true
+    },
+    {
+      "id": "llm-integration",
+      "horizon": "long",
+      "category": "ai",
+      "i18nNamespace": "roadmap.items",
+      "tags": ["LLM", "RAG", "Agent Framework"],
+      "status": "planning",
+      "displayOrder": 7,
+      "isVisible": true
+    },
+    {
+      "id": "fullstack-role",
+      "horizon": "long",
+      "category": "career",
+      "i18nNamespace": "roadmap.items",
+      "tags": ["Full-Stack", "Startup", "Freelance"],
+      "status": "planning",
+      "displayOrder": 8,
+      "isVisible": true
+    }
+  ]
+}
