@@ -10,7 +10,7 @@
     />
 
     <div
-      class="snap-y snap-mandatory h-full overflow-y-scroll scroll-smooth pt-14 md:pt-16 relative z-10"
+      class="snap-y snap-proximity h-full overflow-y-scroll scroll-smooth pt-14 md:pt-16 relative z-10"
     >
       <div class="w-full pb-20">
         <ScrollSection id="section1" ref="portfolioSection" :class="['flex-col !justify-start']">

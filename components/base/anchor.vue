@@ -44,7 +44,7 @@ const scrollToSection = (sectionKey: string, href: string) => {
 const handleScroll = () => {
   if (!props.anchorData) return
 
-  const scrollContainer = document.querySelector('.snap-y.snap-mandatory')
+  const scrollContainer = document.querySelector('.snap-y')
   if (!scrollContainer) return
 
   const sections = props.anchorData
@@ -76,7 +76,7 @@ const throttledHandleScroll = () => {
 }
 
 onMounted(() => {
-  const scrollContainer = document.querySelector('.snap-y.snap-mandatory')
+  const scrollContainer = document.querySelector('.snap-y')
   if (scrollContainer) {
     scrollContainer.addEventListener('scroll', throttledHandleScroll, { passive: true })
     handleScroll()
@@ -84,7 +84,7 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-  const scrollContainer = document.querySelector('.snap-y.snap-mandatory')
+  const scrollContainer = document.querySelector('.snap-y')
   if (scrollContainer) {
     scrollContainer.removeEventListener('scroll', throttledHandleScroll)
   }

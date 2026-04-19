@@ -40,3 +40,8 @@
 [06-DevOps] [診斷：sync-leetcode.yml 從未進 master/dev，GitHub 無法識別；dev/deploy.yml publish_dir 用錯誤的 ./dist（Nuxt 2 慣例），Nuxt 3 應為 .output/public] [2026-04-19 13:05:00] [執行結果: 成功]
 [06-DevOps] [整併：刪除 deploy.yml；擴充 sync-leetcode.yml（push:[dev] 觸發 + concurrency + 條件同步避免循環 + --legacy-peer-deps）] [2026-04-19 13:15:00] [執行結果: 成功]
 [01-PM] [決議方案：B（合併所有分支到 dev）+ 方案 2（改 default branch 為 dev）] [2026-04-19 13:20:00] [執行結果: 成功]
+[04-Frontend] [FF merge chore/tone-down-copy → dev；push 觸發 workflow 首次部署] [2026-04-19 13:35:00] [執行結果: 成功]
+[01-PM] [使用者回報捲動 UX 怪異（CAnchor 點擊尾端硬 snap、滾輪卡中間）] [2026-04-19 14:00:00] [執行結果: 成功]
+[03-UI] [診斷：snap-mandatory 強制對齊 vs scrollIntoView smooth 衝突；提三方案，採 A (snap-proximity)] [2026-04-19 14:05:00] [執行結果: 成功]
+[04-Frontend] [3 頁 snap-mandatory → snap-proximity；anchor.vue selector 去除 .snap-mandatory 耦合] [2026-04-19 14:10:00] [執行結果: 成功]
+[06-DevOps] [建立首個 annotated tag v0.0.2（含全站 UI 重構、semantic tokens、workflow 整併、UX 微調）] [2026-04-19 14:15:00] [執行結果: 成功]

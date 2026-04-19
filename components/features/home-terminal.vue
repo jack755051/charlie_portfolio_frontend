@@ -1,6 +1,6 @@
 <template>
   <div
-    class="snap-y snap-mandatory h-full overflow-y-scroll scroll-smooth relative z-10 transition-colors duration-500"
+    class="snap-y snap-proximity h-full overflow-y-scroll scroll-smooth relative z-10 transition-colors duration-500"
   >
     <div class="w-full relative">
       <ScrollSection id="section1" ref="initSection">
