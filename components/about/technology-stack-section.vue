@@ -49,8 +49,9 @@
         </div>
 
         <button
+          type="button"
           class="z-10 px-6 py-3 bg-background text-foreground font-bold rounded-full hover:bg-accent hover:text-accent-foreground transition-all shadow-lg flex items-center gap-2 active:scale-95 group/btn"
-          @click="handlerDownloadResume"
+          @click="resumeModalOpen = true"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -63,23 +64,25 @@
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
             />
           </svg>
-          <span>{{ $t('about.section3.evolution.downloadResume') }}</span>
+          <span>{{ $t('resume.preview') }}</span>
         </button>
       </div>
     </div>
+
+    <ResumePreviewModal v-model="resumeModalOpen" />
   </AboutSection>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import AboutSection from '~/components/layouts/AboutSection.vue'
 import { useTechStack } from '~/composables/useTechStack'
 import CTechCard from '~/components/base/tech-card.vue'
+import ResumePreviewModal from '~/components/about/resume-preview-modal.vue'
 
 const techStore = useTechStack()
-const handlerDownloadResume = () => {
-  window.open('/charlie_portfolio_frontend/charlie-resume-2026.pdf', '_blank')
-}
+const resumeModalOpen = ref(false)
 </script>
