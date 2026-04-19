@@ -18,6 +18,9 @@ logs
 .fleet
 .idea
 
+# Windows NTFS Alternate Data Streams（WSL 下拷貝檔案時自動產生）
+*Zone.Identifier
+
 # Local env files
 .env
 .env.*

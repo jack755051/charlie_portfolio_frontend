@@ -338,14 +338,22 @@ if (githubProjects) {
       isDateTime(project.lastUpdatedAt),
       `github-projects.lastUpdatedAt must be date-time: ${project.id}`
     )
-    assert(typeof project.pinned === 'boolean', `github-projects.pinned must be boolean: ${project.id}`)
+    assert(
+      typeof project.pinned === 'boolean',
+      `github-projects.pinned must be boolean: ${project.id}`
+    )
     assert(
       typeof project.isVisible === 'boolean',
       `github-projects.isVisible must be boolean: ${project.id}`
     )
-    assert(Array.isArray(project.technologies), `github-projects.technologies must be array: ${project.id}`)
     assert(
-      project.homepage === undefined || project.homepage === null || isHttpsOrNull(project.homepage),
+      Array.isArray(project.technologies),
+      `github-projects.technologies must be array: ${project.id}`
+    )
+    assert(
+      project.homepage === undefined ||
+        project.homepage === null ||
+        isHttpsOrNull(project.homepage),
       `github-projects.homepage must be https:// or null: ${project.id}`
     )
   }
@@ -355,10 +363,7 @@ if (githubProjects) {
 // github-projects.overrides.json (optional)
 // ==========================================================================
 if (githubOverrides) {
-  assert(
-    githubOverrides.schema_version === 1,
-    'github-projects-overrides.schema_version must be 1'
-  )
+  assert(githubOverrides.schema_version === 1, 'github-projects-overrides.schema_version must be 1')
   assert(
     typeof githubOverrides.entries === 'object' && githubOverrides.entries !== null,
     'github-projects-overrides.entries must be object'

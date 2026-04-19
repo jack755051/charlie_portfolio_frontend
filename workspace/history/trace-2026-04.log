@@ -73,3 +73,5 @@
 [01-PM] [使用者請求：建 README、加 GitHub topic 教學、建立 main 分支供 default] [2026-04-19 18:30:00] [執行結果: 成功]
 [99-Logger] [改寫 README.md：完整專案介紹、GitHub topic 三層過濾 SOP、workflow 說明、branch 策略] [2026-04-19 18:35:00] [執行結果: 成功]
 [06-DevOps] [sync-leetcode.yml push trigger 加入 main；git branch main dev → push origin main] [2026-04-19 18:40:00] [執行結果: 成功]
+[04-Frontend] [logo 替換：navbar 改引用 charlie-logo-transparent.svg；favicon 改用 charlie-logo.ico（含多尺寸 16/24/32/48）] [2026-04-19 21:40:00] [執行結果: 成功]
+[06-DevOps] [gitignore 加 *Zone.Identifier 規則；清除 4 個 WSL 殘留 metadata 檔] [2026-04-19 21:42:00] [執行結果: 成功]

@@ -5,8 +5,11 @@
     <div
       class="flex justify-between items-center h-14 md:h-16 max-w-7xl mx-auto px-5 md:px-8 lg:px-10"
     >
-      <div class="navbar-image w-14 md:w-16 h-auto cursor-pointer" @click="goBackHomepage()">
-        <Logo class="w-full h-auto" />
+      <div
+        class="navbar-image flex items-center h-10 md:h-11 cursor-pointer shrink-0"
+        @click="goBackHomepage()"
+      >
+        <Logo class="h-full w-auto max-w-none" />
       </div>
 
       <!-- Desktop nav -->
@@ -48,8 +51,8 @@
             aria-modal="true"
           >
             <div class="flex justify-between items-center px-5 py-4">
-              <div class="w-14 h-auto">
-                <Logo class="w-full h-auto" />
+              <div class="flex items-center h-10">
+                <Logo class="h-full w-auto max-w-none" />
               </div>
               <button
                 type="button"
@@ -90,7 +93,7 @@
 import { ref, computed, watch, onUnmounted } from 'vue'
 import { MenuOutlined, CloseOutlined } from '@ant-design/icons-vue'
 import { useSiteReference } from '~/composables/useSiteReference'
-import Logo from '~/assets/images/sanring-logo.svg'
+import Logo from '~/assets/logo/charlie-logo-transparent.svg'
 
 const { navigationMenus } = useSiteReference()
 const router = useRouter()

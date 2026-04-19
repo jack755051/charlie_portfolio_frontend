@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/charlie_portfolio_frontend/favicon.ico' },
+        { rel: 'icon', type: 'image/x-icon', href: '/charlie_portfolio_frontend/charlie-logo.ico' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         {
