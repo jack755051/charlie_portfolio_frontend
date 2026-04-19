@@ -5,7 +5,7 @@ on:
     - cron: '17 18 * * *' # 每日 02:17 Asia/Taipei
   workflow_dispatch: # 手動觸發
   push:
-    branches: [dev] # Push 到 dev 時重新部署
+    branches: [main, dev] # Push 到 main 或 dev 時重新部署
 
 permissions:
   contents: write
