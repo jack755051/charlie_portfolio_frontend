@@ -90,7 +90,7 @@
 import { ref, computed, watch, onUnmounted } from 'vue'
 import { MenuOutlined, CloseOutlined } from '@ant-design/icons-vue'
 import { useSiteReference } from '~/composables/useSiteReference'
-import Logo from '~/assets/images/charlie-logo.svg'
+import Logo from '~/assets/images/sanring-logo.svg'
 
 const { navigationMenus } = useSiteReference()
 const router = useRouter()

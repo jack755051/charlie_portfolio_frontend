@@ -7,9 +7,6 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
-        // SVG favicon（現代瀏覽器優先採用、隨尺寸自動縮放不失真）
-        { rel: 'icon', type: 'image/svg+xml', href: '/charlie_portfolio_frontend/favicon.svg' },
-        // ICO fallback（舊版瀏覽器/作業系統書籤）
         { rel: 'icon', type: 'image/x-icon', href: '/charlie_portfolio_frontend/favicon.ico' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
