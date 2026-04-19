@@ -45,3 +45,7 @@
 [03-UI] [診斷：snap-mandatory 強制對齊 vs scrollIntoView smooth 衝突；提三方案，採 A (snap-proximity)] [2026-04-19 14:05:00] [執行結果: 成功]
 [04-Frontend] [3 頁 snap-mandatory → snap-proximity；anchor.vue selector 去除 .snap-mandatory 耦合] [2026-04-19 14:10:00] [執行結果: 成功]
 [06-DevOps] [建立首個 annotated tag v0.0.2（含全站 UI 重構、semantic tokens、workflow 整併、UX 微調）] [2026-04-19 14:15:00] [執行結果: 成功]
+[06-DevOps] [清理已合併分支：5 個 feat/chore 分支 本地+遠端全刪除] [2026-04-19 14:45:00] [執行結果: 成功]
+[01-PM] [使用者回報：footer 不應 freeze，freeze 應該只給 header] [2026-04-19 14:50:00] [執行結果: 成功]
+[03-UI] [診斷：wrapper h-screen + footer mt-auto 造成 footer 被黏在 viewport 底部；navbar 無 sticky] [2026-04-19 14:52:00] [執行結果: 成功]
+[04-Frontend] [default layout: h-screen→min-h-screen，移除全域 padding；Navbar: sticky top-0 + bg blur；Footer: 移除 mt-auto，加 border-t] [2026-04-19 15:00:00] [執行結果: 成功]

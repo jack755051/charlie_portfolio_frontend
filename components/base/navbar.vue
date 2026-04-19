@@ -1,83 +1,89 @@
 <template>
-  <div class="navbar-wrapper flex justify-between items-center h-12 md:h-14 relative z-50">
-    <div class="navbar-image w-14 md:w-16 h-auto cursor-pointer" @click="goBackHomepage()">
-      <Logo class="w-full h-auto" />
-    </div>
-
-    <!-- Desktop nav -->
-    <div class="hidden md:flex justify-evenly gap-10 text-[17px]">
-      <NuxtLink
-        v-for="i in navigationMenus"
-        :key="i.router"
-        :to="i.router"
-        class="nav-item transition-all duration-300 font-[400] text-muted-foreground relative after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:bg-primary after:w-0 after:transition-all after:duration-300"
-        :class="{
-          'active text-foreground font-[500] after:w-full': $route.path === i.router,
-          'hover:font-[600] hover:text-foreground hover:after:w-full': $route.path !== i.router,
-        }"
-      >
-        {{ i.label }}
-      </NuxtLink>
-    </div>
-
-    <!-- Hamburger (mobile only) -->
-    <button
-      type="button"
-      class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-full text-foreground/80 hover:bg-foreground/10 transition-colors"
-      :aria-expanded="menuOpen"
-      aria-controls="mobile-nav-overlay"
-      aria-label="Toggle menu"
-      @click="menuOpen = true"
+  <header
+    class="navbar-wrapper sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/40"
+  >
+    <div
+      class="flex justify-between items-center h-14 md:h-16 max-w-7xl mx-auto px-5 md:px-8 lg:px-10"
     >
-      <MenuOutlined style="font-size: 22px" />
-    </button>
+      <div class="navbar-image w-14 md:w-16 h-auto cursor-pointer" @click="goBackHomepage()">
+        <Logo class="w-full h-auto" />
+      </div>
 
-    <!-- Mobile overlay -->
-    <Teleport to="body">
-      <Transition name="overlay">
-        <div
-          v-if="menuOpen"
-          id="mobile-nav-overlay"
-          class="fixed inset-0 z-[60] bg-background/95 backdrop-blur-xl flex flex-col"
-          role="dialog"
-          aria-modal="true"
+      <!-- Desktop nav -->
+      <div class="hidden md:flex justify-evenly gap-10 text-[17px]">
+        <NuxtLink
+          v-for="i in navigationMenus"
+          :key="i.router"
+          :to="i.router"
+          class="nav-item transition-all duration-300 font-[400] text-muted-foreground relative after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:bg-primary after:w-0 after:transition-all after:duration-300"
+          :class="{
+            'active text-foreground font-[500] after:w-full': $route.path === i.router,
+            'hover:font-[600] hover:text-foreground hover:after:w-full': $route.path !== i.router,
+          }"
         >
-          <div class="flex justify-between items-center px-5 py-4">
-            <div class="w-14 h-auto">
-              <Logo class="w-full h-auto" />
+          {{ i.label }}
+        </NuxtLink>
+      </div>
+
+      <!-- Hamburger (mobile only) -->
+      <button
+        type="button"
+        class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-full text-foreground/80 hover:bg-foreground/10 transition-colors"
+        :aria-expanded="menuOpen"
+        aria-controls="mobile-nav-overlay"
+        aria-label="Toggle menu"
+        @click="menuOpen = true"
+      >
+        <MenuOutlined style="font-size: 22px" />
+      </button>
+
+      <!-- Mobile overlay -->
+      <Teleport to="body">
+        <Transition name="overlay">
+          <div
+            v-if="menuOpen"
+            id="mobile-nav-overlay"
+            class="fixed inset-0 z-[60] bg-background/95 backdrop-blur-xl flex flex-col"
+            role="dialog"
+            aria-modal="true"
+          >
+            <div class="flex justify-between items-center px-5 py-4">
+              <div class="w-14 h-auto">
+                <Logo class="w-full h-auto" />
+              </div>
+              <button
+                type="button"
+                class="inline-flex items-center justify-center h-10 w-10 rounded-full text-foreground/80 hover:bg-foreground/10 transition-colors"
+                aria-label="Close menu"
+                @click="menuOpen = false"
+              >
+                <CloseOutlined style="font-size: 22px" />
+              </button>
             </div>
-            <button
-              type="button"
-              class="inline-flex items-center justify-center h-10 w-10 rounded-full text-foreground/80 hover:bg-foreground/10 transition-colors"
-              aria-label="Close menu"
-              @click="menuOpen = false"
-            >
-              <CloseOutlined style="font-size: 22px" />
-            </button>
-          </div>
 
-          <nav class="flex-1 flex flex-col items-center justify-center gap-8 px-6">
-            <NuxtLink
-              v-for="i in navigationMenus"
-              :key="i.router"
-              :to="i.router"
-              class="text-3xl font-bold tracking-tight transition-colors"
-              :class="
-                $route.path === i.router ? 'text-primary' : 'text-foreground hover:text-primary'
-              "
-              @click="menuOpen = false"
-            >
-              {{ i.label }}
-            </NuxtLink>
-          </nav>
+            <nav class="flex-1 flex flex-col items-center justify-center gap-8 px-6">
+              <NuxtLink
+                v-for="i in navigationMenus"
+                :key="i.router"
+                :to="i.router"
+                class="text-3xl font-bold tracking-tight transition-colors"
+                :class="
+                  $route.path === i.router ? 'text-primary' : 'text-foreground hover:text-primary'
+                "
+                @click="menuOpen = false"
+              >
+                {{ i.label }}
+              </NuxtLink>
+            </nav>
 
-          <div class="py-6 text-center text-xs text-muted-foreground">
-            © {{ currentYear }} Charlie Tai
+            <div class="py-6 text-center text-xs text-muted-foreground">
+              © {{ currentYear }} Charlie Tai
+            </div>
           </div>
-        </div>
-      </Transition>
-    </Teleport>
-  </div>
+        </Transition>
+      </Teleport>
+    </div>
+  </header>
 </template>
 
 <script setup lang="ts">

@@ -1,5 +1,7 @@
 <template>
-  <footer class="relative z-10 mt-auto pt-8 pb-6 md:pt-10 md:pb-8 text-muted-foreground">
+  <footer
+    class="relative z-10 pt-8 pb-6 md:pt-10 md:pb-8 text-muted-foreground border-t border-border/40"
+  >
     <div
       class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
     >
