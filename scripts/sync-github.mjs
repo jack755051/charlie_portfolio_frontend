@@ -9,7 +9,6 @@ const endpoint = 'https://api.github.com/graphql'
 const token = process.env.GITHUB_TOKEN // optional; public repos work without
 
 const PORTFOLIO_TOPIC = 'portfolio'
-const STATUS_TOPICS = new Set(['status-wip', 'status-done', 'status-archived'])
 
 const query = `
 query UserRepos($login: String!) {

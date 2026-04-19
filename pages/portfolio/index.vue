@@ -101,15 +101,30 @@ const {
 } = usePortfolioProjects()
 
 // 輔助函式：將 Metadata 加上翻譯文字
-// 這樣 CPortfolioCard 透過 v-bind 就能拿到 title, description, role
-const enrichProject = (project: any) => ({
-  ...project,
-  title: t(`${project.i18nNamespace}.${project.id}.title`),
-  description: t(`${project.i18nNamespace}.${project.id}.description`),
-  role: t(`${project.i18nNamespace}.${project.id}.role`),
-  duration: t(`${project.i18nNamespace}.${project.id}.duration`),
-  // 如果你的 Card 需要 tags，這裡可能需要 mapping，或者 Card 內部自己處理
-})
+// Manual 專案：從 i18n namespace 取文字
+// GitHub 專案：優先用 override 中文，其次原文（英）
+const { locale } = useI18n()
+const isZh = computed(() => locale.value !== 'en')
+
+const enrichProject = (project: any) => {
+  if (project.source === 'github') {
+    return {
+      ...project,
+      title: (isZh.value ? project.titleZhOverride : null) || project.titleOverride,
+      description:
+        (isZh.value ? project.descriptionZhOverride : null) || project.descriptionOverride || '',
+      role: project.roleOverride || '',
+      duration: project.durationOverride || '',
+    }
+  }
+  return {
+    ...project,
+    title: t(`${project.i18nNamespace}.${project.id}.title`),
+    description: t(`${project.i18nNamespace}.${project.id}.description`),
+    role: t(`${project.i18nNamespace}.${project.id}.role`),
+    duration: t(`${project.i18nNamespace}.${project.id}.duration`),
+  }
+}
 
 const companyProjects = computed(() => {
   return companySource.value.map(enrichProject)
