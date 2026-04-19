@@ -54,3 +54,7 @@
 [04-Frontend] [新增 assets/images/charlie-logo.svg 與 public/favicon.svg；替換 navbar 匯入；nuxt.config 加 SVG favicon 並保留 ICO fallback] [2026-04-19 15:40:00] [執行結果: 成功]
 [01-PM] [使用者回饋：logo 方向不符需求（C + `<` + 暖色漸層），要求撤回] [2026-04-19 16:00:00] [執行結果: 成功]
 [06-DevOps] [git revert f740458 — 程式碼回滾至 sanring-logo；保留 trace/devlog 軌跡供未來設計參考] [2026-04-19 16:05:00] [執行結果: 成功]
+[01-PM] [使用者請求：自動同步 GitHub 個人 repo 至 /portfolio，由 02 Tech Lead 規劃] [2026-04-19 16:30:00] [執行結果: 成功]
+[02-TechLead] [可行性評估：GitHub GraphQL API + 每週 2 次排程，與現有 sync-leetcode 模式同構] [2026-04-19 16:35:00] [執行結果: 成功]
+[02-TechLead] [使用者決議 Q1~Q5 全採推薦方案（三層過濾 / 三級狀態 / 兩源合併 / 週 2 次 / 無 PAT）] [2026-04-19 16:40:00] [執行結果: 成功]
+[02-TechLead] [產出 docs/architecture/github_portfolio_sync_TechPlan_v1.md：含需求摘要、技術選型與風險、派發建議給 BA/DBA/UI/FE/DevOps、派發順序圖] [2026-04-19 16:45:00] [執行結果: 成功]
