@@ -1,8 +1,7 @@
 <template>
   <div
-    class="default-wrapper flex flex-col relative h-screen w-screen px-[30px] py-[10px] bg-background"
+    class="default-wrapper flex flex-col relative h-screen w-screen px-5 md:px-8 lg:px-10 py-3 md:py-4 bg-background dark:bg-slate-950 transition-colors duration-500"
   >
-    <!-- 固定的 Navbar -->
     <BaseNavbar />
     <slot />
     <BaseFooter />

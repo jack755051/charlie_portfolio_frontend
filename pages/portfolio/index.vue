@@ -1,23 +1,27 @@
 <template>
-  <div class="scrollable-content-wrapper h-screen overflow-hidden relative bg-slate-50">
+  <div
+    class="scrollable-content-wrapper h-screen overflow-hidden relative bg-background dark:bg-slate-950 transition-colors duration-500"
+  >
+    <BackgroundDecor variant="subpage" />
+
     <CAnchor
       :anchor-data="anchorData.anchorPortfolioPage.value"
-      class="fixed left-4 top-1/2 transform -translate-y-1/2 z-50"
+      class="fixed left-2 xl:left-4 top-1/2 -translate-y-1/2 z-40"
     />
 
     <div
-      class="snap-y snap-mandatory h-full overflow-y-scroll scroll-smooth pt-[80px] relative z-10"
+      class="snap-y snap-mandatory h-full overflow-y-scroll scroll-smooth pt-14 md:pt-16 relative z-10"
     >
       <div class="w-full pb-20">
         <ScrollSection id="section1" ref="portfolioSection" :class="['flex-col !justify-start']">
           <template #title>
-            <div class="flex w-full items-center justify-center mb-16 relative z-10">
+            <div class="flex w-full items-center justify-center mb-12 md:mb-16 relative z-10">
               <h2
-                class="text-4xl md:text-5xl font-bold text-slate-800 tracking-tight transition-transform duration-500 hover:scale-105"
+                class="font-display text-4xl md:text-5xl font-bold text-slate-800 dark:text-white tracking-tight transition-transform duration-500 hover:scale-105"
               >
                 {{ $t('portfolio.titleMain') }}
                 <span
-                  class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500 animate-gradient-x"
+                  class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500"
                 >
                   {{ $t('portfolio.titleHighlight') }}
                 </span>
@@ -28,18 +32,23 @@
           <template #content>
             <div
               v-if="publishedProjects.length === 0"
-              class="flex flex-col items-center justify-center h-64 text-slate-400"
+              class="flex flex-col items-center justify-center h-64 text-slate-400 dark:text-slate-500"
             >
               <div class="text-6xl mb-4">📂</div>
               <p>{{ $t('portfolio.empty') }}</p>
             </div>
 
-            <div v-else class="w-full max-w-7xl mx-auto px-6 space-y-20">
-              <div v-if="companyProjects.length > 0" class="space-y-8">
-                <h3 class="text-2xl font-bold text-slate-800">{{ $t('portfolio.company') }}</h3>
-                <div class="flex-1 h-px bg-slate-200"></div>
+            <div
+              v-else
+              class="w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 space-y-16 md:space-y-20"
+            >
+              <div v-if="companyProjects.length > 0" class="space-y-6 md:space-y-8">
+                <h3 class="font-display text-2xl font-bold text-slate-800 dark:text-slate-100">
+                  {{ $t('portfolio.company') }}
+                </h3>
+                <div class="flex-1 h-px bg-slate-200 dark:bg-slate-700" />
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                   <CPortfolioCard
                     v-for="project in companyProjects"
                     :key="project.id"
@@ -50,9 +59,11 @@
                 </div>
               </div>
 
-              <div v-if="personalProjects.length > 0" class="space-y-8">
-                <h3 class="text-2xl font-bold text-slate-800">{{ $t('portfolio.sideProject') }}</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div v-if="personalProjects.length > 0" class="space-y-6 md:space-y-8">
+                <h3 class="font-display text-2xl font-bold text-slate-800 dark:text-slate-100">
+                  {{ $t('portfolio.sideProject') }}
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                   <CPortfolioCard
                     v-for="project in personalProjects"
                     :key="project.id"
@@ -76,6 +87,7 @@ import { useI18n } from 'vue-i18n' // 1. 引入 useI18n
 import { useAnchor } from '~/composables/useAnchor'
 import { usePortfolioProjects } from '~/composables/usePortfolioProjects'
 import CAnchor from '~/components/base/anchor.vue'
+import BackgroundDecor from '~/components/base/background-decor.vue'
 import CPortfolioCard from '~/components/base/portfolio-card.vue'
 import ScrollSection from '~/layouts/scrollSection.vue'
 

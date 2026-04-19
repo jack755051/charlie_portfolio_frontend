@@ -297,5 +297,8 @@
         "notFound": "Project Not Found",
         "return": "Return to Portfolio"
       }
+  },
+  "footer": {
+    "tagline": "Frontend Engineer · Crafting performant and interactive web experiences"
   }
 }

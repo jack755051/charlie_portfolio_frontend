@@ -1,20 +1,16 @@
 <template>
-  <div class="min-h-screen bg-slate-50 relative pb-32">
+  <div
+    class="min-h-screen bg-background dark:bg-slate-950 relative pb-32 transition-colors duration-500"
+  >
+    <BackgroundDecor variant="subpage" density="subtle" />
     <div
-      class="absolute inset-0 z-0 opacity-[0.4]"
-      style="
-        background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
-        background-size: 32px 32px;
-      "
-    ></div>
-    <div
-      class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-white/80 to-transparent pointer-events-none z-0"
-    ></div>
+      class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-white/80 dark:from-slate-900/70 to-transparent pointer-events-none z-0"
+    />
 
-    <div class="sticky top-0 z-50 w-full px-6 py-4">
+    <div class="sticky top-0 z-50 w-full px-5 sm:px-6 py-4">
       <div class="max-w-7xl mx-auto flex items-center justify-between">
         <button
-          class="flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 backdrop-blur border border-slate-200 text-slate-600 hover:border-orange-200 hover:text-orange-500 hover:shadow-md transition-all active:scale-95 group shadow-sm"
+          class="flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 dark:bg-slate-800/80 backdrop-blur border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-200 hover:border-orange-200 dark:hover:border-orange-500/40 hover:text-orange-500 dark:hover:text-orange-400 hover:shadow-md transition-all active:scale-95 group shadow-sm"
           @click="goBack"
         >
           <svg
@@ -251,6 +247,7 @@
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import BackgroundDecor from '~/components/base/background-decor.vue'
 import { usePortfolioProjects } from '~/composables/usePortfolioProjects'
 
 const router = useRouter()

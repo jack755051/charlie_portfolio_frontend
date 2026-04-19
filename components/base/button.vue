@@ -1,6 +1,8 @@
 <template>
   <button
-    :class="[baseClass, sizeClass, shadow && isHover ? 'shadow-md' : '', customClass]"
+    :type="type"
+    :disabled="disabled"
+    :class="[baseClass, variantClass, sizeClass, shadow && isHover ? 'shadow-xl' : '', customClass]"
     @click="$emit('click')"
     @mouseenter="isHover = true"
     @mouseleave="isHover = false"
@@ -10,36 +12,62 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
-const props = defineProps<{
-  label: string
-  // style
-  size?: 'sm' | 'md' | 'lg'
-  shadow?: boolean
-  customClass?: string // 讓使用者可以額外傳入 Tailwind class
-}>()
+type ButtonVariant = 'primary' | 'secondary' | 'ghost'
+type ButtonSize = 'sm' | 'md' | 'lg'
+type ButtonType = 'button' | 'submit' | 'reset'
 
-const emit = defineEmits<{
+const props = withDefaults(
+  defineProps<{
+    label: string
+    variant?: ButtonVariant
+    size?: ButtonSize
+    type?: ButtonType
+    shadow?: boolean
+    disabled?: boolean
+    customClass?: string
+  }>(),
+  {
+    variant: 'primary',
+    size: 'md',
+    type: 'button',
+    shadow: false,
+    disabled: false,
+    customClass: '',
+  }
+)
+
+defineEmits<{
   (e: 'click'): void
 }>()
 
 const isHover = ref(false)
 
-/** 最基礎Class */
 const baseClass =
-  'relative rounded-[1.2rem] font-medium transition duration-200 px-[1.8rem] py-[0.5rem] bg-[#FF6B35] hover:bg-[#FF8C42] text-[#FFFFFF] hover:text-[#F9F9F9]  focus:outline-none'
+  'relative inline-flex items-center justify-center rounded-full font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0'
 
-/** 預設值處理 */
-const sizeClass = computed(() => {
+const variantClass = computed<string>(() => {
+  switch (props.variant) {
+    case 'secondary':
+      return 'border border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 hover:text-primary dark:hover:text-orange-400 hover:-translate-y-0.5'
+    case 'ghost':
+      return 'text-slate-600 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
+    case 'primary':
+    default:
+      return 'bg-gradient-to-r from-primary to-rose-500 hover:from-secondary hover:to-rose-600 text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/50 hover:-translate-y-0.5'
+  }
+})
+
+const sizeClass = computed<string>(() => {
   switch (props.size) {
     case 'sm':
-      return 'text-sm px-3 py-1.5'
+      return 'text-sm px-4 py-1.5'
     case 'lg':
-      return 'text-lg px-6 py-3'
+      return 'text-lg px-7 py-3'
     case 'md':
     default:
-      return 'text-base px-4 py-2'
+      return 'text-base px-5 py-2'
   }
 })
 </script>

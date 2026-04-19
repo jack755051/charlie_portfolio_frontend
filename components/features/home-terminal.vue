@@ -1,25 +1,7 @@
 <template>
   <div
-    class="snap-y snap-mandatory h-full overflow-y-scroll scroll-smooth relative z-10 bg-background dark:bg-slate-950 transition-colors duration-500"
+    class="snap-y snap-mandatory h-full overflow-y-scroll scroll-smooth relative z-10 transition-colors duration-500"
   >
-    <!-- 背景裝飾層：漸層 blobs + 網格點陣 -->
-    <div class="pointer-events-none absolute inset-0 overflow-hidden">
-      <div
-        class="absolute -top-24 -left-24 h-[420px] w-[420px] rounded-full bg-orange-400/30 dark:bg-orange-500/20 blur-3xl animate-float-slow"
-      />
-      <div
-        class="absolute top-1/3 -right-24 h-[380px] w-[380px] rounded-full bg-pink-400/25 dark:bg-fuchsia-500/15 blur-3xl animate-float-slow"
-        style="animation-delay: -2s"
-      />
-      <div
-        class="absolute bottom-0 left-1/3 h-[320px] w-[320px] rounded-full bg-amber-300/25 dark:bg-indigo-500/15 blur-3xl animate-float-slow"
-        style="animation-delay: -4s"
-      />
-      <div
-        class="absolute inset-0 opacity-[0.25] dark:opacity-20 bg-[radial-gradient(circle_at_1px_1px,rgba(15,23,42,0.18)_1px,transparent_0)] dark:bg-[radial-gradient(circle_at_1px_1px,rgba(148,163,184,0.18)_1px,transparent_0)] [background-size:22px_22px]"
-      />
-    </div>
-
     <div class="w-full relative">
       <ScrollSection id="section1" ref="initSection">
         <template #content>
@@ -71,10 +53,9 @@
                 class="pt-2 sm:pt-4 flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4"
               >
                 <CButton
+                  variant="primary"
+                  size="lg"
                   :label="$t('home.buttons.about')"
-                  :size="'lg'"
-                  :shadow="true"
-                  custom-class="group relative overflow-hidden bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-600 hover:to-rose-600 text-white border-none shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-0.5 transition-all duration-300"
                   @click="handlerClickButton()"
                 />
                 <button

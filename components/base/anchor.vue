@@ -1,18 +1,22 @@
 <template>
-  <div class="custom-anchor-nav">
+  <nav
+    class="custom-anchor-nav hidden md:flex flex-col gap-1 md:bg-transparent md:shadow-none md:border-0 md:p-0 xl:p-4 xl:bg-white/80 xl:dark:bg-slate-900/70 xl:backdrop-blur xl:border xl:border-slate-200/80 xl:dark:border-white/10 xl:shadow-lg xl:rounded-2xl"
+    aria-label="Section anchors"
+  >
     <ul class="anchor-list">
       <li
         v-for="item in anchorData"
         :key="item.key"
-        class="anchor-item"
+        class="anchor-item group"
         :class="{ active: activeAnchor === item.key }"
+        :data-tooltip="item.title"
         @click="scrollToSection(item.key, item.href)"
       >
-        <div class="anchor-dot"></div>
-        <span class="anchor-title">{{ item.title }}</span>
+        <span class="anchor-dot" />
+        <span class="anchor-title hidden xl:inline">{{ item.title }}</span>
       </li>
     </ul>
-  </div>
+  </nav>
 </template>
 
 <script setup lang="ts">
@@ -27,63 +31,44 @@ interface Props {
 const props = defineProps<Props>()
 const activeAnchor = ref<string>('')
 
-// 滾動到指定區塊
 const scrollToSection = (sectionKey: string, href: string) => {
   const sectionId = href.replace('#', '')
   const targetElement = document.getElementById(sectionId)
 
   if (targetElement) {
-    // 使用 scrollIntoView 進行平滑滾動
-    targetElement.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    })
-
-    // 立即更新活躍狀態
+    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
     activeAnchor.value = sectionKey
   }
 }
 
-// 監聽滾動事件來更新當前活躍的錨點
 const handleScroll = () => {
   if (!props.anchorData) return
 
   const scrollContainer = document.querySelector('.snap-y.snap-mandatory')
   if (!scrollContainer) return
 
-  // 獲取所有 section 元素
   const sections = props.anchorData
-    .map(item => {
-      const sectionId = item.href.replace('#', '')
-      return {
-        key: item.key,
-        element: document.getElementById(sectionId),
-      }
-    })
+    .map(item => ({
+      key: item.key,
+      element: document.getElementById(item.href.replace('#', '')),
+    }))
     .filter(item => item.element)
 
-  // 找到當前視窗中的區塊
   let currentSection = sections[0]?.key || ''
-
   for (const section of sections) {
     if (section.element) {
       const rect = section.element.getBoundingClientRect()
-      // 如果區塊的頂部在視窗上半部分，則認為是當前區塊
       if (rect.top <= window.innerHeight / 2 && rect.bottom > 0) {
         currentSection = section.key
       }
     }
   }
-
   activeAnchor.value = currentSection
 }
 
 let scrollTimer: number | null = null
-
-// 節流處理滾動事件
 const throttledHandleScroll = () => {
   if (scrollTimer) return
-
   scrollTimer = requestAnimationFrame(() => {
     handleScroll()
     scrollTimer = null
@@ -94,7 +79,6 @@ onMounted(() => {
   const scrollContainer = document.querySelector('.snap-y.snap-mandatory')
   if (scrollContainer) {
     scrollContainer.addEventListener('scroll', throttledHandleScroll, { passive: true })
-    // 初始化時執行一次
     handleScroll()
   }
 })
@@ -111,94 +95,125 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.custom-anchor-nav {
-  padding: 16px 12px;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
 .anchor-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
+/* 預設（md ~ xl）：dot-only，tooltip 顯示標題 */
 .anchor-item {
+  position: relative;
   display: flex;
   align-items: center;
-  padding: 8px 12px;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
   cursor: pointer;
   transition: all 0.2s ease;
-  border-radius: 8px;
-  position: relative;
 }
 
 .anchor-item:hover {
-  background: rgba(59, 130, 246, 0.1);
-}
-
-.anchor-item.active {
-  background: rgba(59, 130, 246, 0.15);
-}
-
-.anchor-item.active .anchor-dot {
-  background: #3b82f6;
-  transform: scale(1.2);
-}
-
-.anchor-item.active .anchor-title {
-  color: #3b82f6;
-  font-weight: 500;
+  background: rgba(255, 107, 53, 0.08);
 }
 
 .anchor-dot {
+  display: block;
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #9ca3af;
-  margin-right: 12px;
-  transition: all 0.2s ease;
+  background: #cbd5e1; /* slate-300 */
+  transition: all 0.25s ease;
   flex-shrink: 0;
 }
 
-.anchor-title {
-  font-size: 14px;
-  color: #6b7280;
-  transition: color 0.2s ease;
-  white-space: nowrap;
+@media (prefers-color-scheme: dark) {
+  .anchor-dot {
+    background: #475569; /* slate-600 */
+  }
 }
 
-/* 深色模式支持 */
-@media (prefers-color-scheme: dark) {
-  .custom-anchor-nav {
-    background: rgba(17, 24, 39, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
+.anchor-item.active .anchor-dot {
+  background: #ff6b35; /* primary */
+  transform: scale(1.4);
+  box-shadow: 0 0 10px rgba(255, 107, 53, 0.6);
+}
 
-  .anchor-item:hover {
-    background: rgba(59, 130, 246, 0.2);
-  }
+/* Tooltip（僅在 dot-only 模式 md ~ xl）*/
+.anchor-item::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%) translateX(-6px);
+  background: rgba(15, 23, 42, 0.92);
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+  z-index: 10;
+}
 
+.anchor-item:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* XL 以上：展開 title，關掉 tooltip */
+@media (min-width: 1280px) {
+  .anchor-item {
+    width: auto;
+    height: auto;
+    justify-content: flex-start;
+    padding: 8px 12px;
+    border-radius: 8px;
+    gap: 12px;
+  }
+  .anchor-item::after {
+    display: none;
+  }
   .anchor-item.active {
-    background: rgba(59, 130, 246, 0.25);
+    background: rgba(255, 107, 53, 0.12);
   }
-
-  .anchor-dot {
-    background: #6b7280;
-  }
-
   .anchor-title {
-    color: #9ca3af;
+    font-size: 14px;
+    color: #64748b;
+    transition: color 0.2s ease;
+    white-space: nowrap;
   }
-
   .anchor-item.active .anchor-title {
-    color: #60a5fa;
+    color: #ff6b35;
+    font-weight: 600;
+  }
+}
+
+@media (min-width: 1280px) and (prefers-color-scheme: dark) {
+  .anchor-item.active {
+    background: rgba(255, 107, 53, 0.18);
+  }
+  .anchor-title {
+    color: #cbd5e1;
+  }
+  .anchor-item.active .anchor-title {
+    color: #ffb080;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anchor-dot,
+  .anchor-item {
+    transition: none !important;
   }
 }
 </style>
