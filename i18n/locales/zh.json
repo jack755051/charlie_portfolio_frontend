@@ -157,14 +157,14 @@
     "titleHighlight": "作品",
     "subtitle": "累積的專案與技術實踐",
     "empty": "作品集準備中...",
-    "company": "企業級專案",
+    "company": "公司專案",
     "sideProject": "個人專案",
     "projects": {
       "systalk-adminhub": {
         "title": "Systalk AdminHub",
         "role": "前端工程師",
         "duration": "2024.07 - 至今",
-        "description": "企業級金鑰管理平台，提供 API Key 管理、權限控制及使用統計分析功能。負責昕力科技內部所有產品的金鑰配置與安全管理，確保系統間的安全通訊。",
+        "description": "內部金鑰管理平台，提供 API Key 管理、權限控制及使用統計分析功能。負責昕力科技內部所有產品的金鑰配置與安全管理，確保系統間的安全通訊。",
         "features": [
           "採用 Angular 最新版本開發，使用 Standalone Components 架構",
           "使用 Ngrx 進行狀態管理，實現複雜的金鑰生命週期管理",
@@ -187,7 +187,7 @@
         "title": "Systalk.Audit",
         "role": "前端工程師",
         "duration": "2024.07 - 至今",
-        "description": "企業級稽核系統，記錄並追蹤系統內所有關鍵操作。提供完整的審計日誌、異常偵測及合規報告功能，確保企業運營的透明度與安全性。",
+        "description": "內部稽核系統，記錄並追蹤系統內所有關鍵操作。提供完整的審計日誌、異常偵測及合規報告功能，確保企業運營的透明度與安全性。",
         "features": [
           "實時監控系統操作日誌，支援多維度查詢與篩選",
           "使用 Echart 實現互動式數據視覺化，展示稽核趨勢",
@@ -230,7 +230,7 @@
         "title": "Travel Planner",
         "role": "前端工程師",
         "duration": "2024.11 - 2024.12",
-        "description": "旅程規劃平台，讓旅行規劃變得像喝水一樣簡單。提供互動式地圖整合、行程管理及逐日行程規劃功能，讓使用者輕鬆安排完美的旅程。",
+        "description": "旅程規劃平台，讓旅行規劃變得更直覺。提供互動式地圖整合、行程管理及逐日行程規劃功能，讓使用者輕鬆安排流暢的旅程。",
         "features": [
           "採用 Next.js 16 App Router 架構，支援 SSR 與 Client-Side Rendering",
           "整合 Google Maps API 實現互動式地圖功能，提供地點搜尋與標記",
@@ -256,11 +256,11 @@
         "title": "GxCella - Angular 組件庫",
         "role": "前端工程師 / 組件庫開發者",
         "duration": "2024.08 - 2024.11",
-        "description": "Angular 20 企業級 UI 組件庫（Monorepo 架構），提供可重複使用的高品質組件套件，包含表格、分頁、卡片、拖放等多個獨立發布的 npm 套件，建立完整的設計系統。",
+        "description": "Angular 20 可重用 UI 組件庫（Monorepo 架構），提供可重複使用的高品質組件套件，包含表格、分頁、卡片、拖放等多個獨立發布的 npm 套件，建立完整的設計系統。",
         "features": [
           "採用 Monorepo 架構管理 8+ 個獨立 npm 套件，支援獨立版本發布",
           "開發核心 UI 組件庫（Button、Icon、Loading、Skeleton、Tag、Toast、Overlay）",
-          "實現企業級 Table 組件，支援排序、篩選、分頁、固定欄位等進階功能",
+          "實現功能完整的 Table 組件，支援排序、篩選、分頁、固定欄位等進階功能",
           "開發 Pagination、Wizard、Card、Breadcrumb、Drag-Drop 等業務組件",
           "建立統一的設計系統（gx-styles），支援主題自定義與 CSS 變數",
           "使用 Standalone Components 架構，支援 Tree-shaking",

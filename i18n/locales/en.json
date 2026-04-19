@@ -164,7 +164,7 @@
         "title": "Systalk AdminHub",
         "role": "Frontend Engineer",
         "duration": "2024.07 - Present",
-        "description": "Enterprise-grade key management platform providing API Key management, access control, and usage analytics. Responsible for key configuration and security management for all TPIsoftware internal products to ensure secure inter-system communication.",
+        "description": "In-house key management platform providing API Key management, access control, and usage analytics. Responsible for key configuration and security management for all TPIsoftware internal products to ensure secure inter-system communication.",
         "features": [
           "Developed using the latest Angular version with Standalone Components architecture",
           "Implemented complex key lifecycle management using Ngrx",
@@ -187,7 +187,7 @@
         "title": "Systalk.Audit",
         "role": "Frontend Engineer",
         "duration": "2024.07 - Present",
-        "description": "Enterprise audit system recording and tracking all critical operations within the system. Provides comprehensive audit logs, anomaly detection, and compliance reporting to ensure operational transparency and security.",
+        "description": "Internal audit system recording and tracking all critical operations within the system. Provides comprehensive audit logs, anomaly detection, and compliance reporting to ensure operational transparency and security.",
         "features": [
           "Real-time monitoring of system operation logs with multi-dimensional query and filtering",
           "Implemented interactive data visualization using Echarts to display audit trends",
@@ -230,7 +230,7 @@
         "title": "Travel Planner",
         "role": "Frontend Engineer",
         "duration": "2024.11 - 2024.12",
-        "description": "Journey planning platform making travel planning as simple as drinking water. Provides interactive map integration, itinerary management, and day-by-day planning functions, allowing users to easily arrange the perfect trip.",
+        "description": "Journey planning platform making travel planning more intuitive. Provides interactive map integration, itinerary management, and day-by-day planning functions, allowing users to easily arrange a smooth trip.",
         "features": [
           "Adopted Next.js 16 App Router architecture supporting SSR and Client-Side Rendering",
           "Integrated Google Maps API for interactive maps, location search, and marking",
@@ -256,11 +256,11 @@
         "title": "GxCella - Angular UI Library",
         "role": "Frontend Engineer / Library Developer",
         "duration": "2024.08 - 2024.11",
-        "description": "Angular 20 Enterprise UI Component Library (Monorepo Architecture) providing reusable high-quality component suites including tables, pagination, cards, drag-and-drop, and multiple independently published npm packages, establishing a complete design system.",
+        "description": "Angular 20 Reusable UI Component Library (Monorepo Architecture) providing reusable high-quality component suites including tables, pagination, cards, drag-and-drop, and multiple independently published npm packages, establishing a complete design system.",
         "features": [
           "Managed 8+ independent npm packages using Monorepo architecture supporting independent versioning",
           "Developed core UI components (Button, Icon, Loading, Skeleton, Tag, Toast, Overlay)",
-          "Implemented enterprise-grade Table component supporting sorting, filtering, pagination, and sticky columns",
+          "Implemented feature-rich Table component supporting sorting, filtering, pagination, and sticky columns",
           "Developed business components like Pagination, Wizard, Card, Breadcrumb, and Drag-Drop",
           "Established a unified design system (gx-styles) supporting custom themes and CSS variables",
           "Used Standalone Components architecture supporting Tree-shaking",
