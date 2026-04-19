@@ -49,3 +49,6 @@
 [01-PM] [使用者回報：footer 不應 freeze，freeze 應該只給 header] [2026-04-19 14:50:00] [執行結果: 成功]
 [03-UI] [診斷：wrapper h-screen + footer mt-auto 造成 footer 被黏在 viewport 底部；navbar 無 sticky] [2026-04-19 14:52:00] [執行結果: 成功]
 [04-Frontend] [default layout: h-screen→min-h-screen，移除全域 padding；Navbar: sticky top-0 + bg blur；Footer: 移除 mt-auto，加 border-t] [2026-04-19 15:00:00] [執行結果: 成功]
+[01-PM] [使用者請求：以高度抽象化概念設計新 logo（C + 程式碼符號）並替換 navbar logo + favicon] [2026-04-19 15:30:00] [執行結果: 成功]
+[03-UI] [設計 SVG：rounded square + 品牌漸層（#FF6B35→#F43F5E→#D946EF）+ 白色 C 弧線 + 白色 < 程式碼括號層疊] [2026-04-19 15:35:00] [執行結果: 成功]
+[04-Frontend] [新增 assets/images/charlie-logo.svg 與 public/favicon.svg；替換 navbar 匯入；nuxt.config 加 SVG favicon 並保留 ICO fallback] [2026-04-19 15:40:00] [執行結果: 成功]
