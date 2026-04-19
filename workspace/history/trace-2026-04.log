@@ -70,3 +70,6 @@
 [04-Frontend] [擴充 PortfolioCard：Status Badge（wip/done/archived 三色）+ GitHub Source icon + stars + archived 降透明度] [2026-04-19 17:55:00] [執行結果: 成功]
 [04-Frontend] [pages/portfolio/index.vue enrichProject 分流 github source：讀 titleZhOverride/descriptionZhOverride fallback；v-bind 帶入新欄位] [2026-04-19 18:00:00] [執行結果: 成功]
 [90-Watcher] [ESLint 0 error；validate:ssot 通過] [2026-04-19 18:05:00] [執行結果: 成功]
+[01-PM] [使用者請求：建 README、加 GitHub topic 教學、建立 main 分支供 default] [2026-04-19 18:30:00] [執行結果: 成功]
+[99-Logger] [改寫 README.md：完整專案介紹、GitHub topic 三層過濾 SOP、workflow 說明、branch 策略] [2026-04-19 18:35:00] [執行結果: 成功]
+[06-DevOps] [sync-leetcode.yml push trigger 加入 main；git branch main dev → push origin main] [2026-04-19 18:40:00] [執行結果: 成功]
