@@ -80,8 +80,13 @@
     }
   }
 
-  /* 全域預設背景 + 字色，確保即使未套 class 也不會破版 */
+  /* 全域預設背景 + 字色，確保即使未套 class 也不會破版
+     注意：此處改用原生 CSS 以避免 @apply 在 @layer base 解析 CSS-var token 時失敗 */
   body {
-    @apply bg-background text-foreground transition-colors duration-500;
+    background-color: rgb(var(--background));
+    color: rgb(var(--foreground));
+    transition:
+      background-color 500ms ease,
+      color 500ms ease;
   }
 }
