@@ -15,6 +15,7 @@ const portfolioProjects = readJson('assets/data/portfolio-projects.json')
 const leetcodeProfile = readJson('assets/data/leetcode-profile.json')
 const githubProjects = readJsonIfExists('assets/data/github-projects.json')
 const githubOverrides = readJsonIfExists('assets/data/github-projects.overrides.json')
+const githubProjectDetails = readJsonIfExists('assets/data/github-project-details.json')
 const roadmap = readJsonIfExists('assets/data/roadmap.json')
 const notes = readJsonIfExists('assets/data/notes.json')
 
@@ -382,6 +383,54 @@ if (githubOverrides) {
         `github-projects-overrides.${slug}.force_status is invalid`
       )
     }
+  }
+}
+
+// ==========================================================================
+// github-project-details.json (optional)
+// ==========================================================================
+if (githubProjectDetails) {
+  assert(githubProjectDetails.schema_version === 1, 'github-project-details.schema_version must be 1')
+  assert(
+    isDateTime(githubProjectDetails.generatedAt),
+    'github-project-details.generatedAt must be date-time'
+  )
+  assert(
+    Number.isInteger(githubProjectDetails.version) && githubProjectDetails.version >= 1,
+    'github-project-details.version must be positive integer'
+  )
+  assert(
+    typeof githubProjectDetails.entries === 'object' && githubProjectDetails.entries !== null,
+    'github-project-details.entries must be object'
+  )
+
+  for (const [slug, entry] of Object.entries(githubProjectDetails.entries || {})) {
+    assert(
+      typeof slug === 'string' && /^[a-z0-9][a-z0-9._-]{0,99}$/.test(slug),
+      `github-project-details key is invalid: ${slug}`
+    )
+    assert(typeof entry.summary_zh === 'string', `github-project-details.${slug}.summary_zh must be string`)
+    assert(typeof entry.summary_en === 'string', `github-project-details.${slug}.summary_en must be string`)
+    assert(
+      Array.isArray(entry.features_zh),
+      `github-project-details.${slug}.features_zh must be array`
+    )
+    assert(
+      Array.isArray(entry.features_en),
+      `github-project-details.${slug}.features_en must be array`
+    )
+    assert(
+      Array.isArray(entry.achievements_zh),
+      `github-project-details.${slug}.achievements_zh must be array`
+    )
+    assert(
+      Array.isArray(entry.achievements_en),
+      `github-project-details.${slug}.achievements_en must be array`
+    )
+    assert(
+      Array.isArray(entry.screenshots),
+      `github-project-details.${slug}.screenshots must be array`
+    )
   }
 }
 

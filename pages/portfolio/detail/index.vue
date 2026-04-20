@@ -57,35 +57,36 @@
 
     <div v-if="projectMeta" class="relative z-10 max-w-7xl mx-auto px-6 pt-6">
       <div class="text-center max-w-4xl mx-auto mb-12">
-        <div class="flex items-center justify-center gap-3 mb-4">
+        <div v-if="displayRole || displayDuration" class="flex items-center justify-center gap-3 mb-4">
           <span
+            v-if="displayRole"
             class="px-3 py-1 rounded-full text-xs font-bold bg-accent text-accent-foreground border border-primary/20"
           >
-            {{ $t(i18nKeys.role) }}
+            {{ displayRole }}
           </span>
-          <span class="w-1 h-1 rounded-full bg-muted-foreground" />
-          <span class="text-muted-foreground text-sm font-mono">
-            {{ $t(i18nKeys.duration) }}
+          <span v-if="displayRole && displayDuration" class="w-1 h-1 rounded-full bg-muted-foreground" />
+          <span v-if="displayDuration" class="text-muted-foreground text-sm font-mono">
+            {{ displayDuration }}
           </span>
         </div>
 
         <h1
           class="font-display text-4xl md:text-6xl font-extrabold text-foreground tracking-tight leading-tight mb-6"
         >
-          {{ $t(i18nKeys.title) }}
+          {{ displayTitle }}
         </h1>
 
         <p class="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-          {{ $t(i18nKeys.description) }}
+          {{ displayDescription }}
         </p>
       </div>
 
-      <div v-if="projectMeta.screenshots?.length" class="mb-16 relative group">
+      <div v-if="detailScreenshots.length" class="mb-16 relative group">
         <div
           class="absolute -inset-1 bg-gradient-to-r from-primary to-sky-500 rounded-[2rem] opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-500"
         />
         <img
-          :src="projectMeta.screenshots[0].url"
+          :src="detailScreenshots[0].url"
           class="relative w-full h-auto object-cover rounded-[1.5rem] shadow-2xl border border-border bg-card"
           alt="Project Screenshot"
         />
@@ -100,7 +101,7 @@
             <p
               class="text-muted-foreground leading-relaxed text-justify whitespace-pre-line text-lg"
             >
-              {{ $t(i18nKeys.description) }}
+              {{ displaySummary }}
             </p>
           </div>
 
@@ -116,7 +117,7 @@
                   class="flex gap-3 text-sm text-muted-foreground"
                 >
                   <span class="text-sky-500 font-bold">•</span>
-                  {{ $rt(feat) }}
+                  {{ feat }}
                 </li>
               </ul>
             </div>
@@ -132,14 +133,14 @@
                   class="flex gap-3 text-sm text-muted-foreground"
                 >
                   <span class="text-green-500 font-bold">✓</span>
-                  {{ $rt(ach) }}
+                  {{ ach }}
                 </li>
               </ul>
             </div>
           </div>
 
           <div
-            v-if="projectMeta.screenshots && projectMeta.screenshots.length > 1"
+            v-if="detailScreenshots.length > 1"
             class="space-y-6"
           >
             <h3 class="text-2xl font-bold text-foreground">
@@ -147,7 +148,7 @@
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div
-                v-for="(shot, idx) in projectMeta.screenshots.slice(1)"
+                v-for="(shot, idx) in detailScreenshots.slice(1)"
                 :key="idx"
                 class="group relative rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-lg transition-all duration-300"
               >
@@ -194,11 +195,11 @@
                 </div>
                 <div class="flex justify-between border-b border-background/20 pb-2">
                   <span class="text-background/60">{{ $t('portfolio.detail.role') }}</span>
-                  <span class="font-medium">{{ $t(i18nKeys.role) }}</span>
+                  <span class="font-medium">{{ displayRole || '-' }}</span>
                 </div>
                 <div class="flex justify-between border-b border-background/20 pb-2">
                   <span class="text-background/60">{{ $t('portfolio.detail.timeline') }}</span>
-                  <span class="font-medium">{{ $t(i18nKeys.duration) }}</span>
+                  <span class="font-medium">{{ displayDuration || '-' }}</span>
                 </div>
               </div>
 
@@ -244,19 +245,14 @@ import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import BackgroundDecor from '~/components/base/background-decor.vue'
+import { useGithubProjectDetails } from '~/composables/useGithubProjectDetails'
 import { usePortfolioProjects } from '~/composables/usePortfolioProjects'
 
 const router = useRouter()
 const route = useRoute()
-const { tm } = useI18n()
+const { tm, locale } = useI18n()
 const { findProjectById } = usePortfolioProjects()
-
-type ProjectI18nKeys = {
-  title: string
-  role: string
-  duration: string
-  description: string
-}
+const { findDetailById } = useGithubProjectDetails()
 
 const projectId = computed(() => {
   const { id } = route.query
@@ -266,24 +262,66 @@ const projectId = computed(() => {
 
 const projectMeta = computed(() => findProjectById(projectId.value))
 const projectLink = computed(() => projectMeta.value?.link ?? undefined)
-const projectI18nBasePath = computed(() =>
-  projectMeta.value ? `${projectMeta.value.i18nNamespace}.${projectMeta.value.id}` : ''
+const isZh = computed(() => locale.value !== 'en')
+const githubDetail = computed(() =>
+  projectMeta.value?.source === 'github' ? findDetailById(projectMeta.value.id) : null
 )
-
-const i18nKeys = computed<ProjectI18nKeys>(() => {
-  const basePath = projectI18nBasePath.value
-  return {
-    title: basePath ? `${basePath}.title` : '',
-    role: basePath ? `${basePath}.role` : '',
-    duration: basePath ? `${basePath}.duration` : '',
-    description: basePath ? `${basePath}.description` : '',
-  }
-})
+const projectI18nBasePath = computed(() =>
+  projectMeta.value?.source === 'manual'
+    ? `${projectMeta.value.i18nNamespace}.${projectMeta.value.id}`
+    : ''
+)
 
 const projectTypeKey = computed(() => {
   return projectMeta.value?.projectType === 'company'
     ? 'portfolio.company'
     : 'portfolio.sideProject'
+})
+
+const displayTitle = computed(() => {
+  if (!projectMeta.value) return ''
+  if (projectMeta.value.source === 'github') {
+    return (
+      (isZh.value ? projectMeta.value.titleZhOverride : null) ||
+      projectMeta.value.titleOverride ||
+      ''
+    )
+  }
+  return projectI18nBasePath.value ? String(tm(`${projectI18nBasePath.value}.title`)) : ''
+})
+
+const displayRole = computed(() => {
+  if (!projectMeta.value) return ''
+  if (projectMeta.value.source === 'github') return projectMeta.value.roleOverride || ''
+  return projectI18nBasePath.value ? String(tm(`${projectI18nBasePath.value}.role`)) : ''
+})
+
+const displayDuration = computed(() => {
+  if (!projectMeta.value) return ''
+  if (projectMeta.value.source === 'github') return projectMeta.value.durationOverride || ''
+  return projectI18nBasePath.value ? String(tm(`${projectI18nBasePath.value}.duration`)) : ''
+})
+
+const displayDescription = computed(() => {
+  if (!projectMeta.value) return ''
+  if (projectMeta.value.source === 'github') {
+    const localizedOverride = isZh.value
+      ? projectMeta.value.descriptionZhOverride
+      : projectMeta.value.descriptionOverride
+    return localizedOverride || projectMeta.value.descriptionOverride || ''
+  }
+  return projectI18nBasePath.value ? String(tm(`${projectI18nBasePath.value}.description`)) : ''
+})
+
+const displaySummary = computed(() => {
+  if (!projectMeta.value) return ''
+  if (projectMeta.value.source === 'github') {
+    return (
+      (isZh.value ? githubDetail.value?.summaryZh : githubDetail.value?.summaryEn) ||
+      displayDescription.value
+    )
+  }
+  return displayDescription.value
 })
 
 const toMessageArray = (messagePath: string) => {
@@ -294,13 +332,33 @@ const toMessageArray = (messagePath: string) => {
 }
 
 const featuresList = computed(() => {
-  return toMessageArray(projectI18nBasePath.value ? `${projectI18nBasePath.value}.features` : '')
+  if (projectMeta.value?.source === 'github') {
+    return isZh.value ? githubDetail.value?.featuresZh ?? [] : githubDetail.value?.featuresEn ?? []
+  }
+  return toMessageArray(projectI18nBasePath.value ? `${projectI18nBasePath.value}.features` : '').map(
+    item => String(item)
+  )
 })
 
 const achievementsList = computed(() => {
-  return toMessageArray(
-    projectI18nBasePath.value ? `${projectI18nBasePath.value}.achievements` : ''
+  if (projectMeta.value?.source === 'github') {
+    return isZh.value
+      ? (githubDetail.value?.achievementsZh ?? [])
+      : (githubDetail.value?.achievementsEn ?? [])
+  }
+  return toMessageArray(projectI18nBasePath.value ? `${projectI18nBasePath.value}.achievements` : '').map(
+    item => String(item)
   )
+})
+
+const detailScreenshots = computed(() => {
+  if (!projectMeta.value) return []
+  if (projectMeta.value.source === 'github') {
+    return githubDetail.value?.screenshots?.length
+      ? githubDetail.value.screenshots
+      : (projectMeta.value.screenshots ?? [])
+  }
+  return projectMeta.value.screenshots ?? []
 })
 
 const goBack = () => {

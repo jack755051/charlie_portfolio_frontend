@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "generatedAt": "2026-04-20T00:00:00.000Z",
+  "entries": {
+    "lionel_exchange": {
+      "summary_zh": "整合多交易所市場資料的個人加密資產分析工具，聚焦在即時行情觀測、K 線視覺化與套利機會探索，讓研究流程可以從資料蒐集一路延伸到策略驗證。",
+      "summary_en": "A personal crypto market analysis tool that aggregates data across exchanges, focusing on live market tracking, candlestick visualization, and arbitrage exploration from research to validation.",
+      "features_zh": [
+        "整合多個交易所資料來源，統一成同一套前端顯示模型",
+        "提供 K 線圖與市場走勢視覺化，方便快速切換觀察區間",
+        "針對價差變化設計套利觀測流程，協助快速識別機會",
+        "將資料查詢與畫面呈現拆分，降低後續功能擴充成本"
+      ],
+      "features_en": [
+        "Aggregates multiple exchange data sources into a single frontend view model",
+        "Provides candlestick charts and market trend visualization with fast range switching",
+        "Designs an arbitrage monitoring flow to surface spread opportunities quickly",
+        "Separates data querying from presentation logic to keep future extensions manageable"
+      ],
+      "achievements_zh": [
+        "建立可持續擴充的市場資料整合基礎",
+        "把資料探索流程收斂成可視化操作介面",
+        "降低手動比對多交易所行情的成本"
+      ],
+      "achievements_en": [
+        "Built an extensible foundation for aggregated market data analysis",
+        "Turned manual market exploration into a visual workflow",
+        "Reduced the cost of comparing prices across exchanges"
+      ],
+      "screenshots": []
+    },
+    "charlie-ai-protocols": {
+      "summary_zh": "一套面向多 Agent 協作的大型專案規範，定義角色責任、交接節點、文件輸出與門禁流程，目標是讓 AI 與工程團隊在同一套契約下穩定協作。",
+      "summary_en": "A multi-agent collaboration protocol for larger projects that defines role ownership, handoff checkpoints, document outputs, and review gates so AI agents and engineers can work under the same contract.",
+      "features_zh": [
+        "定義 PM、BA、DBA、UI、FE、QA 等角色邊界與交付格式",
+        "建立文件與 schema 對齊的交接流程，降低上下游落差",
+        "把 watcher、security、qa 等門禁納入協作規範",
+        "支援在不同 repo 與專案中重用同一套工作模式"
+      ],
+      "features_en": [
+        "Defines role boundaries and deliverable formats for PM, BA, DBA, UI, FE, and QA",
+        "Creates a handoff flow aligned with documents and schemas to reduce downstream drift",
+        "Brings watcher, security, and QA gates into the collaboration contract",
+        "Keeps the workflow reusable across repositories and projects"
+      ],
+      "achievements_zh": [
+        "把多角色協作流程制度化並沉澱成可重用規範",
+        "讓文件、資料契約與實作流程更容易保持一致",
+        "提升大型任務拆解與驗收的可控性"
+      ],
+      "achievements_en": [
+        "Turned multi-role collaboration into a reusable working protocol",
+        "Improved consistency between documents, data contracts, and implementation",
+        "Made large task decomposition and acceptance more controllable"
+      ],
+      "screenshots": []
+    },
+    "financial-agent-frontend": {
+      "summary_zh": "面向投資研究情境的 AI Agent 前端介面，將對話式操作、財務資訊視覺化與多資產監看整合在同一個工作台中，強調研究效率與資訊密度的平衡。",
+      "summary_en": "An AI agent frontend for investment research that combines conversational workflows, financial visualizations, and multi-asset monitoring in a single workspace with a strong focus on research efficiency.",
+      "features_zh": [
+        "整合對話式研究操作與多面板資訊瀏覽",
+        "以視覺化方式呈現財務與市場資料，降低閱讀負擔",
+        "支援多資產監看情境，讓研究上下文能集中在同一頁面",
+        "透過模組化區塊設計保留後續擴充彈性"
+      ],
+      "features_en": [
+        "Combines conversational research workflows with multi-panel information browsing",
+        "Visualizes financial and market data to reduce reading overhead",
+        "Supports multi-asset monitoring so research context stays in one place",
+        "Uses modular sections to preserve future extensibility"
+      ],
+      "achievements_zh": [
+        "建立投資研究導向的前端資訊架構",
+        "把 AI 對話與金融資料視圖整合到同一個使用流程",
+        "為後續 Agent 能力擴充預留清楚的 UI 分層"
+      ],
+      "achievements_en": [
+        "Built a frontend information architecture tailored to investment research",
+        "Integrated AI conversation and financial data views into one workflow",
+        "Prepared a clear UI layering model for future agent capabilities"
+      ],
+      "screenshots": []
+    }
+  },
+  "version": 1
+}

@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://charlie-portfolio.local/schemas/github-project-details.schema.json",
+  "title": "GitHub Project Details JSON",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "generatedAt", "entries", "version"],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "entries": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "summary_zh",
+          "summary_en",
+          "features_zh",
+          "features_en",
+          "achievements_zh",
+          "achievements_en",
+          "screenshots"
+        ],
+        "properties": {
+          "summary_zh": {
+            "type": "string"
+          },
+          "summary_en": {
+            "type": "string"
+          },
+          "features_zh": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "features_en": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "achievements_zh": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "achievements_en": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "screenshots": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["url", "caption"],
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "caption": {
+                  "type": ["string", "null"]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    }
+  }
+}

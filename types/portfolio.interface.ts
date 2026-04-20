@@ -61,3 +61,13 @@ export interface IGithubProjectSnapshot {
   isVisible: boolean
   screenshots?: { url: string; caption?: string | null }[]
 }
+
+export interface IGithubProjectDetailEntry {
+  summaryZh: string
+  summaryEn: string
+  featuresZh: string[]
+  featuresEn: string[]
+  achievementsZh: string[]
+  achievementsEn: string[]
+  screenshots: { url: string; caption?: string | null }[]
+}

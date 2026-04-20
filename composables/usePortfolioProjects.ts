@@ -1,6 +1,7 @@
 import type { IPortfolioMetadata } from '~/types/portfolio.interface'
 import portfolioProjects from '~/assets/data/portfolio-projects.json'
 import { useGithubProjects } from '~/composables/useGithubProjects'
+import { normalizeProjectId } from '~/utils/project-id'
 
 type PortfolioProjectRecord = (typeof portfolioProjects.projects)[number]
 
@@ -44,8 +45,10 @@ export const usePortfolioProjects = () => {
       .sort((a, b) => a.displayOrder - b.displayOrder)
       .map(normalizeManualProject)
 
-    const manualIds = new Set(manualList.map(p => p.id))
-    const githubList = githubProjects.value.filter(p => !manualIds.has(p.id))
+    const manualIds = new Set(manualList.map(project => normalizeProjectId(project.id)))
+    const githubList = githubProjects.value.filter(
+      project => !manualIds.has(normalizeProjectId(project.id))
+    )
 
     return [...manualList, ...githubList]
   })
@@ -61,7 +64,10 @@ export const usePortfolioProjects = () => {
       .sort((a, b) => a.displayOrder - b.displayOrder)
   )
 
-  const findProjectById = (id: string) => publishedProjects.value.find(project => project.id === id)
+  const findProjectById = (id: string) => {
+    const normalizedId = normalizeProjectId(id)
+    return publishedProjects.value.find(project => normalizeProjectId(project.id) === normalizedId)
+  }
 
   return {
     publishedProjects,
