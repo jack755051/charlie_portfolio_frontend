@@ -20,40 +20,12 @@
     <div class="p-6 flex flex-col flex-1">
       <div class="flex justify-between items-start mb-4 gap-3">
         <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2 mb-1 flex-wrap">
-            <!-- Status badge (github source) -->
-            <span
-              v-if="status"
-              class="text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded"
-              :class="statusBadgeClass"
-            >
-              {{ statusLabel }}
-            </span>
-            <!-- Source indicator (github only) -->
-            <span
-              v-if="source === 'github'"
-              class="inline-flex items-center gap-1 text-[10px] font-mono text-muted-foreground"
-              title="Synced from GitHub"
-            >
-              <GithubOutlined style="font-size: 11px" />
-              <span v-if="stars && stars > 0">★ {{ stars }}</span>
-            </span>
-          </div>
           <h3
             class="text-xl font-bold text-foreground group-hover:text-primary transition-colors line-clamp-1"
             :title="title"
           >
             {{ title }}
           </h3>
-          <div
-            class="flex items-center gap-2 mt-1 text-xs font-mono text-muted-foreground flex-wrap"
-          >
-            <span v-if="role" class="px-2 py-0.5 rounded bg-muted text-muted-foreground">{{
-              role
-            }}</span>
-            <span v-if="role && duration">•</span>
-            <span v-if="duration">{{ duration }}</span>
-          </div>
         </div>
         <div
           class="w-8 h-8 shrink-0 rounded-full bg-muted flex items-center justify-center text-muted-foreground group-hover:bg-accent group-hover:text-accent-foreground transition-colors"
@@ -100,7 +72,6 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { GithubOutlined } from '@ant-design/icons-vue'
 import type { IPortfolioMetadata } from '~/types/portfolio.interface'
 
 interface Props {
@@ -135,32 +106,5 @@ const displayTechnologies = computed(() => props.technologies.slice(0, props.max
 const remainingTechCount = computed(() =>
   Math.max(0, props.technologies.length - props.maxTechDisplay)
 )
-
-const statusLabel = computed(() => {
-  switch (props.status) {
-    case 'wip':
-      return 'WIP'
-    case 'done':
-      return 'DONE'
-    case 'archived':
-      return 'ARCHIVED'
-    default:
-      return ''
-  }
-})
-
-const statusBadgeClass = computed(() => {
-  switch (props.status) {
-    case 'wip':
-      return 'bg-amber-500/15 text-amber-700 dark:text-amber-400 border border-amber-500/30'
-    case 'done':
-      return 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30'
-    case 'archived':
-      return 'bg-slate-500/15 text-slate-600 dark:text-slate-400 border border-slate-500/30'
-    default:
-      return ''
-  }
-})
-
 const handleClick = () => emit('click', props.id)
 </script>
