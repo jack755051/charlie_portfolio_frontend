@@ -4,6 +4,9 @@ import svgLoader from 'vite-svg-loader'
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   ssr: false,
+  experimental: {
+    appManifest: false,
+  },
   app: {
     head: {
       link: [
