@@ -1,7 +1,12 @@
 <template>
   <div
-    class="group relative bg-card rounded-2xl border border-border overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer flex flex-col h-full"
-    :class="{ 'opacity-70 hover:opacity-100': status === 'archived' }"
+    class="group relative bg-card rounded-2xl border border-border overflow-hidden transition-all duration-300 flex flex-col h-full"
+    :class="[
+      isWip
+        ? 'cursor-not-allowed opacity-60'
+        : 'hover:shadow-xl hover:-translate-y-1 cursor-pointer',
+      { 'opacity-70 hover:opacity-100': status === 'archived' },
+    ]"
     @click="handleClick"
   >
     <div
@@ -17,6 +22,15 @@
       "
     />
 
+    <!-- 監修中 badge -->
+    <div
+      v-if="isWip"
+      class="absolute top-4 right-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-amber-500/90 px-3 py-1 text-[11px] font-bold text-white shadow-sm"
+    >
+      <span class="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+      {{ $t('portfolio.wipBadge') }}
+    </div>
+
     <div class="p-6 flex flex-col flex-1">
       <div class="flex justify-between items-start mb-4 gap-3">
         <div class="flex-1 min-w-0">
@@ -28,6 +42,7 @@
           </h3>
         </div>
         <div
+          v-if="!isWip"
           class="w-8 h-8 shrink-0 rounded-full bg-muted flex items-center justify-center text-muted-foreground group-hover:bg-accent group-hover:text-accent-foreground transition-colors"
         >
           <svg
@@ -102,9 +117,13 @@ const emit = defineEmits<{
   click: [id: string]
 }>()
 
+const isWip = computed(() => props.status === 'wip')
 const displayTechnologies = computed(() => props.technologies.slice(0, props.maxTechDisplay))
 const remainingTechCount = computed(() =>
   Math.max(0, props.technologies.length - props.maxTechDisplay)
 )
-const handleClick = () => emit('click', props.id)
+const handleClick = () => {
+  if (isWip.value) return
+  emit('click', props.id)
+}
 </script>
