@@ -1,9 +1,112 @@
 {
   "schema_version": 1,
   "source": "github",
-  "sourceFetchedAt": "2026-04-19T00:00:00.000Z",
-  "isStale": true,
-  "staleAt": "2026-04-21T01:14:44.078Z",
-  "version": 0,
-  "projects": []
+  "sourceFetchedAt": "2026-04-21T01:36:27.463Z",
+  "isStale": false,
+  "staleAt": null,
+  "version": 1,
+  "projects": [
+    {
+      "id": "charlie-ai-protocols",
+      "title": "charlie-ai-protocols",
+      "titleZh": "Charlie AI 協作協議",
+      "description": "Charlie's AI-driven workflow standards and architecture protocols. Includes automated rule assembly for Next.js and frontend development.",
+      "descriptionZh": "多 Agent AI 協作規範集，定義大型專案中各角色（PM/BA/DBA/UI/FE/QA）的分工與交接協議。",
+      "role": "Author & Maintainer",
+      "duration": "2026.04 ~ Now",
+      "technologies": [
+        {
+          "name": "Shell",
+          "icon": null,
+          "category": "程式語言"
+        },
+        {
+          "name": "Python",
+          "icon": null,
+          "category": "程式語言"
+        },
+        {
+          "name": "Makefile",
+          "icon": null,
+          "category": "程式語言"
+        }
+      ],
+      "status": "done",
+      "type": "personal",
+      "homepage": null,
+      "repoUrl": "https://github.com/jack755051/charlie-ai-protocols",
+      "stars": 0,
+      "lastUpdatedAt": "2026-04-20T05:53:40Z",
+      "pinned": true,
+      "isVisible": true
+    },
+    {
+      "id": "resource-mapping",
+      "title": "resource-mapping",
+      "titleZh": null,
+      "description": "A resource proximity calculation tool built with Next.js and Tailwind CSS.",
+      "descriptionZh": null,
+      "role": null,
+      "duration": "2026.01 ~ Now",
+      "technologies": [
+        {
+          "name": "TypeScript",
+          "icon": null,
+          "category": "程式語言"
+        },
+        {
+          "name": "JavaScript",
+          "icon": null,
+          "category": "程式語言"
+        },
+        {
+          "name": "CSS",
+          "icon": null,
+          "category": "程式語言"
+        }
+      ],
+      "status": "wip",
+      "type": "personal",
+      "homepage": null,
+      "repoUrl": "https://github.com/jack755051/resource-mapping",
+      "stars": 0,
+      "lastUpdatedAt": "2026-02-20T05:09:52Z",
+      "pinned": false,
+      "isVisible": true
+    },
+    {
+      "id": "resource-mapping-backend",
+      "title": "resource-mapping-backend",
+      "titleZh": null,
+      "description": "本專案是基於 NestJS 與 PostgreSQL JSONB 構建的企業級後端，具備自動化 i18n 攔截機制與容器化部署能力的模組化架構。",
+      "descriptionZh": null,
+      "role": null,
+      "duration": "2026.01 ~ Now",
+      "technologies": [
+        {
+          "name": "TypeScript",
+          "icon": null,
+          "category": "程式語言"
+        },
+        {
+          "name": "JavaScript",
+          "icon": null,
+          "category": "程式語言"
+        },
+        {
+          "name": "Dockerfile",
+          "icon": null,
+          "category": "程式語言"
+        }
+      ],
+      "status": "wip",
+      "type": "personal",
+      "homepage": null,
+      "repoUrl": "https://github.com/jack755051/resource-mapping-backend",
+      "stars": 0,
+      "lastUpdatedAt": "2026-02-20T05:09:23Z",
+      "pinned": false,
+      "isVisible": true
+    }
+  ]
 }
