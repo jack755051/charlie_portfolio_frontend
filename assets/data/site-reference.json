@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generatedAt": "2026-04-16T00:00:00.000Z",
+  "generatedAt": "2026-04-21T00:00:00.000Z",
   "navigationMenus": [
     {
       "id": "home",
@@ -84,8 +84,16 @@
       "pageCode": "portfolio",
       "key": "section1",
       "href": "#section1",
-      "title": "作品集",
+      "title": "公司專案",
       "displayOrder": 0
+    },
+    {
+      "id": "portfolio-section-2",
+      "pageCode": "portfolio",
+      "key": "section2",
+      "href": "#section2",
+      "title": "個人專案",
+      "displayOrder": 1
     }
   ],
   "technologyCatalogs": [
@@ -481,5 +489,5 @@
       "isAvailable": false
     }
   ],
-  "version": 1
+  "version": 2
 }
