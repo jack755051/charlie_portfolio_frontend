@@ -1,11 +1,55 @@
 {
   "schema_version": 1,
   "source": "github",
-  "sourceFetchedAt": "2026-04-21T01:36:27.463Z",
+  "sourceFetchedAt": "2026-04-21T06:01:12.775Z",
   "isStale": false,
   "staleAt": null,
-  "version": 1,
+  "version": 2,
   "projects": [
+    {
+      "id": "lionel_exchange",
+      "title": "lionel_exchange",
+      "titleZh": "Lionel 交易所",
+      "description": "",
+      "descriptionZh": "個人加密資產分析工具，整合多交易所資料、K 線視覺化與套利偵測。",
+      "role": "Full-Stack Engineer",
+      "duration": "2026.04 ~ Now",
+      "technologies": [
+        {
+          "name": "Vue",
+          "icon": null,
+          "category": "程式語言"
+        },
+        {
+          "name": "TypeScript",
+          "icon": null,
+          "category": "程式語言"
+        },
+        {
+          "name": "Dockerfile",
+          "icon": null,
+          "category": "程式語言"
+        },
+        {
+          "name": "CSS",
+          "icon": null,
+          "category": "程式語言"
+        },
+        {
+          "name": "JavaScript",
+          "icon": null,
+          "category": "程式語言"
+        }
+      ],
+      "status": "wip",
+      "type": "personal",
+      "homepage": null,
+      "repoUrl": "https://github.com/jack755051/lionel_exchange",
+      "stars": 0,
+      "lastUpdatedAt": "2026-04-21T03:56:15Z",
+      "pinned": true,
+      "isVisible": true
+    },
     {
       "id": "charlie-ai-protocols",
       "title": "charlie-ai-protocols",
@@ -36,7 +80,7 @@
       "homepage": null,
       "repoUrl": "https://github.com/jack755051/charlie-ai-protocols",
       "stars": 0,
-      "lastUpdatedAt": "2026-04-20T05:53:40Z",
+      "lastUpdatedAt": "2026-04-21T03:53:15Z",
       "pinned": true,
       "isVisible": true
     },
