@@ -7,16 +7,16 @@
     "greeting": "Hello, I'm",
     "name": "Charlie Tai",
     "introPrefix": "我是",
-    "descriptionLead": "專注於打造高效能、高互動的網頁體驗。",
-    "descriptionTail": "擅長 Angular、Vue 3、Nuxt 與 Tailwind CSS。",
+    "descriptionLead": "專注於打造高效能的網頁應用與穩健的後端服務。",
+    "descriptionTail": "擅長 Angular、Vue 3 與 Nuxt，並以 NestJS 與 Docker 拓展全端實戰。",
     "buttons": {
       "about": "了解更多",
       "portfolio": "查看作品"
     },
-    "roles": ["研發工程師", "前端開發者", "UI 設計愛好者"],
+    "roles": ["軟體工程師", "全端開發者", "前端專精", "持續進化中"],
     "codeBlock": {
-      "role": "'Frontend Engineer'",
-      "skills": "'Angular, Vue 3', 'Nuxt', 'Tailwind'"
+      "role": "'Software Engineer'",
+      "skills": "'Angular, Vue, Nuxt', 'NestJS', 'Docker'"
     }
   },
   "about": {

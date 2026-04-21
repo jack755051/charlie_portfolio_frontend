@@ -7,16 +7,16 @@
     "greeting": "Hello, I'm",
     "name": "Charlie Tai",
     "introPrefix": "I am a",
-    "descriptionLead": "Focusing on building high-performance, interactive web experiences.",
-    "descriptionTail": "Specializing in Angular, Vue 3, Nuxt, and Tailwind CSS.",
+    "descriptionLead": "Focusing on building high-performance web apps and robust backend services.",
+    "descriptionTail": "Specializing in Angular, Vue 3, and Nuxt, expanding full-stack practice with NestJS and Docker.",
     "buttons": {
       "about": "Learn More",
       "portfolio": "View Portfolio"
     },
-    "roles": ["R&D Engineer", "Frontend Developer", "UI Design Enthusiast"],
+    "roles": ["Software Engineer", "Full-Stack Developer", "Frontend Specialist", "Always Evolving"],
     "codeBlock": {
-      "role": "'Frontend Engineer'",
-      "skills": "'Angular, Vue 3', 'Nuxt', 'Tailwind'"
+      "role": "'Software Engineer'",
+      "skills": "'Angular, Vue, Nuxt', 'NestJS', 'Docker'"
     }
   },
   "about": {
