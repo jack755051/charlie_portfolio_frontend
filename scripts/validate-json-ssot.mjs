@@ -354,6 +354,10 @@ if (githubProjects) {
       `github-projects.technologies must be array: ${project.id}`
     )
     assert(
+      project.tags === undefined || Array.isArray(project.tags),
+      `github-projects.tags must be array if present: ${project.id}`
+    )
+    assert(
       project.homepage === undefined ||
         project.homepage === null ||
         isHttpsOrNull(project.homepage),

@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { parse as parseYaml } from 'yaml'
 
 const root = process.cwd()
 const outputPath = resolve(root, 'assets/data/github-projects.json')
@@ -23,6 +24,7 @@ query UserRepos($login: String!) {
         stargazerCount
         createdAt
         pushedAt
+        defaultBranchRef { name }
         primaryLanguage { name }
         languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
           nodes { name }
@@ -64,9 +66,74 @@ const formatDuration = (createdAt, pushedAt) => {
   return `${start} ~ ${end}`
 }
 
-const inferStatus = (repo, topicSet, override) => {
+const MANIFEST_ALLOWED_STATUSES = new Set(['wip', 'done', 'archived'])
+
+const fetchManifest = async (owner, repoName, defaultBranch) => {
+  const branch = defaultBranch || 'main'
+  const url = `https://raw.githubusercontent.com/${owner}/${repoName}/${branch}/repo.manifest.yaml`
+  try {
+    const res = await fetch(url, {
+      headers: { 'User-Agent': 'charlie-portfolio-sync' },
+    })
+    if (!res.ok) return null
+    const text = await res.text()
+    return parseYaml(text)
+  } catch {
+    return null
+  }
+}
+
+const fetchManifests = async (repos, owner) => {
+  const results = await Promise.allSettled(
+    repos.map(repo => {
+      const branch = repo.defaultBranchRef?.name || 'main'
+      return fetchManifest(owner, repo.name, branch)
+    })
+  )
+  const map = {}
+  repos.forEach((repo, i) => {
+    const result = results[i]
+    if (result.status === 'fulfilled' && result.value) {
+      map[repo.name] = result.value
+    }
+  })
+  return map
+}
+
+const mergeTechnologies = (manifestStack, githubLanguages) => {
+  const seen = new Set()
+  const techs = []
+
+  // manifest stack 優先（框架級名稱）
+  for (const name of manifestStack || []) {
+    const key = name.toLowerCase()
+    if (!seen.has(key)) {
+      seen.add(key)
+      techs.push({ name, icon: null, category: '技術棧' })
+    }
+  }
+
+  // GitHub languages 補後面（程式語言級別）
+  for (const lang of githubLanguages || []) {
+    const key = lang.name.toLowerCase()
+    if (!seen.has(key)) {
+      seen.add(key)
+      techs.push({ name: lang.name, icon: null, category: '程式語言' })
+    }
+  }
+
+  return techs.slice(0, 8)
+}
+
+const inferStatus = (repo, topicSet, override, manifest) => {
   if (override?.force_status) return override.force_status
   if (repo.isArchived) return 'archived'
+
+  // manifest 宣告優先於 topic heuristic
+  if (manifest?.status && MANIFEST_ALLOWED_STATUSES.has(manifest.status)) {
+    return manifest.status
+  }
+
   if (topicSet.has('status-archived')) return 'archived'
   if (topicSet.has('status-done')) return 'done'
   if (topicSet.has('status-wip')) return 'wip'
@@ -80,23 +147,30 @@ const inferStatus = (repo, topicSet, override) => {
   return 'wip'
 }
 
-const mapRepoToProject = (repo, overridesMap) => {
+const mapRepoToProject = (repo, overridesMap, manifestMap) => {
   const topicSet = new Set(
     (repo.repositoryTopics?.nodes || []).map(n => n.topic?.name).filter(Boolean)
   )
   const override = overridesMap[repo.name] || {}
+  const manifest = manifestMap[repo.name] || null
   const hasPortfolioTopic = topicSet.has(PORTFOLIO_TOPIC)
-  const status = inferStatus(repo, topicSet, override)
+  const status = inferStatus(repo, topicSet, override, manifest)
   const isVisible = hasPortfolioTopic && override.hide !== true
 
-  const title = override.title_en || repo.name
+  // 合併優先序：overrides > manifest > GitHub API
+  const title = override.title_en || manifest?.name || repo.name
   const titleZh = override.title_zh || null
-  const description = override.description_en || repo.description || ''
-  const descriptionZh = override.description_zh || null
+  const description = override.description_en || manifest?.summary || repo.description || ''
+  const descriptionZh = override.description_zh || manifest?.summary_zh || null
 
-  const technologies = (repo.languages?.nodes || [])
-    .slice(0, 6)
-    .map(lang => ({ name: lang.name, icon: null, category: '程式語言' }))
+  // stack + languages merge 去重（stack 優先排前面，languages 補後面）
+  const technologies = manifest?.stack
+    ? mergeTechnologies(manifest.stack, (repo.languages?.nodes || []).slice(0, 6))
+    : (repo.languages?.nodes || [])
+        .slice(0, 6)
+        .map(lang => ({ name: lang.name, icon: null, category: '程式語言' }))
+
+  const tags = Array.isArray(manifest?.tags) ? manifest.tags : []
 
   return {
     id: repo.name,
@@ -107,6 +181,7 @@ const mapRepoToProject = (repo, overridesMap) => {
     role: override.role || null,
     duration: formatDuration(repo.createdAt, repo.pushedAt),
     technologies,
+    tags,
     status,
     type: 'personal',
     homepage: repo.homepageUrl || null,
@@ -156,10 +231,10 @@ const loadOverrides = () => {
   return overrides.entries || {}
 }
 
-const buildSnapshot = (repos, previousSnapshot) => {
+const buildSnapshot = (repos, previousSnapshot, manifestMap) => {
   const overridesMap = loadOverrides()
   const projects = repos
-    .map(repo => mapRepoToProject(repo, overridesMap))
+    .map(repo => mapRepoToProject(repo, overridesMap, manifestMap))
     .filter(project => project.isVisible)
     .sort((a, b) => {
       if (a.pinned !== b.pinned) return a.pinned ? -1 : 1
@@ -195,7 +270,15 @@ const main = async () => {
 
   try {
     const repos = await fetchRepos()
-    const snapshot = buildSnapshot(repos, previousSnapshot)
+
+    // 平行 fetch 每個 repo 的 repo.manifest.yaml（404 靜默略過）
+    const manifestMap = await fetchManifests(repos, username)
+    const manifestCount = Object.keys(manifestMap).length
+    if (manifestCount > 0) {
+      console.log(`📦 Loaded repo.manifest.yaml from ${manifestCount} repo(s).`)
+    }
+
+    const snapshot = buildSnapshot(repos, previousSnapshot, manifestMap)
     writeFileSync(outputPath, `${JSON.stringify(snapshot, null, 2)}\n`)
     console.log(`✅ Synced ${snapshot.projects.length} GitHub project(s) for ${username}.`)
 

@@ -51,6 +51,7 @@ export interface IGithubProjectSnapshot {
   role?: string | null
   duration: string
   technologies: { name: string; icon?: string | null; category?: string | null }[]
+  tags?: string[]
   status: 'wip' | 'done' | 'archived'
   type: 'personal'
   homepage?: string | null
