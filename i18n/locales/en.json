@@ -226,60 +226,6 @@
           "Built an intuitive UI lowering system learning costs",
           "Provided comprehensive error handling and feedback mechanisms"
         ]
-      },
-      "travel-planner": {
-        "title": "Travel Planner",
-        "role": "Frontend Engineer",
-        "duration": "2024.11 - 2024.12",
-        "description": "Journey planning platform making travel planning more intuitive. Provides interactive map integration, itinerary management, and day-by-day planning functions, allowing users to easily arrange a smooth trip.",
-        "features": [
-          "Adopted Next.js 16 App Router architecture supporting SSR and Client-Side Rendering",
-          "Integrated Google Maps API for interactive maps, location search, and marking",
-          "Used Redux Toolkit and Zustand for state management handling complex journey data flows",
-          "Implemented drag-and-drop itinerary editing using {'@'}dnd-kit to enhance UX",
-          "Complete user authentication system (Login, Register, Forgot Password)",
-          "Journey overview and day-by-day detailed view supporting multi-day planning",
-          "Built accessible-friendly UI components using Radix UI + Shadcn",
-          "Responsive design with TailwindCSS v4 adapting to various devices",
-          "Docker containerized deployment supporting development and production environments",
-          "Modular architecture design (features/ui/layouts layering)"
-        ],
-        "achievements": [
-          "Established a complete journey planning system supporting multi-day itinerary management",
-          "Integrated Google Maps API for real-time location search and route planning",
-          "Implemented drag-and-drop itinerary editing improving operational efficiency by 60%",
-          "Designed scalable component architecture facilitating feature iteration and maintenance",
-          "Completed user verification and password management ensuring data security",
-          "Established separated data architecture with DTO, View Models, and Type layers"
-        ]
-      },
-      "gxcella": {
-        "title": "GxCella - Angular UI Library",
-        "role": "Frontend Engineer / Library Developer",
-        "duration": "2024.08 - 2024.11",
-        "description": "Angular 20 Reusable UI Component Library (Monorepo Architecture) providing reusable high-quality component suites including tables, pagination, cards, drag-and-drop, and multiple independently published npm packages, establishing a complete design system.",
-        "features": [
-          "Managed 8+ independent npm packages using Monorepo architecture supporting independent versioning",
-          "Developed core UI components (Button, Icon, Loading, Skeleton, Tag, Toast, Overlay)",
-          "Implemented feature-rich Table component supporting sorting, filtering, pagination, and sticky columns",
-          "Developed business components like Pagination, Wizard, Card, Breadcrumb, and Drag-Drop",
-          "Established a unified design system (gx-styles) supporting custom themes and CSS variables",
-          "Used Standalone Components architecture supporting Tree-shaking",
-          "Integrated Lucide icon library providing 500+ icons",
-          "Complete TypeScript type definitions enhancing development experience",
-          "Built optimized ESM format packages using ng-packagr",
-          "Implemented semantic versioning and automated release workflows using Changesets"
-        ],
-        "achievements": [
-          "Successfully published 8 independent npm packages to public registry providing a complete ecosystem",
-          "Built gx-demo application providing interactive component documentation and usage examples",
-          "Implemented scalable component architecture supporting on-demand import and modular development",
-          "Created complete design system documentation (DESIGN_SYSTEM_GUIDE.md, GX-UI-GUIDE.md)",
-          "Developed theme system supporting modern visual styles and dark mode",
-          "Established component development workflow including build, test, versioning, and release",
-          "Optimized package size supporting Tree-shaking to reduce final bundle size",
-          "Provided complete TypeScript support reducing development errors"
-        ]
       }
     },
     "detail": {
