@@ -1,55 +1,11 @@
 {
   "schema_version": 1,
   "source": "github",
-  "sourceFetchedAt": "2026-04-21T06:01:12.775Z",
+  "sourceFetchedAt": "2026-04-22T01:21:29.502Z",
   "isStale": false,
   "staleAt": null,
-  "version": 2,
+  "version": 3,
   "projects": [
-    {
-      "id": "lionel_exchange",
-      "title": "lionel_exchange",
-      "titleZh": "Lionel 交易所",
-      "description": "",
-      "descriptionZh": "個人加密資產分析工具，整合多交易所資料、K 線視覺化與套利偵測。",
-      "role": "Full-Stack Engineer",
-      "duration": "2026.04 ~ Now",
-      "technologies": [
-        {
-          "name": "Vue",
-          "icon": null,
-          "category": "程式語言"
-        },
-        {
-          "name": "TypeScript",
-          "icon": null,
-          "category": "程式語言"
-        },
-        {
-          "name": "Dockerfile",
-          "icon": null,
-          "category": "程式語言"
-        },
-        {
-          "name": "CSS",
-          "icon": null,
-          "category": "程式語言"
-        },
-        {
-          "name": "JavaScript",
-          "icon": null,
-          "category": "程式語言"
-        }
-      ],
-      "status": "wip",
-      "type": "personal",
-      "homepage": null,
-      "repoUrl": "https://github.com/jack755051/lionel_exchange",
-      "stars": 0,
-      "lastUpdatedAt": "2026-04-21T03:56:15Z",
-      "pinned": true,
-      "isVisible": true
-    },
     {
       "id": "charlie-ai-protocols",
       "title": "charlie-ai-protocols",
@@ -75,31 +31,242 @@
           "category": "程式語言"
         }
       ],
+      "tags": [],
       "status": "done",
       "type": "personal",
       "homepage": null,
       "repoUrl": "https://github.com/jack755051/charlie-ai-protocols",
       "stars": 0,
-      "lastUpdatedAt": "2026-04-21T03:53:15Z",
+      "lastUpdatedAt": "2026-04-21T07:19:15Z",
       "pinned": true,
       "isVisible": true
     },
     {
-      "id": "resource-mapping",
-      "title": "resource-mapping",
+      "id": "lionel_exchange",
+      "title": "JPY Exchange",
+      "titleZh": "Lionel 交易所",
+      "description": "沖繩旅遊即時換匯儀表板，整合 Fixer.io API 提供即時匯率、換匯計算與歷史走勢",
+      "descriptionZh": "個人加密資產分析工具，整合多交易所資料、K 線視覺化與套利偵測。",
+      "role": "Full-Stack Engineer",
+      "duration": "2026.04 ~ Now",
+      "technologies": [
+        {
+          "name": "nuxt4",
+          "icon": null,
+          "category": "技術棧"
+        },
+        {
+          "name": "vue3",
+          "icon": null,
+          "category": "技術棧"
+        },
+        {
+          "name": "typescript",
+          "icon": null,
+          "category": "技術棧"
+        },
+        {
+          "name": "tailwindcss4",
+          "icon": null,
+          "category": "技術棧"
+        },
+        {
+          "name": "nuxt-ui4",
+          "icon": null,
+          "category": "技術棧"
+        },
+        {
+          "name": "pinia",
+          "icon": null,
+          "category": "技術棧"
+        },
+        {
+          "name": "nitro",
+          "icon": null,
+          "category": "技術棧"
+        },
+        {
+          "name": "docker",
+          "icon": null,
+          "category": "技術棧"
+        }
+      ],
+      "tags": [
+        "exchange-rate",
+        "fixer-io",
+        "nuxt-learning",
+        "ssr",
+        "csr",
+        "isr"
+      ],
+      "status": "wip",
+      "type": "personal",
+      "homepage": null,
+      "repoUrl": "https://github.com/jack755051/lionel_exchange",
+      "stars": 0,
+      "lastUpdatedAt": "2026-04-21T03:56:15Z",
+      "pinned": true,
+      "isVisible": true
+    },
+    {
+      "id": "guangxun-tech-site-frontend",
+      "title": "Guangxun Tech Site Frontend",
       "titleZh": null,
-      "description": "A resource proximity calculation tool built with Next.js and Tailwind CSS.",
+      "description": "光訊科技 (Guangxun Tech) 安防監控產品官方網站 — Next.js 16 + React 19 靜態輸出，支援多語系、SEO、RWD 與 Docker/Nginx 部署。",
       "descriptionZh": null,
       "role": null,
       "duration": "2026.01 ~ Now",
       "technologies": [
         {
-          "name": "TypeScript",
+          "name": "nodejs",
+          "icon": null,
+          "category": "技術棧"
+        },
+        {
+          "name": "nextjs",
+          "icon": null,
+          "category": "技術棧"
+        },
+        {
+          "name": "react",
+          "icon": null,
+          "category": "技術棧"
+        },
+        {
+          "name": "typescript",
+          "icon": null,
+          "category": "技術棧"
+        },
+        {
+          "name": "tailwindcss",
+          "icon": null,
+          "category": "技術棧"
+        },
+        {
+          "name": "radix-ui",
+          "icon": null,
+          "category": "技術棧"
+        },
+        {
+          "name": "shadcn-ui",
+          "icon": null,
+          "category": "技術棧"
+        },
+        {
+          "name": "redux-toolkit",
+          "icon": null,
+          "category": "技術棧"
+        }
+      ],
+      "tags": [
+        "portfolio",
+        "nextjs",
+        "react-19",
+        "typescript",
+        "tailwindcss",
+        "shadcn-ui",
+        "redux-toolkit",
+        "i18n",
+        "seo",
+        "docker",
+        "nginx",
+        "static-export",
+        "corporate-site",
+        "security-surveillance"
+      ],
+      "status": "done",
+      "type": "personal",
+      "homepage": null,
+      "repoUrl": "https://github.com/jack755051/guangxun-tech-site-frontend",
+      "stars": 0,
+      "lastUpdatedAt": "2026-04-22T01:09:28Z",
+      "pinned": false,
+      "isVisible": true
+    },
+    {
+      "id": "guangxun-tech-site-backend",
+      "title": "Guangxun Tech Site Backend",
+      "titleZh": null,
+      "description": "光訊科技 (Guangxun Tech) 企業官網後端 API，以 NestJS + TypeORM + PostgreSQL 打造，涵蓋產品、地點、支援資源、聯絡、即時展示與行為分析。",
+      "descriptionZh": null,
+      "role": null,
+      "duration": "2026.01 ~ Now",
+      "technologies": [
+        {
+          "name": "nestjs",
+          "icon": null,
+          "category": "技術棧"
+        },
+        {
+          "name": "typescript",
+          "icon": null,
+          "category": "技術棧"
+        },
+        {
+          "name": "typeorm",
+          "icon": null,
+          "category": "技術棧"
+        },
+        {
+          "name": "postgresql",
+          "icon": null,
+          "category": "技術棧"
+        },
+        {
+          "name": "docker",
+          "icon": null,
+          "category": "技術棧"
+        },
+        {
+          "name": "docker-compose",
+          "icon": null,
+          "category": "技術棧"
+        },
+        {
+          "name": "nginx",
+          "icon": null,
+          "category": "技術棧"
+        },
+        {
+          "name": "aws-s3",
+          "icon": null,
+          "category": "技術棧"
+        }
+      ],
+      "tags": [
+        "backend",
+        "api",
+        "nestjs",
+        "typeorm",
+        "postgresql",
+        "docker",
+        "portfolio"
+      ],
+      "status": "done",
+      "type": "personal",
+      "homepage": null,
+      "repoUrl": "https://github.com/jack755051/guangxun-tech-site-backend",
+      "stars": 0,
+      "lastUpdatedAt": "2026-04-22T00:49:06Z",
+      "pinned": false,
+      "isVisible": true
+    },
+    {
+      "id": "financial-agent-frontend",
+      "title": "financial-agent-frontend",
+      "titleZh": "金融 AI Agent 前端",
+      "description": "An Angular-based frontend client for the Financial Agent system, featuring a responsive UI and seamless RESTful API integration for managing financial workflows.",
+      "descriptionZh": "投資研究助理前端，整合 LLM 對話、財報視覺化與多資產監看面板。",
+      "role": "Frontend Engineer",
+      "duration": "2026.04 ~ Now",
+      "technologies": [
+        {
+          "name": "HTML",
           "icon": null,
           "category": "程式語言"
         },
         {
-          "name": "JavaScript",
+          "name": "TypeScript",
           "icon": null,
           "category": "程式語言"
         },
@@ -109,46 +276,13 @@
           "category": "程式語言"
         }
       ],
+      "tags": [],
       "status": "wip",
       "type": "personal",
       "homepage": null,
-      "repoUrl": "https://github.com/jack755051/resource-mapping",
+      "repoUrl": "https://github.com/jack755051/financial-agent-frontend",
       "stars": 0,
-      "lastUpdatedAt": "2026-02-20T05:09:52Z",
-      "pinned": false,
-      "isVisible": true
-    },
-    {
-      "id": "resource-mapping-backend",
-      "title": "resource-mapping-backend",
-      "titleZh": null,
-      "description": "本專案是基於 NestJS 與 PostgreSQL JSONB 構建的企業級後端，具備自動化 i18n 攔截機制與容器化部署能力的模組化架構。",
-      "descriptionZh": null,
-      "role": null,
-      "duration": "2026.01 ~ Now",
-      "technologies": [
-        {
-          "name": "TypeScript",
-          "icon": null,
-          "category": "程式語言"
-        },
-        {
-          "name": "JavaScript",
-          "icon": null,
-          "category": "程式語言"
-        },
-        {
-          "name": "Dockerfile",
-          "icon": null,
-          "category": "程式語言"
-        }
-      ],
-      "status": "wip",
-      "type": "personal",
-      "homepage": null,
-      "repoUrl": "https://github.com/jack755051/resource-mapping-backend",
-      "stars": 0,
-      "lastUpdatedAt": "2026-02-20T05:09:23Z",
+      "lastUpdatedAt": "2026-04-16T00:52:36Z",
       "pinned": false,
       "isVisible": true
     }
