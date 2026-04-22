@@ -1,43 +1,64 @@
 {
   "schema_version": 1,
   "source": "github",
-  "sourceFetchedAt": "2026-04-22T01:21:29.502Z",
+  "sourceFetchedAt": "2026-04-22T02:10:00.971Z",
   "isStale": false,
   "staleAt": null,
-  "version": 3,
+  "version": 4,
   "projects": [
     {
       "id": "charlie-ai-protocols",
-      "title": "charlie-ai-protocols",
-      "titleZh": "Charlie AI 協作協議",
-      "description": "Charlie's AI-driven workflow standards and architecture protocols. Includes automated rule assembly for Next.js and frontend development.",
-      "descriptionZh": "多 Agent AI 協作規範集，定義大型專案中各角色（PM/BA/DBA/UI/FE/QA）的分工與交接協議。",
+      "title": "Charlie's AI Protocols (CAP)",
+      "titleZh": "AI 多代理協作框架 (CAP)",
+      "description": "工業級 AI 多代理協作框架與 CLI 工具。定義 17 位專職 AI Agent 的角色邊界、交接協議與品質門禁， 搭配 CrewAI 執行引擎、Shell CLI（cap）與雙寫 Trace 機制，讓 AI 與工程團隊在同一套契約下穩定協作。\n",
+      "descriptionZh": "工業級 AI 多代理協作框架與 CLI 工具，定義 17 位專職 Agent 的角色邊界、交接協議與品質門禁，搭配 CrewAI 引擎與雙寫 Trace 機制。",
       "role": "Author & Maintainer",
       "duration": "2026.04 ~ Now",
       "technologies": [
         {
-          "name": "Shell",
+          "name": "python",
           "icon": null,
-          "category": "程式語言"
+          "category": "技術棧"
         },
         {
-          "name": "Python",
+          "name": "crewai",
           "icon": null,
-          "category": "程式語言"
+          "category": "技術棧"
         },
         {
-          "name": "Makefile",
+          "name": "shell",
           "icon": null,
-          "category": "程式語言"
+          "category": "技術棧"
+        },
+        {
+          "name": "makefile",
+          "icon": null,
+          "category": "技術棧"
+        },
+        {
+          "name": "markdown",
+          "icon": null,
+          "category": "技術棧"
         }
       ],
-      "tags": [],
+      "tags": [
+        "ai-agents",
+        "multi-agent",
+        "crewai",
+        "cli-tool",
+        "developer-tools",
+        "software-engineering",
+        "quality-gates",
+        "portfolio",
+        "python",
+        "shell"
+      ],
       "status": "done",
       "type": "personal",
       "homepage": null,
       "repoUrl": "https://github.com/jack755051/charlie-ai-protocols",
       "stars": 0,
-      "lastUpdatedAt": "2026-04-21T07:19:15Z",
+      "lastUpdatedAt": "2026-04-22T02:02:55Z",
       "pinned": true,
       "isVisible": true
     },
