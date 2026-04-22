@@ -2,9 +2,9 @@
   "schema_version": 1,
   "id": "leetcode:jack755051",
   "username": "jack755051",
-  "totalSolved": 48,
+  "totalSolved": 49,
   "totalQuestions": 3907,
-  "easy": 38,
+  "easy": 39,
   "medium": 9,
   "hard": 1,
   "easyPct": 4,
@@ -66,9 +66,21 @@
     [
       "2026-03-29",
       2
+    ],
+    [
+      "2026-04-22",
+      1
     ]
   ],
   "recent": [
+    {
+      "title": "Sleep",
+      "titleSlug": "sleep",
+      "time": "04/22",
+      "status": "Accepted",
+      "lang": "javascript",
+      "isSuccess": true
+    },
     {
       "title": "Remove Duplicates from Sorted Array II",
       "titleSlug": "remove-duplicates-from-sorted-array-ii",
@@ -97,14 +109,6 @@
       "title": "Two Sum",
       "titleSlug": "two-sum",
       "time": "03/24",
-      "status": "Accepted",
-      "lang": "typescript",
-      "isSuccess": true
-    },
-    {
-      "title": "Remove Element",
-      "titleSlug": "remove-element",
-      "time": "03/23",
       "status": "Accepted",
       "lang": "typescript",
       "isSuccess": true
@@ -137,8 +141,8 @@
     }
   ],
   "source": "provider",
-  "sourceFetchedAt": "2026-04-22T02:10:55.487Z",
-  "expiresAt": "2026-04-23T03:10:55.487Z",
+  "sourceFetchedAt": "2026-04-22T19:39:55.898Z",
+  "expiresAt": "2026-04-23T20:39:55.898Z",
   "isStale": false,
-  "version": 7
+  "version": 8
 }
