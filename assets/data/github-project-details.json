@@ -30,29 +30,45 @@
       "screenshots": []
     },
     "charlie-ai-protocols": {
-      "summary_zh": "一套面向多 Agent 協作的大型專案規範，定義角色責任、交接節點、文件輸出與門禁流程，目標是讓 AI 與工程團隊在同一套契約下穩定協作。",
-      "summary_en": "A multi-agent collaboration protocol for larger projects that defines role ownership, handoff checkpoints, document outputs, and review gates so AI agents and engineers can work under the same contract.",
+      "summary_zh": "工業級 AI 多代理協作框架與 CLI 工具。定義 17 位專職 AI Agent 的角色邊界、交接協議與品質門禁，搭配 CrewAI 執行引擎、Shell CLI（cap）與雙寫 Trace 機制，讓 AI 與工程團隊在同一套契約下穩定協作。",
+      "summary_en": "An industrial-grade multi-agent AI collaboration framework and CLI tool. Defines role boundaries, handoff protocols, and quality gates for 17 specialized AI agents, backed by a CrewAI engine, Shell CLI (cap), and dual-write tracing — enabling AI and engineering teams to work under a unified contract.",
       "features_zh": [
-        "定義 PM、BA、DBA、UI、FE、QA 等角色邊界與交付格式",
-        "建立文件與 schema 對齊的交接流程，降低上下游落差",
-        "把 watcher、security、qa 等門禁納入協作規範",
-        "支援在不同 repo 與專案中重用同一套工作模式"
+        "17 位專職 AI Agent：PM / Tech Lead / BA / DBA / UI / Frontend / Backend / DevOps / QA / Security / SRE / Analytics / Troubleshoot / Figma Sync / Logger / Watcher / README",
+        "全域憲法 (00-core-protocol.md) 統一所有 Agent 的行為準則、溝通語言與自檢迴圈",
+        "三消費者架構：同一份 SSOT 同時供 CrewAI (factory.py)、Claude Code (@import)、Codex ($prefix) 使用",
+        "Shell CLI 工具 (cap)：一鍵安裝 (curl | bash)、版本管理 (update / rollback)、Agent 調用與 session tracing",
+        "BYOCLI 模式：在任何 AI CLI 中以 $prefix 臨時調用單一 Agent（如 $qa、$security、$frontend）",
+        "雙寫 Trace 機制：純文字 (.log) + 結構化 (.jsonl) 同步寫入，支援人讀與機器消費",
+        "10 套框架與工具策略：Angular / Next.js / Nuxt.js / .NET / NestJS / Playwright / k6 / Lighthouse / Unit Test",
+        "品質門禁流水線：Watcher 結構稽核 → Security 資安審查 → QA 行為驗證，全數 PASS 才准予結案",
+        "README 治理系統 (101-readme-agent)：情境式路由自動判定 rewrite / normalize / manifest_plus_readme",
+        "Promote 工作流：本機 drafts / reports 升級至 repo 正式路徑 (cap promote)"
       ],
       "features_en": [
-        "Defines role boundaries and deliverable formats for PM, BA, DBA, UI, FE, and QA",
-        "Creates a handoff flow aligned with documents and schemas to reduce downstream drift",
-        "Brings watcher, security, and QA gates into the collaboration contract",
-        "Keeps the workflow reusable across repositories and projects"
+        "17 specialized AI agents: PM / Tech Lead / BA / DBA / UI / Frontend / Backend / DevOps / QA / Security / SRE / Analytics / Troubleshoot / Figma Sync / Logger / Watcher / README",
+        "Global constitution (00-core-protocol.md) unifying behavior rules, communication language, and self-check loops for all agents",
+        "Three-consumer architecture: single SSOT consumed by CrewAI (factory.py), Claude Code (@import), and Codex ($prefix)",
+        "Shell CLI tool (cap): one-click install (curl | bash), version management (update / rollback), agent invocation, and session tracing",
+        "BYOCLI mode: invoke any agent via $prefix in any AI CLI (e.g., $qa, $security, $frontend)",
+        "Dual-write tracing: plain text (.log) + structured (.jsonl) written simultaneously for human and machine consumption",
+        "10 framework and tool strategies: Angular / Next.js / Nuxt.js / .NET / NestJS / Playwright / k6 / Lighthouse / Unit Test",
+        "Quality gate pipeline: Watcher audit → Security scan → QA verification — all must PASS before closure",
+        "README governance (101-readme-agent): scenario-based routing for rewrite / normalize / manifest_plus_readme",
+        "Promote workflow: local drafts and reports elevated to repo-level paths (cap promote)"
       ],
       "achievements_zh": [
-        "把多角色協作流程制度化並沉澱成可重用規範",
-        "讓文件、資料契約與實作流程更容易保持一致",
-        "提升大型任務拆解與驗收的可控性"
+        "將 17 角色的 AI 協作流程制度化為可版控、可安裝、可跨 repo 復用的標準規範",
+        "實現三消費者架構，單一 SSOT 同時餵給 CrewAI / Claude Code / Codex 三端，消除多份口徑",
+        "建立完整 CLI 工具鏈 (cap)，從安裝、同步、調用、tracing 到版本管理一條龍",
+        "設計品質門禁三道閘：結構稽核 (Watcher) → 資安審查 (Security) → 行為驗證 (QA)，確保交付品質",
+        "沉澱 10 套框架策略，涵蓋前端 (Angular/Next.js/Nuxt.js)、後端 (.NET/NestJS) 與測試 (Playwright/k6/Lighthouse) 全棧"
       ],
       "achievements_en": [
-        "Turned multi-role collaboration into a reusable working protocol",
-        "Improved consistency between documents, data contracts, and implementation",
-        "Made large task decomposition and acceptance more controllable"
+        "Codified 17-role AI collaboration into a version-controlled, installable, cross-repo reusable standard",
+        "Implemented three-consumer architecture where a single SSOT feeds CrewAI, Claude Code, and Codex simultaneously",
+        "Built a complete CLI toolchain (cap) covering install, sync, invocation, tracing, and release management",
+        "Designed a three-gate quality pipeline: structural audit (Watcher) → security scan → behavioral verification (QA)",
+        "Distilled 10 framework strategies spanning frontend (Angular/Next.js/Nuxt.js), backend (.NET/NestJS), and testing (Playwright/k6/Lighthouse)"
       ],
       "screenshots": []
     },

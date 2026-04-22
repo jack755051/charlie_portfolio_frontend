@@ -8,8 +8,8 @@
       "pinned": true
     },
     "charlie-ai-protocols": {
-      "title_zh": "Charlie AI 協作協議",
-      "description_zh": "多 Agent AI 協作規範集，定義大型專案中各角色（PM/BA/DBA/UI/FE/QA）的分工與交接協議。",
+      "title_zh": "AI 多代理協作框架 (CAP)",
+      "description_zh": "工業級 AI 多代理協作框架與 CLI 工具，定義 17 位專職 Agent 的角色邊界、交接協議與品質門禁，搭配 CrewAI 引擎與雙寫 Trace 機制。",
       "role": "Author & Maintainer",
       "pinned": true
     },
