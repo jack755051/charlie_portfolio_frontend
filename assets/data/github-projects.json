@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "source": "github",
-  "sourceFetchedAt": "2026-04-22T19:59:57.557Z",
+  "sourceFetchedAt": "2026-04-26T19:38:52.958Z",
   "isStale": false,
   "staleAt": null,
-  "version": 5,
+  "version": 6,
   "projects": [
     {
       "id": "charlie-ai-protocols",
@@ -58,7 +58,7 @@
       "homepage": null,
       "repoUrl": "https://github.com/jack755051/charlie-ai-protocols",
       "stars": 0,
-      "lastUpdatedAt": "2026-04-22T14:37:15Z",
+      "lastUpdatedAt": "2026-04-26T15:32:53Z",
       "pinned": true,
       "isVisible": true
     },
