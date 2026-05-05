@@ -2,12 +2,12 @@
   "schema_version": 1,
   "id": "leetcode:jack755051",
   "username": "jack755051",
-  "totalSolved": 50,
+  "totalSolved": 53,
   "totalQuestions": 3920,
-  "easy": 40,
+  "easy": 43,
   "medium": 9,
   "hard": 1,
-  "easyPct": 4,
+  "easyPct": 5,
   "mediumPct": 0,
   "hardPct": 0,
   "calendar": [
@@ -74,58 +74,62 @@
     [
       "2026-05-01",
       4
+    ],
+    [
+      "2026-05-05",
+      6
     ]
   ],
   "recent": [
     {
-      "title": "Add Binary",
-      "titleSlug": "add-binary",
-      "time": "05/01",
-      "status": "Wrong Answer",
-      "lang": "typescript",
-      "isSuccess": false
-    },
-    {
-      "title": "Add Binary",
-      "titleSlug": "add-binary",
-      "time": "05/01",
-      "status": "Wrong Answer",
-      "lang": "typescript",
-      "isSuccess": false
-    },
-    {
-      "title": "Number of 1 Bits",
-      "titleSlug": "number-of-1-bits",
-      "time": "05/01",
+      "title": "Power of Three",
+      "titleSlug": "power-of-three",
+      "time": "05/05",
       "status": "Accepted",
       "lang": "typescript",
       "isSuccess": true
     },
     {
-      "title": "Plus One",
-      "titleSlug": "plus-one",
-      "time": "05/01",
+      "title": "Power of Three",
+      "titleSlug": "power-of-three",
+      "time": "05/05",
+      "status": "Wrong Answer",
+      "lang": "typescript",
+      "isSuccess": false
+    },
+    {
+      "title": "Missing Number",
+      "titleSlug": "missing-number",
+      "time": "05/05",
       "status": "Accepted",
       "lang": "typescript",
       "isSuccess": true
     },
     {
-      "title": "Sleep",
-      "titleSlug": "sleep",
-      "time": "04/22",
+      "title": "Multiply Strings",
+      "titleSlug": "multiply-strings",
+      "time": "05/05",
+      "status": "Wrong Answer",
+      "lang": "typescript",
+      "isSuccess": false
+    },
+    {
+      "title": "Base 7",
+      "titleSlug": "base-7",
+      "time": "05/05",
       "status": "Accepted",
-      "lang": "javascript",
+      "lang": "typescript",
       "isSuccess": true
     }
   ],
   "skills": [
     {
       "name": "Array",
-      "value": 23
+      "value": 24
     },
     {
       "name": "Math",
-      "value": 10
+      "value": 13
     },
     {
       "name": "Two Pointers",
@@ -133,20 +137,20 @@
     },
     {
       "name": "String",
-      "value": 6
+      "value": 7
     },
     {
       "name": "Bit Manipulation",
-      "value": 5
+      "value": 6
     },
     {
       "name": "Sorting",
-      "value": 5
+      "value": 6
     }
   ],
   "source": "provider",
-  "sourceFetchedAt": "2026-05-04T19:56:49.237Z",
-  "expiresAt": "2026-05-05T20:56:49.237Z",
+  "sourceFetchedAt": "2026-05-05T19:53:59.071Z",
+  "expiresAt": "2026-05-06T20:53:59.071Z",
   "isStale": false,
-  "version": 20
+  "version": 21
 }
