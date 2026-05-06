@@ -254,8 +254,11 @@ onUnmounted(() => {
     opacity: 0;
   }
   .custom-anchor-nav.is-idle:not(:hover):not(:focus-within) .anchor-item {
-    padding-left: 10px;
-    padding-right: 10px;
+    width: 28px;
+    height: 28px;
+    justify-content: center;
+    gap: 0;
+    padding: 0;
   }
 }
 
