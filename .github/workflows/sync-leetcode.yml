@@ -4,8 +4,6 @@ on:
   schedule:
     - cron: '17 18 * * *' # 每日 02:17 Asia/Taipei
   workflow_dispatch: # 手動觸發
-  push:
-    branches: [main, dev] # Push 到 main 或 dev 時重新部署
 
 permissions:
   contents: write
@@ -38,15 +36,12 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Sync LeetCode profile
-        # 僅於 cron / manual 時同步（避免 push 觸發又改 JSON 造成無限循環）
-        if: github.event_name != 'push'
         run: npm run sync:leetcode
 
       - name: Validate JSON SSOT
         run: npm run validate:ssot
 
       - name: Commit LeetCode snapshot
-        if: github.event_name != 'push'
         run: |
           if git diff --quiet -- assets/data/leetcode-profile.json; then
             echo "No LeetCode snapshot changes to commit."
