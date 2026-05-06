@@ -1,7 +1,7 @@
 <template>
   <nav
     class="custom-anchor-nav hidden md:flex flex-col gap-1 md:bg-transparent md:shadow-none md:border-0 md:p-0 xl:p-4 xl:bg-white/80 xl:dark:bg-slate-900/70 xl:backdrop-blur xl:border xl:border-slate-200/80 xl:dark:border-white/10 xl:shadow-lg xl:rounded-2xl"
-    :class="{ 'is-idle': isIdle }"
+    :class="{ 'is-idle': isIdle, 'is-scrolling': isScrolling }"
     aria-label="Section anchors"
   >
     <ul class="anchor-list">
@@ -32,10 +32,11 @@ interface Props {
 const props = defineProps<Props>()
 const activeAnchor = ref<string>('')
 const isIdle = ref(false)
+const isScrolling = ref(false)
 let idleTimer: ReturnType<typeof setTimeout> | null = null
 let scrollTarget: HTMLElement | Window | null = null
 
-const IDLE_DELAY_MS = 1000
+const IDLE_DELAY_MS = 1200
 
 const getScrollTarget = () => {
   return document.querySelector<HTMLElement>('.snap-y') || window
@@ -43,8 +44,10 @@ const getScrollTarget = () => {
 
 const markScrolling = () => {
   isIdle.value = false
+  isScrolling.value = true
   if (idleTimer) clearTimeout(idleTimer)
   idleTimer = setTimeout(() => {
+    isScrolling.value = false
     isIdle.value = true
   }, IDLE_DELAY_MS)
 }
@@ -116,17 +119,21 @@ onUnmounted(() => {
 <style scoped>
 .custom-anchor-nav {
   transition:
-    opacity 400ms ease,
-    filter 400ms ease;
+    opacity 260ms ease,
+    transform 260ms ease,
+    background-color 260ms ease,
+    border-color 260ms ease,
+    box-shadow 260ms ease;
 }
 .custom-anchor-nav.is-idle {
-  opacity: 0.08;
-  filter: blur(1px);
+  opacity: 0.45;
+  transform: translateX(6px);
 }
 .custom-anchor-nav.is-idle:hover,
-.custom-anchor-nav.is-idle:focus-within {
+.custom-anchor-nav.is-idle:focus-within,
+.custom-anchor-nav.is-scrolling {
   opacity: 1;
-  filter: blur(0);
+  transform: translateX(0);
 }
 
 .anchor-list {
@@ -148,7 +155,10 @@ onUnmounted(() => {
   height: 28px;
   border-radius: 9999px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition:
+    background-color 0.22s ease,
+    opacity 0.22s ease,
+    transform 0.22s ease;
 }
 
 .anchor-item:hover {
@@ -163,6 +173,15 @@ onUnmounted(() => {
   background: rgb(var(--muted-foreground) / 0.6);
   transition: all 0.25s ease;
   flex-shrink: 0;
+}
+
+.custom-anchor-nav.is-idle .anchor-dot {
+  background: rgb(var(--muted-foreground) / 0.5);
+}
+
+.custom-anchor-nav.is-idle .anchor-item.active .anchor-dot {
+  background: rgb(var(--primary) / 0.82);
+  box-shadow: 0 0 8px rgb(var(--primary) / 0.35);
 }
 
 .anchor-item.active .anchor-dot {
@@ -217,22 +236,42 @@ onUnmounted(() => {
   .anchor-title {
     font-size: 14px;
     color: rgb(var(--muted-foreground));
-    transition: color 0.2s ease;
+    max-width: 180px;
+    opacity: 1;
+    overflow: hidden;
+    transition:
+      color 0.2s ease,
+      max-width 260ms ease,
+      opacity 200ms ease;
     white-space: nowrap;
   }
   .anchor-item.active .anchor-title {
     color: rgb(var(--primary));
     font-weight: 600;
   }
+  .custom-anchor-nav.is-idle:not(:hover):not(:focus-within) .anchor-title {
+    max-width: 0;
+    opacity: 0;
+  }
+  .custom-anchor-nav.is-idle:not(:hover):not(:focus-within) .anchor-item {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .custom-anchor-nav,
   .anchor-dot,
+  .anchor-title,
   .anchor-item {
     transition: none !important;
   }
   .custom-anchor-nav.is-idle {
+    opacity: 1;
+    transform: none;
+  }
+  .custom-anchor-nav.is-idle .anchor-title {
+    max-width: none;
     opacity: 1;
   }
 }
