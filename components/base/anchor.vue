@@ -118,22 +118,26 @@ onUnmounted(() => {
 
 <style scoped>
 .custom-anchor-nav {
+  transform-origin: center right;
+  will-change: opacity, transform;
   transition:
-    opacity 260ms ease,
-    transform 260ms ease,
-    background-color 260ms ease,
-    border-color 260ms ease,
-    box-shadow 260ms ease;
+    opacity 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
 }
 .custom-anchor-nav.is-idle {
-  opacity: 0.45;
-  transform: translateX(6px);
+  opacity: 0.5;
+  transform: translateX(6px) scale(0.98);
+  transition-duration: 420ms;
 }
 .custom-anchor-nav.is-idle:hover,
 .custom-anchor-nav.is-idle:focus-within,
 .custom-anchor-nav.is-scrolling {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateX(0) scale(1);
+  transition-duration: 180ms;
 }
 
 .anchor-list {
@@ -143,6 +147,14 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  transition:
+    gap 240ms cubic-bezier(0.16, 1, 0.3, 1),
+    align-items 240ms ease;
+}
+
+.custom-anchor-nav.is-idle:not(:hover):not(:focus-within) .anchor-list {
+  align-items: center;
+  gap: 18px;
 }
 
 /* 預設（md ~ xl）：dot-only，tooltip 顯示標題 */
@@ -153,12 +165,18 @@ onUnmounted(() => {
   justify-content: center;
   width: 28px;
   height: 28px;
+  max-width: 28px;
   border-radius: 9999px;
   cursor: pointer;
   transition:
     background-color 0.22s ease,
     opacity 0.22s ease,
-    transform 0.22s ease;
+    transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    width 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    max-width 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    height 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    padding 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    gap 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .anchor-item:hover {
@@ -222,6 +240,7 @@ onUnmounted(() => {
   .anchor-item {
     width: auto;
     height: auto;
+    max-width: 220px;
     justify-content: flex-start;
     padding: 8px 12px;
     border-radius: 8px;
@@ -241,8 +260,8 @@ onUnmounted(() => {
     overflow: hidden;
     transition:
       color 0.2s ease,
-      max-width 260ms ease,
-      opacity 200ms ease;
+      max-width 220ms cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 140ms ease;
     white-space: nowrap;
   }
   .anchor-item.active .anchor-title {
@@ -252,13 +271,30 @@ onUnmounted(() => {
   .custom-anchor-nav.is-idle:not(:hover):not(:focus-within) .anchor-title {
     max-width: 0;
     opacity: 0;
+    transition:
+      color 0.2s ease,
+      max-width 320ms cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 180ms ease;
   }
   .custom-anchor-nav.is-idle:not(:hover):not(:focus-within) .anchor-item {
     width: 28px;
+    max-width: 28px;
     height: 28px;
     justify-content: center;
     gap: 0;
     padding: 0;
+    transition-duration: 340ms;
+  }
+  .custom-anchor-nav.is-idle:hover .anchor-item,
+  .custom-anchor-nav.is-idle:focus-within .anchor-item {
+    transition-duration: 190ms;
+  }
+  .custom-anchor-nav.is-idle:hover .anchor-title,
+  .custom-anchor-nav.is-idle:focus-within .anchor-title {
+    transition:
+      color 0.2s ease,
+      max-width 190ms cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 120ms ease 40ms;
   }
 }
 
