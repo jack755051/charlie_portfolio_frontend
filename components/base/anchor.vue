@@ -1,6 +1,7 @@
 <template>
   <nav
     class="custom-anchor-nav hidden md:flex flex-col gap-1 md:bg-transparent md:shadow-none md:border-0 md:p-0 xl:p-4 xl:bg-white/80 xl:dark:bg-slate-900/70 xl:backdrop-blur xl:border xl:border-slate-200/80 xl:dark:border-white/10 xl:shadow-lg xl:rounded-2xl"
+    :class="{ 'is-idle': isIdle }"
     aria-label="Section anchors"
   >
     <ul class="anchor-list">
@@ -30,6 +31,23 @@ interface Props {
 
 const props = defineProps<Props>()
 const activeAnchor = ref<string>('')
+const isIdle = ref(false)
+let idleTimer: ReturnType<typeof setTimeout> | null = null
+let scrollTarget: HTMLElement | Window | null = null
+
+const IDLE_DELAY_MS = 1000
+
+const getScrollTarget = () => {
+  return document.querySelector<HTMLElement>('.snap-y') || window
+}
+
+const markScrolling = () => {
+  isIdle.value = false
+  if (idleTimer) clearTimeout(idleTimer)
+  idleTimer = setTimeout(() => {
+    isIdle.value = true
+  }, IDLE_DELAY_MS)
+}
 
 const scrollToSection = (sectionKey: string, href: string) => {
   const sectionId = href.replace('#', '')
@@ -43,9 +61,6 @@ const scrollToSection = (sectionKey: string, href: string) => {
 
 const handleScroll = () => {
   if (!props.anchorData) return
-
-  const scrollContainer = document.querySelector('.snap-y')
-  if (!scrollContainer) return
 
   const sections = props.anchorData
     .map(item => ({
@@ -68,6 +83,7 @@ const handleScroll = () => {
 
 let scrollTimer: number | null = null
 const throttledHandleScroll = () => {
+  markScrolling()
   if (scrollTimer) return
   scrollTimer = requestAnimationFrame(() => {
     handleScroll()
@@ -76,25 +92,43 @@ const throttledHandleScroll = () => {
 }
 
 onMounted(() => {
-  const scrollContainer = document.querySelector('.snap-y')
-  if (scrollContainer) {
-    scrollContainer.addEventListener('scroll', throttledHandleScroll, { passive: true })
-    handleScroll()
-  }
+  scrollTarget = getScrollTarget()
+  scrollTarget.addEventListener('scroll', throttledHandleScroll, { passive: true })
+  handleScroll()
+  idleTimer = setTimeout(() => {
+    isIdle.value = true
+  }, IDLE_DELAY_MS)
 })
 
 onUnmounted(() => {
-  const scrollContainer = document.querySelector('.snap-y')
-  if (scrollContainer) {
-    scrollContainer.removeEventListener('scroll', throttledHandleScroll)
+  if (scrollTarget) {
+    scrollTarget.removeEventListener('scroll', throttledHandleScroll)
   }
   if (scrollTimer) {
     cancelAnimationFrame(scrollTimer)
+  }
+  if (idleTimer) {
+    clearTimeout(idleTimer)
   }
 })
 </script>
 
 <style scoped>
+.custom-anchor-nav {
+  transition:
+    opacity 400ms ease,
+    filter 400ms ease;
+}
+.custom-anchor-nav.is-idle {
+  opacity: 0.08;
+  filter: blur(1px);
+}
+.custom-anchor-nav.is-idle:hover,
+.custom-anchor-nav.is-idle:focus-within {
+  opacity: 1;
+  filter: blur(0);
+}
+
 .anchor-list {
   list-style: none;
   padding: 0;
@@ -193,9 +227,13 @@ onUnmounted(() => {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .custom-anchor-nav,
   .anchor-dot,
   .anchor-item {
     transition: none !important;
+  }
+  .custom-anchor-nav.is-idle {
+    opacity: 1;
   }
 }
 </style>

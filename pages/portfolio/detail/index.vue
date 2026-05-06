@@ -7,10 +7,12 @@
       class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-card/80 to-transparent pointer-events-none z-0"
     />
 
-    <div class="sticky top-0 z-50 w-full px-5 sm:px-6 py-4">
-      <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <div class="sticky top-0 z-30 w-full px-5 sm:px-6 py-3 md:py-4 pointer-events-none">
+      <div
+        class="max-w-7xl mx-auto flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+      >
         <button
-          class="flex items-center gap-2 px-4 py-2 rounded-full bg-card/90 backdrop-blur border border-border text-foreground hover:border-primary/40 hover:text-primary hover:shadow-md transition-all active:scale-95 group shadow-sm"
+          class="pointer-events-auto inline-flex w-fit max-w-full items-center gap-2 px-4 py-2 rounded-full bg-card/90 backdrop-blur border border-border text-foreground hover:border-primary/40 hover:text-primary hover:shadow-md transition-all active:scale-95 group shadow-sm"
           @click="goBack"
         >
           <svg
@@ -34,7 +36,7 @@
           v-if="projectLink"
           :href="projectLink"
           target="_blank"
-          class="hidden md:flex items-center gap-2 px-5 py-2 bg-foreground text-background text-sm font-bold rounded-full hover:bg-primary hover:text-primary-foreground transition-colors shadow-lg"
+          class="pointer-events-auto inline-flex w-fit max-w-full items-center justify-center gap-2 px-5 py-2 bg-foreground text-background text-sm font-bold rounded-full hover:bg-primary hover:text-primary-foreground transition-colors shadow-lg"
         >
           <span>{{ $t('portfolio.detail.visitLive') }}</span>
           <svg
@@ -57,14 +59,20 @@
 
     <div v-if="projectMeta" class="relative z-10 max-w-7xl mx-auto px-6 pt-6">
       <div class="text-center max-w-4xl mx-auto mb-12">
-        <div v-if="displayRole || displayDuration" class="flex items-center justify-center gap-3 mb-4">
+        <div
+          v-if="displayRole || displayDuration"
+          class="flex items-center justify-center gap-3 mb-4"
+        >
           <span
             v-if="displayRole"
             class="px-3 py-1 rounded-full text-xs font-bold bg-accent text-accent-foreground border border-primary/20"
           >
             {{ displayRole }}
           </span>
-          <span v-if="displayRole && displayDuration" class="w-1 h-1 rounded-full bg-muted-foreground" />
+          <span
+            v-if="displayRole && displayDuration"
+            class="w-1 h-1 rounded-full bg-muted-foreground"
+          />
           <span v-if="displayDuration" class="text-muted-foreground text-sm font-mono">
             {{ displayDuration }}
           </span>
@@ -139,10 +147,7 @@
             </div>
           </div>
 
-          <div
-            v-if="detailScreenshots.length > 1"
-            class="space-y-6"
-          >
+          <div v-if="detailScreenshots.length > 1" class="space-y-6">
             <h3 class="text-2xl font-bold text-foreground">
               {{ $t('portfolio.detail.gallery') }}
             </h3>
@@ -248,6 +253,8 @@ import BackgroundDecor from '~/components/base/background-decor.vue'
 import { useGithubProjectDetails } from '~/composables/useGithubProjectDetails'
 import { usePortfolioProjects } from '~/composables/usePortfolioProjects'
 
+definePageMeta({ layout: 'portfolio-detail' })
+
 const router = useRouter()
 const route = useRoute()
 const { tm, locale } = useI18n()
@@ -333,11 +340,13 @@ const toMessageArray = (messagePath: string) => {
 
 const featuresList = computed(() => {
   if (projectMeta.value?.source === 'github') {
-    return isZh.value ? githubDetail.value?.featuresZh ?? [] : githubDetail.value?.featuresEn ?? []
+    return isZh.value
+      ? (githubDetail.value?.featuresZh ?? [])
+      : (githubDetail.value?.featuresEn ?? [])
   }
-  return toMessageArray(projectI18nBasePath.value ? `${projectI18nBasePath.value}.features` : '').map(
-    item => String(item)
-  )
+  return toMessageArray(
+    projectI18nBasePath.value ? `${projectI18nBasePath.value}.features` : ''
+  ).map(item => String(item))
 })
 
 const achievementsList = computed(() => {
@@ -346,9 +355,9 @@ const achievementsList = computed(() => {
       ? (githubDetail.value?.achievementsZh ?? [])
       : (githubDetail.value?.achievementsEn ?? [])
   }
-  return toMessageArray(projectI18nBasePath.value ? `${projectI18nBasePath.value}.achievements` : '').map(
-    item => String(item)
-  )
+  return toMessageArray(
+    projectI18nBasePath.value ? `${projectI18nBasePath.value}.achievements` : ''
+  ).map(item => String(item))
 })
 
 const detailScreenshots = computed(() => {
