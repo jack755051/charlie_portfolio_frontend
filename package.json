@@ -9,6 +9,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "sync:leetcode": "node scripts/sync-leetcode.mjs",
+    "sync:hackmd": "node scripts/sync-hackmd.mjs",
     "sync:github": "node scripts/sync-github.mjs",
     "validate:ssot": "node scripts/validate-json-ssot.mjs",
     "lint": "eslint .",
@@ -19,6 +20,7 @@
   "dependencies": {
     "@nuxt/content": "^3.13.0",
     "@nuxtjs/i18n": "^10.2.1",
+    "@tailwindcss/typography": "^0.5.19",
     "@vueuse/motion": "^3.0.3",
     "ant-design-vue": "^4.2.6",
     "better-sqlite3": "^12.9.0",

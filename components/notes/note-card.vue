@@ -1,10 +1,8 @@
 <template>
-  <a
+  <div
     v-motion="motion.card"
-    :href="url"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="group relative bg-card rounded-2xl border border-border overflow-hidden transition-all duration-300 hover:shadow-xl flex flex-col h-full"
+    class="group relative bg-card rounded-2xl border border-border overflow-hidden transition-all duration-300 hover:shadow-xl flex flex-col h-full cursor-pointer"
+    @click="handleClick"
   >
     <div
       class="h-1.5 w-full"
@@ -47,7 +45,7 @@
       <div
         class="mt-4 text-xs font-mono text-primary flex items-center gap-1 group-hover:gap-2 transition-all"
       >
-        <span>{{ $t('notes.readOnHackmd') }}</span>
+        <span>{{ hasLocalContent ? $t('notes.readNote') : $t('notes.readOnHackmd') }}</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-3.5 w-3.5"
@@ -59,12 +57,12 @@
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            :d="hasLocalContent ? 'M9 5l7 7-7 7' : 'M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'"
           />
         </svg>
       </div>
     </div>
-  </a>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -76,7 +74,18 @@ interface Props {
   tags: string[]
   publishedAt: string
   featured: boolean
+  hasLocalContent?: boolean
 }
-defineProps<Props>()
+
+const props = defineProps<Props>()
+const router = useRouter()
 const motion = useMotionPresets()
+
+const handleClick = () => {
+  if (props.hasLocalContent) {
+    router.push(`/notes/${props.id}`)
+  } else {
+    window.open(props.url, '_blank', 'noopener,noreferrer')
+  }
+}
 </script>
