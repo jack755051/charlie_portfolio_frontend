@@ -1,34 +1,34 @@
 <template>
   <nav
-    ref="anchorNav"
-    class="custom-anchor-nav hidden md:flex flex-col gap-1 md:bg-transparent md:shadow-none md:border-0 md:p-0 xl:p-4 xl:bg-white/80 xl:dark:bg-slate-900/70 xl:backdrop-blur xl:border xl:border-slate-200/80 xl:dark:border-white/10 xl:shadow-lg xl:rounded-2xl"
-    :class="{ 'is-compact': isCompact, 'is-scrolling': isScrolling }"
+    class="custom-anchor-nav hidden md:flex flex-col items-center bg-white/75 dark:bg-slate-900/70 backdrop-blur border border-slate-200/80 dark:border-white/10 shadow-lg rounded-2xl"
+    :class="{ 'is-expanded': isExpanded }"
     aria-label="Section anchors"
-    @mouseenter="isPointerActive = true"
-    @mouseleave="isPointerActive = false"
-    @focusin="isPointerActive = true"
-    @focusout="isPointerActive = false"
+    @mouseenter="openAnchor"
+    @mouseleave="scheduleClose"
+    @focusin="openAnchor"
+    @focusout="scheduleClose"
   >
     <ul class="anchor-list">
       <li
         v-for="item in anchorData"
         :key="item.key"
-        v-motion="motion.railItem"
         class="anchor-item group"
         :class="{ active: activeAnchor === item.key }"
         :data-tooltip="item.title"
+        tabindex="0"
         @click="scrollToSection(item.key, item.href)"
+        @keydown.enter.prevent="scrollToSection(item.key, item.href)"
+        @keydown.space.prevent="scrollToSection(item.key, item.href)"
       >
         <span class="anchor-dot" />
-        <span class="anchor-title hidden xl:inline">{{ item.title }}</span>
+        <span class="anchor-title">{{ item.title }}</span>
       </li>
     </ul>
   </nav>
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted, onUnmounted, watch } from 'vue'
-import { useReducedMotion, useSpring } from '@vueuse/motion'
+import { ref, onMounted, onUnmounted } from 'vue'
 import type { IAnchor } from '~/types/anchor.interface'
 
 interface Props {
@@ -38,55 +38,32 @@ interface Props {
 
 const props = defineProps<Props>()
 const activeAnchor = ref<string>('')
-const isIdle = ref(false)
-const isScrolling = ref(false)
-const isPointerActive = ref(false)
-const anchorNav = ref<HTMLElement | null>(null)
-let idleTimer: ReturnType<typeof setTimeout> | null = null
+const isExpanded = ref(false)
 let scrollTarget: HTMLElement | Window | null = null
+let closeTimer: ReturnType<typeof setTimeout> | null = null
 
-const IDLE_DELAY_MS = 1200
-const motion = useMotionPresets()
-const reducedMotion = useReducedMotion()
-const isCompact = computed(() => isIdle.value && !isScrolling.value && !isPointerActive.value)
-const anchorSpring = useSpring(
-  {
-    opacity: 1,
-    x: 0,
-    scale: 1,
-  },
-  {
-    target: anchorNav,
-    stiffness: 320,
-    damping: 32,
-    mass: 0.7,
-  }
-)
+const COLLAPSE_DELAY_MS = 300
 
-const syncAnchorMotion = () => {
-  if (reducedMotion.value) {
-    anchorSpring.set({ opacity: 1, x: 0, scale: 1 })
-    return
+const openAnchor = () => {
+  if (closeTimer) {
+    clearTimeout(closeTimer)
+    closeTimer = null
   }
-  anchorSpring.set({
-    opacity: isCompact.value ? 0.52 : 1,
-    x: isCompact.value ? 6 : 0,
-    scale: isCompact.value ? 0.985 : 1,
-  })
+  isExpanded.value = true
+}
+
+const scheduleClose = () => {
+  if (closeTimer) {
+    clearTimeout(closeTimer)
+  }
+  closeTimer = setTimeout(() => {
+    isExpanded.value = false
+    closeTimer = null
+  }, COLLAPSE_DELAY_MS)
 }
 
 const getScrollTarget = () => {
   return document.querySelector<HTMLElement>('.snap-y') || window
-}
-
-const markScrolling = () => {
-  isIdle.value = false
-  isScrolling.value = true
-  if (idleTimer) clearTimeout(idleTimer)
-  idleTimer = setTimeout(() => {
-    isScrolling.value = false
-    isIdle.value = true
-  }, IDLE_DELAY_MS)
 }
 
 const scrollToSection = (sectionKey: string, href: string) => {
@@ -123,7 +100,6 @@ const handleScroll = () => {
 
 let scrollTimer: number | null = null
 const throttledHandleScroll = () => {
-  markScrolling()
   if (scrollTimer) return
   scrollTimer = requestAnimationFrame(() => {
     handleScroll()
@@ -135,13 +111,7 @@ onMounted(() => {
   scrollTarget = getScrollTarget()
   scrollTarget.addEventListener('scroll', throttledHandleScroll, { passive: true })
   handleScroll()
-  syncAnchorMotion()
-  idleTimer = setTimeout(() => {
-    isIdle.value = true
-  }, IDLE_DELAY_MS)
 })
-
-watch([isCompact, reducedMotion], syncAnchorMotion)
 
 onUnmounted(() => {
   if (scrollTarget) {
@@ -150,20 +120,28 @@ onUnmounted(() => {
   if (scrollTimer) {
     cancelAnimationFrame(scrollTimer)
   }
-  if (idleTimer) {
-    clearTimeout(idleTimer)
+  if (closeTimer) {
+    clearTimeout(closeTimer)
   }
 })
 </script>
 
 <style scoped>
 .custom-anchor-nav {
-  transform-origin: center right;
-  will-change: opacity, transform;
+  width: 44px;
+  padding: 12px 8px;
+  overflow: visible;
   transition:
-    background-color 220ms ease,
-    border-color 220ms ease,
-    box-shadow 220ms ease;
+    width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    padding 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.2s ease;
+  opacity: 0.75;
+}
+
+.custom-anchor-nav.is-expanded {
+  width: 168px;
+  padding: 12px;
+  opacity: 1;
 }
 
 .anchor-list {
@@ -171,42 +149,55 @@ onUnmounted(() => {
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  transition:
-    gap 240ms cubic-bezier(0.16, 1, 0.3, 1),
-    align-items 240ms ease;
-}
-
-.custom-anchor-nav.is-compact .anchor-list {
   align-items: center;
+  flex-direction: column;
   gap: 18px;
+  width: 100%;
+  transition: gap 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* 預設（md ~ xl）：dot-only，tooltip 顯示標題 */
+.custom-anchor-nav.is-expanded .anchor-list {
+  align-items: stretch;
+  gap: 6px;
+}
+
 .anchor-item {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
-  max-width: 28px;
+  width: 26px;
+  height: 26px;
+  box-sizing: border-box;
   border-radius: 9999px;
   cursor: pointer;
+  outline: none;
+  overflow: visible;
   transition:
-    background-color 0.22s ease,
-    opacity 0.22s ease,
-    transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-    width 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-    max-width 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-    height 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-    padding 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-    gap 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    background-color 0.2s ease,
+    border-radius 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    gap 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    height 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    padding 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.custom-anchor-nav.is-expanded .anchor-item {
+  width: 100%;
+  height: 34px;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 0 10px;
+  border-radius: 8px;
 }
 
 .anchor-item:hover {
   background: rgb(var(--primary) / 0.08);
+}
+
+.anchor-item:focus-visible {
+  background: rgb(var(--primary) / 0.1);
+  box-shadow: 0 0 0 2px rgb(var(--primary) / 0.22);
 }
 
 .anchor-dot {
@@ -219,22 +210,44 @@ onUnmounted(() => {
   flex-shrink: 0;
 }
 
-.custom-anchor-nav.is-compact .anchor-dot {
-  background: rgb(var(--muted-foreground) / 0.5);
-}
-
-.custom-anchor-nav.is-compact .anchor-item.active .anchor-dot {
-  background: rgb(var(--primary) / 0.82);
-  box-shadow: 0 0 8px rgb(var(--primary) / 0.35);
-}
-
 .anchor-item.active .anchor-dot {
   background: rgb(var(--primary));
   transform: scale(1.4);
   box-shadow: 0 0 10px rgb(var(--primary) / 0.6);
 }
 
-/* Tooltip（僅在 dot-only 模式 md ~ xl）*/
+.custom-anchor-nav.is-expanded .anchor-item.active {
+  background: rgb(var(--primary) / 0.12);
+}
+
+.anchor-title {
+  max-width: 0;
+  overflow: hidden;
+  color: rgb(var(--muted-foreground));
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+  text-overflow: ellipsis;
+  transition:
+    color 0.2s ease,
+    max-width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.25s ease;
+  white-space: nowrap;
+}
+
+.custom-anchor-nav.is-expanded .anchor-title {
+  max-width: 112px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.anchor-item.active .anchor-title {
+  color: rgb(var(--primary));
+}
+
+/* Tooltip: 只在收合狀態 hover 時顯示 */
 .anchor-item::after {
   content: attr(data-tooltip);
   position: absolute;
@@ -256,70 +269,14 @@ onUnmounted(() => {
   z-index: 10;
 }
 
-.anchor-item:hover::after {
+.anchor-item:hover::after,
+.anchor-item:focus-visible::after {
   opacity: 1;
   transform: translateY(-50%) translateX(0);
 }
 
-/* XL 以上：展開 title，關掉 tooltip */
-@media (min-width: 1280px) {
-  .anchor-item {
-    width: auto;
-    height: auto;
-    max-width: 220px;
-    justify-content: flex-start;
-    padding: 8px 12px;
-    border-radius: 8px;
-    gap: 12px;
-  }
-  .anchor-item::after {
-    display: none;
-  }
-  .anchor-item.active {
-    background: rgb(var(--primary) / 0.12);
-  }
-  .anchor-title {
-    font-size: 14px;
-    color: rgb(var(--muted-foreground));
-    max-width: 180px;
-    opacity: 1;
-    overflow: hidden;
-    transition:
-      color 0.2s ease,
-      max-width 220ms cubic-bezier(0.16, 1, 0.3, 1),
-      opacity 140ms ease;
-    white-space: nowrap;
-  }
-  .anchor-item.active .anchor-title {
-    color: rgb(var(--primary));
-    font-weight: 600;
-  }
-  .custom-anchor-nav.is-compact .anchor-title {
-    max-width: 0;
-    opacity: 0;
-    transition:
-      color 0.2s ease,
-      max-width 320ms cubic-bezier(0.4, 0, 0.2, 1),
-      opacity 180ms ease;
-  }
-  .custom-anchor-nav.is-compact .anchor-item {
-    width: 28px;
-    max-width: 28px;
-    height: 28px;
-    justify-content: center;
-    gap: 0;
-    padding: 0;
-    transition-duration: 340ms;
-  }
-  .custom-anchor-nav:not(.is-compact) .anchor-item {
-    transition-duration: 190ms;
-  }
-  .custom-anchor-nav:not(.is-compact) .anchor-title {
-    transition:
-      color 0.2s ease,
-      max-width 190ms cubic-bezier(0.16, 1, 0.3, 1),
-      opacity 120ms ease 40ms;
-  }
+.custom-anchor-nav.is-expanded .anchor-item::after {
+  display: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -328,14 +285,6 @@ onUnmounted(() => {
   .anchor-title,
   .anchor-item {
     transition: none !important;
-  }
-  .custom-anchor-nav.is-compact {
-    opacity: 1;
-    transform: none;
-  }
-  .custom-anchor-nav.is-compact .anchor-title {
-    max-width: none;
-    opacity: 1;
   }
 }
 </style>
