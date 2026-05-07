@@ -135,12 +135,15 @@
       }
     },
     "section4": {
-      "titleMain": "Algorithm",
-      "titleHighlight": "Journey",
-      "subtitle": "Problem Solving & Logic Training.",
+      "titleMain": "Problem",
+      "titleHighlight": "Solving",
+      "subtitle": "Sharpening logic and analytical thinking.",
       "progressOverview": "Progress Overview",
       "solvedTotal": "Solved / Total",
+      "difficulty": "Difficulty",
+      "category": "Category",
       "difficultyBreakdown": "Difficulty Breakdown",
+      "categoryBreakdown": "Category Breakdown",
       "recentActivity": "Recent Activity",
       "latestSubmissions": "Latest 5 Submissions",
       "noSubmissions": "No recent submissions found."

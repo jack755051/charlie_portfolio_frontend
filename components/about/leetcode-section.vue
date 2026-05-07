@@ -6,57 +6,29 @@
     :title-highlight="$t('about.section4.titleHighlight')"
     :subtitle="$t('about.section4.subtitle')"
   >
+    <!-- Platform tab group -->
+    <div class="flex items-center gap-2 mb-6">
+      <button
+        v-for="tab in platformTabs"
+        :key="tab.key"
+        class="px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-200"
+        :class="
+          activePlatform === tab.key
+            ? 'bg-foreground text-background shadow-md'
+            : 'bg-muted text-muted-foreground hover:text-foreground'
+        "
+        @click="activePlatform = tab.key"
+      >
+        {{ tab.label }}
+      </button>
+    </div>
+
     <div v-if="loading" class="flex justify-center py-20">
       <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary" />
     </div>
 
     <div v-else class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-      <div class="lg:col-span-5 flex flex-col gap-6">
-        <div
-          class="bg-card/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl shadow-primary/10 border border-border relative overflow-hidden group hover:shadow-2xl transition-all duration-500"
-        >
-          <div
-            class="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-primary/20 to-transparent rounded-full opacity-50 blur-2xl group-hover:opacity-100 transition-opacity duration-500"
-          />
-          <h3
-            class="text-sm font-bold text-muted-foreground mb-2 uppercase tracking-wider flex items-center gap-2"
-          >
-            <span class="w-2 h-2 rounded-full bg-foreground" />
-            {{ $t('about.section4.progressOverview') }}
-          </h3>
-          <div class="flex items-end gap-3 mt-4">
-            <span class="text-7xl font-black text-foreground leading-none">{{ displayTotal }}</span>
-            <div class="flex flex-col mb-2">
-              <span class="text-muted-foreground font-bold text-2xl"
-                >/ {{ stats?.totalQuestions }}</span
-              >
-              <span class="text-muted-foreground text-xs uppercase tracking-wide">{{
-                $t('about.section4.solvedTotal')
-              }}</span>
-            </div>
-          </div>
-          <div class="w-full h-1.5 bg-muted rounded-full mt-6 overflow-hidden">
-            <div
-              class="h-full bg-gradient-to-r from-foreground/70 to-foreground"
-              :style="{ width: `${(stats?.totalSolved / stats?.totalQuestions) * 100}%` }"
-            />
-          </div>
-        </div>
-
-        <div
-          class="bg-card rounded-3xl p-6 shadow-lg shadow-foreground/5 border border-border relative min-h-[320px] flex flex-col"
-        >
-          <h4 class="text-foreground font-bold text-lg mb-4 text-center">
-            {{ $t('about.section4.difficultyBreakdown') }}
-          </h4>
-          <div class="flex-1 w-full relative">
-            <client-only>
-              <v-chart class="w-full h-[250px]" :option="pieOption" autoresize />
-            </client-only>
-          </div>
-        </div>
-      </div>
-
+      <!-- Left: Recent activity (was right) -->
       <div class="lg:col-span-7 flex flex-col h-full">
         <div
           class="bg-card rounded-3xl p-6 md:p-8 shadow-xl shadow-foreground/5 border border-border h-full"
@@ -123,13 +95,68 @@
           </div>
         </div>
       </div>
+
+      <!-- Right: Progress + Chart (was left) -->
+      <div class="lg:col-span-5 flex flex-col gap-6">
+        <div
+          class="bg-card/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl shadow-primary/10 border border-border relative overflow-hidden group hover:shadow-2xl transition-all duration-500"
+        >
+          <div
+            class="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-primary/20 to-transparent rounded-full opacity-50 blur-2xl group-hover:opacity-100 transition-opacity duration-500"
+          />
+          <h3
+            class="text-sm font-bold text-muted-foreground mb-2 uppercase tracking-wider flex items-center gap-2"
+          >
+            <span class="w-2 h-2 rounded-full bg-foreground" />
+            {{ $t('about.section4.progressOverview') }}
+          </h3>
+          <div class="flex items-end gap-3 mt-4">
+            <span class="text-7xl font-black text-foreground leading-none">{{ displayTotal }}</span>
+            <div class="flex flex-col mb-2">
+              <span class="text-muted-foreground font-bold text-2xl"
+                >/ {{ stats?.totalQuestions }}</span
+              >
+              <span class="text-muted-foreground text-xs uppercase tracking-wide">{{
+                $t('about.section4.solvedTotal')
+              }}</span>
+            </div>
+          </div>
+          <div class="w-full h-1.5 bg-muted rounded-full mt-6 overflow-hidden">
+            <div
+              class="h-full bg-gradient-to-r from-foreground/70 to-foreground"
+              :style="{ width: `${(stats?.totalSolved / stats?.totalQuestions) * 100}%` }"
+            />
+          </div>
+        </div>
+
+        <div
+          class="bg-card rounded-3xl p-6 shadow-lg shadow-foreground/5 border border-border relative min-h-[320px] flex flex-col"
+        >
+          <div class="flex items-center justify-between mb-4">
+            <h4 class="text-foreground font-bold text-lg">
+              {{ chartMode === 'difficulty' ? $t('about.section4.difficultyBreakdown') : $t('about.section4.categoryBreakdown') }}
+            </h4>
+            <CSegmented
+              v-model="chartMode"
+              :options="chartModeOptions"
+            />
+          </div>
+          <div class="flex-1 w-full relative">
+            <client-only>
+              <v-chart class="w-full h-[250px]" :option="pieOption" autoresize />
+            </client-only>
+          </div>
+        </div>
+      </div>
     </div>
   </AboutSection>
 </template>
 
 <script lang="ts" setup>
 import AboutSection from '~/components/layouts/AboutSection.vue'
+import CSegmented from '~/components/base/segmented.vue'
 import { computed, ref, watch } from 'vue'
+import { useI18n } from '#imports'
 import { useLeetcodeProfile } from '~/composables/useLeetcodeProfile'
 import VChart from 'vue-echarts'
 import { use } from 'echarts/core'
@@ -139,8 +166,22 @@ import { TooltipComponent, LegendComponent } from 'echarts/components'
 
 use([CanvasRenderer, PieChart, TooltipComponent, LegendComponent])
 
+const { t } = useI18n()
 const { profile: stats, loading } = useLeetcodeProfile()
 const displayTotal = ref(0)
+
+// Platform tabs
+const platformTabs = [
+  { key: 'leetcode', label: 'LeetCode' },
+]
+const activePlatform = ref('leetcode')
+
+// Chart mode
+const chartMode = ref('difficulty')
+const chartModeOptions = computed(() => [
+  { label: t('about.section4.difficulty'), value: 'difficulty' },
+  { label: t('about.section4.category'), value: 'category' },
+])
 
 watch(
   stats,
@@ -166,23 +207,60 @@ watch(
   { immediate: true }
 )
 
-const pieOption = computed(() => ({
-  tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)' },
-  legend: { bottom: '0%', left: 'center', icon: 'circle' },
-  series: [
-    {
-      name: 'Difficulty',
-      type: 'pie',
-      radius: ['40%', '70%'],
-      center: ['50%', '45%'],
-      itemStyle: { borderRadius: 8, borderColor: '#fff', borderWidth: 2 },
-      label: { show: false },
-      data: [
-        { value: stats.value?.easy || 0, name: 'Easy', itemStyle: { color: '#4ade80' } },
-        { value: stats.value?.medium || 0, name: 'Medium', itemStyle: { color: '#fbbf24' } },
-        { value: stats.value?.hard || 0, name: 'Hard', itemStyle: { color: '#f87171' } },
+const SKILL_COLORS = ['#60a5fa', '#f472b6', '#a78bfa', '#34d399', '#fbbf24', '#fb923c', '#94a3b8']
+
+const pieOption = computed(() => {
+  if (chartMode.value === 'difficulty') {
+    return {
+      tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)' },
+      legend: { bottom: '0%', left: 'center', icon: 'circle' },
+      series: [
+        {
+          name: 'Difficulty',
+          type: 'pie',
+          radius: ['40%', '70%'],
+          center: ['50%', '45%'],
+          itemStyle: { borderRadius: 8, borderColor: '#fff', borderWidth: 2 },
+          label: { show: false },
+          data: [
+            { value: stats.value?.easy || 0, name: 'Easy', itemStyle: { color: '#4ade80' } },
+            { value: stats.value?.medium || 0, name: 'Medium', itemStyle: { color: '#fbbf24' } },
+            { value: stats.value?.hard || 0, name: 'Hard', itemStyle: { color: '#f87171' } },
+          ],
+        },
       ],
-    },
-  ],
-}))
+    }
+  }
+
+  // Category mode: top 6 skills, rest as "Other"
+  const skills = stats.value?.skills || []
+  const top = skills.slice(0, 6)
+  const rest = skills.slice(6)
+  const otherValue = rest.reduce((sum: number, s: { value: number }) => sum + s.value, 0)
+
+  const data = top.map((s: { name: string; value: number }, i: number) => ({
+    value: s.value,
+    name: s.name,
+    itemStyle: { color: SKILL_COLORS[i] },
+  }))
+  if (otherValue > 0) {
+    data.push({ value: otherValue, name: 'Other', itemStyle: { color: SKILL_COLORS[6] } })
+  }
+
+  return {
+    tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)' },
+    legend: { bottom: '0%', left: 'center', icon: 'circle' },
+    series: [
+      {
+        name: 'Category',
+        type: 'pie',
+        radius: ['40%', '70%'],
+        center: ['50%', '45%'],
+        itemStyle: { borderRadius: 8, borderColor: '#fff', borderWidth: 2 },
+        label: { show: false },
+        data,
+      },
+    ],
+  }
+})
 </script>

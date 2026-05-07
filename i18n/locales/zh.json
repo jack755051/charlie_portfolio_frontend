@@ -135,12 +135,15 @@
       }
     },
     "section4": {
-      "titleMain": "演算法",
-      "titleHighlight": "修煉",
-      "subtitle": "磨練邏輯思維與解題能力",
+      "titleMain": "解題",
+      "titleHighlight": "紀錄",
+      "subtitle": "持續鍛鍊邏輯與問題拆解能力",
       "progressOverview": "解題進度",
       "solvedTotal": "解題數 / 總題數",
+      "difficulty": "難度",
+      "category": "類型",
       "difficultyBreakdown": "難度分佈",
+      "categoryBreakdown": "類型分佈",
       "recentActivity": "近期活動",
       "latestSubmissions": "最近 5 筆提交",
       "noSubmissions": "查無近期提交紀錄"
