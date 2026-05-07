@@ -100,8 +100,8 @@
       ]
     },
     "section3": {
-      "titleMain": "Tech",
-      "titleHighlight": "Stack",
+      "titleMain": "Core",
+      "titleHighlight": "Skills",
       "subtitle": "Modern Toolkit.",
       "categories": {
         "frontend": {
@@ -130,14 +130,8 @@
         }
       },
       "evolution": {
-        "title": "Continuous Evolution 🚀",
-        "contentLead": "Technology is a tool for solving problems, and learning is the instinct of engineers.",
-        "currentlyStudyingPrefix": "Currently diving deep into ",
-        "focusTopic1": "WebGL",
-        "connector": " and ",
-        "focusTopic2": "System Architecture Design",
-        "suffix": ".",
-        "downloadResume": "Download Full Resume"
+        "title": "Want to know more?",
+        "content": "Full experience, project details and technical depth — all in my resume."
       }
     },
     "section4": {

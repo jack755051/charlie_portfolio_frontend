@@ -118,7 +118,7 @@
         { "name": "Node.js", "iconName": "NodeJSIcon", "color": "text-green-600" },
         { "name": "NestJS", "iconName": "NestJSIcon", "color": "text-red-500" },
         { "name": "Docker", "iconName": "DockerIcon", "color": "text-blue-500" },
-        { "name": "Nx", "iconName": "NxIcon", "color": null }
+        { "name": "Nx", "iconName": "NxIcon", "color": "text-blue-600" }
       ]
     },
     {
@@ -129,7 +129,7 @@
         { "name": "Pinia", "iconName": "PiniaIcon", "color": "text-yellow-500" },
         { "name": "RxJS", "iconName": "RxJSIcon", "color": "text-pink-600" },
         { "name": "NgRx", "iconName": "NgrxIcon", "color": "text-purple-600" },
-        { "name": "TanStack Query", "iconName": "TanstackIcon", "color": null }
+        { "name": "TanStack Query", "iconName": "TanstackIcon", "color": "text-orange-500" }
       ]
     },
     {
@@ -140,10 +140,10 @@
       "items": [
         { "name": "Tailwind CSS", "iconName": "TailWindIcon", "color": "text-cyan-400" },
         { "name": "Ant Design", "iconName": "AntDesignIcon", "color": "text-blue-500" },
-        { "name": "Angular Material", "iconName": "AngularMaterialIcon", "color": null },
-        { "name": "Shadcn/UI", "iconName": "ShadcnIcon", "color": null },
+        { "name": "Angular Material", "iconName": "AngularMaterialIcon", "color": "text-pink-400" },
+        { "name": "Shadcn/UI", "iconName": "ShadcnIcon", "color": "text-foreground" },
         { "name": "SCSS", "iconName": "SassIcon", "color": "text-pink-500" },
-        { "name": "ECharts", "iconName": "EchartIcon", "color": null }
+        { "name": "ECharts", "iconName": "EchartIcon", "color": "text-red-500" }
       ]
     },
     {
@@ -151,9 +151,9 @@
       "titleKey": "about.section3.categories.database.title",
       "descriptionKey": "about.section3.categories.database.description",
       "items": [
-        { "name": "MySQL", "iconName": "MysqlIcon", "color": null },
+        { "name": "MySQL", "iconName": "MysqlIcon", "color": "text-blue-600" },
         { "name": "MongoDB", "iconName": "MongoDBIcon", "color": "text-green-500" },
-        { "name": "PostgreSQL", "iconName": "PostgresIcon", "color": null }
+        { "name": "PostgreSQL", "iconName": "PostgresIcon", "color": "text-blue-700" }
       ]
     },
     {
@@ -162,8 +162,8 @@
       "descriptionKey": "about.section3.categories.tools.description",
       "items": [
         { "name": "Git", "iconName": "GitIcon", "color": "text-orange-600" },
-        { "name": "NVM", "iconName": "NvmIcon", "color": null },
-        { "name": "Postman", "iconName": "PostmanIcon", "color": null }
+        { "name": "NVM", "iconName": "NvmIcon", "color": "text-green-500" },
+        { "name": "Postman", "iconName": "PostmanIcon", "color": "text-orange-500" }
       ]
     }
   ],

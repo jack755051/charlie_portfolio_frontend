@@ -34,9 +34,10 @@
           />
           <div
             v-else
-            class="w-full h-full bg-muted-foreground/20 rounded flex items-center justify-center text-[10px] font-bold text-muted-foreground"
+            class="w-full h-full rounded flex items-center justify-center text-[9px] font-bold leading-none"
+            :class="item.color || 'text-muted-foreground'"
           >
-            ?
+            {{ item.name }}
           </div>
         </div>
 

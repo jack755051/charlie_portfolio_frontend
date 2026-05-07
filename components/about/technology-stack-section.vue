@@ -33,20 +33,9 @@
           >
             {{ $t('about.section3.evolution.title') }}
           </h3>
-          <div class="text-background/70 text-sm leading-relaxed space-y-2">
-            <p>{{ $t('about.section3.evolution.contentLead') }}</p>
-            <p>
-              {{ $t('about.section3.evolution.currentlyStudyingPrefix') }}
-              <span class="font-semibold text-background">{{
-                $t('about.section3.evolution.focusTopic1')
-              }}</span>
-              {{ $t('about.section3.evolution.connector') }}
-              <span class="font-semibold text-background">{{
-                $t('about.section3.evolution.focusTopic2')
-              }}</span
-              >{{ $t('about.section3.evolution.suffix') }}
-            </p>
-          </div>
+          <p class="text-background/70 text-sm leading-relaxed">
+            {{ $t('about.section3.evolution.content') }}
+          </p>
         </div>
 
         <button

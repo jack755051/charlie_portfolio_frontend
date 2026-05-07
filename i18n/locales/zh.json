@@ -100,8 +100,8 @@
       ]
     },
     "section3": {
-      "titleMain": "核心",
-      "titleHighlight": "技術",
+      "titleMain": "具備",
+      "titleHighlight": "能力",
       "subtitle": "現代化開發工具箱",
       "categories": {
         "frontend": {
@@ -130,14 +130,8 @@
         }
       },
       "evolution": {
-        "title": "持續進化中 🚀",
-        "contentLead": "技術是解決問題的工具，而學習是工程師的本能。",
-        "currentlyStudyingPrefix": "目前正在深入研究 ",
-        "focusTopic1": "WebGL",
-        "connector": " 與 ",
-        "focusTopic2": "系統架構設計",
-        "suffix": "。",
-        "downloadResume": "下載完整履歷"
+        "title": "想了解更多？",
+        "content": "完整的經歷、專案細節與技術深度，都在我的履歷裡。"
       }
     },
     "section4": {
