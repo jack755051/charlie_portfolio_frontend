@@ -1,19 +1,28 @@
 ---
-title: Power of Three
+title: "Power of Three"
 difficulty: easy
-tags: [math]
+tags: []
+lang: typescript
+runtime: "5 ms"
+memory: "65.6 MB"
+beats_runtime: 81.01
+beats_memory: 56.98
+problem: |
+  Given an integer n, return true if it is a power of three. Otherwise, return false.
+  An integer n is a power of three if there exists an integer x such that n == 3^x.
+  
+  Example: Input: n = 27 → Output: true
+  Example: Input: n = 0 → Output: false
+solution: |
+  ```typescript
+  function isPowerOfThree(n: number): boolean {
+      if (n <= 0) return false;
+  
+      while (n % 3 === 0) {
+          n /= 3; 
+      }
+  
+      return n===1
+  };
+  ```
 ---
-
-## 思路
-
-判斷一個數是否為 3 的次方。最直覺的方式是不斷除以 3，看最後是否等於 1。但也可以利用數學性質：在 32-bit 整數範圍內，3 的最大次方是 `3^19 = 1162261467`，如果 `n > 0` 且 `1162261467 % n === 0`，那 `n` 就是 3 的次方。
-
-## 解法
-
-```typescript
-function isPowerOfThree(n: number): boolean {
-  return n > 0 && 1162261467 % n === 0;
-}
-```
-
-用數學常數避免迴圈，時間複雜度 O(1)。

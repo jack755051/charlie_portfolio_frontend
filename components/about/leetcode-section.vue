@@ -67,12 +67,7 @@
                   @click="toggleExpand(item.titleSlug)"
                 >
                   <div class="flex items-center gap-4 mb-2 md:mb-0">
-                    <div
-                      class="w-2.5 h-2.5 rounded-full shadow-sm"
-                      :class="
-                        item.isSuccess ? 'bg-green-500 shadow-green-200' : 'bg-red-400 shadow-red-200'
-                      "
-                    />
+                    <div class="w-2.5 h-2.5 rounded-full shadow-sm bg-green-500 shadow-green-200" />
                     <div class="flex flex-col">
                       <span
                         class="text-foreground font-bold transition-colors line-clamp-1"
@@ -83,15 +78,6 @@
                     </div>
                   </div>
                   <div class="flex items-center justify-between md:justify-end gap-6 pl-6 md:pl-0">
-                    <span
-                      class="text-xs font-bold px-2.5 py-1 rounded-lg border"
-                      :class="
-                        item.isSuccess
-                          ? 'bg-green-500/10 text-green-600 border-green-500/20'
-                          : 'bg-red-500/10 text-red-600 border-red-500/20'
-                      "
-                      >{{ item.status }}</span
-                    >
                     <span class="text-xs text-muted-foreground font-mono min-w-[40px] text-right">{{
                       item.time
                     }}</span>
@@ -116,10 +102,40 @@
                 >
                   <div class="overflow-hidden">
                     <div class="p-4 rounded-2xl bg-muted/40 border border-border/50 text-sm leading-relaxed">
-                      <ContentRenderer
-                        v-if="getSolution(item.titleSlug)"
-                        :value="getSolution(item.titleSlug)"
-                      />
+                      <template v-if="getSolution(item.titleSlug)">
+                        <div class="flex items-center justify-between mb-3">
+                          <span class="text-xs font-bold text-muted-foreground uppercase tracking-wider">
+                            {{ getSolution(item.titleSlug)?.title }}
+                          </span>
+                          <CSegmented
+                            :model-value="getNoteTab(item.titleSlug)"
+                            :options="noteTabOptions"
+                            @update:model-value="setNoteTab(item.titleSlug, $event)"
+                          />
+                        </div>
+                        <div v-if="getNoteTab(item.titleSlug) === 'problem'" class="text-muted-foreground whitespace-pre-wrap">
+                          {{ getSolution(item.titleSlug)?.meta?.problem || $t('about.section4.noSolutionNote') }}
+                        </div>
+                        <div v-else>
+                          <div class="prose prose-sm dark:prose-invert max-w-none">
+                            <div v-html="renderMarkdown(getSolution(item.titleSlug)?.meta?.solution)" />
+                          </div>
+                          <div
+                            v-if="getSolution(item.titleSlug)?.meta?.runtime"
+                            class="flex items-center gap-4 mt-3 pt-3 border-t border-border/50 text-xs text-muted-foreground"
+                          >
+                            <span class="flex items-center gap-1">
+                              <span class="font-bold text-foreground">{{ getSolution(item.titleSlug)?.meta?.runtime }}</span>
+                              <span>Beats {{ getSolution(item.titleSlug)?.meta?.beats_runtime }}%</span>
+                            </span>
+                            <span class="text-border">|</span>
+                            <span class="flex items-center gap-1">
+                              <span class="font-bold text-foreground">{{ getSolution(item.titleSlug)?.meta?.memory }}</span>
+                              <span>Beats {{ getSolution(item.titleSlug)?.meta?.beats_memory }}%</span>
+                            </span>
+                          </div>
+                        </div>
+                      </template>
                       <p v-else class="text-muted-foreground italic">
                         {{ $t('about.section4.noSolutionNote') }}
                       </p>
@@ -220,23 +236,44 @@ const platformTabs = [
 const activePlatform = ref('leetcode')
 
 // Activity filter
-const activityFilter = ref('all')
+const activityFilter = ref('recent5')
 const activityFilterOptions = computed(() => [
-  { label: t('about.section4.filterAll'), value: 'all' },
-  { label: t('about.section4.filterAccepted'), value: 'accepted' },
+  { label: t('about.section4.filterRecent5'), value: 'recent5' },
+  { label: t('about.section4.filterLastMonth'), value: 'lastMonth' },
 ])
 const filteredRecent = computed(() => {
   const list = stats.value?.recent || []
-  if (activityFilter.value === 'accepted') {
-    return list.filter((item: { isSuccess: boolean }) => item.isSuccess)
+  if (activityFilter.value === 'lastMonth') {
+    const oneMonthAgo = Date.now() / 1000 - 30 * 24 * 60 * 60
+    return list.filter((item: any) => (item.timestamp || 0) >= oneMonthAgo)
   }
-  return list
+  return list.slice(0, 5)
 })
 
 // Expand solution note
 const expandedSlug = ref<string | null>(null)
 const toggleExpand = (slug: string) => {
   expandedSlug.value = expandedSlug.value === slug ? null : slug
+}
+
+// Per-card note tab (problem / solution)
+const noteTabMap = ref<Record<string, string>>({})
+const noteTabOptions = computed(() => [
+  { label: t('about.section4.tabProblem'), value: 'problem' },
+  { label: t('about.section4.tabSolution'), value: 'solution' },
+])
+const getNoteTab = (slug: string) => noteTabMap.value[slug] || 'problem'
+const setNoteTab = (slug: string, value: string) => {
+  noteTabMap.value[slug] = value
+}
+
+// Simple markdown code block renderer (for frontmatter string fields)
+const renderMarkdown = (md: string | undefined) => {
+  if (!md) return '<em class="text-muted-foreground">—</em>'
+  return md
+    .replace(/```(\w*)\n([\s\S]*?)```/g, '<pre class="bg-muted rounded-lg p-3 overflow-x-auto"><code class="text-xs font-mono">$2</code></pre>')
+    .replace(/`([^`]+)`/g, '<code class="bg-muted px-1 rounded text-xs font-mono">$1</code>')
+    .replace(/\n/g, '<br>')
 }
 
 // Chart mode

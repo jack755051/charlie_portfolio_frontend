@@ -1,22 +1,25 @@
 ---
-title: Missing Number
+title: "Missing Number"
 difficulty: easy
-tags: [array, math, bit-manipulation]
+tags: []
+lang: typescript
+runtime: "0 ms"
+memory: "57.5 MB"
+beats_runtime: 100.00
+beats_memory: 84.79
+problem: |
+  Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+  
+  Example: Input: nums = [3,0,1] → Output: 2
+  Example: Input: nums = [9,6,4,2,3,5,7,0,1] → Output: 8
+solution: |
+  ```typescript
+  function missingNumber(nums: number[]): number {
+      const a = nums.length;
+      const total = (a + 1) * a / 2;
+      const sum = nums.reduce((b, c) => b + c)
+  
+      return total - sum
+  };
+  ```
 ---
-
-## 思路
-
-給定 `[0, n]` 範圍的陣列但缺少一個數。用高斯公式算出期望總和，減去實際總和就是缺少的數。也可以用 XOR，但加法更直觀。
-
-## 解法
-
-```typescript
-function missingNumber(nums: number[]): number {
-  const n = nums.length;
-  const expectedSum = (n * (n + 1)) / 2;
-  const actualSum = nums.reduce((a, b) => a + b, 0);
-  return expectedSum - actualSum;
-}
-```
-
-時間 O(n)，空間 O(1)。
