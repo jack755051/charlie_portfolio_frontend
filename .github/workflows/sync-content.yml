@@ -1,0 +1,49 @@
+name: Sync External Content
+
+on:
+  schedule:
+    # Every day at 08:00 UTC (16:00 Taiwan time)
+    - cron: '0 8 * * *'
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: dev
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci --legacy-peer-deps
+
+      - name: Sync LeetCode profile
+        env:
+          LEETCODE_USERNAME: ${{ secrets.LEETCODE_USERNAME }}
+          LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
+        run: npm run sync:leetcode
+
+      - name: Sync HackMD notes
+        env:
+          HACKMD_API_TOKEN: ${{ secrets.HACKMD_API_TOKEN }}
+          HACKMD_SYNC_TAG: portfolio
+        run: npm run sync:hackmd
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore(sync): auto-sync leetcode and hackmd content [skip ci]"
+            git push
+          fi
