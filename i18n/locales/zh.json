@@ -146,7 +146,10 @@
       "categoryBreakdown": "類型分佈",
       "recentActivity": "近期活動",
       "latestSubmissions": "最近 5 筆提交",
-      "noSubmissions": "查無近期提交紀錄"
+      "noSubmissions": "查無近期提交紀錄",
+      "filterAll": "全部",
+      "filterAccepted": "Accepted",
+      "noSolutionNote": "尚無解題筆記"
     }
   },
   "portfolio": {

@@ -17,9 +17,11 @@
     "format:check": "prettier --check \"**/*.{js,ts,vue,json,css,scss,md}\""
   },
   "dependencies": {
+    "@nuxt/content": "^3.13.0",
     "@nuxtjs/i18n": "^10.2.1",
     "@vueuse/motion": "^3.0.3",
     "ant-design-vue": "^4.2.6",
+    "better-sqlite3": "^12.9.0",
     "echarts": "^6.0.0",
     "nuxt": "^3.17.6",
     "vue": "^3.5.17",
