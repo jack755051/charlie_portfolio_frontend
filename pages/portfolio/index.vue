@@ -1,5 +1,6 @@
 <template>
   <div
+    v-motion="motion.page"
     class="scrollable-content-wrapper h-screen overflow-hidden relative bg-background text-foreground transition-colors duration-500"
   >
     <BackgroundDecor variant="subpage" />
@@ -16,7 +17,7 @@
         <ScrollSection id="section1" :class="['flex-col !justify-start']">
           <template #title>
             <div class="flex w-full items-center justify-center mb-12 md:mb-16 relative z-10">
-              <div class="text-center space-y-5">
+              <div v-motion="motion.heading" class="text-center space-y-5">
                 <h2
                   class="font-display text-4xl md:text-5xl font-bold text-foreground tracking-tight transition-transform duration-500 hover:scale-105"
                 >
@@ -62,7 +63,7 @@
         <ScrollSection id="section2" :class="['flex-col !justify-start']">
           <template #title>
             <div class="flex w-full items-center justify-center mb-12 md:mb-16 relative z-10">
-              <div class="text-center space-y-5">
+              <div v-motion="motion.heading" class="text-center space-y-5">
                 <p
                   class="inline-flex items-center rounded-full border border-border/70 bg-background/70 px-4 py-2 text-sm font-medium text-muted-foreground backdrop-blur"
                 >
@@ -113,6 +114,7 @@ import CPortfolioCard from '~/components/base/portfolio-card.vue'
 import ScrollSection from '~/layouts/scrollSection.vue'
 
 const anchorData = useAnchor()
+const motion = useMotionPresets()
 const router = useRouter()
 const { t } = useI18n() // 2. 獲取 t 函式
 const { companyProjects: companySource, personalProjects: personalSource } = usePortfolioProjects()

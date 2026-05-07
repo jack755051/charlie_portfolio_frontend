@@ -1,5 +1,6 @@
 <template>
   <div
+    v-motion="motion.page"
     class="min-h-screen bg-background text-foreground relative pb-32 transition-colors duration-500"
   >
     <BackgroundDecor variant="subpage" density="subtle" />
@@ -12,6 +13,7 @@
         class="max-w-7xl mx-auto flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
       >
         <button
+          v-motion="motion.action"
           class="pointer-events-auto inline-flex w-fit max-w-full items-center gap-2 px-4 py-2 rounded-full bg-card/90 backdrop-blur border border-border text-foreground hover:border-primary/40 hover:text-primary hover:shadow-md transition-all active:scale-95 group shadow-sm"
           @click="goBack"
         >
@@ -34,6 +36,7 @@
 
         <a
           v-if="projectLink"
+          v-motion="motion.action"
           :href="projectLink"
           target="_blank"
           class="pointer-events-auto inline-flex w-fit max-w-full items-center justify-center gap-2 px-5 py-2 bg-foreground text-background text-sm font-bold rounded-full hover:bg-primary hover:text-primary-foreground transition-colors shadow-lg"
@@ -58,7 +61,7 @@
     </div>
 
     <div v-if="projectMeta" class="relative z-10 max-w-7xl mx-auto px-6 pt-6">
-      <div class="text-center max-w-4xl mx-auto mb-12">
+      <div v-motion="motion.heading" class="text-center max-w-4xl mx-auto mb-12">
         <div
           v-if="displayRole || displayDuration"
           class="flex items-center justify-center gap-3 mb-4"
@@ -89,7 +92,7 @@
         </p>
       </div>
 
-      <div v-if="detailScreenshots.length" class="mb-16 relative group">
+      <div v-if="detailScreenshots.length" v-motion="motion.section" class="mb-16 relative group">
         <div
           class="absolute -inset-1 bg-gradient-to-r from-primary to-sky-500 rounded-[2rem] opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-500"
         />
@@ -101,7 +104,7 @@
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-        <div class="lg:col-span-8 space-y-10">
+        <div v-motion="motion.section" class="lg:col-span-8 space-y-10">
           <div class="prose max-w-none">
             <h3 class="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
               {{ $t('portfolio.detail.about') }}
@@ -167,7 +170,7 @@
           </div>
         </div>
 
-        <div class="lg:col-span-4 relative">
+        <div v-motion="motion.section" class="lg:col-span-4 relative">
           <div class="sticky top-24 space-y-6">
             <div class="bg-card rounded-3xl p-6 border border-border shadow-xl shadow-foreground/5">
               <h3 class="text-lg font-bold text-foreground mb-4">
@@ -258,6 +261,7 @@ definePageMeta({ layout: 'portfolio-detail' })
 const router = useRouter()
 const route = useRoute()
 const { tm, locale } = useI18n()
+const motion = useMotionPresets()
 const { findProjectById } = usePortfolioProjects()
 const { findDetailById } = useGithubProjectDetails()
 

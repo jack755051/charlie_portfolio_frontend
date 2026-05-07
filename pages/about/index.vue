@@ -1,5 +1,6 @@
 <template>
   <div
+    v-motion="motion.page"
     class="scrollable-content-wrapper h-screen overflow-hidden relative bg-background text-foreground transition-colors duration-500"
   >
     <BackgroundDecor variant="subpage" />
@@ -32,4 +33,5 @@ import TechnologyStackSection from '~/components/about/technology-stack-section.
 import AboutLeetcodeSection from '~/components/about/leetcode-section.vue'
 
 const anchorData = useAnchor()
+const motion = useMotionPresets()
 </script>

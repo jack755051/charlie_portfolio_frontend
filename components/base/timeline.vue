@@ -8,6 +8,7 @@
     <div
       v-for="(item, index) in timelineData"
       :key="index"
+      v-motion="motion.section"
       class="relative mb-12 md:mb-16 last:mb-0 group"
     >
       <div
@@ -32,7 +33,7 @@
           </div>
 
           <div
-            class="relative bg-card p-5 rounded-xl border border-border shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group-card"
+            class="relative bg-card p-5 rounded-xl border border-border shadow-sm hover:shadow-lg transition-all duration-300 group-card"
           >
             <h4 class="text-base font-bold text-foreground mb-2 flex items-center gap-2">
               <span
@@ -79,6 +80,8 @@
 defineProps<{
   timelineData: any[]
 }>()
+
+const motion = useMotionPresets()
 </script>
 
 <style scoped>

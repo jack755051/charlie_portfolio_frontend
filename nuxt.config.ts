@@ -21,7 +21,7 @@ export default defineNuxtConfig({
     },
     baseURL: '/charlie_portfolio_frontend/',
   },
-  modules: ['@nuxtjs/tailwindcss', '@ant-design-vue/nuxt', '@nuxtjs/i18n'],
+  modules: ['@nuxtjs/tailwindcss', '@ant-design-vue/nuxt', '@nuxtjs/i18n', '@vueuse/motion/nuxt'],
   i18n: {
     locales: [
       { code: 'en', file: 'en.json' },

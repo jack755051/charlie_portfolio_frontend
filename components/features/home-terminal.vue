@@ -10,10 +10,11 @@
           >
             <!-- 左：文字區 -->
             <div
+              v-motion="motion.heading"
               class="flex flex-col items-center md:items-start text-center md:text-left space-y-5 sm:space-y-6 z-10 order-2 md:order-1"
             >
               <span
-                class="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-card/60 backdrop-blur px-3 py-1 text-[11px] sm:text-xs font-semibold tracking-[0.2em] text-primary uppercase animate-fade-in-up shadow-sm"
+                class="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-card/60 backdrop-blur px-3 py-1 text-[11px] sm:text-xs font-semibold tracking-[0.2em] text-primary uppercase shadow-sm"
               >
                 <span class="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
                 {{ $t('home.greeting') }}
@@ -69,6 +70,7 @@
 
             <!-- 右：Terminal 卡片（手機也顯示） -->
             <div
+              v-motion="motion.section"
               class="flex justify-center items-center relative perspective-1000 order-1 md:order-2 w-full"
             >
               <div
@@ -193,6 +195,7 @@ import CButton from '~/components/base/button.vue'
 import ScrollSection from '~/layouts/scrollSection.vue'
 
 const { locale, tm, rt } = useI18n()
+const motion = useMotionPresets()
 
 /** 點擊 了解更多 後導航到關於頁面 */
 const handlerClickButton = () => {
@@ -298,24 +301,8 @@ watch(locale, () => {
   transform: rotateY(0deg) rotateX(0deg);
 }
 
-/* 淡入動畫 */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.animate-fade-in-up {
-  animation: fadeInUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
 /* 尊重使用者減少動畫偏好 */
 @media (prefers-reduced-motion: reduce) {
-  .animate-fade-in-up,
   :deep(.animate-float-slow),
   :deep(.animate-blink) {
     animation: none !important;

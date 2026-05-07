@@ -1,9 +1,10 @@
 <template>
   <a
+    v-motion="motion.card"
     :href="url"
     target="_blank"
     rel="noopener noreferrer"
-    class="group relative bg-card rounded-2xl border border-border overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col h-full"
+    class="group relative bg-card rounded-2xl border border-border overflow-hidden transition-all duration-300 hover:shadow-xl flex flex-col h-full"
   >
     <div
       class="h-1.5 w-full"
@@ -77,4 +78,5 @@ interface Props {
   featured: boolean
 }
 defineProps<Props>()
+const motion = useMotionPresets()
 </script>

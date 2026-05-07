@@ -1,11 +1,13 @@
 <template>
   <header
+    v-motion="motion.page"
     class="navbar-wrapper sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/40"
   >
     <div
       class="flex justify-between items-center h-14 md:h-16 max-w-7xl mx-auto px-5 md:px-8 lg:px-10"
     >
       <div
+        v-motion="motion.action"
         class="navbar-image flex items-center h-10 md:h-11 cursor-pointer shrink-0"
         @click="goBackHomepage()"
       >
@@ -17,6 +19,7 @@
         <NuxtLink
           v-for="i in navigationMenus"
           :key="i.router"
+          v-motion="motion.action"
           :to="i.router"
           class="nav-item transition-all duration-300 font-[400] text-muted-foreground relative after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:bg-primary after:w-0 after:transition-all after:duration-300"
           :class="{
@@ -30,6 +33,7 @@
 
       <!-- Hamburger (mobile only) -->
       <button
+        v-motion="motion.action"
         type="button"
         class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-full text-foreground/80 hover:bg-foreground/10 transition-colors"
         :aria-expanded="menuOpen"
@@ -55,6 +59,7 @@
                 <Logo class="h-full w-auto max-w-none" />
               </div>
               <button
+                v-motion="motion.action"
                 type="button"
                 class="inline-flex items-center justify-center h-10 w-10 rounded-full text-foreground/80 hover:bg-foreground/10 transition-colors"
                 aria-label="Close menu"
@@ -68,6 +73,7 @@
               <NuxtLink
                 v-for="i in navigationMenus"
                 :key="i.router"
+                v-motion="motion.action"
                 :to="i.router"
                 class="text-3xl font-bold tracking-tight transition-colors"
                 :class="
@@ -98,6 +104,7 @@ import Logo from '~/assets/logo/charlie-logo-transparent.svg'
 const { navigationMenus } = useSiteReference()
 const router = useRouter()
 const route = useRoute()
+const motion = useMotionPresets()
 
 const menuOpen = ref(false)
 const currentYear = computed(() => new Date().getFullYear())

@@ -1,5 +1,6 @@
 <template>
   <button
+    v-motion="motion.action"
     :type="type"
     :disabled="disabled"
     :class="[baseClass, variantClass, sizeClass, shadow && isHover ? 'shadow-xl' : '', customClass]"
@@ -43,6 +44,7 @@ defineEmits<{
 }>()
 
 const isHover = ref(false)
+const motion = useMotionPresets()
 
 const baseClass =
   'relative inline-flex items-center justify-center rounded-full font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0'
@@ -50,12 +52,12 @@ const baseClass =
 const variantClass = computed<string>(() => {
   switch (props.variant) {
     case 'secondary':
-      return 'border border-border text-foreground hover:bg-card hover:text-primary hover:-translate-y-0.5'
+      return 'border border-border text-foreground hover:bg-card hover:text-primary'
     case 'ghost':
       return 'text-foreground hover:bg-muted'
     case 'primary':
     default:
-      return 'bg-gradient-to-r from-primary to-rose-500 hover:opacity-90 text-primary-foreground shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/50 hover:-translate-y-0.5'
+      return 'bg-gradient-to-r from-primary to-rose-500 hover:opacity-90 text-primary-foreground shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/50'
   }
 })
 

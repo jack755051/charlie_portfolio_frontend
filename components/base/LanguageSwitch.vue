@@ -5,6 +5,7 @@
     <button
       v-for="item in availableLocales"
       :key="item.code"
+      v-motion="motion.action"
       class="relative px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-300 ease-out flex items-center gap-2"
       :class="
         currentLocale === item.code
@@ -20,6 +21,7 @@
 
 <script setup lang="ts">
 const { locale, setLocale } = useI18n()
+const motion = useMotionPresets()
 type LocaleCode = 'en' | 'zh'
 
 // 當前語言（響應式）

@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@nuxtjs/i18n": "^10.2.1",
+    "@vueuse/motion": "^3.0.3",
     "ant-design-vue": "^4.2.6",
     "echarts": "^6.0.0",
     "nuxt": "^3.17.6",

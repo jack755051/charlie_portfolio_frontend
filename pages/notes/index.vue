@@ -1,12 +1,13 @@
 <template>
   <div
+    v-motion="motion.page"
     class="scrollable-content-wrapper min-h-screen overflow-hidden relative bg-background text-foreground transition-colors duration-500 pb-24"
   >
     <BackgroundDecor variant="subpage" />
 
     <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pt-14 md:pt-20">
       <!-- Hero -->
-      <header class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+      <header v-motion="motion.heading" class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
         <h1
           class="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight"
         >
@@ -25,6 +26,7 @@
         </p>
 
         <a
+          v-motion="motion.action"
           :href="hackmdProfileUrl"
           target="_blank"
           rel="noopener noreferrer"
@@ -55,7 +57,7 @@
       </div>
 
       <!-- Featured -->
-      <section v-if="featuredNotes.length" class="mb-12 md:mb-16">
+      <section v-if="featuredNotes.length" v-motion="motion.section" class="mb-12 md:mb-16">
         <h2 class="font-display text-2xl font-bold text-foreground mb-6">
           ★ {{ $t('notes.featured') }}
         </h2>
@@ -65,7 +67,7 @@
       </section>
 
       <!-- Recent / All -->
-      <section v-if="recentNotes.length">
+      <section v-if="recentNotes.length" v-motion="motion.section">
         <h2 class="font-display text-2xl font-bold text-foreground mb-6">
           {{ $t('notes.titleMain') }}{{ $t('notes.titleHighlight') }}
         </h2>
@@ -83,4 +85,5 @@ import NoteCard from '~/components/notes/note-card.vue'
 import { useNotes } from '~/composables/useNotes'
 
 const { visibleNotes, featuredNotes, recentNotes, hackmdProfileUrl } = useNotes()
+const motion = useMotionPresets()
 </script>

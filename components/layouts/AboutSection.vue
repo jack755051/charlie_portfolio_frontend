@@ -2,7 +2,7 @@
   <ScrollSection :id="id" class="relative overflow-hidden py-20 md:py-24">
     <template #title>
       <div class="flex w-full items-center justify-center mb-12 md:mb-16 relative z-10">
-        <div class="relative pb-2 text-center group cursor-default">
+        <div v-motion="motion.heading" class="relative pb-2 text-center group cursor-default">
           <h2
             class="font-display text-4xl md:text-5xl font-bold text-foreground tracking-tight transition-transform duration-500 hover:scale-105"
           >
@@ -41,4 +41,6 @@ defineProps<{
   titleHighlight: string // 標題漸層部分 (e.g. "Me.")
   subtitle: string // 下方灰色副標題
 }>()
+
+const motion = useMotionPresets()
 </script>

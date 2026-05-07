@@ -1,13 +1,19 @@
 <template>
   <nav
+    ref="anchorNav"
     class="custom-anchor-nav hidden md:flex flex-col gap-1 md:bg-transparent md:shadow-none md:border-0 md:p-0 xl:p-4 xl:bg-white/80 xl:dark:bg-slate-900/70 xl:backdrop-blur xl:border xl:border-slate-200/80 xl:dark:border-white/10 xl:shadow-lg xl:rounded-2xl"
-    :class="{ 'is-idle': isIdle, 'is-scrolling': isScrolling }"
+    :class="{ 'is-compact': isCompact, 'is-scrolling': isScrolling }"
     aria-label="Section anchors"
+    @mouseenter="isPointerActive = true"
+    @mouseleave="isPointerActive = false"
+    @focusin="isPointerActive = true"
+    @focusout="isPointerActive = false"
   >
     <ul class="anchor-list">
       <li
         v-for="item in anchorData"
         :key="item.key"
+        v-motion="motion.railItem"
         class="anchor-item group"
         :class="{ active: activeAnchor === item.key }"
         :data-tooltip="item.title"
@@ -21,7 +27,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { computed, ref, onMounted, onUnmounted, watch } from 'vue'
+import { useReducedMotion, useSpring } from '@vueuse/motion'
 import type { IAnchor } from '~/types/anchor.interface'
 
 interface Props {
@@ -33,10 +40,40 @@ const props = defineProps<Props>()
 const activeAnchor = ref<string>('')
 const isIdle = ref(false)
 const isScrolling = ref(false)
+const isPointerActive = ref(false)
+const anchorNav = ref<HTMLElement | null>(null)
 let idleTimer: ReturnType<typeof setTimeout> | null = null
 let scrollTarget: HTMLElement | Window | null = null
 
 const IDLE_DELAY_MS = 1200
+const motion = useMotionPresets()
+const reducedMotion = useReducedMotion()
+const isCompact = computed(() => isIdle.value && !isScrolling.value && !isPointerActive.value)
+const anchorSpring = useSpring(
+  {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+  },
+  {
+    target: anchorNav,
+    stiffness: 320,
+    damping: 32,
+    mass: 0.7,
+  }
+)
+
+const syncAnchorMotion = () => {
+  if (reducedMotion.value) {
+    anchorSpring.set({ opacity: 1, x: 0, scale: 1 })
+    return
+  }
+  anchorSpring.set({
+    opacity: isCompact.value ? 0.52 : 1,
+    x: isCompact.value ? 6 : 0,
+    scale: isCompact.value ? 0.985 : 1,
+  })
+}
 
 const getScrollTarget = () => {
   return document.querySelector<HTMLElement>('.snap-y') || window
@@ -98,10 +135,13 @@ onMounted(() => {
   scrollTarget = getScrollTarget()
   scrollTarget.addEventListener('scroll', throttledHandleScroll, { passive: true })
   handleScroll()
+  syncAnchorMotion()
   idleTimer = setTimeout(() => {
     isIdle.value = true
   }, IDLE_DELAY_MS)
 })
+
+watch([isCompact, reducedMotion], syncAnchorMotion)
 
 onUnmounted(() => {
   if (scrollTarget) {
@@ -121,23 +161,9 @@ onUnmounted(() => {
   transform-origin: center right;
   will-change: opacity, transform;
   transition:
-    opacity 220ms cubic-bezier(0.16, 1, 0.3, 1),
-    transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
     background-color 220ms ease,
     border-color 220ms ease,
     box-shadow 220ms ease;
-}
-.custom-anchor-nav.is-idle {
-  opacity: 0.5;
-  transform: translateX(6px) scale(0.98);
-  transition-duration: 420ms;
-}
-.custom-anchor-nav.is-idle:hover,
-.custom-anchor-nav.is-idle:focus-within,
-.custom-anchor-nav.is-scrolling {
-  opacity: 1;
-  transform: translateX(0) scale(1);
-  transition-duration: 180ms;
 }
 
 .anchor-list {
@@ -152,7 +178,7 @@ onUnmounted(() => {
     align-items 240ms ease;
 }
 
-.custom-anchor-nav.is-idle:not(:hover):not(:focus-within) .anchor-list {
+.custom-anchor-nav.is-compact .anchor-list {
   align-items: center;
   gap: 18px;
 }
@@ -193,11 +219,11 @@ onUnmounted(() => {
   flex-shrink: 0;
 }
 
-.custom-anchor-nav.is-idle .anchor-dot {
+.custom-anchor-nav.is-compact .anchor-dot {
   background: rgb(var(--muted-foreground) / 0.5);
 }
 
-.custom-anchor-nav.is-idle .anchor-item.active .anchor-dot {
+.custom-anchor-nav.is-compact .anchor-item.active .anchor-dot {
   background: rgb(var(--primary) / 0.82);
   box-shadow: 0 0 8px rgb(var(--primary) / 0.35);
 }
@@ -268,7 +294,7 @@ onUnmounted(() => {
     color: rgb(var(--primary));
     font-weight: 600;
   }
-  .custom-anchor-nav.is-idle:not(:hover):not(:focus-within) .anchor-title {
+  .custom-anchor-nav.is-compact .anchor-title {
     max-width: 0;
     opacity: 0;
     transition:
@@ -276,7 +302,7 @@ onUnmounted(() => {
       max-width 320ms cubic-bezier(0.4, 0, 0.2, 1),
       opacity 180ms ease;
   }
-  .custom-anchor-nav.is-idle:not(:hover):not(:focus-within) .anchor-item {
+  .custom-anchor-nav.is-compact .anchor-item {
     width: 28px;
     max-width: 28px;
     height: 28px;
@@ -285,12 +311,10 @@ onUnmounted(() => {
     padding: 0;
     transition-duration: 340ms;
   }
-  .custom-anchor-nav.is-idle:hover .anchor-item,
-  .custom-anchor-nav.is-idle:focus-within .anchor-item {
+  .custom-anchor-nav:not(.is-compact) .anchor-item {
     transition-duration: 190ms;
   }
-  .custom-anchor-nav.is-idle:hover .anchor-title,
-  .custom-anchor-nav.is-idle:focus-within .anchor-title {
+  .custom-anchor-nav:not(.is-compact) .anchor-title {
     transition:
       color 0.2s ease,
       max-width 190ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -305,11 +329,11 @@ onUnmounted(() => {
   .anchor-item {
     transition: none !important;
   }
-  .custom-anchor-nav.is-idle {
+  .custom-anchor-nav.is-compact {
     opacity: 1;
     transform: none;
   }
-  .custom-anchor-nav.is-idle .anchor-title {
+  .custom-anchor-nav.is-compact .anchor-title {
     max-width: none;
     opacity: 1;
   }

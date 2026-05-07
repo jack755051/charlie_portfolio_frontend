@@ -1,10 +1,9 @@
 <template>
   <div
+    v-motion="isWip ? motion.subtleCard : motion.card"
     class="group relative bg-card rounded-2xl border border-border overflow-hidden transition-all duration-300 flex flex-col h-full"
     :class="[
-      isWip
-        ? 'cursor-not-allowed opacity-60'
-        : 'hover:shadow-xl hover:-translate-y-1 cursor-pointer',
+      isWip ? 'cursor-not-allowed opacity-60' : 'hover:shadow-xl cursor-pointer',
       { 'opacity-70 hover:opacity-100': status === 'archived' },
     ]"
     @click="handleClick"
@@ -122,6 +121,7 @@ const displayTechnologies = computed(() => props.technologies.slice(0, props.max
 const remainingTechCount = computed(() =>
   Math.max(0, props.technologies.length - props.maxTechDisplay)
 )
+const motion = useMotionPresets()
 const handleClick = () => {
   if (isWip.value) return
   emit('click', props.id)

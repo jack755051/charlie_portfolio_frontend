@@ -40,6 +40,7 @@
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div
+              v-motion="motion.subtleCard"
               class="p-4 bg-card/60 backdrop-blur-sm border border-border rounded-2xl hover:bg-card hover:shadow-lg hover:shadow-primary/10 hover:border-primary/40 transition-all duration-300 group cursor-default"
             >
               <div class="flex items-center justify-between mb-2">
@@ -62,6 +63,7 @@
 
       <div class="w-full md:w-1/3 flex flex-col gap-6 sticky top-24">
         <div
+          v-motion="motion.subtleCard"
           class="bg-card/80 backdrop-blur-md border border-border p-6 rounded-3xl shadow-xl shadow-foreground/5"
         >
           <h4 class="font-bold text-foreground mb-4 flex items-center gap-2">
@@ -85,14 +87,16 @@
 
         <div class="grid grid-cols-2 gap-4">
           <button
-            class="flex flex-col items-center justify-center gap-2 p-4 bg-foreground text-background rounded-2xl hover:opacity-90 hover:-translate-y-1 transition-all duration-300 shadow-lg group"
+            v-motion="motion.action"
+            class="flex flex-col items-center justify-center gap-2 p-4 bg-foreground text-background rounded-2xl hover:opacity-90 transition-all duration-300 shadow-lg group"
             @click="handlerOpenOtherWindow(ExternalLinks.GITHUB)"
           >
             <GithubIcon class="w-8 h-8 fill-current group-hover:scale-110 transition-transform" />
             <span class="text-sm font-bold">Github</span>
           </button>
           <button
-            class="flex flex-col items-center justify-center gap-2 p-4 bg-[#CB3837] text-white rounded-2xl hover:bg-[#a82e2d] hover:-translate-y-1 transition-all duration-300 shadow-lg shadow-red-500/30 group"
+            v-motion="motion.action"
+            class="flex flex-col items-center justify-center gap-2 p-4 bg-[#CB3837] text-white rounded-2xl hover:bg-[#a82e2d] transition-all duration-300 shadow-lg shadow-red-500/30 group"
             @click="handlerOpenOtherWindow(ExternalLinks.NPM)"
           >
             <NpmIcon class="w-12 h-8 fill-current group-hover:scale-110 transition-transform" />
@@ -101,6 +105,7 @@
         </div>
 
         <div
+          v-motion="motion.subtleCard"
           class="relative py-6 px-6 bg-accent/40 rounded-3xl border border-primary/20 text-center"
         >
           <div class="text-4xl text-primary/30 absolute top-2 left-4 font-serif">"</div>
@@ -122,4 +127,5 @@ import NpmIcon from 'assets/images/npm-icon.svg'
 import { openExternalLink } from '~/utils/navigation'
 
 const handlerOpenOtherWindow = openExternalLink
+const motion = useMotionPresets()
 </script>

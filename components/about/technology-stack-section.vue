@@ -17,6 +17,7 @@
       />
 
       <div
+        v-motion="motion.section"
         class="col-span-1 md:col-span-2 lg:col-span-2 bg-foreground rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between shadow-xl shadow-foreground/10 text-background relative overflow-hidden group border border-foreground/10"
       >
         <div
@@ -49,6 +50,7 @@
         </div>
 
         <button
+          v-motion="motion.action"
           type="button"
           class="z-10 px-6 py-3 bg-background text-foreground font-bold rounded-full hover:bg-accent hover:text-accent-foreground transition-all shadow-lg flex items-center gap-2 active:scale-95 group/btn"
           @click="resumeModalOpen = true"
@@ -85,4 +87,5 @@ import ResumePreviewModal from '~/components/about/resume-preview-modal.vue'
 
 const techStore = useTechStack()
 const resumeModalOpen = ref(false)
+const motion = useMotionPresets()
 </script>

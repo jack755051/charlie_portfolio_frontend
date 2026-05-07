@@ -1,6 +1,7 @@
 <template>
   <div
-    class="h-full bg-card rounded-2xl p-5 border border-border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden flex flex-col"
+    v-motion="motion.subtleCard"
+    class="h-full bg-card rounded-2xl p-5 border border-border shadow-sm hover:shadow-md transition-all duration-300 group relative overflow-hidden flex flex-col"
   >
     <div
       class="absolute -right-10 -top-10 w-24 h-24 bg-accent/40 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -60,4 +61,5 @@ interface Props {
 }
 
 defineProps<Props>()
+const motion = useMotionPresets()
 </script>

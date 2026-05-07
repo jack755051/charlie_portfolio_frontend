@@ -1,5 +1,6 @@
 <template>
   <div
+    v-motion="motion.page"
     class="scrollable-content-wrapper h-screen overflow-hidden relative bg-background text-foreground transition-colors duration-500"
   >
     <BackgroundDecor variant="home" />
@@ -20,4 +21,5 @@ import HomeTerminal from '~/components/features/home-terminal.vue'
 import { useAnchor } from '~/composables/useAnchor'
 
 const anchorData = useAnchor()
+const motion = useMotionPresets()
 </script>

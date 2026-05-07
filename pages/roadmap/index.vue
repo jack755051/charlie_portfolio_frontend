@@ -1,12 +1,13 @@
 <template>
   <div
+    v-motion="motion.page"
     class="scrollable-content-wrapper min-h-screen overflow-hidden relative bg-background text-foreground transition-colors duration-500 pb-24"
   >
     <BackgroundDecor variant="subpage" />
 
     <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pt-14 md:pt-20">
       <!-- Hero / Intro -->
-      <header class="text-center max-w-3xl mx-auto mb-16">
+      <header v-motion="motion.heading" class="text-center max-w-3xl mx-auto mb-16">
         <h1
           class="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight"
         >
@@ -27,7 +28,12 @@
 
       <!-- Three horizon sections -->
       <div class="space-y-16">
-        <section v-for="horizon in horizons" :key="horizon.key" class="relative">
+        <section
+          v-for="horizon in horizons"
+          :key="horizon.key"
+          v-motion="motion.section"
+          class="relative"
+        >
           <!-- Horizon header (sticky-like visual marker) -->
           <div class="flex items-start gap-4 mb-8">
             <div
@@ -74,6 +80,7 @@ import RoadmapItemCard from '~/components/roadmap/roadmap-item-card.vue'
 import { useRoadmap } from '~/composables/useRoadmap'
 
 const { itemsByHorizon } = useRoadmap()
+const motion = useMotionPresets()
 
 const horizons = [
   {

@@ -1,6 +1,7 @@
 <template>
   <div
-    class="group relative bg-card rounded-2xl border border-border p-5 sm:p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 flex flex-col h-full"
+    v-motion="motion.subtleCard"
+    class="group relative bg-card rounded-2xl border border-border p-5 sm:p-6 transition-all duration-300 hover:shadow-lg flex flex-col h-full"
   >
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span
@@ -49,6 +50,7 @@ interface Props {
   tags: string[]
 }
 const props = defineProps<Props>()
+const motion = useMotionPresets()
 
 const categoryBadgeClass = computed(() => {
   switch (props.category) {
