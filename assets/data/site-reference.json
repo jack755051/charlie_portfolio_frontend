@@ -28,7 +28,7 @@
       "routePath": "/roadmap",
       "label": "展望",
       "displayOrder": 3,
-      "isVisible": true
+      "isVisible": false
     },
     {
       "id": "notes",

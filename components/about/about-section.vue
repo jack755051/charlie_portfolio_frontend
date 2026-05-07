@@ -112,6 +112,9 @@
           <p class="text-sm text-muted-foreground italic font-medium relative z-10">
             {{ $t('about.section1.quote') }}
           </p>
+          <p class="text-xs text-muted-foreground/60 font-medium relative z-10 mt-2">
+            {{ $t('about.section1.quoteAuthor') }}
+          </p>
           <div class="text-4xl text-primary/30 absolute bottom-[-10px] right-4 font-serif">"</div>
         </div>
       </div>

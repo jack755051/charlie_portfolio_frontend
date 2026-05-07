@@ -63,7 +63,7 @@ const scheduleClose = () => {
 }
 
 const getScrollTarget = () => {
-  return document.querySelector<HTMLElement>('.snap-y') || window
+  return document.querySelector<HTMLElement>('.overflow-y-scroll') || window
 }
 
 const scrollToSection = (sectionKey: string, href: string) => {

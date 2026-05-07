@@ -29,12 +29,12 @@
         "content": "Development is not just a job, it is my way of exploring problem-solving approaches. From self-learning to becoming a professional engineer, I enjoy the process of transforming complex logic into smooth user experiences."
       },
       "techStack": {
-        "title": "Tech Transformation & Full-Stack Vision",
-        "content": "Previously focused on Angular, I successfully transitioned to the Vue ecosystem due to strategic adjustments, currently specializing in Vue 3 and Nuxt applications. Not satisfied with just frontend development, I further explored Node.js (NestJS) and Docker containerization, capable of independently building frontend-backend architecture and deployment environments."
+        "title": "Tech Background",
+        "content": "Started with React, then moved to Angular for work, and later transitioned to the Vue ecosystem. Currently working primarily with Vue 3 and Nuxt, with Next.js for side projects. Also picked up Node.js (NestJS) and Docker along the way, which helps me communicate more smoothly across frontend and backend."
       },
       "experience": {
-        "title": "Project Practice & Product Development",
-        "content": "Experienced in B2B and B2G development. Focused on building high-complexity management systems and interactive platforms.",
+        "title": "Project Experience",
+        "content": "Mainly involved in frontend development for enterprise admin systems and conversational AI products, spanning key management, audit systems, and AI document recognition.",
         "highlight1": "Internal Tools",
         "highlight2": "Systalk AdminHub"
       },
@@ -43,7 +43,8 @@
         "content": "Committed to writing maintainable, highly reusable code. Develop side projects in spare time and publish common components to NPM, using open-source community standards to review and improve technical depth."
       },
       "tags": ["Vue 3 / Nuxt", "TypeScript", "Tailwind CSS", "NestJS", "Docker", "NPM Package"],
-      "quote": "Coding is not just about functionality, it is about creating art in logic."
+      "quote": "Make it work, make it right, make it fast.",
+      "quoteAuthor": "— Kent Beck"
     },
     "section2": {
       "titleMain": "Professional",
@@ -147,9 +148,11 @@
       "recentActivity": "Recent Activity",
       "latestSubmissions": "Latest 5 Submissions",
       "noSubmissions": "No recent submissions found.",
-      "filterAll": "All",
-      "filterAccepted": "Accepted",
-      "noSolutionNote": "No solution note yet."
+      "filterRecent5": "Latest 5",
+      "filterLastMonth": "Last Month",
+      "noSolutionNote": "No solution note yet.",
+      "tabProblem": "Problem",
+      "tabSolution": "My Solution"
     }
   },
   "portfolio": {

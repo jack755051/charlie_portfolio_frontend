@@ -29,12 +29,12 @@
         "content": "開發不僅是工作，更是我探索問題解方的途徑。從自學起步到成為專職工程師，我享受將複雜邏輯轉化為流暢使用者體驗的過程。"
       },
       "techStack": {
-        "title": "技術轉型與全端視野",
-        "content": "曾以 Angular 為主力框架，因應策略調整成功轉型至 Vue 生態系，目前專注於 Vue 3 與 Nuxt 的深度應用。不滿足於前端領域，我進一步涉獵 Node.js (NestJS) 與 Docker 容器化技術，具備獨立構建前後端架構與部署環境的能力，這讓我在協作中能更精準地理解資料流與系統邊界。"
+        "title": "技術背景",
+        "content": "最初從 React 入門前端，進入職場後因公司技術方向而深耕 Angular，之後再轉向 Vue 生態系，目前以 Vue 3 與 Nuxt 作為主要工具。私下也會用 Next.js 做 Side Project。工作之餘接觸了 Node.js (NestJS) 與 Docker，對後端與部署有基本理解，前後端協作時能更順暢地溝通。"
       },
       "experience": {
-        "title": "專案實戰與產品開發",
-        "content": "擁有豐富的 B2B 與 B2G 開發經驗，專注於構建高複雜度的管理系統與互動平台。",
+        "title": "專案經驗",
+        "content": "主要參與企業管理後台與對話式 AI 產品的前端開發，涵蓋金鑰管理、稽核系統、AI 文件辨識等不同領域的專案。",
         "highlight1": "內部工具",
         "highlight2": "Systalk AdminHub"
       },
@@ -43,7 +43,8 @@
         "content": "致力於寫出可維護、高重用性的程式碼。閒暇之餘開發 Side Project，並將通用元件封裝發布至 NPM，透過開源社群的標準來審視並精進自己的技術深度。"
       },
       "tags": ["Vue 3 / Nuxt", "TypeScript", "Tailwind CSS", "NestJS", "Docker", "NPM Package"],
-      "quote": "Coding is not just about functionality, it is about creating art in logic."
+      "quote": "Make it work, make it right, make it fast.",
+      "quoteAuthor": "— Kent Beck"
     },
     "section2": {
       "titleMain": "職場",
@@ -147,9 +148,11 @@
       "recentActivity": "近期活動",
       "latestSubmissions": "最近 5 筆提交",
       "noSubmissions": "查無近期提交紀錄",
-      "filterAll": "全部",
-      "filterAccepted": "Accepted",
-      "noSolutionNote": "尚無解題筆記"
+      "filterRecent5": "近 5 題",
+      "filterLastMonth": "近一個月",
+      "noSolutionNote": "尚無解題筆記",
+      "tabProblem": "題幹",
+      "tabSolution": "我的解答"
     }
   },
   "portfolio": {

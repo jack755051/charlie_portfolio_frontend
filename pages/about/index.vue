@@ -11,7 +11,7 @@
     />
 
     <div
-      class="snap-y snap-proximity h-full overflow-y-scroll scroll-smooth pt-14 md:pt-16 relative z-10"
+      class="h-full overflow-y-scroll scroll-smooth pt-14 md:pt-16 relative z-10"
     >
       <div class="w-full pb-20">
         <AboutSection />

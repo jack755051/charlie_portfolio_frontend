@@ -43,7 +43,7 @@ const scrollToSection = (sectionId: string) => {
 const handleScroll = () => {
   if (!props.anchorData) return
 
-  const scrollContainer = document.querySelector('.snap-y.snap-mandatory')
+  const scrollContainer = document.querySelector('.overflow-y-scroll')
   if (!scrollContainer) return
 
   const scrollTop = scrollContainer.scrollTop
@@ -71,7 +71,7 @@ const handleScroll = () => {
 }
 
 onMounted(() => {
-  const scrollContainer = document.querySelector('.snap-y.snap-mandatory')
+  const scrollContainer = document.querySelector('.overflow-y-scroll')
   if (scrollContainer) {
     scrollContainer.addEventListener('scroll', handleScroll)
     // 初始化時執行一次
@@ -80,7 +80,7 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-  const scrollContainer = document.querySelector('.snap-y.snap-mandatory')
+  const scrollContainer = document.querySelector('.overflow-y-scroll')
   if (scrollContainer) {
     scrollContainer.removeEventListener('scroll', handleScroll)
   }

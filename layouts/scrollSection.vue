@@ -3,7 +3,7 @@
     :id="id"
     ref="sectionRef"
     v-motion="motion.section"
-    class="min-h-screen snap-start flex flex-col items-center justify-center py-16"
+    class="min-h-screen flex flex-col items-center justify-center py-16"
   >
     <slot name="title" />
     <slot name="content" />
