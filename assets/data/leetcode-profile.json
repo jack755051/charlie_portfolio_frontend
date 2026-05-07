@@ -87,7 +87,9 @@
       "submissionId": "1995667454",
       "time": "05/05",
       "timestamp": 1777972476,
-      "lang": "typescript"
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
     },
     {
       "title": "Missing Number",
@@ -95,7 +97,9 @@
       "submissionId": "1995646521",
       "time": "05/05",
       "timestamp": 1777970644,
-      "lang": "typescript"
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
     },
     {
       "title": "Base 7",
@@ -103,7 +107,9 @@
       "submissionId": "1995614670",
       "time": "05/05",
       "timestamp": 1777967965,
-      "lang": "typescript"
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
     },
     {
       "title": "Number of 1 Bits",
@@ -111,7 +117,9 @@
       "submissionId": "1992734045",
       "time": "05/01",
       "timestamp": 1777654416,
-      "lang": "typescript"
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
     },
     {
       "title": "Plus One",
@@ -119,7 +127,9 @@
       "submissionId": "1992701120",
       "time": "05/01",
       "timestamp": 1777651849,
-      "lang": "typescript"
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
     },
     {
       "title": "Sleep",
@@ -127,7 +137,9 @@
       "submissionId": "1985164478",
       "time": "04/22",
       "timestamp": 1776847200,
-      "lang": "javascript"
+      "status": "Accepted",
+      "lang": "javascript",
+      "isSuccess": true
     },
     {
       "title": "Remove Duplicates from Sorted Array II",
@@ -135,7 +147,9 @@
       "submissionId": "1963031206",
       "time": "03/29",
       "timestamp": 1774801690,
-      "lang": "typescript"
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
     },
     {
       "title": "Two Sum",
@@ -143,7 +157,9 @@
       "submissionId": "1957826431",
       "time": "03/24",
       "timestamp": 1774361506,
-      "lang": "typescript"
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
     },
     {
       "title": "Remove Element",
@@ -151,7 +167,9 @@
       "submissionId": "1956817888",
       "time": "03/23",
       "timestamp": 1774278511,
-      "lang": "typescript"
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
     },
     {
       "title": "Single Number",
@@ -159,7 +177,9 @@
       "submissionId": "1956678414",
       "time": "03/23",
       "timestamp": 1774269057,
-      "lang": "typescript"
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
     },
     {
       "title": "Pow(x, n)",
@@ -167,7 +187,9 @@
       "submissionId": "1956259207",
       "time": "03/23",
       "timestamp": 1774234573,
-      "lang": "typescript"
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
     },
     {
       "title": "Sqrt(x)",
@@ -175,7 +197,9 @@
       "submissionId": "1956218674",
       "time": "03/23",
       "timestamp": 1774228377,
-      "lang": "typescript"
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
     },
     {
       "title": "Palindrome Number",
@@ -183,7 +207,9 @@
       "submissionId": "1955033233",
       "time": "03/21",
       "timestamp": 1774117896,
-      "lang": "typescript"
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
     },
     {
       "title": "Jump Game",
@@ -191,7 +217,9 @@
       "submissionId": "1954449371",
       "time": "03/21",
       "timestamp": 1774069506,
-      "lang": "typescript"
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
     },
     {
       "title": "Remove Duplicates from Sorted Array",
@@ -199,7 +227,9 @@
       "submissionId": "1953523230",
       "time": "03/20",
       "timestamp": 1773972685,
-      "lang": "typescript"
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
     },
     {
       "title": "Merge Sorted Array",
@@ -207,7 +237,9 @@
       "submissionId": "1952859196",
       "time": "03/19",
       "timestamp": 1773910582,
-      "lang": "typescript"
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
     },
     {
       "title": "Rotate Array",
@@ -215,7 +247,9 @@
       "submissionId": "1952575125",
       "time": "03/19",
       "timestamp": 1773881705,
-      "lang": "typescript"
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
     },
     {
       "title": "Majority Element",
@@ -223,7 +257,9 @@
       "submissionId": "1952263178",
       "time": "03/18",
       "timestamp": 1773850527,
-      "lang": "typescript"
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
     },
     {
       "title": "Remove Duplicates from Sorted Array",
@@ -231,7 +267,9 @@
       "submissionId": "1951727150",
       "time": "03/18",
       "timestamp": 1773808306,
-      "lang": "typescript"
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
     },
     {
       "title": "Power of Two",
@@ -239,7 +277,9 @@
       "submissionId": "1951718004",
       "time": "03/18",
       "timestamp": 1773807591,
-      "lang": "typescript"
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
     }
   ],
   "skills": [
@@ -269,8 +309,8 @@
     }
   ],
   "source": "provider",
-  "sourceFetchedAt": "2026-05-07T08:14:27.733Z",
-  "expiresAt": "2026-05-08T09:14:27.733Z",
+  "sourceFetchedAt": "2026-05-07T09:34:48.966Z",
+  "expiresAt": "2026-05-08T10:34:48.966Z",
   "isStale": false,
-  "version": 25
+  "version": 26
 }
