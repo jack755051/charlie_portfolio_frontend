@@ -2,9 +2,9 @@
   "schema_version": 1,
   "id": "leetcode:jack755051",
   "username": "jack755051",
-  "totalSolved": 53,
+  "totalSolved": 55,
   "totalQuestions": 3935,
-  "easy": 43,
+  "easy": 45,
   "medium": 9,
   "hard": 1,
   "easyPct": 5,
@@ -82,9 +82,33 @@
     [
       "2026-05-18",
       1
+    ],
+    [
+      "2026-05-19",
+      3
     ]
   ],
   "recent": [
+    {
+      "title": "Length of Last Word",
+      "titleSlug": "length-of-last-word",
+      "submissionId": "2006821051",
+      "time": "05/19",
+      "timestamp": 1779154703,
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
+    },
+    {
+      "title": "Calculate Money in Leetcode Bank",
+      "titleSlug": "calculate-money-in-leetcode-bank",
+      "submissionId": "2006806856",
+      "time": "05/19",
+      "timestamp": 1779152005,
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
+    },
     {
       "title": "Power of Three",
       "titleSlug": "power-of-three",
@@ -264,26 +288,6 @@
       "status": "Accepted",
       "lang": "typescript",
       "isSuccess": true
-    },
-    {
-      "title": "Remove Duplicates from Sorted Array",
-      "titleSlug": "remove-duplicates-from-sorted-array",
-      "submissionId": "1951727150",
-      "time": "03/18",
-      "timestamp": 1773808306,
-      "status": "Accepted",
-      "lang": "typescript",
-      "isSuccess": true
-    },
-    {
-      "title": "Power of Two",
-      "titleSlug": "power-of-two",
-      "submissionId": "1951718004",
-      "time": "03/18",
-      "timestamp": 1773807591,
-      "status": "Accepted",
-      "lang": "typescript",
-      "isSuccess": true
     }
   ],
   "skills": [
@@ -293,7 +297,7 @@
     },
     {
       "name": "Math",
-      "value": 13
+      "value": 14
     },
     {
       "name": "Two Pointers",
@@ -301,7 +305,7 @@
     },
     {
       "name": "String",
-      "value": 7
+      "value": 8
     },
     {
       "name": "Bit Manipulation",
@@ -312,9 +316,9 @@
       "value": 6
     }
   ],
-  "source": "stale-cache",
-  "sourceFetchedAt": "2026-05-18T20:03:46.435Z",
-  "expiresAt": "2026-05-20T21:04:54.944Z",
-  "isStale": true,
-  "version": 38
+  "source": "provider",
+  "sourceFetchedAt": "2026-05-20T20:31:41.190Z",
+  "expiresAt": "2026-05-21T21:31:41.190Z",
+  "isStale": false,
+  "version": 39
 }
