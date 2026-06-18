@@ -316,9 +316,9 @@
       "value": 6
     }
   ],
-  "source": "stale-cache",
-  "sourceFetchedAt": "2026-06-16T21:20:59.212Z",
-  "expiresAt": "2026-06-18T21:35:29.016Z",
-  "isStale": true,
-  "version": 66
+  "source": "provider",
+  "sourceFetchedAt": "2026-06-18T20:40:00.159Z",
+  "expiresAt": "2026-06-19T21:40:00.159Z",
+  "isStale": false,
+  "version": 67
 }
