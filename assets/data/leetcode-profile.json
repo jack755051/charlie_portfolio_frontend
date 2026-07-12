@@ -3,7 +3,7 @@
   "id": "leetcode:jack755051",
   "username": "jack755051",
   "totalSolved": 55,
-  "totalQuestions": 3985,
+  "totalQuestions": 3991,
   "easy": 45,
   "medium": 9,
   "hard": 1,
@@ -317,8 +317,8 @@
     }
   ],
   "source": "provider",
-  "sourceFetchedAt": "2026-07-11T19:33:11.813Z",
-  "expiresAt": "2026-07-12T20:33:11.813Z",
+  "sourceFetchedAt": "2026-07-12T19:32:35.008Z",
+  "expiresAt": "2026-07-13T20:32:35.008Z",
   "isStale": false,
-  "version": 90
+  "version": 91
 }
