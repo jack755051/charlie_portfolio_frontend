@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "source": "github",
-  "sourceFetchedAt": "2026-07-12T19:59:38.544Z",
+  "sourceFetchedAt": "2026-07-15T20:00:30.421Z",
   "isStale": false,
   "staleAt": null,
-  "version": 28,
+  "version": 29,
   "projects": [
     {
       "id": "charlie-ai-protocols",
@@ -279,7 +279,7 @@
       "description": "An Angular-based frontend client for the Financial Agent system, featuring a responsive UI and seamless RESTful API integration for managing financial workflows.",
       "descriptionZh": "投資研究助理前端，整合 LLM 對話、財報視覺化與多資產監看面板。",
       "role": "Frontend Engineer",
-      "duration": "2026.04 ~ Now",
+      "duration": "2026.04 ~ 2026.04",
       "technologies": [
         {
           "name": "HTML",
