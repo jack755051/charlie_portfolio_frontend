@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "source": "github",
-  "sourceFetchedAt": "2026-07-19T20:01:15.837Z",
+  "sourceFetchedAt": "2026-07-22T20:05:10.437Z",
   "isStale": false,
   "staleAt": null,
-  "version": 30,
+  "version": 31,
   "projects": [
     {
       "id": "charlie-ai-protocols",
@@ -69,7 +69,7 @@
       "description": "沖繩旅遊即時換匯儀表板，整合 Fixer.io API 提供即時匯率、換匯計算與歷史走勢",
       "descriptionZh": "個人加密資產分析工具，整合多交易所資料、K 線視覺化與套利偵測。",
       "role": "Full-Stack Engineer",
-      "duration": "2026.04 ~ Now",
+      "duration": "2026.04 ~ 2026.04",
       "technologies": [
         {
           "name": "nuxt4",
@@ -136,7 +136,7 @@
       "description": "光訊科技 (Guangxun Tech) 安防監控產品官方網站 — Next.js 16 + React 19 靜態輸出，支援多語系、SEO、RWD 與 Docker/Nginx 部署。",
       "descriptionZh": null,
       "role": null,
-      "duration": "2026.01 ~ Now",
+      "duration": "2026.01 ~ 2026.04",
       "technologies": [
         {
           "name": "nodejs",
@@ -211,7 +211,7 @@
       "description": "光訊科技 (Guangxun Tech) 企業官網後端 API，以 NestJS + TypeORM + PostgreSQL 打造，涵蓋產品、地點、支援資源、聯絡、即時展示與行為分析。",
       "descriptionZh": null,
       "role": null,
-      "duration": "2026.01 ~ Now",
+      "duration": "2026.01 ~ 2026.04",
       "technologies": [
         {
           "name": "nestjs",
