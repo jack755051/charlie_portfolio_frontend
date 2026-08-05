@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "source": "github",
-  "sourceFetchedAt": "2026-08-02T20:04:38.878Z",
+  "sourceFetchedAt": "2026-08-05T20:20:39.454Z",
   "isStale": false,
   "staleAt": null,
-  "version": 34,
+  "version": 35,
   "projects": [
     {
       "id": "charlie-ai-protocols",
