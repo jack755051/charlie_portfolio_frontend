@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "source": "github",
-  "sourceFetchedAt": "2026-08-12T19:55:25.919Z",
+  "sourceFetchedAt": "2026-08-16T19:12:49.763Z",
   "isStale": false,
   "staleAt": null,
-  "version": 37,
+  "version": 38,
   "projects": [
     {
       "id": "charlie-ai-protocols",
@@ -13,7 +13,7 @@
       "description": "本地 AI agent 協作規範與 CLI 工具。定義 agent 角色邊界、交接協議與 workflow 契約， 搭配 Shell CLI（cap）與 runtime storage，把角色分工、執行紀錄與常用流程整理成可追蹤的形式。\n",
       "descriptionZh": "工業級 AI 多代理協作框架與 CLI 工具，定義 17 位專職 Agent 的角色邊界、交接協議與品質門禁，搭配 CrewAI 引擎與雙寫 Trace 機制。",
       "role": "Author & Maintainer",
-      "duration": "2026.04 ~ Now",
+      "duration": "2026.04 ~ 2026.05",
       "technologies": [
         {
           "name": "python",
