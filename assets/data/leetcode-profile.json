@@ -2,9 +2,9 @@
   "schema_version": 1,
   "id": "leetcode:jack755051",
   "username": "jack755051",
-  "totalSolved": 55,
-  "totalQuestions": 4029,
-  "easy": 45,
+  "totalSolved": 56,
+  "totalQuestions": 4033,
+  "easy": 46,
   "medium": 9,
   "hard": 1,
   "easyPct": 5,
@@ -86,9 +86,43 @@
     [
       "2026-05-19",
       3
+    ],
+    [
+      "2026-08-23",
+      3
     ]
   ],
   "recent": [
+    {
+      "title": "Contains Duplicate",
+      "titleSlug": "contains-duplicate",
+      "submissionId": "2117119356",
+      "time": "08/23",
+      "timestamp": 1787473987,
+      "status": "Accepted",
+      "lang": "csharp",
+      "isSuccess": true
+    },
+    {
+      "title": "Valid Palindrome",
+      "titleSlug": "valid-palindrome",
+      "submissionId": "2117079238",
+      "time": "08/23",
+      "timestamp": 1787470935,
+      "status": "Accepted",
+      "lang": "csharp",
+      "isSuccess": true
+    },
+    {
+      "title": "Concatenation of Array",
+      "titleSlug": "concatenation-of-array",
+      "submissionId": "2117050437",
+      "time": "08/23",
+      "timestamp": 1787469011,
+      "status": "Accepted",
+      "lang": "csharp",
+      "isSuccess": true
+    },
     {
       "title": "Length of Last Word",
       "titleSlug": "length-of-last-word",
@@ -258,42 +292,12 @@
       "status": "Accepted",
       "lang": "typescript",
       "isSuccess": true
-    },
-    {
-      "title": "Merge Sorted Array",
-      "titleSlug": "merge-sorted-array",
-      "submissionId": "1952859196",
-      "time": "03/19",
-      "timestamp": 1773910582,
-      "status": "Accepted",
-      "lang": "typescript",
-      "isSuccess": true
-    },
-    {
-      "title": "Rotate Array",
-      "titleSlug": "rotate-array",
-      "submissionId": "1952575125",
-      "time": "03/19",
-      "timestamp": 1773881705,
-      "status": "Accepted",
-      "lang": "typescript",
-      "isSuccess": true
-    },
-    {
-      "title": "Majority Element",
-      "titleSlug": "majority-element",
-      "submissionId": "1952263178",
-      "time": "03/18",
-      "timestamp": 1773850527,
-      "status": "Accepted",
-      "lang": "typescript",
-      "isSuccess": true
     }
   ],
   "skills": [
     {
       "name": "Array",
-      "value": 24
+      "value": 25
     },
     {
       "name": "Math",
@@ -308,17 +312,17 @@
       "value": 8
     },
     {
-      "name": "Bit Manipulation",
-      "value": 6
+      "name": "Sorting",
+      "value": 7
     },
     {
-      "name": "Sorting",
+      "name": "Bit Manipulation",
       "value": 6
     }
   ],
   "source": "provider",
-  "sourceFetchedAt": "2026-08-22T18:50:36.615Z",
-  "expiresAt": "2026-08-23T19:50:36.615Z",
+  "sourceFetchedAt": "2026-08-23T18:49:45.824Z",
+  "expiresAt": "2026-08-24T19:49:45.824Z",
   "isStale": false,
-  "version": 132
+  "version": 133
 }
