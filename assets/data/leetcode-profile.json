@@ -2,9 +2,9 @@
   "schema_version": 1,
   "id": "leetcode:jack755051",
   "username": "jack755051",
-  "totalSolved": 56,
+  "totalSolved": 57,
   "totalQuestions": 4033,
-  "easy": 46,
+  "easy": 47,
   "medium": 9,
   "hard": 1,
   "easyPct": 5,
@@ -90,9 +90,23 @@
     [
       "2026-08-23",
       3
+    ],
+    [
+      "2026-08-24",
+      2
     ]
   ],
   "recent": [
+    {
+      "title": "Most Common Word",
+      "titleSlug": "most-common-word",
+      "submissionId": "2117969499",
+      "time": "08/24",
+      "timestamp": 1787543932,
+      "status": "Accepted",
+      "lang": "csharp",
+      "isSuccess": true
+    },
     {
       "title": "Contains Duplicate",
       "titleSlug": "contains-duplicate",
@@ -282,22 +296,12 @@
       "status": "Accepted",
       "lang": "typescript",
       "isSuccess": true
-    },
-    {
-      "title": "Remove Duplicates from Sorted Array",
-      "titleSlug": "remove-duplicates-from-sorted-array",
-      "submissionId": "1953523230",
-      "time": "03/20",
-      "timestamp": 1773972685,
-      "status": "Accepted",
-      "lang": "typescript",
-      "isSuccess": true
     }
   ],
   "skills": [
     {
       "name": "Array",
-      "value": 25
+      "value": 26
     },
     {
       "name": "Math",
@@ -309,20 +313,20 @@
     },
     {
       "name": "String",
-      "value": 8
+      "value": 9
     },
     {
       "name": "Sorting",
       "value": 7
     },
     {
-      "name": "Bit Manipulation",
+      "name": "Hash Table",
       "value": 6
     }
   ],
   "source": "provider",
-  "sourceFetchedAt": "2026-08-23T18:49:45.824Z",
-  "expiresAt": "2026-08-24T19:49:45.824Z",
+  "sourceFetchedAt": "2026-08-24T19:00:43.889Z",
+  "expiresAt": "2026-08-25T20:00:43.889Z",
   "isStale": false,
-  "version": 133
+  "version": 134
 }
