@@ -2,9 +2,9 @@
   "schema_version": 1,
   "id": "leetcode:jack755051",
   "username": "jack755051",
-  "totalSolved": 57,
+  "totalSolved": 58,
   "totalQuestions": 4033,
-  "easy": 47,
+  "easy": 48,
   "medium": 9,
   "hard": 1,
   "easyPct": 5,
@@ -94,9 +94,23 @@
     [
       "2026-08-24",
       2
+    ],
+    [
+      "2026-08-25",
+      1
     ]
   ],
   "recent": [
+    {
+      "title": "To Lower Case",
+      "titleSlug": "to-lower-case",
+      "submissionId": "2119052144",
+      "time": "08/25",
+      "timestamp": 1787621519,
+      "status": "Accepted",
+      "lang": "csharp",
+      "isSuccess": true
+    },
     {
       "title": "Most Common Word",
       "titleSlug": "most-common-word",
@@ -286,16 +300,6 @@
       "status": "Accepted",
       "lang": "typescript",
       "isSuccess": true
-    },
-    {
-      "title": "Jump Game",
-      "titleSlug": "jump-game",
-      "submissionId": "1954449371",
-      "time": "03/21",
-      "timestamp": 1774069506,
-      "status": "Accepted",
-      "lang": "typescript",
-      "isSuccess": true
     }
   ],
   "skills": [
@@ -308,12 +312,12 @@
       "value": 14
     },
     {
-      "name": "Two Pointers",
+      "name": "String",
       "value": 10
     },
     {
-      "name": "String",
-      "value": 9
+      "name": "Two Pointers",
+      "value": 10
     },
     {
       "name": "Sorting",
@@ -325,8 +329,8 @@
     }
   ],
   "source": "provider",
-  "sourceFetchedAt": "2026-08-24T19:00:43.889Z",
-  "expiresAt": "2026-08-25T20:00:43.889Z",
+  "sourceFetchedAt": "2026-08-25T18:58:22.689Z",
+  "expiresAt": "2026-08-26T19:58:22.689Z",
   "isStale": false,
-  "version": 134
+  "version": 135
 }
