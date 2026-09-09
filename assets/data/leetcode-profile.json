@@ -2,9 +2,9 @@
   "schema_version": 1,
   "id": "leetcode:jack755051",
   "username": "jack755051",
-  "totalSolved": 58,
+  "totalSolved": 60,
   "totalQuestions": 4047,
-  "easy": 48,
+  "easy": 50,
   "medium": 9,
   "hard": 1,
   "easyPct": 5,
@@ -98,9 +98,33 @@
     [
       "2026-08-25",
       1
+    ],
+    [
+      "2026-09-09",
+      5
     ]
   ],
   "recent": [
+    {
+      "title": "Duplicate Emails",
+      "titleSlug": "duplicate-emails",
+      "submissionId": "2136506149",
+      "time": "09/09",
+      "timestamp": 1788967834,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Combine Two Tables",
+      "titleSlug": "combine-two-tables",
+      "submissionId": "2136492158",
+      "time": "09/09",
+      "timestamp": 1788967080,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
     {
       "title": "To Lower Case",
       "titleSlug": "to-lower-case",
@@ -280,26 +304,6 @@
       "status": "Accepted",
       "lang": "typescript",
       "isSuccess": true
-    },
-    {
-      "title": "Sqrt(x)",
-      "titleSlug": "sqrtx",
-      "submissionId": "1956218674",
-      "time": "03/23",
-      "timestamp": 1774228377,
-      "status": "Accepted",
-      "lang": "typescript",
-      "isSuccess": true
-    },
-    {
-      "title": "Palindrome Number",
-      "titleSlug": "palindrome-number",
-      "submissionId": "1955033233",
-      "time": "03/21",
-      "timestamp": 1774117896,
-      "status": "Accepted",
-      "lang": "typescript",
-      "isSuccess": true
     }
   ],
   "skills": [
@@ -329,8 +333,8 @@
     }
   ],
   "source": "provider",
-  "sourceFetchedAt": "2026-09-08T21:11:19.021Z",
-  "expiresAt": "2026-09-09T22:11:19.021Z",
+  "sourceFetchedAt": "2026-09-09T20:57:42.104Z",
+  "expiresAt": "2026-09-10T21:57:42.104Z",
   "isStale": false,
-  "version": 149
+  "version": 150
 }
