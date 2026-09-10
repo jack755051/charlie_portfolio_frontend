@@ -2,12 +2,12 @@
   "schema_version": 1,
   "id": "leetcode:jack755051",
   "username": "jack755051",
-  "totalSolved": 60,
+  "totalSolved": 67,
   "totalQuestions": 4047,
-  "easy": 50,
-  "medium": 9,
+  "easy": 56,
+  "medium": 10,
   "hard": 1,
-  "easyPct": 5,
+  "easyPct": 6,
   "mediumPct": 0,
   "hardPct": 0,
   "calendar": [
@@ -102,9 +102,83 @@
     [
       "2026-09-09",
       5
+    ],
+    [
+      "2026-09-10",
+      7
     ]
   ],
   "recent": [
+    {
+      "title": "Employee Bonus",
+      "titleSlug": "employee-bonus",
+      "submissionId": "2137597597",
+      "time": "09/10",
+      "timestamp": 1789051483,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Rising Temperature",
+      "titleSlug": "rising-temperature",
+      "submissionId": "2137583476",
+      "time": "09/10",
+      "timestamp": 1789050669,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Delete Duplicate Emails",
+      "titleSlug": "delete-duplicate-emails",
+      "submissionId": "2137554183",
+      "time": "09/10",
+      "timestamp": 1789048967,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Game Play Analysis I",
+      "titleSlug": "game-play-analysis-i",
+      "submissionId": "2137309683",
+      "time": "09/10",
+      "timestamp": 1789032102,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Employees Earning More Than Their Managers",
+      "titleSlug": "employees-earning-more-than-their-managers",
+      "submissionId": "2137223669",
+      "time": "09/10",
+      "timestamp": 1789025766,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Customers Who Never Order",
+      "titleSlug": "customers-who-never-order",
+      "submissionId": "2137200901",
+      "time": "09/10",
+      "timestamp": 1789024055,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Second Highest Salary",
+      "titleSlug": "second-highest-salary",
+      "submissionId": "2137177970",
+      "time": "09/10",
+      "timestamp": 1789022684,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
     {
       "title": "Duplicate Emails",
       "titleSlug": "duplicate-emails",
@@ -234,76 +308,6 @@
       "status": "Accepted",
       "lang": "typescript",
       "isSuccess": true
-    },
-    {
-      "title": "Plus One",
-      "titleSlug": "plus-one",
-      "submissionId": "1992701120",
-      "time": "05/01",
-      "timestamp": 1777651849,
-      "status": "Accepted",
-      "lang": "typescript",
-      "isSuccess": true
-    },
-    {
-      "title": "Sleep",
-      "titleSlug": "sleep",
-      "submissionId": "1985164478",
-      "time": "04/22",
-      "timestamp": 1776847200,
-      "status": "Accepted",
-      "lang": "javascript",
-      "isSuccess": true
-    },
-    {
-      "title": "Remove Duplicates from Sorted Array II",
-      "titleSlug": "remove-duplicates-from-sorted-array-ii",
-      "submissionId": "1963031206",
-      "time": "03/29",
-      "timestamp": 1774801690,
-      "status": "Accepted",
-      "lang": "typescript",
-      "isSuccess": true
-    },
-    {
-      "title": "Two Sum",
-      "titleSlug": "two-sum",
-      "submissionId": "1957826431",
-      "time": "03/24",
-      "timestamp": 1774361506,
-      "status": "Accepted",
-      "lang": "typescript",
-      "isSuccess": true
-    },
-    {
-      "title": "Remove Element",
-      "titleSlug": "remove-element",
-      "submissionId": "1956817888",
-      "time": "03/23",
-      "timestamp": 1774278511,
-      "status": "Accepted",
-      "lang": "typescript",
-      "isSuccess": true
-    },
-    {
-      "title": "Single Number",
-      "titleSlug": "single-number",
-      "submissionId": "1956678414",
-      "time": "03/23",
-      "timestamp": 1774269057,
-      "status": "Accepted",
-      "lang": "typescript",
-      "isSuccess": true
-    },
-    {
-      "title": "Pow(x, n)",
-      "titleSlug": "powx-n",
-      "submissionId": "1956259207",
-      "time": "03/23",
-      "timestamp": 1774234573,
-      "status": "Accepted",
-      "lang": "typescript",
-      "isSuccess": true
     }
   ],
   "skills": [
@@ -324,17 +328,17 @@
       "value": 10
     },
     {
-      "name": "Sorting",
-      "value": 7
+      "name": "Database",
+      "value": 9
     },
     {
-      "name": "Hash Table",
-      "value": 6
+      "name": "Sorting",
+      "value": 7
     }
   ],
   "source": "provider",
-  "sourceFetchedAt": "2026-09-09T20:57:42.104Z",
-  "expiresAt": "2026-09-10T21:57:42.104Z",
+  "sourceFetchedAt": "2026-09-10T20:54:09.616Z",
+  "expiresAt": "2026-09-11T21:54:09.616Z",
   "isStale": false,
-  "version": 150
+  "version": 151
 }
