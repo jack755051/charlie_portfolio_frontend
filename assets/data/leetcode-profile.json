@@ -2,13 +2,13 @@
   "schema_version": 1,
   "id": "leetcode:jack755051",
   "username": "jack755051",
-  "totalSolved": 67,
+  "totalSolved": 70,
   "totalQuestions": 4047,
-  "easy": 56,
-  "medium": 10,
+  "easy": 58,
+  "medium": 11,
   "hard": 1,
   "easyPct": 6,
-  "mediumPct": 0,
+  "mediumPct": 1,
   "hardPct": 0,
   "calendar": [
     [
@@ -106,9 +106,43 @@
     [
       "2026-09-10",
       7
+    ],
+    [
+      "2026-09-11",
+      11
     ]
   ],
   "recent": [
+    {
+      "title": "Find Golden Hour Customers",
+      "titleSlug": "find-golden-hour-customers",
+      "submissionId": "2138365253",
+      "time": "09/11",
+      "timestamp": 1789116606,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Find Products with Valid Serial Numbers",
+      "titleSlug": "find-products-with-valid-serial-numbers",
+      "submissionId": "2138046385",
+      "time": "09/11",
+      "timestamp": 1789091288,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Find Valid Emails",
+      "titleSlug": "find-valid-emails",
+      "submissionId": "2138037776",
+      "time": "09/11",
+      "timestamp": 1789089828,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
     {
       "title": "Employee Bonus",
       "titleSlug": "employee-bonus",
@@ -278,36 +312,6 @@
       "status": "Accepted",
       "lang": "typescript",
       "isSuccess": true
-    },
-    {
-      "title": "Missing Number",
-      "titleSlug": "missing-number",
-      "submissionId": "1995646521",
-      "time": "05/05",
-      "timestamp": 1777970644,
-      "status": "Accepted",
-      "lang": "typescript",
-      "isSuccess": true
-    },
-    {
-      "title": "Base 7",
-      "titleSlug": "base-7",
-      "submissionId": "1995614670",
-      "time": "05/05",
-      "timestamp": 1777967965,
-      "status": "Accepted",
-      "lang": "typescript",
-      "isSuccess": true
-    },
-    {
-      "title": "Number of 1 Bits",
-      "titleSlug": "number-of-1-bits",
-      "submissionId": "1992734045",
-      "time": "05/01",
-      "timestamp": 1777654416,
-      "status": "Accepted",
-      "lang": "typescript",
-      "isSuccess": true
     }
   ],
   "skills": [
@@ -320,6 +324,10 @@
       "value": 14
     },
     {
+      "name": "Database",
+      "value": 11
+    },
+    {
       "name": "String",
       "value": 10
     },
@@ -328,17 +336,13 @@
       "value": 10
     },
     {
-      "name": "Database",
-      "value": 9
-    },
-    {
       "name": "Sorting",
       "value": 7
     }
   ],
   "source": "provider",
-  "sourceFetchedAt": "2026-09-10T20:54:09.616Z",
-  "expiresAt": "2026-09-11T21:54:09.616Z",
+  "sourceFetchedAt": "2026-09-11T21:00:17.138Z",
+  "expiresAt": "2026-09-12T22:00:17.138Z",
   "isStale": false,
-  "version": 151
+  "version": 152
 }
