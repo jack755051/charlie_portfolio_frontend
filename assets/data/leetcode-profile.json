@@ -2,12 +2,12 @@
   "schema_version": 1,
   "id": "leetcode:jack755051",
   "username": "jack755051",
-  "totalSolved": 70,
-  "totalQuestions": 4047,
-  "easy": 58,
-  "medium": 11,
-  "hard": 1,
-  "easyPct": 6,
+  "totalSolved": 83,
+  "totalQuestions": 4051,
+  "easy": 67,
+  "medium": 14,
+  "hard": 2,
+  "easyPct": 7,
   "mediumPct": 1,
   "hardPct": 0,
   "calendar": [
@@ -109,10 +109,144 @@
     ],
     [
       "2026-09-11",
-      11
+      16
+    ],
+    [
+      "2026-09-12",
+      9
     ]
   ],
   "recent": [
+    {
+      "title": "Department Top Three Salaries",
+      "titleSlug": "department-top-three-salaries",
+      "submissionId": "2139047122",
+      "time": "09/12",
+      "timestamp": 1789178077,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Department Highest Salary",
+      "titleSlug": "department-highest-salary",
+      "submissionId": "2139041287",
+      "time": "09/12",
+      "timestamp": 1789176711,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Rank Scores",
+      "titleSlug": "rank-scores",
+      "submissionId": "2139032280",
+      "time": "09/12",
+      "timestamp": 1789174391,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Exchange Seats",
+      "titleSlug": "exchange-seats",
+      "submissionId": "2139028584",
+      "time": "09/12",
+      "timestamp": 1789173336,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Swap Sex of Employees",
+      "titleSlug": "swap-sex-of-employees",
+      "submissionId": "2139027038",
+      "time": "09/12",
+      "timestamp": 1789172906,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Not Boring Movies",
+      "titleSlug": "not-boring-movies",
+      "submissionId": "2139026354",
+      "time": "09/12",
+      "timestamp": 1789172717,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Biggest Single Number",
+      "titleSlug": "biggest-single-number",
+      "submissionId": "2139024958",
+      "time": "09/12",
+      "timestamp": 1789172340,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Triangle Judgement",
+      "titleSlug": "triangle-judgement",
+      "submissionId": "2139022032",
+      "time": "09/12",
+      "timestamp": 1789171581,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Sales Person",
+      "titleSlug": "sales-person",
+      "submissionId": "2139020694",
+      "time": "09/12",
+      "timestamp": 1789171245,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Classes With at Least 5 Students",
+      "titleSlug": "classes-with-at-least-5-students",
+      "submissionId": "2139014059",
+      "time": "09/11",
+      "timestamp": 1789169536,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Big Countries",
+      "titleSlug": "big-countries",
+      "submissionId": "2139013465",
+      "time": "09/11",
+      "timestamp": 1789169378,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Customer Placing the Largest Number of Orders",
+      "titleSlug": "customer-placing-the-largest-number-of-orders",
+      "submissionId": "2139012628",
+      "time": "09/11",
+      "timestamp": 1789169164,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Find Customer Referee",
+      "titleSlug": "find-customer-referee",
+      "submissionId": "2139011245",
+      "time": "09/11",
+      "timestamp": 1789168821,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
     {
       "title": "Find Golden Hour Customers",
       "titleSlug": "find-golden-hour-customers",
@@ -182,136 +316,6 @@
       "status": "Accepted",
       "lang": "postgresql",
       "isSuccess": true
-    },
-    {
-      "title": "Employees Earning More Than Their Managers",
-      "titleSlug": "employees-earning-more-than-their-managers",
-      "submissionId": "2137223669",
-      "time": "09/10",
-      "timestamp": 1789025766,
-      "status": "Accepted",
-      "lang": "postgresql",
-      "isSuccess": true
-    },
-    {
-      "title": "Customers Who Never Order",
-      "titleSlug": "customers-who-never-order",
-      "submissionId": "2137200901",
-      "time": "09/10",
-      "timestamp": 1789024055,
-      "status": "Accepted",
-      "lang": "postgresql",
-      "isSuccess": true
-    },
-    {
-      "title": "Second Highest Salary",
-      "titleSlug": "second-highest-salary",
-      "submissionId": "2137177970",
-      "time": "09/10",
-      "timestamp": 1789022684,
-      "status": "Accepted",
-      "lang": "postgresql",
-      "isSuccess": true
-    },
-    {
-      "title": "Duplicate Emails",
-      "titleSlug": "duplicate-emails",
-      "submissionId": "2136506149",
-      "time": "09/09",
-      "timestamp": 1788967834,
-      "status": "Accepted",
-      "lang": "postgresql",
-      "isSuccess": true
-    },
-    {
-      "title": "Combine Two Tables",
-      "titleSlug": "combine-two-tables",
-      "submissionId": "2136492158",
-      "time": "09/09",
-      "timestamp": 1788967080,
-      "status": "Accepted",
-      "lang": "postgresql",
-      "isSuccess": true
-    },
-    {
-      "title": "To Lower Case",
-      "titleSlug": "to-lower-case",
-      "submissionId": "2119052144",
-      "time": "08/25",
-      "timestamp": 1787621519,
-      "status": "Accepted",
-      "lang": "csharp",
-      "isSuccess": true
-    },
-    {
-      "title": "Most Common Word",
-      "titleSlug": "most-common-word",
-      "submissionId": "2117969499",
-      "time": "08/24",
-      "timestamp": 1787543932,
-      "status": "Accepted",
-      "lang": "csharp",
-      "isSuccess": true
-    },
-    {
-      "title": "Contains Duplicate",
-      "titleSlug": "contains-duplicate",
-      "submissionId": "2117119356",
-      "time": "08/23",
-      "timestamp": 1787473987,
-      "status": "Accepted",
-      "lang": "csharp",
-      "isSuccess": true
-    },
-    {
-      "title": "Valid Palindrome",
-      "titleSlug": "valid-palindrome",
-      "submissionId": "2117079238",
-      "time": "08/23",
-      "timestamp": 1787470935,
-      "status": "Accepted",
-      "lang": "csharp",
-      "isSuccess": true
-    },
-    {
-      "title": "Concatenation of Array",
-      "titleSlug": "concatenation-of-array",
-      "submissionId": "2117050437",
-      "time": "08/23",
-      "timestamp": 1787469011,
-      "status": "Accepted",
-      "lang": "csharp",
-      "isSuccess": true
-    },
-    {
-      "title": "Length of Last Word",
-      "titleSlug": "length-of-last-word",
-      "submissionId": "2006821051",
-      "time": "05/19",
-      "timestamp": 1779154703,
-      "status": "Accepted",
-      "lang": "typescript",
-      "isSuccess": true
-    },
-    {
-      "title": "Calculate Money in Leetcode Bank",
-      "titleSlug": "calculate-money-in-leetcode-bank",
-      "submissionId": "2006806856",
-      "time": "05/19",
-      "timestamp": 1779152005,
-      "status": "Accepted",
-      "lang": "typescript",
-      "isSuccess": true
-    },
-    {
-      "title": "Power of Three",
-      "titleSlug": "power-of-three",
-      "submissionId": "1995667454",
-      "time": "05/05",
-      "timestamp": 1777972476,
-      "status": "Accepted",
-      "lang": "typescript",
-      "isSuccess": true
     }
   ],
   "skills": [
@@ -320,12 +324,12 @@
       "value": 26
     },
     {
-      "name": "Math",
-      "value": 14
+      "name": "Database",
+      "value": 24
     },
     {
-      "name": "Database",
-      "value": 11
+      "name": "Math",
+      "value": 14
     },
     {
       "name": "String",
@@ -341,8 +345,8 @@
     }
   ],
   "source": "provider",
-  "sourceFetchedAt": "2026-09-11T21:00:17.138Z",
-  "expiresAt": "2026-09-12T22:00:17.138Z",
+  "sourceFetchedAt": "2026-09-12T20:40:14.407Z",
+  "expiresAt": "2026-09-13T21:40:14.407Z",
   "isStale": false,
-  "version": 152
+  "version": 153
 }
