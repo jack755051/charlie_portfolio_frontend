@@ -2,11 +2,11 @@
   "schema_version": 1,
   "id": "leetcode:jack755051",
   "username": "jack755051",
-  "totalSolved": 83,
-  "totalQuestions": 4051,
-  "easy": 67,
-  "medium": 14,
-  "hard": 2,
+  "totalSolved": 92,
+  "totalQuestions": 4055,
+  "easy": 70,
+  "medium": 19,
+  "hard": 3,
   "easyPct": 7,
   "mediumPct": 1,
   "hardPct": 0,
@@ -114,9 +114,103 @@
     [
       "2026-09-12",
       9
+    ],
+    [
+      "2026-09-13",
+      17
     ]
   ],
   "recent": [
+    {
+      "title": "Count Salary Categories",
+      "titleSlug": "count-salary-categories",
+      "submissionId": "2140614954",
+      "time": "09/13",
+      "timestamp": 1789304242,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Confirmation Rate",
+      "titleSlug": "confirmation-rate",
+      "submissionId": "2140589249",
+      "time": "09/13",
+      "timestamp": 1789302206,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Product Sales Analysis III",
+      "titleSlug": "product-sales-analysis-iii",
+      "submissionId": "2140575616",
+      "time": "09/13",
+      "timestamp": 1789301068,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Ugly Number",
+      "titleSlug": "ugly-number",
+      "submissionId": "2140496281",
+      "time": "09/13",
+      "timestamp": 1789294719,
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
+    },
+    {
+      "title": "Single Number II",
+      "titleSlug": "single-number-ii",
+      "submissionId": "2140369190",
+      "time": "09/13",
+      "timestamp": 1789283951,
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
+    },
+    {
+      "title": "Path Sum",
+      "titleSlug": "path-sum",
+      "submissionId": "2140348448",
+      "time": "09/13",
+      "timestamp": 1789282414,
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
+    },
+    {
+      "title": "Count Commas in Range",
+      "titleSlug": "count-commas-in-range",
+      "submissionId": "2140292878",
+      "time": "09/13",
+      "timestamp": 1789278388,
+      "status": "Accepted",
+      "lang": "javascript",
+      "isSuccess": true
+    },
+    {
+      "title": "Odd and Even Transactions",
+      "titleSlug": "odd-and-even-transactions",
+      "submissionId": "2140252332",
+      "time": "09/13",
+      "timestamp": 1789274898,
+      "status": "Accepted",
+      "lang": "mysql",
+      "isSuccess": true
+    },
+    {
+      "title": "Trips and Users",
+      "titleSlug": "trips-and-users",
+      "submissionId": "2140245092",
+      "time": "09/13",
+      "timestamp": 1789274172,
+      "status": "Accepted",
+      "lang": "mysql",
+      "isSuccess": true
+    },
     {
       "title": "Department Top Three Salaries",
       "titleSlug": "department-top-three-salaries",
@@ -226,110 +320,20 @@
       "status": "Accepted",
       "lang": "postgresql",
       "isSuccess": true
-    },
-    {
-      "title": "Customer Placing the Largest Number of Orders",
-      "titleSlug": "customer-placing-the-largest-number-of-orders",
-      "submissionId": "2139012628",
-      "time": "09/11",
-      "timestamp": 1789169164,
-      "status": "Accepted",
-      "lang": "postgresql",
-      "isSuccess": true
-    },
-    {
-      "title": "Find Customer Referee",
-      "titleSlug": "find-customer-referee",
-      "submissionId": "2139011245",
-      "time": "09/11",
-      "timestamp": 1789168821,
-      "status": "Accepted",
-      "lang": "postgresql",
-      "isSuccess": true
-    },
-    {
-      "title": "Find Golden Hour Customers",
-      "titleSlug": "find-golden-hour-customers",
-      "submissionId": "2138365253",
-      "time": "09/11",
-      "timestamp": 1789116606,
-      "status": "Accepted",
-      "lang": "postgresql",
-      "isSuccess": true
-    },
-    {
-      "title": "Find Products with Valid Serial Numbers",
-      "titleSlug": "find-products-with-valid-serial-numbers",
-      "submissionId": "2138046385",
-      "time": "09/11",
-      "timestamp": 1789091288,
-      "status": "Accepted",
-      "lang": "postgresql",
-      "isSuccess": true
-    },
-    {
-      "title": "Find Valid Emails",
-      "titleSlug": "find-valid-emails",
-      "submissionId": "2138037776",
-      "time": "09/11",
-      "timestamp": 1789089828,
-      "status": "Accepted",
-      "lang": "postgresql",
-      "isSuccess": true
-    },
-    {
-      "title": "Employee Bonus",
-      "titleSlug": "employee-bonus",
-      "submissionId": "2137597597",
-      "time": "09/10",
-      "timestamp": 1789051483,
-      "status": "Accepted",
-      "lang": "postgresql",
-      "isSuccess": true
-    },
-    {
-      "title": "Rising Temperature",
-      "titleSlug": "rising-temperature",
-      "submissionId": "2137583476",
-      "time": "09/10",
-      "timestamp": 1789050669,
-      "status": "Accepted",
-      "lang": "postgresql",
-      "isSuccess": true
-    },
-    {
-      "title": "Delete Duplicate Emails",
-      "titleSlug": "delete-duplicate-emails",
-      "submissionId": "2137554183",
-      "time": "09/10",
-      "timestamp": 1789048967,
-      "status": "Accepted",
-      "lang": "postgresql",
-      "isSuccess": true
-    },
-    {
-      "title": "Game Play Analysis I",
-      "titleSlug": "game-play-analysis-i",
-      "submissionId": "2137309683",
-      "time": "09/10",
-      "timestamp": 1789032102,
-      "status": "Accepted",
-      "lang": "postgresql",
-      "isSuccess": true
     }
   ],
   "skills": [
     {
-      "name": "Array",
-      "value": 26
+      "name": "Database",
+      "value": 29
     },
     {
-      "name": "Database",
-      "value": 24
+      "name": "Array",
+      "value": 27
     },
     {
       "name": "Math",
-      "value": 14
+      "value": 16
     },
     {
       "name": "String",
@@ -340,13 +344,13 @@
       "value": 10
     },
     {
-      "name": "Sorting",
+      "name": "Bit Manipulation",
       "value": 7
     }
   ],
   "source": "provider",
-  "sourceFetchedAt": "2026-09-12T20:40:14.407Z",
-  "expiresAt": "2026-09-13T21:40:14.407Z",
+  "sourceFetchedAt": "2026-09-13T20:52:19.029Z",
+  "expiresAt": "2026-09-14T21:52:19.029Z",
   "isStale": false,
-  "version": 153
+  "version": 154
 }
