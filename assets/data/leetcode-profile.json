@@ -2,12 +2,12 @@
   "schema_version": 1,
   "id": "leetcode:jack755051",
   "username": "jack755051",
-  "totalSolved": 92,
+  "totalSolved": 100,
   "totalQuestions": 4055,
-  "easy": 70,
-  "medium": 19,
+  "easy": 77,
+  "medium": 20,
   "hard": 3,
-  "easyPct": 7,
+  "easyPct": 8,
   "mediumPct": 1,
   "hardPct": 0,
   "calendar": [
@@ -118,9 +118,93 @@
     [
       "2026-09-13",
       17
+    ],
+    [
+      "2026-09-14",
+      15
     ]
   ],
   "recent": [
+    {
+      "title": "Average Selling Price",
+      "titleSlug": "average-selling-price",
+      "submissionId": "2141666214",
+      "time": "09/14",
+      "timestamp": 1789397074,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Reformat Department Table",
+      "titleSlug": "reformat-department-table",
+      "submissionId": "2141652322",
+      "time": "09/14",
+      "timestamp": 1789396177,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Article Views I",
+      "titleSlug": "article-views-i",
+      "submissionId": "2141637490",
+      "time": "09/14",
+      "timestamp": 1789395268,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "User Activity for the Past 30 Days I",
+      "titleSlug": "user-activity-for-the-past-30-days-i",
+      "submissionId": "2141605762",
+      "time": "09/14",
+      "timestamp": 1789393236,
+      "status": "Accepted",
+      "lang": "postgresql",
+      "isSuccess": true
+    },
+    {
+      "title": "Partition Array According to Given Pivot",
+      "titleSlug": "partition-array-according-to-given-pivot",
+      "submissionId": "2141326615",
+      "time": "09/14",
+      "timestamp": 1789371587,
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
+    },
+    {
+      "title": "Teemo Attacking",
+      "titleSlug": "teemo-attacking",
+      "submissionId": "2141314200",
+      "time": "09/14",
+      "timestamp": 1789370559,
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
+    },
+    {
+      "title": "Third Maximum Number",
+      "titleSlug": "third-maximum-number",
+      "submissionId": "2141261373",
+      "time": "09/14",
+      "timestamp": 1789366770,
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
+    },
+    {
+      "title": "Longest Common Prefix",
+      "titleSlug": "longest-common-prefix",
+      "submissionId": "2141111687",
+      "time": "09/14",
+      "timestamp": 1789351894,
+      "status": "Accepted",
+      "lang": "typescript",
+      "isSuccess": true
+    },
     {
       "title": "Count Salary Categories",
       "titleSlug": "count-salary-categories",
@@ -240,96 +324,16 @@
       "status": "Accepted",
       "lang": "postgresql",
       "isSuccess": true
-    },
-    {
-      "title": "Exchange Seats",
-      "titleSlug": "exchange-seats",
-      "submissionId": "2139028584",
-      "time": "09/12",
-      "timestamp": 1789173336,
-      "status": "Accepted",
-      "lang": "postgresql",
-      "isSuccess": true
-    },
-    {
-      "title": "Swap Sex of Employees",
-      "titleSlug": "swap-sex-of-employees",
-      "submissionId": "2139027038",
-      "time": "09/12",
-      "timestamp": 1789172906,
-      "status": "Accepted",
-      "lang": "postgresql",
-      "isSuccess": true
-    },
-    {
-      "title": "Not Boring Movies",
-      "titleSlug": "not-boring-movies",
-      "submissionId": "2139026354",
-      "time": "09/12",
-      "timestamp": 1789172717,
-      "status": "Accepted",
-      "lang": "postgresql",
-      "isSuccess": true
-    },
-    {
-      "title": "Biggest Single Number",
-      "titleSlug": "biggest-single-number",
-      "submissionId": "2139024958",
-      "time": "09/12",
-      "timestamp": 1789172340,
-      "status": "Accepted",
-      "lang": "postgresql",
-      "isSuccess": true
-    },
-    {
-      "title": "Triangle Judgement",
-      "titleSlug": "triangle-judgement",
-      "submissionId": "2139022032",
-      "time": "09/12",
-      "timestamp": 1789171581,
-      "status": "Accepted",
-      "lang": "postgresql",
-      "isSuccess": true
-    },
-    {
-      "title": "Sales Person",
-      "titleSlug": "sales-person",
-      "submissionId": "2139020694",
-      "time": "09/12",
-      "timestamp": 1789171245,
-      "status": "Accepted",
-      "lang": "postgresql",
-      "isSuccess": true
-    },
-    {
-      "title": "Classes With at Least 5 Students",
-      "titleSlug": "classes-with-at-least-5-students",
-      "submissionId": "2139014059",
-      "time": "09/11",
-      "timestamp": 1789169536,
-      "status": "Accepted",
-      "lang": "postgresql",
-      "isSuccess": true
-    },
-    {
-      "title": "Big Countries",
-      "titleSlug": "big-countries",
-      "submissionId": "2139013465",
-      "time": "09/11",
-      "timestamp": 1789169378,
-      "status": "Accepted",
-      "lang": "postgresql",
-      "isSuccess": true
     }
   ],
   "skills": [
     {
       "name": "Database",
-      "value": 29
+      "value": 33
     },
     {
       "name": "Array",
-      "value": 27
+      "value": 31
     },
     {
       "name": "Math",
@@ -337,20 +341,20 @@
     },
     {
       "name": "String",
-      "value": 10
+      "value": 11
     },
     {
       "name": "Two Pointers",
-      "value": 10
+      "value": 11
     },
     {
-      "name": "Bit Manipulation",
-      "value": 7
+      "name": "Sorting",
+      "value": 8
     }
   ],
   "source": "provider",
-  "sourceFetchedAt": "2026-09-13T20:52:19.029Z",
-  "expiresAt": "2026-09-14T21:52:19.029Z",
+  "sourceFetchedAt": "2026-09-14T21:51:25.408Z",
+  "expiresAt": "2026-09-15T22:51:25.408Z",
   "isStale": false,
-  "version": 154
+  "version": 155
 }
