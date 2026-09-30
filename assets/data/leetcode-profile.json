@@ -357,8 +357,8 @@
     }
   ],
   "source": "provider",
-  "sourceFetchedAt": "2026-09-29T22:17:21.829Z",
-  "expiresAt": "2026-09-30T23:17:21.829Z",
+  "sourceFetchedAt": "2026-09-30T22:18:30.238Z",
+  "expiresAt": "2026-10-01T23:18:30.238Z",
   "isStale": false,
-  "version": 170
+  "version": 171
 }
